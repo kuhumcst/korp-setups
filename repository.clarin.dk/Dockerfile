@@ -1,12 +1,23 @@
-FROM ubuntu:18.04 AS build
+FROM ubuntu:18.04 AS apt-dependencies
 
-# TODO: apache dep is missing + apache integration with tomcat
-# TODO: split into separate build and prod steps
+# skip manual configuration during apt-get install (e.g. postgresql-contrib)
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Installing as many dependencies as possible using apt-get
 # https://github.com/ufal/clarin-dspace/wiki/Installation----Prerequisites
 RUN apt-get update
-RUN apt-get install -y make git openjdk-8-jdk maven wget libxml2-utils xsltproc unzip
+RUN apt-get install -y make git openjdk-8-jdk maven wget libxml2-utils xsltproc unzip postgresql sudo
+
+# TODO: extra/uncertain deps, will probably review and remove at a later point
+RUN apt-get install -y iputils-ping postgresql-contrib iputils-ping
+
+# Remove temporary files
+RUN apt-get clean
+
+
+
+
+FROM apt-dependencies AS other-dependencies
 
 # Ant is not readily available using apt-get
 RUN wget http://ftp.download-by.net/apache//ant/binaries/apache-ant-1.10.7-bin.tar.gz
@@ -22,11 +33,27 @@ RUN tar xvzf apache-tomcat-8.0.35.tar.gz -C /opt/tomcat --strip-components=1
 # Cleaning up temporary files
 RUN rm apache-ant-1.10.7-bin.tar.gz
 RUN rm apache-tomcat-8.0.35.tar.gz
-RUN apt-get clean
 
-# Environment variables (required for Ant to work)
+
+
+
+FROM other-dependencies AS runner
+
+# Required environment variables
 ENV ANT_HOME=/opt/apache-ant
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin
+ENV PSQL_DIR=/usr/lib/postgresql/10/bin
+ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$PSQL_DIR
 
-CMD /opt/tomcat/bin/startup.sh
+# The default install of postgres on Ubuntu seems to be missing this required dir
+# https://github.com/torhve/pix/issues/2
+RUN mkdir -p /var/run/postgresql/10-main.pg_stat_tmp
+RUN chown postgres.postgres /var/run/postgresql/10-main.pg_stat_tmp -R
+
+# Used for postgres initdb
+RUN mkdir -p /usr/local/pgsql/data
+RUN chown postgres /usr/local/pgsql/data
+
+ADD start.sh /
+RUN chmod +x /start.sh
+CMD /start.sh
