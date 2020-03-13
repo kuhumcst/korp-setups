@@ -53,7 +53,8 @@ RUN chown postgres.postgres /var/run/postgresql/10-main.pg_stat_tmp -R
 # Used for postgres initdb
 RUN mkdir -p /usr/local/pgsql/data
 RUN chown postgres /usr/local/pgsql/data
+RUN chown postgres /var/log/postgresql
 
 ADD start.sh /
 RUN chmod +x /start.sh
-CMD /start.sh
+CMD /start.sh && ping localhost

@@ -34,7 +34,6 @@ Build image(s) and run container(s) detached with `docker-compose`:
 
 ```
 docker-compose up -d --build
-
 ```
 
 Enter the running repository container:
