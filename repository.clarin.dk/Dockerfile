@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Installing as many dependencies as possible using apt-get
 # https://github.com/ufal/clarin-dspace/wiki/Installation----Prerequisites
 RUN apt-get update
-RUN apt-get install -y make git openjdk-8-jdk maven wget libxml2-utils xsltproc unzip postgresql sudo
+RUN apt-get install -y make git openjdk-8-jdk maven wget libxml2-utils xsltproc unzip postgresql apache2 sudo
 
 # TODO: extra/uncertain deps, will probably review and remove at a later point
 RUN apt-get install -y iputils-ping postgresql-contrib iputils-ping
@@ -57,4 +57,4 @@ RUN chown postgres /var/log/postgresql
 
 ADD start.sh /
 RUN chmod +x /start.sh
-CMD /start.sh && ping localhost
+CMD /start.sh
