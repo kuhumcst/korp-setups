@@ -4,13 +4,13 @@ Dockerfile
 Build from Dockerfile:
 
 ```
-docker build -t repo .
+docker build -t app .
 ```
 
 Kill any existing container and run the latest build:
 
 ```
-docker run -dt repo:latest
+docker run -dt app:latest
 ```
 
 This will execute (only) the last CMD in the Dockerfile in detached mode. The ID of the latest container is available using `docker ps -ql`.
@@ -39,11 +39,17 @@ docker-compose up -d --build
 Enter the running repository container:
 
 ```
-docker-compose exec repo /bin/bash
+docker-compose exec app /bin/bash
 ```
 
 Stop the running container(s) if detached
 
 ```
 docker-compose stop
+```
+
+TODO: Remove cached stuff... I think?
+
+```
+docker-compose down --remove-orphans --volumes
 ```
