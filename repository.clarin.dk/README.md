@@ -1,3 +1,35 @@
+repository.clarin.dk
+====================
+
+You should know...
+------------------
+In this section I will try to document for the sake of my future self (and others) the important bits of of knowledge concerning our setup of `repository.clarin.dk`.
+
+### Docker
+The main idea is that `repository.clarin.dk` is deployed as a Docker container. The `Dockerfile` and the `docker-compose.yml` file contain all of the setup and deployment needed. Redeployment then consists of making changes to these files, testing the changes locally, and then running the appropriate commands to redeploy on the production server.
+
+TODO: more stuff to come in this section, e.g. actual commands
+
+### Tomcat
+We use version 8 of the Java-based Tomcat web server (the latest stable version is 9, soon to be 10).
+
+Like lots of crusty old Java projects, [Tomcat](https://en.wikipedia.org/wiki/Apache_Tomcat) introduces a whole lot of jargon, some of which is specific to Java web development and some of which is specific to Tomcat itself. The [documentation](http://tomcat.apache.org/tomcat-8.0-doc/) also makes a lot of assumptions rooted in old-fashioned build and deployment tooling. Fortunately, using Tomcat is not too hard if you can get past the jargon and the antiquated tooling. It's also well-suited for distribution with Docker.
+
+The important thing to note is that everything basically goes into a single root directory that is referred to as `$CATALINA_HOME` or `$CATALINA_BASE`. In our case, they refer to the same thing since we only have a single Tomcat installation in our Docker container (in `/opt/tomcat`).
+
+Inside this root directory, there are some directories of note:
+
+* `$CATALINA_HOME/bin` - where the `startup.sh` and `shutdown.sh` scripts reside.
+* `$CATALINA_HOME/webapps` - a magical directory where you can drop [.WAR-files](https://en.wikipedia.org/wiki/WAR_(file_format)) and get a web app served by tomcat.
+* `$CATALINA_HOME/conf` - where the config files reside. The important one is `server.xml`.
+* `$CATALINA_HOME/logs` - where the logs go.
+
+
+...
+...
+...
+
+
 Dockerfile
 ----------
 
