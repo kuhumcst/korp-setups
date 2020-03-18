@@ -74,8 +74,8 @@ See: https://github.com/ufal/clarin-dspace/wiki/Prerequisites-checklist
 - jdk
   - [x] `javac -version`
 - tomcat
-  - [ ] You'll need an access to tomcat configs (server.xml and the like), the ability to restart tomcat.
-  - [ ] Verify that tomcat is running fine, configure HttpConnector (you can use ajp later on) and deploy for example probe. That's the first thing to check before even connecting tomcat with frontfacing (proxy) webserver.
+  - [x] You'll need an access to tomcat configs (server.xml and the like), the ability to restart tomcat.
+  - [x] Verify that tomcat is running fine, configure HttpConnector (you can use ajp later on) and deploy for example probe. That's the first thing to check before even connecting tomcat with frontfacing (proxy) webserver.
   - [ ] Tweaks to the init scripts and/or default variables are necessary - giving the tomcat jvm more memory (in JAVA_OPTS or CATALINA_OPTS depending on the init script). The amount depends on the data stored and on load (6G usually enough)
   - version
     - [x] `java -cp /opt/tomcat/lib/catalina.jar org.apache.catalina.util.ServerInfo` (original: `java -cp $(locate catalina.jar | head -n1) org.apache.catalina.util.ServerInfo

@@ -40,10 +40,12 @@ RUN rm apache-tomcat-8.0.35.tar.gz
 FROM other-dependencies AS runner
 
 # Required environment variables
+ENV CATALINA_HOME=/opt/tomcat
+ENV CATALINA_BASE=/opt/tomcat
 ENV ANT_HOME=/opt/apache-ant
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PSQL_DIR=/usr/lib/postgresql/10/bin
-ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$PSQL_DIR
+ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$PSQL_DIR:$CATALINA_HOME/bin
 
 # The default install of postgres on Ubuntu seems to be missing this required dir
 # https://github.com/torhve/pix/issues/2
@@ -54,6 +56,10 @@ RUN chown postgres.postgres /var/run/postgresql/10-main.pg_stat_tmp -R
 RUN mkdir -p /usr/local/pgsql/data
 RUN chown postgres /usr/local/pgsql/data
 RUN chown postgres /var/log/postgresql
+
+# Add .war file to webapps repo (unpacked and served on localhost:8080 by tomcat)
+# TODO: sample app, replace later with real .war file
+ADD sample.war /opt/tomcat/webapps/
 
 ADD start.sh /
 RUN chmod +x /start.sh
