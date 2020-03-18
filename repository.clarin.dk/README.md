@@ -86,6 +86,26 @@ TODO: Remove cached stuff... I think?
 docker-compose down --remove-orphans --volumes
 ```
 
+Docker for Mac
+--------------
+This section is entirely Mac-specific!
+
+Since Docker for Mac runs Linux inside a VM, it occasionally becomes necessary to enter that VM to perform certain actions. One of these actions is that of inspecting the mounted volumes.
+
+The easiest way of getting directly into the VM (taken from [this gist](https://gist.github.com/BretFisher/5e1a0c7bcca4c735e716abf62afad389)):
+
+```
+docker run -it --rm --privileged --pid=host justincormack/nsenter1
+```
+
+The `Mountpoint` specified in the JSON you get when calling `docker volume inspect $VOLUME_ID` is a path inside this Linux VM, e.g.
+
+```
+docker volume inspect repositoryclarindk_postgres_logs
+```
+
+will return a bit of JSON where this path is specified for our `postgres_logs` Docker data volume.
+
 Checklist
 ---------
 I've been running through the dependency setup checklist for the Docker container I've been building.

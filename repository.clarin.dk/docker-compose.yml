@@ -2,6 +2,18 @@ version: '3'
 services:
   app:
     build: .
+    volumes:
+      - postgres_logs:/var/log/postgresql
+      - postgres_data:/usr/local/pgsql/data
+      - tomcat_logs:/opt/tomcat/logs
     ports:
       # tomcat server available on the host at port 8080
       - "8080:8080"
+
+# https://blog.container-solutions.com/understanding-volumes-docker
+# https://docs.docker.com/compose/compose-file/#volume-configuration-reference
+# https://gist.github.com/BretFisher/5e1a0c7bcca4c735e716abf62afad389
+volumes:
+  postgres_logs:
+  postgres_data:
+  tomcat_logs:
