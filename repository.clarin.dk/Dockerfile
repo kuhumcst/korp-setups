@@ -39,9 +39,11 @@ RUN rm apache-tomcat-8.0.35.tar.gz
 
 FROM other-dependencies AS runner
 
-# Required environment variables
 ENV CATALINA_HOME=/opt/tomcat
 ENV CATALINA_BASE=/opt/tomcat
+# Using the recommended 6GB heap size for clarin-dspace
+# https://github.com/ufal/clarin-dspace/wiki/Prerequisites-checklist
+ENV CATALINA_OPTS=-"Xms6g -Xmx6g"
 ENV ANT_HOME=/opt/apache-ant
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PSQL_DIR=/usr/lib/postgresql/10/bin
