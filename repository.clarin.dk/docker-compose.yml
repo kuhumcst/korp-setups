@@ -6,9 +6,15 @@ services:
       - postgres_logs:/var/log/postgresql
       - postgres_data:/usr/local/pgsql/data
       - tomcat_logs:/opt/tomcat/logs
+      - apache_logs:/var/log/apache2
+      - ${CERTIFICATE_DIR}:/opt/certs
     ports:
-      # tomcat server available on the host at port 8080
-      - "8080:8080"
+      # Tomcat server (HTTP)
+      #- "8080:8080"
+      # Tomcat server (AJP)
+      #- "8009:8009"
+      # Apache web server (HTTPS)
+      - "443:443"
 
 # https://blog.container-solutions.com/understanding-volumes-docker
 # https://docs.docker.com/compose/compose-file/#volume-configuration-reference
@@ -17,3 +23,4 @@ volumes:
   postgres_logs:
   postgres_data:
   tomcat_logs:
+  apache_logs:

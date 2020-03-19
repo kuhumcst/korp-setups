@@ -39,7 +39,64 @@ The important thing to note is that everything basically goes into a single root
 
 Inside this root directory, there are some directories of note:
 
-* `$CATALINA_HOME/bin` - where the `startup.sh` and `shutdown.sh` scripts reside.
-* `$CATALINA_HOME/webapps` - a magical directory where you can drop .WAR-files and get a web app served by tomcat.
-* `$CATALINA_HOME/conf` - where the config files reside. The important one is `server.xml`.
-* `$CATALINA_HOME/logs` - where the logs go.
+* `/opt/tomcat/bin` - where the `startup.sh` and `shutdown.sh` scripts reside.
+* `/opt/tomcat/webapps` - a magical directory where you can drop .WAR-files and get a web app served by tomcat.
+* `/opt/tomcat/conf` - where the config files reside. The important one is `server.xml`.
+* `/opt/tomcat/logs` - where the logs go.
+
+
+### Apache Web Server
+We use the default version in Ubuntu 18.04 (2.4.x) of the Apache Web Server. Apache's function is to be a reverse proxy for incoming HTTP requests on behalf of the Tomcat server (which we have set up to use the AJP protocol).
+
+Ubuntu's fork of Apache differs in one crucial way: the single `httpd.conf` has been [split into multiple files](https://help.ubuntu.com/lts/serverguide/httpd.html) located in multiple directories. These are as follows:
+
+* `/etc/apache2/apache2.conf`- the main configuration file. Includes all remaining configuration files when starting up the web server.
+* `/etc/apache2/ports.conf`- used to determine the listening ports for incoming connections.
+* `/etc/apache2/mods-enabled/`- configs relating to Apache modules.
+* `/etc/apache2/conf-enabled/`- configs relating to global configuration.
+* `/etc/apache2/sites-enabled/`- configs relating to virtual hosts.
+
+The convention is to symlink the actual config files in last three directories from `../mods-available/`, `../conf-available/`, and `../sites-available/`. In our case, that convention does not really matter since we build a new Docker container every time we redeploy and don't have to worry about configuring a live system directly.
+
+Some other directories of note:
+
+* `/var/log/apache2/` - where the logs go.
+
+
+#### Setting up HTTPS for local development
+In order to set up Apache properly with HTTPS for development on [localhost](https://localhost:443) it is necessary to generate and approve your own local certificate.
+
+[Let's Encrypt](https://letsencrypt.org/docs/certificates-for-localhost/) provides a simple one-liner which should be run as a prerequisite. Here is a slightly modified version:
+
+```
+openssl req -x509 -out repository.clarin.dk.crt -keyout repository.clarin.dk.key \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+```
+
+This generates a `repository.clarin.dk.crt` and a `repository.clarin.dk.key` file.
+
+The `repository.clarin.dk.crt` file should be added to your list of trusted certificates. On macOS, this is done by 
+
+* opening up `Keychain Access.app`
+* importing the `repository.clarin.dk.crt` file
+* ensuring that it is fully trusted by double clicking on the newly added `localhost` listing and selecting _"Always allow"_.
+
+In the default `docker-compose.yml` configuration the certificate will be loaded from the same directory as the `docker-compose.yml` file. This is defined by `$CERTIFICATE_DIR` in the `.env` file:
+
+* `/opt/certs` - location of the certificate files.
+
+More documentation
+------------------
+Various bits of the documentation found here has been sourced from the following places:
+
+* https://github.com/ufal/clarin-dspace/blob/clarin/README.md
+* https://github.com/ufal/clarin-dspace/wiki/Installation----Prerequisites
+  - https://github.com/ufal/clarin-dspace/wiki/Repository-Checklist
+* https://github.com/ufal/clarin-dspace/wiki/Web-Server
+  - https://github.com/ufal/clarin-dspace/wiki/Connecting-Tomcat-with-Apache
+* https://github.com/ufal/clarin-dspace/wiki/Installation
+  - https://github.com/ufal/clarin-dspace/blob/clarin/utilities/project_helpers/scripts/makefile
+* ... and the [clarin-dspace Wiki](https://github.com/ufal/clarin-dspace/wiki
+) in general.

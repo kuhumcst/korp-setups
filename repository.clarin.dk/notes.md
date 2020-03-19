@@ -117,7 +117,7 @@ See: https://github.com/ufal/clarin-dspace/wiki/Prerequisites-checklist
   - [ ] ~~with nginx you'll be building it from sources along with nginx modules~~
   - [ ] with apache you might avoid that if there is mod-shib2 available for your distribution
   - in either case you need to configure it. Ideally becoming a member of your national federation. As a minimum configure it to use the dummy/test idp at https://www.testshib.org/
-  - [ ] optionaly ajp module to connect the tomcat installation
+  - [x] optionaly ajp module to connect the tomcat installation
   - version
     - [ ] `nginx -V`
 - mail
@@ -143,7 +143,7 @@ This is the more specific setup info for the web server: https://github.com/ufal
 
 ### HTTPS
 - [ ] You'll need to acquire a certificate and set it up in your web server.
-- [ ] Apache mod_ssl provides a sample configuration in some distributions.
+- [x] Apache mod_ssl provides a sample configuration in some distributions.
 - [ ] ~~Nginx tips are in the Tomcat Nginx section above.~~
 - [ ] Should be fairly simple to obtain a certificate through Let's Encrypt.
 - [ ] Don't forget to include the whole certificate chain in your configs.

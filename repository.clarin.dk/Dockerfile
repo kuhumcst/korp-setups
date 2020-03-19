@@ -63,6 +63,9 @@ RUN chown postgres /var/log/postgresql
 # TODO: sample app, replace later with real .war file
 ADD sample.war /opt/tomcat/webapps/
 
+# Add config to set up Apache as proxy for Tomcat
+ADD tomcat_ajp_proxy.conf /etc/apache2/sites-enabled/
+
 ADD start.sh /
 RUN chmod +x /start.sh
 CMD /start.sh
