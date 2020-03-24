@@ -1,5 +1,7 @@
 # Note: postgres cannot be run directly as the root user!
 # We only want to run initdb once (for an empty data directory).
+
+# Note: the other environment variables are defined in defaults.env
 sudo -u postgres /usr/lib/postgresql/10/bin/initdb -D /usr/local/pgsql/data || true
 sudo -u postgres /usr/lib/postgresql/10/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/logfile start &&
 

@@ -6,16 +6,26 @@ Infrastructure as code
 ----------------------
 The central idea is that `repository.clarin.dk` is deployed as a Docker container. Docker is a way to package and deploy Linux server apps using shell commands in a similar way to apt-get or Homebrew. It can also be used on Windows or macOS, but accomplishes this by running the container in a Linux VM.
 
+To build and deploy the project, you need to install [Docker](https://www.docker.com/) as well as [docker-compose](https://docs.docker.com/compose/).
 
-## Dockerfile & docker-compose.yml
-The `Dockerfile` and the `docker-compose.yml` file contain *all* of the setup and deployment needed. The `start.sh` script is called at the very end of the `Dockerfile`and runs the ephemeral start-up commands and environment variables used by docker-compose are kept in the `.env` file.
+## Project overview
+Most of the project files are related to our use of Docker. The most important ones are:
 
-Redeployment then consists of making changes to these files, testing the changes locally, and running the appropriate commands to redeploy on the production server. Both the development machine and the production server will need to have Docker installed, but the setup and deployment of the app should otherwise be self-contained.
+* `Dockerfile` - builds a single Docker image that we can run as a Docker container.
+* `docker-compose.yml` - defines data volumes and environment variables for the Docker image. Used to build the image and deploy it as a container.
+
+These two files contain most of the necessary code to set up and deploy our system, but we also have a need for the following:
+
+* `start.sh` - called at the very end of the `Dockerfile`. Starts the various processes that run inside our Docker container (e.g. servers, database).
+* `.env` - environment variables used by docker-compose during the build step.
+* `default.env` - default runtime environment variables. Can be modified by the user when running the container.
+
+Redeployment then consists of making changes to the above files, testing the changes locally, and running the appropriate commands to redeploy on the production server. Both the development machine and the production server will need to have docker-compose installed, but the setup and deployment of the app should otherwise be self-contained.
 
 ### Build, test, deploy
-The basic workflow can be accomplished entirely using a few docker-compose commands. It can be helpful to alias these in your local terminal since you will be typing them a lot when developing.
+The basic workflow is done entirely using a few docker-compose commands. It can be helpful to alias these in your local terminal since you will be typing them a lot during development.
 
-_Note: before you can build for the first time, you will need to [create certificate files](#setting-up-https-for-local-development) for serving with Apache using HTTPS!_
+_Note: before you can build the image for the first time, you will need to [create certificate files](#https-for-local-development) for serving with Apache using HTTPS!_
 
 ```
 # Build image(s) and run container(s) in a detached state with `docker-compose`
@@ -33,12 +43,13 @@ docker-compose down --remove-orphans --volumes
 ```
 
 ### Data volumes
-The mutable parts of `repository.clarin.dk` are isolated in named Docker volumes. They are defined in the `docker-compose.yml` file and comprise the
+The mutable parts of `repository.clarin.dk` are isolated in Docker data volumes. They are defined in the `docker-compose.yml` file and comprise:
 
-* Postgres data directory
-* Postgres logs
-* Tomcat logs
-* ... & more to come!
+* `/usr/local/pgsql/data` - Postgres data directory.
+* `/var/log/postgresql` - Postgres logs.
+* `/opt/tomcat/logs` - Tomcat logs.
+* `/var/log/apache2` - Apache logs.
+* `/opt/certs` - SSL certificate files (used by Apache).
 
 The volumes are mounted to paths inside the running Docker container and persist across restarts of the container. The container itself should be considered effectively immutable and **any** data that is not contained by the volumes listed above considered completely temporary.
 
@@ -83,7 +94,7 @@ Some other directories of note:
 * `/var/log/apache2/` - where the logs go.
 
 
-#### Setting up HTTPS for local development
+#### HTTPS for local development
 In order to set up Apache properly with HTTPS for development on [localhost](https://localhost:443) it is necessary to generate and approve your own local certificate.
 
 [Let's Encrypt](https://letsencrypt.org/docs/certificates-for-localhost/) provides a simple one-liner which should be run as a prerequisite. Here is a slightly modified version:

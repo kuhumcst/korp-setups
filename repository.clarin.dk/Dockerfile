@@ -39,15 +39,20 @@ RUN rm apache-tomcat-8.0.35.tar.gz
 
 FROM other-dependencies AS runner
 
+# Reflects the directories set up during the build stages
 ENV CATALINA_HOME=/opt/tomcat
 ENV CATALINA_BASE=/opt/tomcat
-# Using the recommended 6GB heap size for clarin-dspace
-# https://github.com/ufal/clarin-dspace/wiki/Prerequisites-checklist
-ENV CATALINA_OPTS=-"Xms6g -Xmx6g"
 ENV ANT_HOME=/opt/apache-ant
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PSQL_DIR=/usr/lib/postgresql/10/bin
-ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$PSQL_DIR:$CATALINA_HOME/bin
+ENV POSTGRES_HOME=/usr/lib/postgresql/10
+ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$POSTGRES_HOME/bin:$CATALINA_HOME/bin
+
+# As listed in the install documentation
+# https://github.com/ufal/clarin-dspace/wiki/Installation
+ENV DSPACE_INSTANCE_NAME=repository
+ENV DSPACE_SOURCE_DIRECTORY=/opt/repository/sources/dspace
+ENV DSPACE_WORKSPACE=/opt/repository/workspace
+ENV DSPACE_INSTALLATION_DIRECTORY=/opt/repository/installations
 
 # The default install of postgres on Ubuntu seems to be missing this required dir
 # https://github.com/torhve/pix/issues/2

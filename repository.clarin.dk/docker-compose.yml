@@ -2,17 +2,19 @@ version: '3'
 services:
   app:
     build: .
+    env_file: 
+      - default.env
     volumes:
-      - postgres_logs:/var/log/postgresql
       - postgres_data:/usr/local/pgsql/data
+      - postgres_logs:/var/log/postgresql
       - tomcat_logs:/opt/tomcat/logs
       - apache_logs:/var/log/apache2
       - ${CERTIFICATE_DIR}:/opt/certs
     ports:
       # Tomcat server (HTTP)
-      #- "8080:8080"
+      - "8080:8080"
       # Tomcat server (AJP)
-      #- "8009:8009"
+      - "8009:8009"
       # Apache web server (HTTPS)
       - "443:443"
 
