@@ -8,9 +8,29 @@ The central idea is that `repository.clarin.dk` is deployed as a Docker containe
 
 
 ## Dockerfile & docker-compose.yml
-The `Dockerfile` and the `docker-compose.yml` file contain all of the setup and deployment needed. Redeployment then consists of making changes to these files, testing the changes locally, and running the appropriate commands to redeploy on the production server. Both the development machine and the production server will need to have Docker installed, but the setup and deployment of the app should otherwise be self-contained.
+The `Dockerfile` and the `docker-compose.yml` file contain *all* of the setup and deployment needed. The `start.sh` script is called at the very end of the `Dockerfile`and runs the ephemeral start-up commands and environment variables used by docker-compose are kept in the `.env` file.
 
-TODO: more stuff to come in this section, e.g. actual commands
+Redeployment then consists of making changes to these files, testing the changes locally, and running the appropriate commands to redeploy on the production server. Both the development machine and the production server will need to have Docker installed, but the setup and deployment of the app should otherwise be self-contained.
+
+### Build, test, deploy
+The basic workflow can be accomplished entirely using a few docker-compose commands. It can be helpful to alias these in your local terminal since you will be typing them a lot when developing.
+
+_Note: before you can build for the first time, you will need to [create certificate files](#setting-up-https-for-local-development) for serving with Apache using HTTPS!_
+
+```
+# Build image(s) and run container(s) in a detached state with `docker-compose`
+docker-compose up -d --build
+
+# Enter the running repository container
+docker-compose exec app bash
+
+# Stop the running container(s)
+docker-compose stop
+
+# If you want to prune the volumes too
+docker-compose down --remove-orphans --volumes
+
+```
 
 ### Data volumes
 The mutable parts of `repository.clarin.dk` are isolated in named Docker volumes. They are defined in the `docker-compose.yml` file and comprise the
