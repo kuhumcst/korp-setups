@@ -1,9 +1,18 @@
 # Note: postgres cannot be run directly as the root user!
 # We only want to run initdb once (for an empty data directory).
 
-# Note: the other environment variables are defined in defaults.env
 sudo -u postgres /usr/lib/postgresql/10/bin/initdb -D /usr/local/pgsql/data || true
 sudo -u postgres /usr/lib/postgresql/10/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/logfile start &&
+
+# The databases need to be set up before `make fresh_install` can run!
+# https://github.com/ufal/clarin-dspace/wiki/Installation#create-databases
+sudo -u postgres createuser --username=postgres --no-superuser dspace || true
+cd $DSPACE_WORKSPACE/scripts &&
+make create_databases || true
+
+# The second step of the `fresh_deploy` target
+# (the `compile` step was run in the Dockerfile)
+make fresh_install &&
 
 /opt/tomcat/bin/startup.sh &&
 

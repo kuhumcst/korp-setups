@@ -9,6 +9,7 @@ services:
       - postgres_logs:/var/log/postgresql
       - tomcat_logs:/opt/tomcat/logs
       - apache_logs:/var/log/apache2
+      - dspace_logs:/opt/repository/logs
       - ${CERTIFICATE_DIR}:/opt/certs
     ports:
       # Tomcat server (HTTP)
@@ -22,7 +23,8 @@ services:
 # https://docs.docker.com/compose/compose-file/#volume-configuration-reference
 # https://gist.github.com/BretFisher/5e1a0c7bcca4c735e716abf62afad389
 volumes:
-  postgres_logs:
   postgres_data:
+  postgres_logs:
   tomcat_logs:
   apache_logs:
+  dspace_logs:  

@@ -59,6 +59,9 @@ Inside the Docker container
 ---------------------------
 In this section I will give an overview of the components that are set up inside the Docker container, focusing on the bits that are most important to understand.
 
+### PostgreSQL
+TODO: write stuff
+
 ### Tomcat
 We use version 8 of the Java-based Tomcat web server (the latest stable version is 9, soon to be 10). Tomcat is used to deploy web applications as [Java servlets](https://en.wikipedia.org/wiki/Java_servlet) distributed in [.WAR-files](https://en.wikipedia.org/wiki/WAR_(file_format)). These are basically just zip files that bundle static assets with a Java class that can handle requests from clients.
 
@@ -117,6 +120,18 @@ The `repository.clarin.dk.crt` file should be added to your list of trusted cert
 In the default `docker-compose.yml` configuration the certificate will be loaded from the same directory as the `docker-compose.yml` file. This is defined by `$CERTIFICATE_DIR` in the `.env` file:
 
 * `/opt/certs` - location of the certificate files.
+
+### Clarin-dspace
+The main backend code for `repository.clarin.dk` comes from a project called [clarin-dspace](https://github.com/ufal/clarin-dspace) which is a fork of the [DSpace](https://en.wikipedia.org/wiki/DSpace) project.
+
+Installing, deploying, and running clarin-dspace is centred around a `makefile` that comes with many different targets. The ones that we reference during our deployment of dspace in the Dockerfile are:
+
+* `make install_libs` - installs additional dependencies via maven. Requires `python` to be installed.
+* `new_deploy` - a combination of the following 3 targets:
+  - `compile` - compiles each of the dspace modules defined by the `pom.xml` found in `/opt/repository/sources/dspace`.
+  - `fresh_install` - runs `ant` with the `build.xml` located in `/opt/repository/sources/dspace/dspace/target/dspace-installer`. This installer was produced during the compile step.
+  - `postinstall` - ...
+
 
 More documentation
 ------------------
