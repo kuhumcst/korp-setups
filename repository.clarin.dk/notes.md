@@ -95,7 +95,7 @@ See: https://github.com/ufal/clarin-dspace/wiki/Prerequisites-checklist
     - [ ] ~~give createdb rights to (dspace) db user~~
     - [ ] ~~create the dbs manually and grant rights to the (dspace) db user (see the create_databases target)~~
   - Test connection via ip
-    - [ ] `psql --password --username=dspace -h 127.0.0.1 -c '\d' dspace` (pretty sure this needs to run after another step?)
+    - [x] `psql --password --username=dspace -h 127.0.0.1 -c '\d' dspace` (works if you use the actual database name, i.e. `XXX-LR-DATABASE` rather than `dspace`)
 - jdk
   - [x] `javac -version`
 - tomcat
@@ -111,8 +111,8 @@ See: https://github.com/ufal/clarin-dspace/wiki/Prerequisites-checklist
   - [x] `for cmd in make wget xmllint xsltproc unzip; do which $cmd > /dev/null || echo "Please install $cmd"; done`
 - Webserver
   - [ ] With either apache or nginx you'll need to be able to make changes to the configuration (e.g. to create specific rewrite rules).
-  - [ ] With either you'll need several modules enabled (with nginx this means recompiling). We've seen better performance with nginx, but apache is easier to set up (at least on ubuntu system) as you usully don't need to compile shibboleth yourself.
-  - [ ] ssl
+  - [x] With either you'll need several modules enabled (with nginx this means recompiling). We've seen better performance with nginx, but apache is easier to set up (at least on ubuntu system) as you usully don't need to compile shibboleth yourself.
+  - [x] ssl
   - [ ] shibboleth-sp (if you need federated auth, you need this if you are aming for CLARIN center)
   - [ ] ~~with nginx you'll be building it from sources along with nginx modules~~
   - [ ] with apache you might avoid that if there is mod-shib2 available for your distribution
@@ -129,7 +129,7 @@ Web server
 
 I'm going with the Apache web server for now, forgoing nginx. The [main requirements](https://github.com/ufal/clarin-dspace/wiki/Installation----Prerequisites#web-server--servlet-container):
 
-- [ ] Enabled https
+- [x] Enabled https
 - [x] ability to deploy java webapps
 - [ ] possibility of running perl/cgi
 
@@ -138,11 +138,11 @@ This is the more specific setup info for the web server: https://github.com/ufal
 ### Tomcat
 - [ ] If you've decided to go with Tomcat, you might find psi-probe a nice addition, or a measure how to test your setup is working fine.
 - [ ] You might need to tweak the memory parameters your tomcat is run with. We have a modified (debian) init.d script similar to [this](https://gist.github.com/kosarko/ac6d9e26a078f17f4a2c) for tomcat8 and java8.
-- [ ] [Tomcat / Apache integration](https://github.com/ufal/clarin-dspace/wiki/Connecting-Tomcat-with-Apache)
+- [x] [Tomcat / Apache integration](https://github.com/ufal/clarin-dspace/wiki/Connecting-Tomcat-with-Apache)
 - [ ] ~~[Tomcat / Nginx integration](https://github.com/ufal/clarin-dspace/wiki/Using-Nginx)~
 
 ### HTTPS
-- [ ] You'll need to acquire a certificate and set it up in your web server.
+- [x] You'll need to acquire a certificate and set it up in your web server.
 - [x] Apache mod_ssl provides a sample configuration in some distributions.
 - [ ] ~~Nginx tips are in the Tomcat Nginx section above.~~
 - [ ] Should be fairly simple to obtain a certificate through Let's Encrypt.

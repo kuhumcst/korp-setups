@@ -1,6 +1,20 @@
 repository.clarin.dk
 ====================
-Here I will try to document -- for the sake of my future self (and others) -- the important bits of of knowledge concerning our Docker setup of `repository.clarin.dk`.
+Here I will try to document - for the sake of my future self and other maintainers - the important bits of of knowledge concerning the Docker setup of `repository.clarin.dk`.
+
+Current state
+-------------
+
+Builds a rudimentary version of the clarin-dspace setup, with only the xmlui part of clarin-dspace (barely) enabled. It should be accessible through e.g. https://localhost/xmlui/page/cite, but https://localhost/xmlui somehow doesn't work.
+
+TODO
+----
+
+* Need to figure out how [dspace overlays](https://github.com/ufal/clarin-dspace/wiki/Overlays) work.
+  - Investigate dokuwiki and existing code on the server.
+  - Is there a hidden SVN repo with overlay code somewhere?
+  - Is this the key to understanding why https://localhost/xmlui/ hangs indefinitely while https://localhost/xmlui/login works?
+* Document postgres setup
 
 Infrastructure as code
 ----------------------
@@ -18,14 +32,14 @@ These two files contain most of the necessary code to set up and deploy our syst
 
 * `start.sh` - called at the very end of the `Dockerfile`. Starts the various processes that run inside our Docker container (e.g. servers, database).
 * `.env` - environment variables used by docker-compose during the build step.
-* `default.env` - default runtime environment variables. Can be modified by the user when running the container.
+* `default.env` - default runtime environment variables. Can be modified by the user when running the container using docker-compose.
 
 Redeployment then consists of making changes to the above files, testing the changes locally, and running the appropriate commands to redeploy on the production server. Both the development machine and the production server will need to have docker-compose installed, but the setup and deployment of the app should otherwise be self-contained.
 
 ### Build, test, deploy
 The basic workflow is done entirely using a few docker-compose commands. It can be helpful to alias these in your local terminal since you will be typing them a lot during development.
 
-_Note: before you can build the image for the first time, you will need to [create certificate files](#https-for-local-development) for serving with Apache using HTTPS!_
+_Note: before you can build the image for the first time, you will need to [create certificate files](#setting-up-https) for serving with Apache using HTTPS!_
 
 ```
 # Build image(s) and run container(s) in a detached state with `docker-compose`
@@ -78,7 +92,6 @@ Inside this root directory, there are some directories of note:
 * `/opt/tomcat/conf` - where the config files reside. The important one is `server.xml`.
 * `/opt/tomcat/logs` - where the logs go.
 
-
 ### Apache Web Server
 We use the default version in Ubuntu 18.04 (2.4.x) of the Apache Web Server. Apache's function is to be a reverse proxy for incoming HTTP requests on behalf of the Tomcat server (which we have set up to use the AJP protocol).
 
@@ -96,30 +109,10 @@ Some other directories of note:
 
 * `/var/log/apache2/` - where the logs go.
 
+#### Setting up HTTPS
+You will need two certificate files in order to set up Apache properly for HTTPS. If you want to develop and run the Docker container locally, you should check out [these general instructions](https://github.com/kuhumcst/infrastructure/blob/master/README.md#https-for-local-development).
 
-#### HTTPS for local development
-In order to set up Apache properly with HTTPS for development on [localhost](https://localhost:443) it is necessary to generate and approve your own local certificate.
-
-[Let's Encrypt](https://letsencrypt.org/docs/certificates-for-localhost/) provides a simple one-liner which should be run as a prerequisite. Here is a slightly modified version:
-
-```
-openssl req -x509 -out repository.clarin.dk.crt -keyout repository.clarin.dk.key \
-  -newkey rsa:2048 -nodes -sha256 \
-  -subj '/CN=localhost' -extensions EXT -config <( \
-   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
-```
-
-This generates a `repository.clarin.dk.crt` and a `repository.clarin.dk.key` file.
-
-The `repository.clarin.dk.crt` file should be added to your list of trusted certificates. On macOS, this is done by 
-
-* opening up `Keychain Access.app`
-* importing the `repository.clarin.dk.crt` file
-* ensuring that it is fully trusted by double clicking on the newly added `localhost` listing and selecting _"Always allow"_.
-
-In the default `docker-compose.yml` configuration the certificate will be loaded from the same directory as the `docker-compose.yml` file. This is defined by `$CERTIFICATE_DIR` in the `.env` file:
-
-* `/opt/certs` - location of the certificate files.
+In `docker-compose.yml`, the certificates are set up by default to be located in the **parent directory** of the .yml file, i.e. the root directory of the git project. The certificate directory is then mirrored inside the Docker container at `/opt/certs`. The location of the certificates is defined dynamically by `$CERTIFICATE_DIR` in the `.env` file.
 
 ### Clarin-dspace
 The main backend code for `repository.clarin.dk` comes from a project called [clarin-dspace](https://github.com/ufal/clarin-dspace) which is a fork of the [DSpace](https://en.wikipedia.org/wiki/DSpace) project.
@@ -127,11 +120,22 @@ The main backend code for `repository.clarin.dk` comes from a project called [cl
 Installing, deploying, and running clarin-dspace is centred around a `makefile` that comes with many different targets. The ones that we reference during our deployment of dspace in the Dockerfile are:
 
 * `make install_libs` - installs additional dependencies via maven. Requires `python` to be installed.
-* `new_deploy` - a combination of the following 3 targets:
+* `new_deploy` - compiles and deploys a new instance of clarin-dspace. Consists of 3 steps:
   - `compile` - compiles each of the dspace modules defined by the `pom.xml` found in `/opt/repository/sources/dspace`.
-  - `fresh_install` - runs `ant` with the `build.xml` located in `/opt/repository/sources/dspace/dspace/target/dspace-installer`. This installer was produced during the compile step.
-  - `postinstall` - ...
+  - `fresh_install` - runs `ant` on for the `fresh_install` target `/opt/lindat-dspace/sources/dspace/dspace/src/main/config/build.xml`. We have modified this target slightly so that it doesn't attempt to test a running postgres instance. This allows us to prebake the entire deploy process into the Docker image.
+  - `postinstall` - grants a tomcat user access to the web apps produced in the previous steps and fetches the [lindat-common theme](https://github.com/ufal/lindat-common) from git.
+  
+The installation directory is at `/opt/lindat-dspace/installation`. Inside this directory we can find logs at `/opt/lindat-dspace/installation/log`.
 
+Two separate files are used to configure the project:
+
+* `variable.makefile` - variables referenced in the [makefile](https://github.com/ufal/clarin-dspace/wiki/Installation#makefile). Mainly has to do with configuring branding/UI.
+* `local.properties` - the primary [configuration file](https://github.com/ufal/clarin-dspace/wiki/Configuration) for clarin-dspace.
+
+In order for clarin-dspace to run properly, certain [System Properties](https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html) must be set. We do this through `$CATALINA_OPTS` in the `default.env` file which controls which flags we start the Tomcat process with. Currently these properties include:
+
+* `dspace.dir` - directory of the installer produced during by `make compile`.
+* `dspace.configuration` - path to the `dspace.cfg` file located inside the installation directory. This config file refers to some of the variables set in `local.properties` and propably shouldn't be modified directly.
 
 More documentation
 ------------------

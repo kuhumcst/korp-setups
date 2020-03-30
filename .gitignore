@@ -1,4 +1,5 @@
 .DS_Store
+.idea
 
-repository.clarin.dk/repository.clarin.dk.crt
-repository.clarin.dk/repository.clarin.dk.key
+/localhost.crt
+/localhost.key

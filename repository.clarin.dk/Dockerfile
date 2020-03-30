@@ -50,39 +50,52 @@ ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$POSTGRES_HOME/bin:$CATALINA_HOME/bi
 
 # As listed in the install documentation
 # https://github.com/ufal/clarin-dspace/wiki/Installation
-ENV DSPACE_INSTANCE_NAME=repository
-ENV DSPACE_SOURCE_DIRECTORY=/opt/repository/sources/dspace
-ENV DSPACE_WORKSPACE=/opt/repository/workspace
-ENV DSPACE_INSTALLATION_DIRECTORY=/opt/repository/installations
+ENV DSPACE_INSTANCE_NAME=lindat-dspace
+ENV DSPACE_SOURCE_DIRECTORY=/opt/lindat-dspace/sources/dspace
+ENV DSPACE_WORKSPACE=/opt/lindat-dspace/workspace
+ENV DSPACE_INSTALLATION_DIRECTORY=/opt/lindat-dspace/installation
 
-RUN git clone https://github.com/ufal/clarin-dspace.git -b clarin /opt/repository/sources/dspace
+# This one was not listed with the others, but clarin-dspace cannot run without it, e.g. xmlui reads this property
+# It's really just another name for DSPACE_INSTALLATION_DIRECTORY
+ENV DSPACE_HOME=/opt/lindat-dspace/installation
+
+RUN git clone https://github.com/ufal/clarin-dspace.git -b clarin /opt/lindat-dspace/sources/dspace
 
 # Enforce a specific commit to make the build reproducible
-WORKDIR /opt/repository/sources/dspace
+WORKDIR /opt/lindat-dspace/sources/dspace
 RUN git checkout d3715efe7d57371e0baf981b89d56bd6043ae22f
 
-# TODO: is this step actually necessary? remove if not
-# The makefile expects a sources folder to be symlinked here - I think?
+# Optional variables for the clarin-dspace makefile
+# https://github.com/ufal/clarin-dspace/wiki/Installation#makefile
+COPY clarin-dspace/variable.makefile /opt/lindat-dspace/sources/dspace/utilities/project_helpers/config/
+
+# The makefile expects a sources folder to be symlinked inside this directory
 # https://github.com/ufal/clarin-dspace/wiki/Installation#directory-structure
-WORKDIR /opt/repository/sources/dspace/utilities/project_helpers
-RUN ./setup.sh /opt/repository/workspace
+WORKDIR /opt/lindat-dspace/sources/dspace/utilities/project_helpers
+RUN ./setup.sh /opt/lindat-dspace/workspace
 
 # This is the directory containing the makefile
-WORKDIR /opt/repository/sources/dspace/utilities/project_helpers/scripts
+WORKDIR /opt/lindat-dspace/sources/dspace/utilities/project_helpers/scripts
 RUN make install_libs
 
-# The main configuration file for clarin-dspace
-# Compilation will fail without this file
+# The main configuration file for clarin-dspace (compilation will fail without it)
 # https://github.com/ufal/clarin-dspace/wiki/Installation#update-dspace-configuration
-RUN mkdir -p /opt/repository/config
-ADD clarin-dspace/local.properties /opt/repository/sources/dspace/local.properties
+# Documentation of the variables: https://github.com/ufal/clarin-dspace/wiki/Configuration
+RUN mkdir -p /opt/lindat-dspace/config
+COPY clarin-dspace/local.properties /opt/lindat-dspace/sources/dspace/local.properties
 
-# Where the clarin-dspace logs go
-RUN mkdir -p /opt/repository/logs
+# TODO: these perl regex replacements should happen in our own rebased git branch instead
+# We have no password set for our dspace user, so the build.properties need to reflect that
+RUN perl -i -pe 's/db.password=dspace/db.password=/g' /opt/lindat-dspace/sources/dspace/build.properties
 
-# Can't `RUN make new_deploy` directly as its second step requires database access
-# `compile` is the first step of the `new_deploy` target and takes the most time to run
-RUN make compile
+# To RUN new_deploy, we need to make sure that we don't try to run db tests.
+# We do this by removing the test_database target from the list of dependencies.
+# Otherwise, fresh_install (the 2nd step of new_deploy) will fail.
+RUN perl -i -pe 's/depends="init_installation,init_configs,test_database,install_code"/depends="init_installation,init_configs,install_code"/g' /opt/lindat-dspace/sources/dspace/dspace/src/main/config/build.xml
+
+# Bundle of 3 separate make targets: compile, fresh_install, and postinstall.
+# fresh_install runs Ant with the target in the build.xml we just modified!
+RUN make new_deploy
 
 # The default install of postgres on Ubuntu seems to be missing this required dir
 # https://github.com/torhve/pix/issues/2
@@ -94,14 +107,20 @@ RUN mkdir -p /usr/local/pgsql/data
 RUN chown postgres /usr/local/pgsql/data
 RUN chown postgres /var/log/postgresql
 
-# Add .war file to webapps repo (unpacked and served on localhost:8080 by tomcat)
-# TODO: sample app, replace later with real .war file
-ADD sample.war /opt/tomcat/webapps/
+# Remove the default web apps included with Tomcat.
+RUN rm -rf /opt/tomcat/webapps/*
+
+# Symlink each dspace app directory, accessed by e.g. https://localhost/xmlui
+# This is done instead of making a custom Tomcat server.xml with <Context> tags.
+RUN ln -s /opt/lindat-dspace/installation/webapps/xmlui /opt/tomcat/webapps/xmlui
+#RUN ln -s /opt/lindat-dspace/installation/webapps/solr /opt/tomcat/webapps/solr
+#RUN ln -s /opt/lindat-dspace/installation/webapps/oai /opt/tomcat/webapps/oai
+#RUN ln -s /opt/lindat-dspace/installation/webapps/rest /opt/tomcat/webapps/rest
 
 # Add config to set up Apache as proxy for Tomcat
-ADD tomcat_ajp_proxy.conf /etc/apache2/sites-enabled/
+COPY apache/tomcat_ajp_proxy.conf /etc/apache2/sites-enabled/
 
 WORKDIR /
-ADD start.sh /
+COPY start.sh /
 RUN chmod +x /start.sh
 CMD /start.sh
