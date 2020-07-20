@@ -9,18 +9,21 @@ TODOS
   - [x] update modes from old installation to new KORP (note: complicated by downstream changes)
   - [ ] Generate frontend nav automatically (research if feasible)
   - [x] [Danish language support](https://github.com/spraakbanken/korp-frontend/blob/dev/doc/frontend_devel.md#adding-languages)
+* [x] Database setup (for visualisation and "word pictures")
 * [ ] Generate datasets from input data and data description (research if feasible)
-* [ ] Database setup (for visualisation and "word pictures")
 * [ ] FCS setup
     - [ ] ~~FCS data should be generated automatically~~ (not feasible)
     - [ ] run korp-fcs-endpoint in Docker too
+* [ ] research korp cgi script: What is the purpose? Still relevant?
+* [ ] create outer shell docker-compose.yml for serving korp and voyant together (currently done using nginx on alf)
+    - [ ] Is kddata/[kd-demo](https://alf.hum.ku.dk/kd-demo/) still needed? See `/etc/nginx/includes` and https://cst.dk/dokuwiki/doku.php?id=kd_demo
 
 Build, test, deploy
 ===================
 Note: the following environment variables must be set
 
 * `$CORPORA_DIR` _must_ be set for the backend service to work properly. Contains the corpora-related subfolders such as registry, data, etc.
-* `§KORP_FRONTEND_CONFIG_DIR` _must_ be set for the frontend service to work properly. Contains .js/.json files that are patched in before building the project, e.g. config.js, modes/*, translations/*. Should mirror the layout of the `app` folder in the korp-frontend project. The contents of `korp/frontend/app/` in this repository serves as a version-controlled example of this sort of config directory and is used in production for the CST corpora. The relevant changes exist in the `cst-setup` branch of the `kuhumcst/korp-frontend` project too.
+* `$KORP_FRONTEND_CONFIG_DIR` _must_ be set for the frontend service to work properly. Contains .js/.json files that are patched in before building the project, e.g. config.js, modes/*, translations/*. Should mirror the layout of the `app` folder in the korp-frontend project. The contents of `korp/frontend/app/` in this repository serves as a version-controlled example of this sort of config directory and is used in production for the CST corpora. The relevant changes exist in the `cst-setup` branch of the `kuhumcst/korp-frontend` project too.
 
 ```
 # Build image(s) and run container(s) in a detached state with `docker-compose`
@@ -48,7 +51,7 @@ yarn build
 yarn start:dist
 ```
 
-The ideal development loop consists of running the backend service in a Docker container, while making changes to the frontend project and then copying the relevant files to `korp/frontend/app/` in this project.
+The ideal development loop consists of running the backend service in a Docker container, while making changes to the frontend project and then copying the relevant files to `korp/frontend/app/` in this project. For production systems, the frontend Dockerfile should point to the latest stable git commit and the `docker-compose.yml` in this outer directory should be used to run the full system (backend + frontend services).
 
 Up-to-date fork
 ---------------
