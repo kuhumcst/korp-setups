@@ -10,11 +10,12 @@ TODOS
   - [ ] Generate frontend nav automatically (research if feasible)
   - [x] [Danish language support](https://github.com/spraakbanken/korp-frontend/blob/dev/doc/frontend_devel.md#adding-languages)
 * [x] Database setup (for visualisation and "word pictures")
+* [x] Fix docker network issues in nginx setup? why can't I access 0.0.0.0:1234 from frontend container? (answer: in production the JS client is running locally, but the backend of course isn't so the JS frontend cannot access 0.0.0.0:1234)
 * [ ] Generate datasets from input data and data description (research if feasible)
 * [ ] FCS setup
     - [ ] ~~FCS data should be generated automatically~~ (not feasible)
     - [ ] run korp-fcs-endpoint in Docker too
-* [ ] research korp cgi script: What is the purpose? Still relevant?
+* [x] research korp cgi script: What is the purpose? Still relevant? (answer: seems to be the old korp.py)
 * [ ] create outer shell docker-compose.yml for serving korp and voyant together (currently done using nginx on alf)
     - [ ] Is kddata/[kd-demo](https://alf.hum.ku.dk/kd-demo/) still needed? See `/etc/nginx/includes` and https://cst.dk/dokuwiki/doku.php?id=kd_demo
 
@@ -28,6 +29,11 @@ Note: the following environment variables must be set
 ```
 # Build image(s) and run container(s) in a detached state with `docker-compose`
 docker-compose up -d --build
+
+# Restart - but do not rebuild - a single container
+# Needed if Dockerfile/docker-compose.yml are untouched, but changes exist in e.g. frontend/app/config.js
+docker-compose restart backend
+docker-compose restart frontend
 
 # Enter the running containers
 docker-compose exec backend bash
@@ -50,6 +56,8 @@ yarn
 yarn build
 yarn start:dist
 ```
+
+NOTE: the `config.js` must contain a valid `korpBackendURL` endpoint. For the CST production system this value is `https://alf.hum.ku.dk/korp/backend`, but when running the system locally it must refer to `localhost:1234` instead. Changing this value requires explicitly restarting the affected container, rebuilding will not be enough as only changing `config.js` means the image is still identical.
 
 The ideal development loop consists of running the backend service in a Docker container, while making changes to the frontend project and then copying the relevant files to `korp/frontend/app/` in this project. For production systems, the frontend Dockerfile should point to the latest stable git commit and the `docker-compose.yml` in this outer directory should be used to run the full system (backend + frontend services).
 
