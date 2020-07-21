@@ -39,7 +39,7 @@ RUN apt-get update && \
 WORKDIR /opt
 RUN git clone https://github.com/kuhumcst/korp-frontend.git
 WORKDIR /opt/korp-frontend
-RUN git checkout 41ac1c7a00ac41afdc2438d0d9711b231e17cb52
+RUN git checkout upstream-master-bugfixes
 
 # Fetch korp-frontend dependencies
 WORKDIR /opt/korp-frontend
