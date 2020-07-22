@@ -1,0 +1,18 @@
+version: '3'
+services:
+  backend:
+    build: backend/
+    volumes:
+      - ./backend/corpora:/opt/host_corpora
+    ports:
+      # Korp backend server
+      - "1234:1234"
+  frontend:
+    build: frontend/
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/opt/korp-frontend-config
+    ports:
+      # Korp frontend server
+      - "9111:9111"
