@@ -75,6 +75,10 @@ RUN pip3 install wheel
 RUN pip3 install -r requirements.txt
 COPY config.py /opt/korp-backend/config.py
 
+# Break cache by adding file with random ints.
+# Necessary for corpus encoding to run.
+ADD https://www.random.org/integers/?num=10&min=1&max=6&col=1&base=10&format=plain&rnd=new cachebreaker.txt
+
 # TODO: no MySQL errors, but still doesn't seem to generate the graphs
 # Set up a new Mysql DB
 COPY db_setup.sql ./

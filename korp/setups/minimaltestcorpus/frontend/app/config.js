@@ -116,22 +116,6 @@ settings.modeConfig = [
     {
         localekey: "modern_texts",
         mode: "default"
-    },
-    {
-        localekey: "old_danish_texts",
-        mode: "old_danish"
-    },
-    {
-        localekey: "saxo_texts",
-        mode: "saxo_danish"
-    },
-    {
-        localekey: "da1800",
-        mode: "da1800"
-    },
-    {
-        localekey: "threats",
-        mode: "threats"
     }
 ];
 
@@ -142,7 +126,7 @@ settings.defaultOverviewContext = "1 sentence"
 settings.defaultReadingContext = "1 paragraph"
 
 settings.defaultWithin = {
-    "sentence": "sentence"
+    "paragraph": "paragraph"
 };
 
 // for optimization purposes
@@ -158,8 +142,8 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
-//settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
+//SET THIS BY PROJECT.
+settings.korpBackendURL = "http://127.0.0.1:1234";
 
 settings.mapCenter = {
   lat: 62.99515845212052,

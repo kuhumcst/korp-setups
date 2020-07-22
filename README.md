@@ -1,5 +1,9 @@
 Infrastructure for CST
 ======================
+This repository contains Docker setups for CST infrastructure:
+
+* (running) [KORP](https://github.com/kuhumcst/infrastructure/tree/master/korp)
+* (not running) [repository.clarin.dk](https://github.com/kuhumcst/infrastructure/tree/master/repository.clarin.dk) (clarin-dspace)
 
 HTTPS for local development
 ---------------------------
