@@ -158,9 +158,9 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
-//settings.korpBackendURL = "http://127.0.0.1:1234";
-settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
+//settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
+settings.korpBackendURL = "http://127.0.0.1:1234";
+//settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
 
 settings.mapCenter = {
   lat: 62.99515845212052,
