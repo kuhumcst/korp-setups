@@ -80,6 +80,10 @@ COPY db_setup.sql ./
 RUN service mysql start && \
     mysql -uroot -ppassword < ./db_setup.sql
 
+# Break cache by adding file with random ints.
+# Necessary for corpus encoding to run.
+ADD https://www.random.org/integers/?num=10&min=1&max=6&col=1&base=10&format=plain&rnd=new cachebreaker.txt
+
 # Start the main process
 COPY start.sh ./
 RUN chmod +x ./start.sh

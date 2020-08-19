@@ -1,4 +1,8 @@
-service mysql start && python3 /opt/korp-backend/korp.py
+# Run test corpus encoding
+/opt/host_corpora/encodingscripts/encode_testcorpus.sh
+
+#service mysql start && python3 /opt/korp-backend/korp.py
+python3 /opt/korp-backend/korp.py
 
 # TODO: recommended server (for later)
 #pip3 install gunicorn
