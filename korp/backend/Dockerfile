@@ -24,9 +24,11 @@ RUN apt-get update && \
     subversion \
     && rm -rf /var/lib/apt/lists/*
 
-# Download latest cwb source
-RUN svn export http://svn.code.sf.net/p/cwb/code/cwb/trunk /cwb
-
+# Download latest cwb source,
+# excluding /cwb/doc to keep svn from timing out.
+RUN svn checkout --depth immediates http://svn.code.sf.net/p/cwb/code/cwb/trunk cwb/
+RUN svn update --set-depth exclude /cwb/doc
+RUN svn update --set-depth infinity /cwb/*
 # Run install script and Move to unified location
 WORKDIR /cwb
 RUN ./install-scripts/install-linux
