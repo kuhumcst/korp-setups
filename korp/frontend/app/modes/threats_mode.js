@@ -4,14 +4,23 @@ settings.autocomplete = false;
 settings.lemgramSelect = false;
 settings.wordpicture = false;
 
-
 settings.corpora = {};
 settings.corporafolders = {};
 settings.preselected_corpora = ["threatsjeb"];
 
-var truAttrs = {};  // positional attributes for threats corpora
 
-truAttrs.pos = {
+var threatsContext = {
+    "1 sentence": "1 sentence",
+    "1 p": "1 paragraph"
+};
+
+var threatsWithin = {
+    "text" : "text"
+};
+
+var truattrs = {};  // positional attributes for threats corpora
+
+truattrs.pos = {
     label : "pos",
     translationKey : "pos_",
     dataset : {
@@ -35,7 +44,7 @@ truAttrs.pos = {
 };
 
 var truAttrs = {
-    pos : truAttrs.pos,
+    pos : truattrs.pos,
     msd : attrs.msd,
     lemma : attrs.baseform,
     prefix : attrs.prefix,
@@ -47,32 +56,86 @@ $("#lemgram_list_item").remove();
 
 settings.corporafolders.trusler = {
         title : "Danske trusler",
-        contents : ["threatsjeb"],
+        contents : ["threatsjeb","threatsjeb2","threatskar","threatsart"],
         description : "Trusselsbreve mv."
 };
 
+
+var truStructAttributes = {
+    text_title : {label : "title"},
+    text_Instrument : {label : "Instrument"},
+    text_Platform : {label : "Platform"},
+    text_Mediatype : {label : "Mediatype"},
+    text_Original : {label : "Original"},
+    text_Domain : {label : "Domain"},
+    text_Exactdate : {label : "Exactdate"},
+    text_Notbeforedate : {label : "Notbeforedate"},
+    text_Notafterdate : {label : "Notafterdate"},
+    text_Origplace : {label : "Origplace"},
+    text_Juridoutcome : {label : "Juridoutcome"},
+    text_SenderTargetrelation : {label : "SenderTargetrelation"},
+    text_Sendertype : {label : "Sendertype"},
+    text_SenderID : {label : "SenderID"},
+    text_Senderage : {label : "Senderage"},
+    text_Sendergender : {label : "Sendergender"},
+    text_Victimtype : {label : "Victimtype"},
+    text_VictimID : {label : "VictimID"},
+    text_Victimage : {label : "Victimage"},
+    text_Victimgender : {label : "Victimgender"},
+    sentence_id : {label : "id"},
+    paragraph_id : {label : "idp"}
+}
+
 settings.corpora.threatsjeb = {
     id : "THREATSJEB",
-    title : "Udvalgte trusselsbreve fra Rigspolitiets arkiv: JEB",
-    description : "JEB - Udvalgte trusselsbreve fra Rigspolitiets arkiv, 19800101 til 20071231",
-    within : settings.defaultWithin,
-    context : defaultContext,
+    title : "Udvalgte trusselsbreve fra Rigspolitiets arkiv: JEB 1",
+    description : "JEB - Udvalgte trusselsbreve fra Rigspolitiets arkiv, 1980 til 2007",
+	//within : settings.defaultWithin,
+    //context : settings.defaultContext,
+	within : threatsWithin,
+	context : threatsContext,
+
     attributes : truAttrs,
-    structAttributes : {
-        text_title : {label : "title"},
-        text_channel : {label : "channel"},
-        text_writing : {label : "writing"},
-        text_derivation : {label : "derivation"},
-        text_domain : {label : "domain"},
-        text_origin : {label : "origin"},
-        text_interaction_type : {label : "interaction_type"},
-        text_interaction_subtype : {label : "interaction_subtype"},
-        text_sender : {label : "sender"},
-        text_victim : {label : "victim"},
-        text_relation : {label : "relation"},
-        sentence_id : {label : "id"},
-    }
+    structAttributes : truStructAttributes
+};
+
+settings.corpora.threatsjeb2 = {
+    id : "THREATSJEB2",
+    title : "Udvalgte trusselsbreve fra Rigspolitiets arkiv: JEB 2",
+    description : "JEB - Udvalgte trusselsbreve fra Rigspolitiets arkiv 2, 1980 til 2007",
+	//within : settings.defaultWithin,
+    // context : settings.defaultContext,
+	within : threatsWithin,
+	context : threatsContext,
+
+    attributes : truAttrs,
+    structAttributes : truStructAttributes
+};
+
+settings.corpora.threatskar = {
+    id : "THREATSKAR",
+    title : "Trusler fra Karnov online",
+    description : "Trusler fra Karnov online",
+	//within : settings.defaultWithin,
+    //context : settings.defaultContext,
+	within : threatsWithin,
+	context : threatsContext,
+
+    attributes : truAttrs,
+    structAttributes : truStructAttributes
+};
+
+settings.corpora.threatsart = {
+    id : "THREATSART",
+    title : "Trusselsbeskeder fra artikler",
+    description : "Trusselsbeskeder fra artikler",
+	//within : settings.defaultWithin,
+    //context : settings.defaultContext,
+	within : threatsWithin,
+	context : threatsContext,
+
+    attributes : truAttrs,
+    structAttributes : truStructAttributes
 };
 
 settings.corpusListing = new CorpusListing(settings.corpora);
-
