@@ -1,4 +1,5 @@
-service mysql start && python3 /opt/korp-backend/korp.py
+#service mysql start && python3 /opt/korp-backend/korp.py
+python3 /opt/korp-backend/korp.py
 
 # TODO: recommended server (for later)
 #pip3 install gunicorn
