@@ -366,12 +366,6 @@ sattrs.date = {
 };
 
 
-var modernAttrsSimple = {
-    pos: attrs.pos,
-    lemma: attrs.lemma,
-};
-
-
 var modernAttrsOld = {
     pos: attrs.pos,
     msd: attrs.msd,
@@ -696,6 +690,4 @@ module.exports = {
   liteOptions,
   lexClassesText,
   readability,
-  fsv_aldrelagar,
-  fsv_yngrelagar
 }

@@ -74,8 +74,8 @@ settings.corpora.dkconstitutiontest = {
     title : "Danmarks grundlov",
     description : "Testkorpus: Tre kapitler af Danmarks grundlov som separate tekster.",
     within : settings.defaultWithin,
-    context : "1 stk": "1 stk", //defaultContext,
-    attributes : modernAttrsSimple, //modernAttrs,
+    context : {"1 stk": "1 stk"}, //defaultContext,
+    attributes : testcorpAttrs, //modernAttrs,
     structAttributes : {
         text_title : {label : "title"},
         paragraph_id : {label : "paragraph"},

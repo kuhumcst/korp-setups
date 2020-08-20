@@ -14,7 +14,9 @@ CQP_EXECUTABLE = "/usr/local/cwb/bin/cqp"
 CWB_SCAN_EXECUTABLE = "/usr/local/cwb/bin/cqp-scan-corpus"
 
 # The absolute path to the CWB registry files
-CWB_REGISTRY = "/opt/corpora/registry"
+# NOTE: Can this be set using an env variable?
+#CWB_REGISTRY = "/opt/corpora/registry"
+CWB_REGISTRY = "/opt/host_corpora/registry"
 
 # The default encoding for the cqp binary
 CQP_ENCODING = "UTF-8"

@@ -13,7 +13,8 @@ services:
     depends_on:
       - backend
     volumes:
-      - ${KORP_FRONTEND_CONFIG_DIR}:/opt/korp-frontend-config
+      #- ${KORP_FRONTEND_CONFIG_DIR}:/opt/korp-frontend-config
+      - ./configs/app:/opt/korp-frontend-config
     ports:
       # Korp frontend server
       - "9111:9111"
