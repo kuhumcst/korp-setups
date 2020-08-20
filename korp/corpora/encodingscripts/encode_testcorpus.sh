@@ -2,26 +2,18 @@
 # encode_testcorpus.sh
 # Encode korpusset xxxxxxx vha. cwb-encode.
 
-corpusname=dkconstitutiontest
+CORPUSNAME=dkconstitutiontest
 
-corpusupper=${corpusname^^}
-corporadir=`dirname "$0"`/..
-
-echo $corpusname
-echo $corpusupper
-#echo `ls -al $corporadir/data/$corpusname`
-
-#if [ "$EUID" -ne 0 ]
-#then echo "Use sudo to run this script. Exiting..."
-#  exit 1
-#fi
+CORPUSUPPER=${CORPUSNAME^^}
+CORPORADIR=`dirname "$0"`/..
+CORPORADIR=`realpath $CORPORADIR`
 
 # Fjern encodede filer hvis de findes. Lav direktoriet til encodede filer på ny.
-rm -rf $corporadir/data/$corpusname
-mkdir -p $corporadir/data/$corpusname
+rm -rf $CORPORADIR/data/$CORPUSNAME
+mkdir -p $CORPORADIR/data/$CORPUSNAME
 
 # Fjern registryindgangen.
-rm -f $corporadir/registry/$corpusname
+rm -f $CORPORADIR/registry/$CORPUSNAME
 
 # Kør cwb-encode med diverse parametre:
 # -d: Det direktorie hvor de encodede filer skal ligge.
@@ -30,13 +22,13 @@ rm -f $corporadir/registry/$corpusname
 # -f: Inputfil (vrt-format).
 # -P: Positional attribute.
 # -S: Structural attribute.
-cwb-encode -d $corporadir/data/$corpusname \
-           -R $corporadir/registry/$corpusname \
+cwb-encode -d $CORPORADIR/data/$CORPUSNAME \
+           -R $CORPORADIR/registry/$CORPUSNAME \
            -c utf8 \
-           -f $corporadir/annotated/DK.constitution.tabulator.vrt \
+           -f $CORPORADIR/annotated/DK.constitution.tabulator.vrt \
            -P pos -P lemma \
            -S stk:0+id -S paragraph:0+id -S text:0+title
 
 # Gennemfør indekseringen
-cwb-makeall -V -r $corporadir/registry $corpusupper
+cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER
 
