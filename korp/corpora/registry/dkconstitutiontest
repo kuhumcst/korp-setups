@@ -1,0 +1,48 @@
+##
+## registry entry for corpus DKCONSTITUTIONTEST
+##
+
+# long descriptive name for the corpus
+NAME ""
+# corpus ID (must be lowercase in registry!)
+ID   dkconstitutiontest
+# path to binary data files
+HOME encodingscripts/../data/dkconstitutiontest
+# optional info file (displayed by "info;" command in CQP)
+INFO encodingscripts/../data/dkconstitutiontest/.info
+
+# corpus properties provide additional information about the corpus:
+##:: charset  = "utf8" # character encoding of corpus data
+##:: language = "??"     # insert ISO code for language (de, en, fr, ...)
+
+
+##
+## p-attributes (token annotations)
+##
+
+ATTRIBUTE word
+ATTRIBUTE pos
+ATTRIBUTE lemma
+
+
+##
+## s-attributes (structural markup)
+##
+
+# <stk id=".."> ... </stk>
+# (no recursive embedding allowed)
+STRUCTURE stk
+STRUCTURE stk_id               # [annotations]
+
+# <paragraph id=".."> ... </paragraph>
+# (no recursive embedding allowed)
+STRUCTURE paragraph
+STRUCTURE paragraph_id         # [annotations]
+
+# <text title=".."> ... </text>
+# (no recursive embedding allowed)
+STRUCTURE text
+STRUCTURE text_title           # [annotations]
+
+
+# Yours sincerely, the Encode tool.
