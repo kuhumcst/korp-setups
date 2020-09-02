@@ -781,6 +781,18 @@ var modernAttrs = {
 };
 
 /*
+    ==================================================================
+    BELOW: GlOBAL SETTINGS THAT ARE REQUIRED, YET UNSET by DEFAULT
+    ==================================================================
+*/
+
+// The statistics tab will fail if this setting is left undefined [sg]
+settings.groupStatistics = []
+
+// AFAIK unused in our setups, but also needs to be defined [sg]
+lemgramResults = false
+
+/*
     =================================================================
                        END OF CST-SPECIFIC ADDITIONS
     ==================================================================
