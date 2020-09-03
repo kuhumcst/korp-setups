@@ -17,6 +17,7 @@ RUN apt-get update && \
     git \
     gcc \
     vim \
+    tree \
     mysql-server \
     libmysqlclient-dev \
     && rm -rf /var/lib/apt/lists/*
