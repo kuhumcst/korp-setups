@@ -1,0 +1,10 @@
+version: '3'
+services:
+  frontend:
+    build: .
+    volumes:
+      - .:/opt/korp-frontend-config
+    ports:
+      # Korp frontend server
+      - "9111:9111"
+
