@@ -15,7 +15,8 @@ CWB_SCAN_EXECUTABLE = "/usr/local/cwb/bin/cqp-scan-corpus"
 
 # The absolute path to the CWB registry files
 # SET THIS BY PROJECT.
-CWB_REGISTRY = "/opt/host_corpora/registry"
+#CWB_REGISTRY = "/opt/host_corpora/registry"
+CWB_REGISTRY = "/opt/korp-backend/corpora/registry"
 
 # The default encoding for the cqp binary
 CQP_ENCODING = "UTF-8"
