@@ -8,11 +8,15 @@ chmod +x /opt/host_corpora/encodingscripts/encode_testcorpus.sh
 
 # Run LANCHART corpus encoding
 chmod +x /opt/host_corpora/encodingscripts/encode_LANCHARTcorpus.sh
-#/opt/host_corpora/encodingscripts/encode_LANCHARTcorpus.sh
+/opt/host_corpora/encodingscripts/encode_LANCHARTcorpus.sh
 
 # Run MEMOtest corpus encoding
 chmod +x /opt/host_corpora/encodingscripts/encode_MEMOtestcorpus.sh
 /opt/host_corpora/encodingscripts/encode_MEMOtestcorpus.sh
+
+# Run MEMOtest individual corpus encoding
+chmod +x /opt/host_corpora/encodingscripts/encode_MEMO_individual_files.sh
+/opt/host_corpora/encodingscripts/encode_MEMO_individual_files.sh
 
 service mysql start && python3 /opt/korp-backend/korp.py
 

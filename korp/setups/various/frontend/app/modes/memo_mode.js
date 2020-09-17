@@ -14,6 +14,7 @@ settings.corporafolders.memotest = {
     description : "Testkorpusser fra Measuring Modernity-projektet: Samtlige romaner fra Det Moderne Gennembrud."
 };
 
+
 /*
  * Positional attributes for test corpus.
  */
@@ -98,5 +99,6 @@ settings.corpora.memotestcorpusfull = {
         text_price : {label : "Pris"}
     }
 };
+
 
 settings.corpusListing = new CorpusListing(settings.corpora);

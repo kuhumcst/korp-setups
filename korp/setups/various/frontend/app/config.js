@@ -124,6 +124,10 @@ settings.modeConfig = [
     {
         localekey: "memo_testcorpus",
         mode: "memo"
+    },
+    {
+        localekey: "memo_testcorpus_individual",
+        mode: "memoindividual"
     }
 ];
 
