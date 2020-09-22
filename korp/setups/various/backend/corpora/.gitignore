@@ -1,4 +1,6 @@
 annotated/Memo*
+annotated/Brill-all/*
+memo*.txt
 data
 registry
 .svn
