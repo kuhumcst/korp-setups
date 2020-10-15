@@ -9,7 +9,7 @@ corpusname = args.corpusname
 nameparts = corpusname.split('_')
 year = nameparts[-1]
 novelname = nameparts[-2]
-author = nameparts[-3]
+author = nameparts[-3] if len(nameparts) > 2 else 'diverse'
 
 corpus_id = corpusname.lower()
 corpus_title = "{}: {} ({})".format(author, novelname, year)

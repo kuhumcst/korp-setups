@@ -11,8 +11,12 @@ chmod +x /opt/host_corpora/encodingscripts/encode_testcorpus.sh
 /opt/host_corpora/encodingscripts/encode_testcorpus.sh
 
 # Run LANCHART corpus encoding
-chmod +x /opt/host_corpora/encodingscripts/encode_LANCHARTcorpus.sh
-/opt/host_corpora/encodingscripts/encode_LANCHARTcorpus.sh
+chmod +x /opt/host_corpora/encodingscripts/encode_LANCHARTcorpusAmager.sh
+chmod +x /opt/host_corpora/encodingscripts/encode_LANCHARTcorpusBornholm.sh
+chmod +x /opt/host_corpora/encodingscripts/encode_LANCHARTcorpusKoege.sh
+/opt/host_corpora/encodingscripts/encode_LANCHARTcorpusAmager.sh
+/opt/host_corpora/encodingscripts/encode_LANCHARTcorpusBornholm.sh
+/opt/host_corpora/encodingscripts/encode_LANCHARTcorpusKoege.sh
 
 # Run MEMOtest corpus encoding
 chmod +x /opt/host_corpora/encodingscripts/encode_MEMOtestcorpus.sh
