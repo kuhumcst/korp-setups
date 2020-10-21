@@ -85,7 +85,14 @@ COPY db_setup.sql ./
 RUN service mysql start && \
     mysql -uroot -ppassword < ./db_setup.sql
 
-# Start the main process
+# ARGs:
+#   Retrieve from docker-compose for use in build step with ARG.
+#   Set as envvar with ENV to make available to CMD.
+ARG ENCODE_ALL
+ENV encode_all=$ENCODE_ALL
+RUN echo "encode_all: $encode_all"
+
+# Run main command with environment variable as arg.
 COPY start.sh ./
 RUN chmod +x ./start.sh
-CMD ./start.sh
+CMD ./start.sh $encode_all

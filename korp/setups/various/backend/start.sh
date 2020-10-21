@@ -1,4 +1,4 @@
-encode_all_corpora=false
+encode_all_corpora=$1
 
 if [ "$encode_all_corpora" = true ]
 then 
