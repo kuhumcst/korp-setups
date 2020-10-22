@@ -9,6 +9,8 @@ CORPUSUPPER=${CORPUSNAME^^}
 CORPORADIR=`dirname "$0"`/..
 CORPORADIR=`realpath $CORPORADIR`
 
+echo "corpusfile: $CORPORADIR/annotated/$CORPUSFILE"
+
 # Tjek om korpusfilen findes.
 if [ -f "$CORPORADIR/annotated/$CORPUSFILE" ]
 then

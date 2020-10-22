@@ -2,7 +2,7 @@
 # encode_all_corpora.sh
 # Encode alle korpusser forfra, dvs. med helt nyt registry og datamappe.
 
-# Create registry and data folders, overwrite if they exist.
+# Create registry and data folders if they don't already exist.
 mkdir -p /opt/host_corpora/data
 mkdir -p /opt/host_corpora/registry
 
@@ -22,6 +22,10 @@ chmod +x /opt/host_corpora/encodingscripts/encode_LANCHARTcorpusKoege.sh
 chmod +x /opt/host_corpora/encodingscripts/encode_MEMOtestcorpus.sh
 /opt/host_corpora/encodingscripts/encode_MEMOtestcorpus.sh
 
+# 
+encode_MEMO_yearcorpora.sh
+
 # Run MEMOtest individual corpus encoding
-chmod +x /opt/host_corpora/encodingscripts/encode_MEMO_individual_files.sh
-/opt/host_corpora/encodingscripts/encode_MEMO_individual_files.sh
+# Not practical! Too many corpora.
+#chmod +x /opt/host_corpora/encodingscripts/encode_MEMO_individual_files.sh
+#/opt/host_corpora/encodingscripts/encode_MEMO_individual_files.sh
