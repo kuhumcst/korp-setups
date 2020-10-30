@@ -11,14 +11,17 @@ services:
         # PowerShell: $env:BUILD_MODE="all" ; docker-compose up ...
         # Linux/Mac terminal: BUILD_MODE=all docker-compose up ...
         - BUILD_MODE
-    #volumes:
-    #  - ./backend/corpora:/opt/host_corpora
+    volumes:
+      - ./backend/corpora:/opt/host_corpora
     ports:
       # Korp backend server
       - "1234:1234"
 
   frontend:
-    build: frontend/
+    build:
+      context: frontend/
+      args:
+        - BUILD_MODE
     depends_on:
       - backend
     volumes:

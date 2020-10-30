@@ -116,22 +116,6 @@ settings.modeConfig = [
     {
         localekey: "modern_texts",
         mode: "default"
-    },
-    {
-        localekey: "lanchart_transcriptions",
-        mode: "lanchart"
-    },
-    {
-        localekey: "memo_testcorpus",
-        mode: "memo"
-    },
-    {
-        localekey: "memo_testcorpus_individual",
-        mode: "memoindividual"
-    },
-    {
-        localekey: "memo_testcorpus_years",
-        mode: "memoyears"
     }
 ];
 

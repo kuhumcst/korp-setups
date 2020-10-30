@@ -1,5 +1,5 @@
-annotated/Memo*
-annotated/Brill-all/*
+annotated/*
+!annotated/DK.constitution.tabulator.vrt
 memo*.txt
 data
 registry

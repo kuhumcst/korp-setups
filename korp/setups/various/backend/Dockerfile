@@ -89,19 +89,20 @@ RUN service mysql start && \
 #   Retrieve args from docker-compose for use in build step with ARG.
 #   (Set as envvar with ENV to make available to CMD).
 ARG BUILD_MODE
+#ENV build_mode=$BUILD_MODE
 RUN echo "BUILD_MODE of encoding: $BUILD_MODE"
 
-# Copy corpora
+# Copy corpora.
 RUN mkdir -p ./corpora/data
 RUN mkdir -p ./corpora/registry
 COPY corpora/annotated ./corpora/annotated
 
-# Run encoding
+# Run CWB encoding.
 COPY corpora/encodingscripts ./corpora/encodingscripts
 RUN ["bash", "-c", "chmod -R +x ./corpora/encodingscripts"]
 RUN ./corpora/encodingscripts/encode.sh $BUILD_MODE
 
-# Run main command with environment variable as arg.
+# Run main command.
 COPY start.sh ./
 RUN chmod +x ./start.sh
 CMD ./start.sh
