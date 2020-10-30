@@ -5,6 +5,7 @@
 CORPUSNAME=lanchart_amager
 CORPUSFILE=lanchart_amager.vrt
 
+
 CORPUSUPPER=${CORPUSNAME^^}
 CORPORADIR=`dirname "$0"`/..
 CORPORADIR=`realpath $CORPORADIR`
@@ -31,19 +32,10 @@ then
 	           -R $CORPORADIR/registry/$CORPUSNAME \
 	           -c utf8 \
 	           -f $CORPORADIR/annotated/$CORPUSFILE \
-	           -P xmin -P xmax -P phonetic -P uncertain_transcription -P IPA -P PoS -P RedPoS \
-               -P TtT -P speaker -P Comments -P events -P xlength -P tur -P segment -P filename -P grammatik \
-			   -P gramma_II -P generisk -P GEX -P GIDDY -P Interaktionsstruktur -P Aktivitetstype -P Udsigelse \
-			   -P Genre -P Samtaletype -P Makro-sproghandling -P IIV_SMU_kommentarer -P IIV_AIG_kommentarer \
-			   -P global_events -P turn -P sync -P semvar -P epistsætn -P AUX \
-			   -S corpus \
+	           -P xmin -P xmax -P phonetic -P uncertain_transcription -P IPA -P PoS -P RedPoS -P TtT -P turns -P speaker -P Comments -P events -P xlength -P filename -P grammatik -P gramma_II -P generisk -P GEX -P GIDDY -P Interaktionsstruktur -P Udsigelse -P Genre -P Aktivitetstype -P Samtaletype -P Makrosproghandling -P IIV_SMU_kommentarer -P IIV_AIG_kommentarer -P global_events -P sync -P turn -P semvar -P epiststn -P AUX \
+			   -S corpus:0+label \
 			   -S text:0+xmin+xmax+xlength+size+filename \
-			   -S turn:0+taler+xmin+xmax+xlength \
-			   -S segment:0+xmin+xmax+xlength
-
+			   -S turn:0+speaker+xmin+xmax+xlength
 	# Gennemfør indekseringen
 	cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER
 fi
-
-
-

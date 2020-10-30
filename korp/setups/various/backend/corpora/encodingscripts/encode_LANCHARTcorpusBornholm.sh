@@ -5,6 +5,7 @@
 CORPUSNAME=lanchart_bornholm
 CORPUSFILE=lanchart_bornholm.vrt
 
+
 CORPUSUPPER=${CORPUSNAME^^}
 CORPORADIR=`dirname "$0"`/..
 CORPORADIR=`realpath $CORPORADIR`
@@ -31,18 +32,10 @@ then
 	           -R $CORPORADIR/registry/$CORPUSNAME \
 	           -c utf8 \
 	           -f $CORPORADIR/annotated/$CORPUSFILE \
-	           -P xmin -P xmax -P Comments -P events -P phonetic \
-	           -P uncertain_transcription -P IPA -P PoS -P RedPoS \
-	           -P TtT -P turn -P sync -P speaker -P xlength -P tur \
-	           -P segment -P filename \
-	           -S corpus \
+	           -P xmin -P xmax -P Comments -P events -P phonetic -P uncertain_transcription -P IPA -P PoS -P RedPoS -P TtT -P turns -P sync -P turn -P speaker -P xlength -P filename \
+			   -S corpus:0+label \
 			   -S text:0+xmin+xmax+xlength+size+filename \
-			   -S turn:0+taler+xmin+xmax+xlength \
-			   -S segment:0+xmin+xmax+xlength
-
+			   -S turn:0+speaker+xmin+xmax+xlength
 	# Gennemfør indekseringen
 	cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER
 fi
-
-
-

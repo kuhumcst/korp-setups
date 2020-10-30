@@ -5,6 +5,7 @@
 CORPUSNAME=lanchart_koege
 CORPUSFILE=lanchart_koege.vrt
 
+
 CORPUSUPPER=${CORPUSNAME^^}
 CORPORADIR=`dirname "$0"`/..
 CORPORADIR=`realpath $CORPORADIR`
@@ -31,22 +32,10 @@ then
 	           -R $CORPORADIR/registry/$CORPUSNAME \
 	           -c utf8 \
 	           -f $CORPORADIR/annotated/$CORPUSFILE \
-	            -P xmin -P xmax -P phonetic -P events -P Comments -P grammatik \
-				-P IPA -P PoS -P RedPoS -P TtT -P IIV_Kommentarer -P Genre \
-			 	-P Aktivitetstype -P Interaktionsstruktur -P Udsigelse \
-			 	-P Samtaletype -P Makro-sproghandling -P speaker -P emphasis \
-			 	-P variant_fonetik -P variant_fonetik_kontekst_realiseret \
-			 	-P variant_fonetik_kontekst_forventet -P variant_fonetik_R \
-			 	-P ledsaet -P at-tab-ekspl -P at-tab-ekspl-komm -P KL -P xlength \
-			 	-P tur -P segment -P filename -P Leksis_og_fraser -P uncertain_transcription -P TR-DK \
-			   -S corpus \
+	           -P xmin -P xmax -P phonetic -P IPA -P PoS -P RedPoS -P TtT -P turns -P speaker -P events -P uncertain_transcription -P xlength -P filename -P Comments -P TRDK \
+			   -S corpus:0+label \
 			   -S text:0+xmin+xmax+xlength+size+filename \
-			   -S turn:0+taler+xmin+xmax+xlength \
-			   -S segment:0+xmin+xmax+xlength
-
+			   -S turn:0+speaker+xmin+xmax+xlength
 	# Gennemfør indekseringen
 	cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER
 fi
-
-
-
