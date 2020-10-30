@@ -1,6 +1,6 @@
 #!/bin/bash
 # encode_testcorpus.sh
-# Encode korpusset lanchart_amager vha. cwb-encode.
+# Encode korpus vha. cwb-encode.
 
 CORPUSNAME=lanchart_bornholm
 CORPUSFILE=lanchart_bornholm.vrt
@@ -32,7 +32,7 @@ then
 	           -R $CORPORADIR/registry/$CORPUSNAME \
 	           -c utf8 \
 	           -f $CORPORADIR/annotated/$CORPUSFILE \
-	           -P xmin -P xmax -P Comments -P events -P phonetic -P uncertain_transcription -P IPA -P PoS -P RedPoS -P TtT -P turns -P sync -P turn -P speaker -P xlength -P filename \
+	           -P xmin -P xmax -P Comments -P events -P phonetic -P uncertain_transcription -P IPA -P PoS -P RedPoS -P TtT -P turns -P turn -P sync -P speaker -P xlength -P filename \
 			   -S corpus:0+label \
 			   -S text:0+xmin+xmax+xlength+size+filename \
 			   -S turn:0+speaker+xmin+xmax+xlength

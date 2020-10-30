@@ -1,6 +1,6 @@
 #!/bin/bash
 # encode_testcorpus.sh
-# Encode korpusset lanchart_amager vha. cwb-encode.
+# Encode korpus vha. cwb-encode.
 
 CORPUSNAME=lanchart_amager
 CORPUSFILE=lanchart_amager.vrt
@@ -32,7 +32,7 @@ then
 	           -R $CORPORADIR/registry/$CORPUSNAME \
 	           -c utf8 \
 	           -f $CORPORADIR/annotated/$CORPUSFILE \
-	           -P xmin -P xmax -P phonetic -P uncertain_transcription -P IPA -P PoS -P RedPoS -P TtT -P turns -P speaker -P Comments -P events -P xlength -P filename -P grammatik -P gramma_II -P generisk -P GEX -P GIDDY -P Interaktionsstruktur -P Udsigelse -P Genre -P Aktivitetstype -P Samtaletype -P Makrosproghandling -P IIV_SMU_kommentarer -P IIV_AIG_kommentarer -P global_events -P sync -P turn -P semvar -P epiststn -P AUX \
+	           -P xmin -P xmax -P events -P phonetic -P uncertain_transcription -P Comments -P grammatik -P generisk -P gramma_II -P IPA -P PoS -P RedPoS -P TtT -P GEX -P GIDDY -P turns -P Udsigelse -P Genre -P IIV_AIG_kommentarer -P Makrosproghandling -P Interaktionsstruktur -P Samtaletype -P Aktivitetstype -P IIV_SMU_kommentarer -P speaker -P xlength -P filename -P global_events -P turn -P sync -P semvar -P epistsxtn -P AUX \
 			   -S corpus:0+label \
 			   -S text:0+xmin+xmax+xlength+size+filename \
 			   -S turn:0+speaker+xmin+xmax+xlength
