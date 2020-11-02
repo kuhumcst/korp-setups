@@ -47,7 +47,14 @@ RUN git checkout upstream-master-bugfixes
 WORKDIR /opt/korp-frontend
 RUN yarn
 
+# ARGs:
+#   Retrieve args from docker-compose for use in build step with ARG.
+#   (Set as envvar with ENV to make available to CMD).
+ARG BUILD_MODE
+ENV build_mode=$BUILD_MODE
+RUN echo "envvar build_mode of cwb-encoding: $build_mode"
+
 # Start the main process
 COPY start.sh ./
 RUN chmod +x ./start.sh
-CMD ./start.sh
+CMD ./start.sh $build_mode

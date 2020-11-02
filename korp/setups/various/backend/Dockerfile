@@ -85,7 +85,24 @@ COPY db_setup.sql ./
 RUN service mysql start && \
     mysql -uroot -ppassword < ./db_setup.sql
 
-# Start the main process
+# ARGs:
+#   Retrieve args from docker-compose for use in build step with ARG.
+#   (Set as envvar with ENV to make available to CMD).
+ARG BUILD_MODE
+#ENV build_mode=$BUILD_MODE
+RUN echo "BUILD_MODE of encoding: $BUILD_MODE"
+
+# Copy corpora.
+RUN mkdir -p ./corpora/data
+RUN mkdir -p ./corpora/registry
+COPY corpora/annotated ./corpora/annotated
+
+# Run CWB encoding.
+COPY corpora/encodingscripts ./corpora/encodingscripts
+RUN ["bash", "-c", "chmod -R +x ./corpora/encodingscripts"]
+RUN ./corpora/encodingscripts/encode.sh $BUILD_MODE
+
+# Run main command.
 COPY start.sh ./
 RUN chmod +x ./start.sh
 CMD ./start.sh

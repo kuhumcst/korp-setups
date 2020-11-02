@@ -9,30 +9,38 @@ CORPUSUPPER=${CORPUSNAME^^}
 CORPORADIR=`dirname "$0"`/..
 CORPORADIR=`realpath $CORPORADIR`
 
-# Fjern encodede filer hvis de findes. Lav direktoriet til encodede filer på ny.
-rm -rf $CORPORADIR/data/$CORPUSNAME
-mkdir -p $CORPORADIR/data/$CORPUSNAME
+echo "corpusfile: $CORPORADIR/annotated/$CORPUSFILE"
 
-# Fjern registryindgangen.
-rm -f $CORPORADIR/registry/$CORPUSNAME
+# Tjek om korpusfilen findes.
+if [ -f "$CORPORADIR/annotated/$CORPUSFILE" ]
+then
 
-# Kør cwb-encode med diverse parametre:
-# -d: Det direktorie hvor de encodede filer skal ligge.
-# -R: Registryindgangen.
-# -x: XML-kompatibilitet.
-# -s: Skip blanke linjer.
-# -c: Encoding.
-# -f: Inputfil (vrt-format).
-# -P: Positional attribute.
-# -S: Structural attribute.
-cwb-encode -d $CORPORADIR/data/$CORPUSNAME \
-           -R $CORPORADIR/registry/$CORPUSNAME \
-           -xs -c utf8 \
-           -f $CORPORADIR/annotated/$CORPUSFILE \
-           -P pos -P pos2 -P lemma \
-           -S sentence:0+id \
-           -S text:0+title+author+pseudonym+date+datefrom+dateto+timefrom+timeto+gender+source+nationality+subtitle+pages+illustrations+typeface+publisher+price \
-           -S corpus:0+title+datefrom+dateto
+	# Fjern encodede filer hvis de findes. Lav direktoriet til encodede filer på ny.
+	rm -rf $CORPORADIR/data/$CORPUSNAME
+	mkdir -p $CORPORADIR/data/$CORPUSNAME
 
-# Gennemfør indekseringen
-cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER
+	# Fjern registryindgangen.
+	rm -f $CORPORADIR/registry/$CORPUSNAME
+
+	# Kør cwb-encode med diverse parametre:
+	# -d: Det direktorie hvor de encodede filer skal ligge.
+	# -R: Registryindgangen.
+	# -x: XML-kompatibilitet.
+	# -s: Skip blanke linjer.
+	# -c: Encoding.
+	# -f: Inputfil (vrt-format).
+	# -P: Positional attribute.
+	# -S: Structural attribute.
+	cwb-encode -d $CORPORADIR/data/$CORPUSNAME \
+	           -R $CORPORADIR/registry/$CORPUSNAME \
+	           -xs -c utf8 \
+	           -f $CORPORADIR/annotated/$CORPUSFILE \
+	           -P pos -P pos2 -P lemma \
+	           -S sentence:0+id \
+	           -S text:0+title+author+pseudonym+date+datefrom+dateto+timefrom+timeto+gender+source+nationality+subtitle+pages+illustrations+typeface+publisher+price \
+	           -S corpus:0+title+datefrom+dateto
+
+	# Gennemfør indekseringen
+	cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER
+fi
+
