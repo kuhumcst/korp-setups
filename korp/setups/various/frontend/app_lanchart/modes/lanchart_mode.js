@@ -257,5 +257,4 @@ settings.corpora.lanchart_koege = {
     };
 
 
-
 settings.corpusListing = new CorpusListing(settings.corpora);
