@@ -2,6 +2,8 @@ version: '3'
 services:
   backend:
     build: backend/
+    # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
+    restart: on-failure
     volumes:
       - ${CORPORA_DIR}:/opt/corpora
     ports:
@@ -9,10 +11,11 @@ services:
       - "1234:1234"
   frontend:
     build: frontend/
+    restart: on-failure
     depends_on:
       - backend
     volumes:
-      - ${KORP_FRONTEND_CONFIG_DIR}:/opt/korp-frontend-config
+      - ${KORP_FRONTEND_CONFIG_DIR}:/opt/korp-frontend/config
     ports:
       # Korp frontend server
       - "9111:9111"

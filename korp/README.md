@@ -29,6 +29,9 @@ The `.env` file in this repo contains default values, but they may need to be ch
 # Build image(s) and run container(s) in a detached state with `docker-compose`
 docker-compose up -d --build
 
+# When something is misbehaving, get feedback by NOT running in a detached state
+docker-compose up
+
 # Restart - but do not rebuild - a single container
 # Needed if Dockerfile/docker-compose.yml are untouched, but changes exist in e.g. frontend/app/config.js
 docker-compose restart backend
@@ -86,6 +89,23 @@ So this new Docker setup uses the original Språkbanken code as its base instead
 The documentation for the korp-frontend also specifies that one should [put a run_config.json in the project directory](https://github.com/spraakbanken/korp-frontend/blob/dev/doc/frontend_devel.md#configuration) to specify where any custom configuration files are located. Despite its name, this file is _not_ actually used for runtime configuration, but actually contains configurations needed to run the `yarn build` command.
 
 Currently, instead of using a `run_config.json` file, custom frontend configuration is applied dynamically as an input argument to the Docker container by running the final build step as part of the container start-up process. This a trade-off over running this step as part of the image build process: start-up time increases substantially (taking 1 minute or 2 Vs. a few seconds), but in return the user can dynamically alter any part of Korp frontend.
+
+### Updating modes and translations
+It is possible to update mode files and translation files while the system is running without restarting it. In order to synchronize files, the user should navigate to the korp project directory (in the case of CST's current production version that is `/opt/corpora/infrastructure/korp`) and execute the following command:
+
+```bash
+docker-compose exec frontend sync.sh
+```
+
+This command will run a script copying files from `modes/` and `translations/` to the `dist/` folder that is internal to the KORP docker container. The `modes/` and `translations/` folders are subfolders of `/opt/corpora/infrastructure/korp/app` in the current CST KORP installation.
+
+Any other updates to files in `/opt/corpora/infrastructure/korp/app` will require restarting the Docker container (takes 1-2 minutes):
+
+```bash
+docker-compose up -d --build
+```
+
+_Note: in order to see the changes in the browser, it might be necessary to reload the page too!_
 
 Inspiration
 -----------

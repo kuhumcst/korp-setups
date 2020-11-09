@@ -44,7 +44,13 @@ RUN git checkout ad56371387c7d582fa6b2658df6921f4458584da
 
 # Fetch korp-frontend dependencies
 WORKDIR /opt/korp-frontend
+COPY run_config.json ./
 RUN yarn
+
+# Include a script to sync mode and translation files from config/ to dist/.
+# Run `docker-compose exec frontend sync.sh` in same dir as docker-compose.yml.
+COPY sync.sh /bin/
+RUN chmod +x /bin/sync.sh
 
 # Start the main process
 COPY start.sh ./
