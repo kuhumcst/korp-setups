@@ -29,6 +29,12 @@ The `.env` file in this repo contains default values, but they may need to be ch
 # Build image(s) and run container(s) in a detached state with `docker-compose`
 docker-compose up -d --build
 
+# When building one of the setups (e.g. building inside korp/setups/clarin) it's
+# necessary to provide environment variables manually OR use the root .env file.
+# In practice this just means prepending the `up` part of the command with
+# `--env-file ../../.env` or whatever relative path that will resolve correctly.
+docker-compose --env-file ../../.env up -d --build
+
 # When something is misbehaving, get feedback by NOT running in a detached state
 docker-compose up
 
@@ -51,7 +57,30 @@ docker-compose down --remove-orphans --volumes
 
 _NOTE: all commands must be run in a directory containing a `docker-compose.yml` file!_
 
-The `docker-compose.yml` in this directory will start both the backend and frontend services. The backend service starts very quickly, while the frontend service starts a little slower due to having to run the build step dynamically too.
+The `docker-compose.yml` in this directory will start both the base backend and frontend services. The base backend service starts very quickly, while the base frontend service starts a little slower due to having to run the build step dynamically too.
+
+### Creating setups that inherit from parent images
+The `korp/setups` directory contains custom setups used in different contexts. As an example,
+the setup in `korp/setups/clarin` is the Korp instance available at [clarin.dk](https://alf.hum.ku.dk/korp). 
+
+A Dockerfile file cannot extend another Dockerfile, only Docker images. These images can either be pulled from a Docker repository or be built locally on your machine. Once built, they can be used as a parent image of another Dockerfile, e.g. an example Dockerfile might extend the frontend base:
+
+```Dockerfile
+FROM korp_frontend_base
+
+# Using a custom entrypoint
+COPY start.sh ./
+RUN chmod +x ./start.sh
+CMD ./start.sh
+```
+
+However, before we can create Dockerfiles that extend `korp_frontend_base` or `korp_backend_base` we must first build these images. That is accomplished by running
+
+```shell
+docker-compose build
+```
+
+inside the `korp/` directory where the `docker-compose.yml` creating the base images is located.
 
 ### Running the frontend independently 
 In case _only_ the backend service needs to be started, use the `docker-compose.yml` in the backend subdirectory. The frontend can then be run independently, e.g. from a checked out `korp-frontend` git repo, using the following commands:

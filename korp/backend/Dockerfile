@@ -74,7 +74,6 @@ RUN pip3 install wheel
 RUN pip3 install -r requirements.txt
 COPY config.py /opt/korp-backend/config.py
 
-# TODO: no MySQL errors, but still doesn't seem to generate the graphs
 # Set up a new Mysql DB
 COPY db_setup.sql ./
 RUN service mysql start && \

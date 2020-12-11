@@ -2,20 +2,14 @@ version: '3'
 services:
   backend:
     build: backend/
-    # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
+    image: korp_backend_base
     restart: on-failure
     volumes:
       - ${CORPORA_DIR}:/opt/corpora
     ports:
-      # Korp backend server
       - "1234:1234"
+
+  # NOTE: lacks an entrypoint - extend korp_frontend_base in separate Dockerfile
   frontend:
     build: frontend/
-    restart: on-failure
-    depends_on:
-      - backend
-    volumes:
-      - ${KORP_FRONTEND_CONFIG_DIR}:/opt/korp-frontend/config
-    ports:
-      # Korp frontend server
-      - "9111:9111"
+    image: korp_frontend_base

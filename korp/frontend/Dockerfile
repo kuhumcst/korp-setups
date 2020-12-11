@@ -46,12 +46,15 @@ RUN git checkout ad56371387c7d582fa6b2658df6921f4458584da
 WORKDIR /opt/korp-frontend
 RUN yarn
 
+# Recursively patch korp-frontend source code - provides basic UI localisation
+COPY app/* /opt/korp-frontend/frontend-base-patch/
+RUN cp -r /opt/korp-frontend/frontend-base-patch/* /opt/korp-frontend/app/
+
 # Include a script to sync mode and translation files from config/ to dist/.
 # Run `docker-compose exec frontend sync.sh` in same dir as docker-compose.yml.
-COPY sync.sh /bin/
+COPY exec/sync.sh /bin/
 RUN chmod +x /bin/sync.sh
 
-# Start the main process
-COPY start.sh ./
-RUN chmod +x ./start.sh
-CMD ./start.sh
+# This Dockerfile does NOT contain an entrypoint! You MUST extend it by writing
+# your own Dockerfile, using `korp_frontend_base` as a parent image.
+# See korp/setups/clarin for an example setup including a Dockerfile.
