@@ -31,38 +31,69 @@ Docker commands
 When `$CORPORA_DIR` is defined in the shell and your frontend config is sound,
 building and running the system should be fairly simple.
 
+---
+
+To build image(s) and store them in the local Docker repo, but _not_ run them:
+
 ```shell
-# Build image(s) and store them in the local Docker repo, but do not run them!
-# This command is mainly used to build the base images in the korp/ root.
+# building parent images
 docker-compose build
+```
+This command is mostly just used to build the base images in the `korp/` directory. Typically, you will run this once (successfully) and then *only* rerun it when upstream changes to these base Docker configurations land on your branch.
 
-# Build image(s) and run container(s) in a detached state with `docker-compose`;
-# the most common way to run a setup. Omit the -d to get command-line feedback.
-# Note that this requires necessary environment variables to be defined too!
+---
+
+To build image(s) and run container(s) in a detached state with `docker-compose` run:
+
+```shell
+# building + running a setup
 docker-compose up -d --build
+```
+> Note: Omit the `-d` to get command-line feedback.
 
-# When building one of the setups, in practice this just means prepending the 
-# `up` part of the command with `--env-file ../../.env` - or whatever relative 
-# path that will resolve correctly for your setup.
+This is the most common way to build and run a setup, but note that this requires the necessary environment variables to be defined in the shell too. To use the environment file in the `korp/` directory in one of the setups, you can prepend the `up` part of the command with `--env-file ../../.env` - or whatever relative path resolves correctly to an .env file.
+
+```shell
+# building + running a setup with an .env file
 docker-compose --env-file ../../.env up -d --build
 ```
 
 ### Debugging
 Of course, in the real world, you will need to debug the system.
 
-```shell
-# When something is misbehaving, get feedback by NOT running in a detached state
-docker-compose up
+When something is misbehaving, get feedback by NOT rerunning in a detached state. This means omitting the `-d` option - and optionally the `--build` option to skip the build step:
 
-# Restart - but do not rebuild - a single container
-# Needed if Dockerfile/docker-compose.yml are untouched, but changes exist in e.g. frontend/app/config.js
+```shell
+# running with command-line output
+docker-compose up
+```
+
+This is helpful in cases where the container keeps crashing and you want to see if some error message is written to standard output.
+
+---
+
+In certain cases you might want to restart - but not rebuild - a single container:
+
+```shell
 docker-compose restart backend
 docker-compose restart frontend
+```
 
-# Enter the running containers
+This is needed if `Dockerfile`/`docker-compose.yml` are untouched, but changes still exist in files that are loaded dynamically.
+
+---
+
+Very often, you will need to enter a running container to see what it looks from the inside:
+
+```shell
 docker-compose exec backend bash
 docker-compose exec frontend bash
+```
+___
 
+In some cases you just want to kill stuff (perhaps you're running multiple Docker containers that are interfering with each other):
+
+```shell
 # Stop the running container(s)
 docker-compose stop
 
@@ -85,13 +116,7 @@ RUN chmod +x ./start.sh
 CMD ./start.sh
 ```
 
-However, before we can create Dockerfiles that extend `korp_frontend_base` or `korp_backend_base` we must first build these images. That is accomplished by running
-
-```shell
-docker-compose build
-```
-
-inside the `korp/` directory where the `docker-compose.yml` creating the base images is located.
+However, before we can create Dockerfiles that extend `korp_frontend_base` or `korp_backend_base` we must first build these images. That is accomplished by running `docker-compose build` inside the `korp/` directory where the `docker-compose.yml` creating the base images is located.
 
 ### Updating modes and translations
 It is possible to update mode files and translation files while the system is running without restarting it. In order to synchronize files, the user should navigate to the korp project directory (in the case of the current Clarin production version that is `/opt/corpora/infrastructure/korp/setups/clarin`) and execute the following command:
@@ -102,7 +127,7 @@ docker-compose exec frontend sync.sh
 
 This command will run a script copying files from `modes/` and `translations/` to the `dist/` folder that is internal to the Korp docker container. The `modes/` and `translations/` folders are subfolders of `/opt/corpora/infrastructure/korp/app` in the current CST Korp installation.
 
-Any other updates to files in `/opt/corpora/infrastructure/korp/setups/clarin/app` will require restarting the Docker container (takes 1-2 minutes):
+Any other updates to files in `/opt/corpora/infrastructure/korp/setups/clarin/app` will require both rebuilding and restarting the Docker container (takes a couple of minutes):
 
 ```bash
 docker-compose --env-file ../../.env up -d --build
@@ -112,9 +137,9 @@ docker-compose --env-file ../../.env up -d --build
 
 Running the frontend independently
 ----------------------------------
-In case _only_ the backend service needs to be started, make sure the relevant `docker-compose.yml` does not start a frontend container, e.g. by commenting out the relevant code. The frontend can then be run independently, e.g. from a checked out `korp-frontend` git repo, using the following commands:
+In case _only_ the backend service needs to be started, make sure the relevant `docker-compose.yml` does not start a frontend container, e.g. by commenting out the relevant code or by using a `docker-compose.yml` that doesn't explicitly start the Korp frontend. The frontend can then be run independently, e.g. from a checked out `korp-frontend` git repo, using the following commands:
 
-```
+```shell
 yarn
 yarn build
 yarn start:dist
