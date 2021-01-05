@@ -57,6 +57,7 @@ RUN apt-get update && \
     gcc \
     mysql-server \
     libmysqlclient-dev \
+    subversion \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
