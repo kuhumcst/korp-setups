@@ -38,6 +38,8 @@ billeballads
 
 # Requirements
 
+Udviklet i Python 3.6
+
 Katalog over viserne: https://cst.dk/dighumlab/duds/DFK/Dorthe/html/JensBille.htm
 
 Eksempler på viser:
