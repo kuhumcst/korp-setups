@@ -1,0 +1,595 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 31: Kong Hans i Ditmarsken [DgF: 169 A III 650-651]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="[1]">
+<sentence type="vers">
+Koniingh	konning	konge	sb	n/a
+Hans	Hans	Hans	pers	n/a
+siider	sidder	sidde	vb	n/a
+ii	i	i	præp	n/a
+siin	sin	sin	pron	n/a
+egenn	egen	egen	adj	n/a
+stoffue	stue	stue	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+undtt	ondt	ond	adj	n/a
+ith	et	en	art	n/a
+radtt	råd	råd	sb	jf._råde_vb
+kom	kom	komme	vb	n/a
+ham	ham	han	pron	n/a
+udii	udi	i	præp	n/a
+hue	hu	hu	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+De	de	den	art	n/a
+danske	danske	dansk	adj	n/a
+hoffmendt	hovmænd	hovmand	sb	n/a
+terres	deres	den	pron	n/a
+liiff	liv	liv	sb	n/a
+er	er	være	vb	n/a
+altt	alt	alt	adv	n/a
+for-lorrett	forloret	forloren	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[2]">
+<sentence type="vers">
+I	i	i	præp	n/a
+siin	sin	sin	pron	n/a
+egenn	egen	egen	adj	n/a
+stoffue	stue	stue	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+ondt	ondt	ond	adj	n/a
+itt	et	en	art	n/a
+radtt	råd	råd	sb	jf._råde_vb
+kam	kom	komme	vb	n/a
+hannom	hannum	han	pron	n/a
+udii	udi	i	præp	n/a
+huo	hu	hu	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Wii	vi	vi	pron	n/a
+gørre	gøre	gøre	vb	n/a
+udtt	ud	ud	adv	n/a
+huer	hver	hver	pron	n/a
+Xend	tiend	tiende	num	n/a
+mand	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+riider	rider	ride	vb	n/a
+wii	vi	vi	pron	n/a
+tell	til	til	præp	n/a
+Tetmerskenn	Ditmersken	Ditmersken	stn	n/a
+,	,	,	tgn	n/a
+tiill	til	til	præp	n/a
+wartt	vort	vor	pron	n/a
+land	land	land	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[3]">
+<sentence type="vers">
+Huer	hver	hver	pron	n/a
+tiiende	tiende	tiende	num	n/a
+mand	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+viinder	vinder	vinde	vb	n/a
+uii	vi	vi	pron	n/a
+Tettmersken	Ditmersken	Ditmersken	stn	n/a
+tell	til	til	præp	n/a
+wartt	vort	vor	pron	n/a
+land	land	land	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="vers">
+Och	og	og	konj	n/a
+suarde	svarde	svare	vb	n/a
+liiden	liden	liden	adj	n/a
+Kiirstin	Kirsten	Kirsten	pers	n/a
+ii	i	i	præp	n/a
+korttell	kjortel	kjortel	sb	n/a
+rødtt	rød	rød	adj	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Komerr	kommer	komme	vb	n/a
+ii	I	I	pron	n/a
+tell	til	til	præp	n/a
+Tettmerskenn	Ditmersken	Ditmersken	stn	n/a
+,	,	,	tgn	n/a
+thett	det	den	pron	n/a
+worder	vorder	vorde	vb	n/a
+edders	eders	I	pron	n/a
+død	død	død	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="[4]">
+<sentence type="vers">
+I	i	i	præp	n/a
+korttell	kjortel	kjortel	sb	n/a
+rødtt	rød	rød	adj	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Komer	kommer	komme	vb	n/a
+ii	I	I	pron	n/a
+tel	til	til	præp	n/a
+Tettmersken	Ditmersken	Ditmersken	stn	n/a
+,	,	,	tgn	n/a
+dett	det	den	pron	n/a
+worder	vorder	vorde	vb	n/a
+eders	eders	I	pron	n/a
+død	død	død	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Min	min	min	pron	n/a
+fader	fader	fader	sb	n/a
+han	han	han	pron	n/a
+war	var	være	vb	n/a
+en	en	en	art	n/a
+welbiiurdiigh	velbyrdig	velbyrdig	adj	n/a
+mand	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+liiger	ligger	ligge	vb	n/a
+ii	i	i	præp	n/a
+Tettmerskenn	Ditmersken	Ditmersken	stn	n/a
+for	for	for	præp	n/a
+hunde	hunde	hund	sb	n/a
+och	og	og	konj	n/a
+raffn	ravn	ravn	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[5]">
+<sentence type="vers">
+In	en	en	art	n/a
+welbiirdiigh	velbyrdig	velbyrdig	adj	n/a
+mand	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+liiger	ligger	ligge	vb	n/a
+ii	i	i	præp	n/a
+Tettmerskenn	Ditmersken	Ditmersken	stn	n/a
+for	for	for	præp	n/a
+hunde	hunde	hund	sb	n/a
+och	og	og	konj	n/a
+raffn	ravn	ravn	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="vers">
+Kong	kong	konge	sb	n/a
+Hans	Hans	Hans	pers	n/a
+han	han	han	pron	n/a
+lader	lader	lade	vb	tillade
+de	de	den	art	n/a
+lønne-breff	lønnebrev	lønbrev	sb	n/a
+skriiffue	skrive	skrive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+in	ind	ind	adv	n/a
+tell	til	til	præp	n/a
+Tettmersken	Ditmersken	Ditmersken	stn	n/a
+lader	lader	lade	vb	tillade
+hann	han	han	pron	n/a
+dennem	dennum	den	pron	n/a
+giiffue	give	give	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[6]">
+<sentence type="vers">
+Te	de	den	art	n/a
+løne-breff	lønnebrev	lønbrev	sb	n/a
+skriiffue	skrive	skrive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+iin	ind	ind	adv	n/a
+tell	til	til	præp	n/a
+Tettmerskenn	Ditmersken	Ditmersken	stn	n/a
+lader	lader	lade	vb	tillade
+han	han	han	pron	n/a
+dennem	dennum	den	pron	n/a
+giiffue	give	give	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+De	de	den	art	n/a
+tettmerske	ditmerske	ditmersk	adj	n/a
+udii	udi	i	præp	n/a
+breffuenn	breven	brev	sb	n/a
+saa	så	se	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Radde	råde	råde	vb	n/a
+dett	det	den	pron	n/a
+Gud-fader	Gudfader	Gudfader	pers	n/a
+,	,	,	tgn	n/a
+huor	hvor	hvor	adv	n/a
+dett	det	den	pron	n/a
+well	vil	ville	vb	n/a
+gaa	gå	gå	vb	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+</p>
+<p id="[7]">
+<sentence type="vers">
+[Udii]	[*]	[*]	uvis	n/a
+[breffuenn]	[*]	[*]	uvis	n/a
+[saa]	[*]	[*]	uvis	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+[Radde]	[*]	[*]	uvis	n/a
+[dett]	[*]	[*]	uvis	n/a
+[Gud-fader]	[*]	[*]	uvis	n/a
+,	,	,	tgn	n/a
+[huor]	[*]	[*]	uvis	n/a
+[dett]	[*]	[*]	uvis	n/a
+[well]	[*]	[*]	uvis	n/a
+[gaa]	[*]	[*]	uvis	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+<sentence type="vers">
+[De]	[*]	[*]	uvis	n/a
+[skreff]	[*]	[*]	uvis	n/a
+[hannom]	[*]	[*]	uvis	n/a
+[itt]	[*]	[*]	uvis	n/a
+[andett]	[*]	[*]	uvis	n/a
+[ii-genn]	[*]	[*]	uvis	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+[Ii]	[*]	[*]	uvis	n/a
+[beder]	[*]	[*]	uvis	n/a
+[hannom]	[*]	[*]	uvis	n/a
+[kome]	[*]	[*]	uvis	n/a
+[och]	[*]	[*]	uvis	n/a
+[uer]	[*]	[*]	uvis	n/a
+[eii]	[*]	[*]	uvis	n/a
+[sen]	[*]	[*]	uvis	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+</p>
+<p id="[8]">
+<sentence type="vers">
+Itt	et	en	art	n/a
+andett	andet	anden	pron	n/a
+ii-genn	igen	igen	adv	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Ii	I	I	pron	n/a
+beder	beder	bede	vb	anmode
+hannom	hannum	han	pron	n/a
+kamee	komme	komme	vb	n/a
+och	og	og	konj	n/a
+uer	vær	være	vb	n/a
+eii	ej	ej	adv	n/a
+sendt	sen	sen	adj	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+<sentence type="vers">
+Koniingh	konning	konge	sb	n/a
+Hans	Hans	Hans	pers	n/a
+han	han	han	pron	n/a
+leger	lægger	lægge	vb	jf._ligge
+ii	i	i	præp	n/a
+Tettmerskenn	Ditmersken	Ditmersken	stn	n/a
+iin	ind	ind	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	adv	n/a
+blegnett	blegnet	blegne	vb	n/a
+sa	så	så	adv	n/a
+mangen	mangen	mangen	adj	n/a
+rossens-kiind	rosenskind	rosenkind	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[9]">
+<sentence type="vers">
+Forr	for	for	præp	n/a
+Tettmersken	Ditmersken	Ditmersken	stn	n/a
+iind	ind	ind	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	adv	n/a
+blegned	blegnet	blegne	vb	n/a
+sa	så	så	adv	n/a
+mangen	mangen	mangen	adj	n/a
+rossens-kiind	rosenskind	rosenkind	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Der	der	der	adv	n/a
+blegnedt	blegnet	blegne	vb	n/a
+sa	så	så	adv	n/a
+mangenn	mangen	mangen	adj	n/a
+rossens-blome	rosensblomme	rosenblomme	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+som	som	som	konj	n/a
+aldrii	aldrig	aldrig	adv	n/a
+agtter	agter	agte	vb	n/a
+seg	sig	sig	pron	n/a
+tel	til	til	præp	n/a
+Danmark	Danmark	Danmark	stn	n/a
+att	at	at	ukl	n/a
+kame	komme	komme	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[10]">
+<sentence type="vers">
+Saa	så	så	adv	n/a
+mangenn	mangen	mangen	adj	n/a
+rossens-blome	rosensblomme	rosenblomme	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+som	som	som	konj	n/a
+alder	aller	aldrig	adv	n/a
+agter	agter	agte	vb	n/a
+seg	sig	sig	pron	n/a
+tell	til	til	præp	n/a
+Danmark	Danmark	Danmark	stn	n/a
+att	at	at	ukl	n/a
+kame	komme	komme	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+De	de	den	art	n/a
+tettmersken	ditmersken	ditmersk	adj	n/a
+leger	lægger	lægge	vb	jf._ligge
+derres	deres	den	pron	n/a
+bøsser	bøsser	bøsse	sb	n/a
+ii	i	i	præp	n/a
+riingh	ring	ring	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dee	de	den	art	n/a
+danske	danske	dansk	adj	n/a
+de	de	den	pron	n/a
+uiipper	vipper	vippe	vb	n/a
+fasst	fast	fast	adv	n/a
+uden	uden	uden	adv	n/a
+om-kriingh	omkring	omkring	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[11]">
+<sentence type="vers">
+Dee	de	den	art	n/a
+bøsser	bøsser	bøsse	sb	n/a
+ii	i	i	præp	n/a
+riingh	ring	ring	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	art	n/a
+danske	danske	dansk	adj	n/a
+dee	de	den	pron	n/a
+uiipper	vipper	vippe	vb	n/a
+fasst	fast	fast	adv	n/a
+uden	uden	uden	adv	n/a
+om-kriingh	omkring	omkring	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+De	de	den	pron	n/a
+skode	skude	skyde	vb	n/a
+ii	i	i	præp	n/a
+den	den	den	art	n/a
+første	første	først	adj	n/a
+skarre	skare	skare	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+mangen	mangen	mangen	adj	n/a
+riider	ridder	ridder	sb	n/a
+saa	så	så	adv	n/a
+bleff	blev	blive	vb	n/a
+der	der	der	adv	n/a
+slagen	slagen	slå	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[12]">
+<sentence type="vers">
+Den	den	den	art	n/a
+førsste	første	først	adj	n/a
+skarre	skare	skare	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+sa	så	så	adv	n/a
+mangen	mangen	mangen	adj	n/a
+riider	ridder	ridder	sb	n/a
+saa	så	så	adv	n/a
+bleff	blev	blive	vb	n/a
+der	der	der	adv	n/a
+slagen	slagen	slå	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+De	de	den	pron	n/a
+skode	skude	skyde	vb	n/a
+ii	i	i	præp	n/a
+den	den	den	pron	n/a
+anden	anden	anden	num	n/a
+skarree	skare	skare	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+VII	syv	syv	num	n/a
+M	tusind	tusind	num	n/a
+mend	mænd	mand	sb	n/a
+saa	så	så	adv	n/a
+bleff	blev	blive	vb	n/a
+der	der	der	adv	n/a
+slagenn	slagen	slå	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[13]">
+<sentence type="vers">
+Den	den	den	art	n/a
+andenn	anden	anden	num	n/a
+skarre	skare	skare	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+VII	syv	syv	num	n/a
+M	tusind	tusind	num	n/a
+[mend]	[*]	[*]	uvis	n/a
+saa	så	så	adv	n/a
+bleff	blev	blive	vb	n/a
+der	der	der	adv	n/a
+slagen	slagen	slå	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Och	og	og	konj	n/a
+de	de	den	pron	n/a
+skode	skude	skyde	vb	n/a
+ii	i	i	præp	n/a
+den	den	den	art	n/a
+trede	tredje	tredje	num	n/a
+skarre	skare	skare	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dett	det	den	pron	n/a
+war	var	være	vb	n/a
+koniingh	konning	konge	sb	n/a
+Hans	Hans	Hans	pers	n/a
+[siitt]	[*]	[*]	uvis	n/a
+hertte	hjerte	hjerte	sb	n/a
+brøst	brist	briste	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[14]">
+<sentence type="vers">
+Denn	den	den	art	n/a
+tredde	tredje	tredje	num	n/a
+skarre	skare	skare	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dett	det	den	pron	n/a
+war	var	være	vb	n/a
+koniingh	konning	konge	sb	n/a
+Hans	Hans	Hans	pers	n/a
+siitt	sit	sin	pron	n/a
+hertte	hjerte	hjerte	sb	n/a
+brøsst	brist	briste	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Saa	så	så	adv	n/a
+toge	toge	tage	vb	n/a
+de	de	den	pron	n/a
+den	den	den	art	n/a
+ridder[s-]skold	ridderskjold	ridderskjold	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	pron	n/a
+førd	ført	føre	vb	n/a
+hanom	hannum	han	pron	n/a
+iin	ind	ind	adv	n/a
+for	for	for	præp	n/a
+ionffru	jomfru	jomfru	sb	n/a
+Mariia	Maria	Maria	pers	n/a
+bold	bold	bold	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="[15]">
+<sentence type="vers">
+Den	den	den	art	n/a
+riider[s-]skold	ridderskjold	ridderskjold	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	pron	n/a
+førd	ført	føre	vb	n/a
+hanom	hannum	han	pron	n/a
+iin	ind	ind	adv	n/a
+for	for	for	præp	n/a
+ionffru	jomfru	jomfru	sb	n/a
+Marriia	Maria	Maria	pers	n/a
+boldtt	bold	bold	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Och	og	og	konj	n/a
+loffuett	lovet	love	vb	n/a
+werre	være	være	vb	n/a
+ionffru	jomfru	jomfru	sb	n/a
+Marriia	Maria	Maria	pers	n/a
+mø	mø	mø	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+koniingh	konning	konge	sb	n/a
+Hans	Hans	Hans	pers	n/a
+haffuer	haver	have	vb	n/a
+icke	ikke	ikke	adv	n/a
+wortt	vort	vor	pron	n/a
+land	land	land	sb	n/a
+for-ødtt	forødt	forøde	vb	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+De	de	den	art	n/a
+danske	danske	dansk	adj	n/a
+hoffmend	hovmænd	hovmand	sb	n/a
+deres	deres	den	pron	n/a
+liiff	liv	liv	sb	n/a
+er	er	være	vb	n/a
+altt	alt	alt	adv	n/a
+forr-lorredtt	forloret	forloren	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+

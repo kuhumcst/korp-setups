@@ -1,0 +1,703 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 68: (O Gud hvor jeg længes) [DV: 229 B (Aa: III 158-161)]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="1">
+<sentence type="vers">
+O	o	o	intj	n/a
+Gudtt	Gud	Gud	pers	n/a
+,	,	,	tgn	n/a
+huor	hvor	hvor	adv	n/a
+saare	såre	såre	adv	n/a
+mig	mig	jeg	pron	n/a
+lengis	længes	længes	vb	føle_længsel
+</sentence>
+<sentence type="vers">
+epther	efter	efter	præp	n/a
+then	den	den	pron	n/a
+,	,	,	tgn	n/a
+som	som	som	konj	n/a
+mig	mig	jeg	pron	n/a
+gleden	glæden	glæde	sb	n/a
+skall	skal	skulle	vb	n/a
+sende	sende	sende	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+then	den	den	art	n/a
+alder[-]kieriist	allerkærest	allerkærest	adj	n/a
+myn	min	min	pron	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+wij	vi	vi	pron	n/a
+maa	må	måtte	vb	n/a
+icke	ikke	ikke	adv	n/a
+tiill[-]samen	tilsammen	tilsammen	adv	n/a
+bliffue	blive	blive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thett	det	den	pron	n/a
+er	er	være	vb	n/a
+myn	min	min	pron	n/a
+dagliige	daglige	daglig	adj	n/a
+quide	kvide	kvide	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+o	o	o	intj	n/a
+Gud	Gud	Gud	pers	n/a
+,	,	,	tgn	n/a
+hielp	hjælp	hjælpe	vb	n/a
+mig	mig	jeg	pron	n/a
+aff	af	af	præp	n/a
+altt	alt	al	adj	n/a
+myn	min	min	pron	n/a
+nødtt	nød	nød	sb	elendighed,_fare
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="2">
+<sentence type="vers">
+Thett	det	den	art	n/a
+sydste	sidste	sidst	adj	n/a
+ieg	jeg	jeg	pron	n/a
+ham	ham	han	pron	n/a
+met	med	med	præp	n/a
+øgen	øjen	øje	sb	n/a
+saa	så	se	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+ieg	jeg	jeg	pron	n/a
+mentte	mente	mene	vb	n/a
+mytt	mit	min	pron	n/a
+hiertte	hjerte	hjerte	sb	n/a
+skulle	skulle	skulle	vb	n/a
+synder	sønder	sønder	adv	itu
+gaa	gå	gå	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	konj	n/a
+ieg	jeg	jeg	pron	n/a
+motte	måtte	måtte	vb	n/a
+icke	ikke	ikke	adv	n/a
+met	med	med	præp	n/a
+hannem	hannum	han	pron	n/a
+tale	tale	tale	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+monne	monne	monne	vb	n/a
+mig	mig	jeg	pron	n/a
+well	vel	vel	adv	n/a
+befale	befalde	befalde	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+ieg	jeg	jeg	pron	n/a
+wnder	under	unde	vb	n/a
+hannem	hannum	han	pron	n/a
+vel	vel	vel	adv	n/a
+offuer	over	over	præp	n/a
+alle	alle	al	adj	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+mytt	mit	min	pron	n/a
+hiertte	hjerte	hjerte	sb	n/a
+ieg	jeg	jeg	pron	n/a
+hannem	hannum	han	pron	n/a
+gaff	gav	give	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="3">
+<sentence type="vers">
+Handtt	han	han	pron	n/a
+haffuer	haver	have	vb	n/a
+langtt	lagt	lægge	vb	jf._ligge
+mytt	mit	min	pron	n/a
+hiertte	hjerte	hjerte	sb	n/a
+y	i	i	præp	n/a
+thuanghe	tvange	tvang	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+saare	såre	såre	adv	n/a
+monne	monne	monne	vb	n/a
+ieg	jeg	jeg	pron	n/a
+effther	efter	efter	præp	n/a
+hannem	hannum	han	pron	n/a
+lange	lange	lange	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+syn	sidn	siden	konj	n/a
+første	første	først	adj	n/a
+ieg	jeg	jeg	pron	n/a
+hannem	hannum	han	pron	n/a
+saa	så	se	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+then	den	den	art	n/a
+store	store	stor	adj	n/a
+sorriig	sorrig	sorg	sb	n/a
+oc	og	og	konj	n/a
+quide	kvide	kvide	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+som	som	som	konj	n/a
+ieg	jeg	jeg	pron	n/a
+haffuer	haver	have	vb	n/a
+y	i	i	præp	n/a
+myn	min	min	pron	n/a
+synde	sinde	sind	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+om	om	om	konj	n/a
+hand	han	han	pron	n/a
+wyll	vil	ville	vb	n/a
+tencke	tænke	tænke	vb	n/a
+ther[-]paa	derpå	derpå	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="4">
+<sentence type="vers">
+Ther[-]nest	dernæst	dernæst	adv	n/a
+monne	monne	monne	vb	n/a
+ieg	jeg	jeg	pron	n/a
+hannem	hannum	han	pron	n/a
+fynde	finde	finde	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+mercker	mærker	mærke	vb	n/a
+well	vel	vel	adv	n/a
+paa	på	på	præp	n/a
+myn	min	min	pron	n/a
+synde	sinde	sind	sb	n/a
+</sentence>
+<sentence type="vers">
+myn	min	min	pron	n/a
+sorriig	sorrig	sorg	sb	n/a
+oc	og	og	konj	n/a
+store	store	stor	adj	n/a
+atraadtt	attrå	attrå	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+thij	thi	thi	konj	n/a
+mone	monne	monne	vb	n/a
+ieg	jeg	jeg	pron	n/a
+hannem	hannum	han	pron	n/a
+tiill	til	til	præp	n/a
+scriffue	skrive	skrive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thet	det	den	art	n/a
+samme	samme	samme	adj	n/a
+hand	han	han	pron	n/a
+mig	mig	jeg	pron	n/a
+bethede	betede	bete	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+myn	min	min	pron	n/a
+glede	glæde	glæde	sb	n/a
+er	er	være	vb	n/a
+y	i	i	præp	n/a
+hans	hans	han	pron	n/a
+woldtt	vold	vold	sb	magt
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="5">
+<sentence type="vers">
+Ieg	jeg	jeg	pron	n/a
+loffuit	lovet	love	vb	n/a
+hannem	hannum	han	pron	n/a
+tro	tro	tro	sb	n/a
+met	med	med	præp	n/a
+alle	alle	al	adj	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+ieg	jeg	jeg	pron	n/a
+wyll	vil	ville	vb	n/a
+hannem	hannum	han	pron	n/a
+aldriig	aldrig	aldrig	adv	n/a
+forlade	forlade	forlade	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+then	den	den	art	n/a
+tro	tro	tro	sb	n/a
+ieg	jeg	jeg	pron	n/a
+haffuer	haver	have	vb	n/a
+hannem	hannum	han	pron	n/a
+sagtt	sagt	sige	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+skall	skal	skulle	vb	n/a
+hand	han	han	pron	n/a
+mig	mig	jeg	pron	n/a
+trofast	trofast	trofast	adj	n/a
+fynde	finde	finde	vb	n/a
+</sentence>
+<sentence type="vers">
+aff	af	af	præp	n/a
+hue	hu	hu	sb	n/a
+oc	og	og	konj	n/a
+hiertte	hjerte	hjerte	sb	n/a
+oc	og	og	konj	n/a
+synde	sinde	sind	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	præp	n/a
+nogen	nogen	nogen	pron	n/a
+ther	der	der	konj	n/a
+ieg	jeg	jeg	pron	n/a
+haffuer	haver	have	vb	n/a
+seett	set	se	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="6">
+<sentence type="vers">
+Viiste	vidste	vide	vb	kendskab,_oplysning
+ieg	jeg	jeg	pron	n/a
+thett	det	den	pron	n/a
+hannem	hannum	han	pron	n/a
+tiill	til	til	præp	n/a
+wylge	vilje	vilje	sb	n/a
+kund	kunn	kunne	vb	n/a
+wære	være	være	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+skulle	skulle	skulle	vb	n/a
+thet	det	den	pron	n/a
+icke	ikke	ikke	adv	n/a
+aff	af	af	præp	n/a
+mig	mig	jeg	pron	n/a
+begiere	begære	begære	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+ieg	jeg	jeg	pron	n/a
+wylde	ville	ville	vb	n/a
+thet	det	den	pron	n/a
+selff	selv	selv	pron	n/a
+betencke	betænke	betænke	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+thij	thi	thi	konj	n/a
+ieg	jeg	jeg	pron	n/a
+wnder	under	unde	vb	n/a
+hannem	hannum	han	pron	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	præp	n/a
+alle	alle	al	adj	n/a
+mand	mand	mand	sb	n/a
+well	vel	vel	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+wiiste	vidste	vide	vb	kendskab,_oplysning
+ieg	jeg	jeg	pron	n/a
+thet	det	den	pron	n/a
+hannem	hannum	han	pron	n/a
+tiill	til	til	præp	n/a
+wylie	vilje	vilje	sb	n/a
+kand	kan	kunne	vb	n/a
+wære	være	være	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="7">
+<sentence type="vers">
+Hans	hans	han	pron	n/a
+trofast	trofast	trofast	adj	n/a
+ord	ord	ord	sb	n/a
+oc	og	og	konj	n/a
+tale	tale	tale	sb	n/a
+</sentence>
+<sentence type="vers">
+thii	de	den	pron	n/a
+giøre	gøre	gøre	vb	n/a
+migh	mig	jeg	pron	n/a
+lange	lange	lang	adj	n/a
+dage	dage	dag	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+y	I	I	pron	n/a
+maa	må	måtte	vb	n/a
+thet	det	den	pron	n/a
+paa	på	på	præp	n/a
+mig	mig	jeg	pron	n/a
+see	se	se	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+hans	hans	han	pron	n/a
+bogstaff	bogstav	bogstav	sb	n/a
+haffuer	haver	have	vb	n/a
+ieg	jeg	jeg	pron	n/a
+indscreffuit	indskrevet	indskrive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for[-]inden	forinden	forinden	præp	n/a
+mytt	mit	min	pron	n/a
+hiertte	hjerte	hjerte	sb	n/a
+giiffuitt	givet	give	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thet	det	den	pron	n/a
+ber	bær	bære	vb	n/a
+ieg	jeg	jeg	pron	n/a
+tiill	til	til	præp	n/a
+myn	min	min	pron	n/a
+sydste	sidste	sidst	adj	n/a
+tiidtt	tid	tid	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="8">
+<sentence type="vers">
+Hans	hans	han	pron	n/a
+frynttliig	fryntlig	fryntlig	adj	n/a
+ord	ord	ord	sb	n/a
+oc	og	og	konj	n/a
+tale	tale	tale	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thij	de	den	pron	n/a
+kunde	kunne	kunne	vb	n/a
+mig	mig	jeg	pron	n/a
+well	vel	vel	adv	n/a
+hugsuale	husvale	husvale	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+er	er	være	vb	n/a
+oc	og	også	adv	n/a
+dydeliigh	dydelig	dydelig	adj	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+hans	hans	han	pron	n/a
+skønhett	skønhed	skønhed	sb	n/a
+kand	kan	kunne	vb	n/a
+ingen	ingen	ingen	pron	n/a
+besriffue	beskrive	beskrive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+iegh	jeg	jeg	pron	n/a
+kand	kan	kunne	vb	n/a
+thet	det	den	pron	n/a
+icke	ikke	ikke	adv	n/a
+heller	heller	heller	adv	n/a
+fuldtt[-]siige	fuldsige	fuldsige	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	konj	n/a
+thet	det	den	pron	n/a
+migh	mig	jeg	pron	n/a
+wmueliigtt	umuligt	umulig	adj	n/a
+er	er	være	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="9">
+<sentence type="vers">
+Then	den	den	art	n/a
+Gud	Gud	Gud	pers	n/a
+som	som	som	konj	n/a
+alting	alting	alting	pron	n/a
+raader	råder	råde	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+wylthw	vilt_du	ville	vb	n/a
+[*]	vilt_du	du	pron	n/a
+myn	min	min	pron	n/a
+alder[-]kieriist	allerkærest	allerkærest	adj	n/a
+beuaare	bevare	bevare	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hans	hans	han	pron	n/a
+hu	hu	hu	sb	n/a
+oc	og	og	konj	n/a
+altt	alt	al	adj	n/a
+hans	hans	han	pron	n/a
+syndtt	sind	sind	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+att	at	at	konj	n/a
+ieg	jeg	jeg	pron	n/a
+motte	måtte	måtte	vb	n/a
+hannem	hannum	han	pron	n/a
+fynde	finde	finde	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+som	som	som	konj	n/a
+ieg	jeg	jeg	pron	n/a
+haffuer	haver	have	vb	n/a
+kieriiste	kæreste	kær	adj	n/a
+y	i	i	præp	n/a
+synde	sinde	sind	sb	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	præp	n/a
+nogen	nogen	nogen	pron	n/a
+,	,	,	tgn	n/a
+y	i	i	præp	n/a
+all	al	al	adj	n/a
+werden	verden	verden	sb	n/a
+er	er	være	vb	n/a
+tiill	til	til	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="10">
+<sentence type="vers">
+Then	den	den	art	n/a
+Gud	Gud	Gud	pers	n/a
+,	,	,	tgn	n/a
+som	som	som	konj	n/a
+alting	alting	alting	pron	n/a
+raader	råder	råde	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+wyll	vil	ville	vb	n/a
+thu	du	du	pron	n/a
+hugsuale	husvale	husvale	vb	n/a
+oss	os	vi	pron	n/a
+baade	både	begge	pron	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thet	det	det	konj	n/a
+wii	vi	vi	pron	n/a
+matte	måtte	måtte	vb	n/a
+fyndiss	findes	finde	vb	n/a
+bratt	brat	brat	adj	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+thu	du	du	pron	n/a
+est	est	være	vb	n/a
+then	den	den	pron	n/a
+,	,	,	tgn	n/a
+ther	der	der	konj	n/a
+thet	det	den	pron	n/a
+kand	kan	kunne	vb	n/a
+giøre	gøre	gøre	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+y[-]naar	inår	inår	konj	n/a
+thet	det	den	pron	n/a
+er	er	være	vb	n/a
+thyn	din	din	pron	n/a
+wylge	vilje	vilje	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+o	o	o	intj	n/a
+Herre	Herre	herre	sb	n/a
+,	,	,	tgn	n/a
+ieg	jeg	jeg	pron	n/a
+beder	beder	bede	vb	anmode
+tiig	dig	du	pron	n/a
+ther[-]om	derom	derom	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="11">
+<sentence type="vers">
+Then	den	den	art	n/a
+priiss	pris	pris	sb	ros
+wyll	vil	ville	vb	n/a
+ieg	jeg	jeg	pron	n/a
+hannem	hannum	han	pron	n/a
+giiffue	give	give	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+neppeliig	næppelig	næppelig	adv	n/a
+fynder	finder	finde	vb	n/a
+ieg	jeg	jeg	pron	n/a
+hans	hans	han	pron	n/a
+liige	lige	lige	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+ledtt	ledt	lede	vb	søge
+sig	sig	sig	pron	n/a
+all	al	al	adj	n/a
+werden	verden	verden	sb	n/a
+om[-]kringh	omkring	omkring	adv	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+baade	både	både	adv	n/a
+y	i	i	præp	n/a
+ord	ord	ord	sb	n/a
+oc	og	og	konj	n/a
+tale	tale	tale	sb	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+kand	kan	kunne	vb	n/a
+mig	mig	jeg	pron	n/a
+best	bedst	god	adj	n/a
+hugsuale	husvale	husvale	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	præp	n/a
+nogen	nogen	nogen	pron	n/a
+ther	der	der	konj	n/a
+ieg	jeg	jeg	pron	n/a
+haffuer	haver	have	vb	n/a
+kier	kær	kær	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="12">
+<sentence type="vers">
+Vuden	uden	uden	konj	n/a
+ieg	jeg	jeg	pron	n/a
+maa	må	måtte	vb	n/a
+snarliig	snarlig	snarlig	adj	n/a
+hoss	hos	hos	præp	n/a
+hannem	hannum	han	pron	n/a
+bliiffue	blive	blive	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+tha	da	da	adv	n/a
+wyll	vil	ville	vb	n/a
+ieg	jeg	jeg	pron	n/a
+icke	ikke	ikke	adv	n/a
+lenger	længer	længe	adv	n/a
+leffue	leve	leve	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+eller	eller	eller	konj	n/a
+ingen	ingen	ingen	pron	n/a
+glede	glæde	glæde	sb	n/a
+begiere	begære	begære	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+syden	siden	siden	konj	n/a
+iegh	jeg	jeg	pron	n/a
+motte	måtte	måtte	vb	n/a
+hannem	hannum	han	pron	n/a
+fynde	finde	finde	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+hand	han	han	pron	n/a
+er	er	være	vb	n/a
+myn	min	min	pron	n/a
+trøsterinde	trøsterinde	trøsterinde	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+mytt	mit	min	pron	n/a
+hiertte	hjerte	hjerte	sb	n/a
+er	er	være	vb	n/a
+iemmer[-]fuldtt	jammerfuldt	jammerfuld	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="13">
+<sentence type="vers">
+Ieg	jeg	jeg	pron	n/a
+motthe	måtte	måtte	vb	n/a
+icke	ikke	ikke	adv	n/a
+met	med	med	præp	n/a
+hannem	hannum	han	pron	n/a
+tale	tale	tale	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+ther	der	der	adv	n/a
+wii	vi	vi	pron	n/a
+skyldiss	skiltes	skille	vb	n/a
+att	ad	ad	adv	n/a
+baade	både	begge	pron	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thett	det	den	pron	n/a
+giør	gør	gøre	vb	n/a
+mig	mig	jeg	pron	n/a
+y	i	i	præp	n/a
+hierttitt	hjertet	hjerte	sb	n/a
+saa	så	så	adv	n/a
+wee	ve	ve	adj	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+thenn	den	den	art	n/a
+skølssmøsse	skilsmisse	skilsmisse	sb	n/a
+mig	mig	jeg	pron	n/a
+aldriig	aldrig	aldrig	adv	n/a
+aff	af	af	præp	n/a
+hiertte	hjerte	hjerte	sb	n/a
+gaardtt	går	gå	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+motte	måtte	måtte	vb	n/a
+ieg	jeg	jeg	pron	n/a
+leffue	leve	leve	vb	n/a
+y	i	i	præp	n/a
+tusind	tusind	tusind	num	n/a
+aar	år	år	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	præp	n/a
+thet	det	den	pron	n/a
+mig	mig	jeg	pron	n/a
+wmueliig	umulig	umulig	adj	n/a
+er	er	være	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+

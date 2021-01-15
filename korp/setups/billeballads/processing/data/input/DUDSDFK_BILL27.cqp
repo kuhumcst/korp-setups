@@ -1,0 +1,499 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 27: Tistram og Jomfru Isolt [DgF: 471 B VIII 39-40]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="1">
+<sentence type="vers">
+Thistram	Tistram	Tristum	pers	n/a
+vor	var	være	vb	n/a
+saa	så	så	adv	n/a
+liden	liden	liden	adj	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dett	det	den	art	n/a
+første	første	først	adj	n/a
+han	han	han	pron	n/a
+redtt	red	ride	vb	n/a
+till	til	til	præp	n/a
+hofue	hove	hof	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+handtt	han	han	pron	n/a
+spurde	spurgte	spørge	vb	n/a
+sigh	sig	sig	pron	n/a
+loff	lov	lov	sb	tilladelse
+aff	af	af	præp	n/a
+moder	moder	moder	sb	n/a
+sin	sin	sin	pron	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+om	om	om	konj	n/a
+hand	han	han	pron	n/a
+motte	måtte	måtte	vb	n/a
+iomfru	jomfru	jomfru	sb	n/a
+loffue	love	love	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Fordi	fordi	fordi	adv	n/a
+troloffuitt	trolovet	trolove	vb	n/a
+Tistram	Tistram	Tristum	pers	n/a
+Isold	Isold	Isold	pers	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="2">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Iegh	jeg	jeg	pron	n/a
+roder	råder	råde	vb	n/a
+,	,	,	tgn	n/a
+Tistram	Tistram	Tristum	pers	n/a
+sønen	sønnen	søn	sb	n/a
+min	min	min	pron	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+iegh	jeg	jeg	pron	n/a
+raader	råder	råde	vb	n/a
+digh	dig	du	pron	n/a
+,	,	,	tgn	n/a
+du	du	du	pron	n/a
+est	est	være	vb	n/a
+hiemme	hjemme	hjemme	adv	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+kommer	kommer	komme	vb	n/a
+du	du	du	pron	n/a
+y	i	i	præp	n/a
+aar	år	år	sb	n/a
+tiill	til	til	præp	n/a
+keysserens	kejserens	kejser	sb	n/a
+gaardtt	gård	gård	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dett	det	den	pron	n/a
+vor	var	være	vb	n/a
+dig	dig	du	pron	n/a
+till	til	til	præp	n/a
+angest	angest	angst	sb	n/a
+och	og	og	konj	n/a
+mene	mene	men	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="3">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Hør	hør	høre	vb	n/a
+y	I	I	pron	n/a
+dett	det	den	pron	n/a
+,	,	,	tgn	n/a
+min	min	min	pron	n/a
+kiere	kære	kær	adj	n/a
+moder	moder	moder	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hor	hur	hvor	adv	n/a
+kommer	kommer	komme	vb	n/a
+eder	eder	I	pron	n/a
+slegtt	slægt	slægt	sb	n/a
+y	i	i	præp	n/a
+hue	hu	hu	sb	n/a
+?	?	?	tgn	n/a
+</sentence>
+<sentence type="vers">
+haffue	have	have	vb	n/a
+y	I	I	pron	n/a
+aller	aller	aldrig	adv	n/a
+hørtt	hørt	høre	vb	n/a
+,	,	,	tgn	n/a
+saa	så	så	adv	n/a
+fattigh	fattig	fattig	adj	n/a
+suendtt	svend	svend	sb	n/a
+</sentence>
+<sentence type="vers">
+troloffuitt	trolovet	trolove	vb	n/a
+saa	så	så	adv	n/a
+righ	rig	rig	adj	n/a
+en	en	en	art	n/a
+iomfru	jomfru	jomfru	sb	n/a
+?"	?"	?"	tgn	n/a
+</sentence>
+</p>
+<p id="4">
+<sentence type="vers">
+Hun	hun	hun	pron	n/a
+gaff	gav	give	vb	n/a
+ham	ham	han	pron	n/a
+bode	både	både	adv	n/a
+guldtt	guld	guld	sb	n/a
+och	og	og	konj	n/a
+sølff	sølv	sølv	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+siu	syv	syv	num	n/a
+tusind	tusind	tusind	num	n/a
+marck	mark	mark	sb	mønt
+att	at	at	ukl	n/a
+tere	tære	tære	vb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+handtt	han	han	pron	n/a
+redtt	red	ride	vb	n/a
+sigh	sig	sig	pron	n/a
+tiill	til	til	præp	n/a
+keyserens	kejserens	kejser	sb	n/a
+gaardtt	gård	gård	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	adv	n/a
+vinner	vinder	vinde	vb	n/a
+hand	han	han	pron	n/a
+her	hædr	hæder	sb	n/a
+oc	og	og	konj	n/a
+ere	ære	ære	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="5">
+<sentence type="vers">
+Der	der	der	adv	n/a
+vor	var	være	vb	n/a
+handtt	han	han	pron	n/a
+y	i	i	præp	n/a
+otte	otte	otte	num	n/a
+aar	år	år	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+locte	legte	lege	vb	n/a
+med	med	med	præp	n/a
+ros	ros	rose	sb	n/a
+och	og	og	konj	n/a
+lili	lilje	lilje	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+will	vel	vel	adv	n/a
+handtt	han	han	pron	n/a
+och	og	også	adv	n/a
+,	,	,	tgn	n/a
+en	end	end	adv	n/a
+tale	tale	tale	vb	n/a
+bere	bedre	god	adj	n/a
+han	han	han	pron	n/a
+drack	drak	drikke	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	adv	n/a
+fremede	fremmede	fremme	vb	n/a
+den	den	den	art	n/a
+herre	herre	herre	sb	n/a
+sin	sin	sin	pron	n/a
+vilie	vilje	vilje	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="6">
+<sentence type="vers">
+Her	her	herre	sb	n/a
+Tistram	Tistram	Tristum	pers	n/a
+rider	rider	ride	vb	n/a
+paa	på	på	præp	n/a
+gangeren	gangeren	ganger	sb	n/a
+graa	grå	grå	adj	n/a
+</sentence>
+<sentence type="vers">
+fremerst	fremmerst	fremmest	adj	n/a
+y	i	i	præp	n/a
+rider-skare	ridderskare	ridderskare	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+iomfru	jomfru	jomfru	sb	n/a
+Isoltt	Isold	Isold	pers	n/a
+ager	ager	age	vb	n/a
+y	i	i	præp	n/a
+gilten	gylden	gylden	adj	n/a
+karm	karm	karm	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for	for	for	præp	n/a
+suennen	svenden	svend	sb	n/a
+feler	fælder	fælde	vb	n/a
+hun	hun	hun	pron	n/a
+taare	tåre	tåre	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="7">
+<sentence type="vers">
+Dett	det	den	pron	n/a
+wor	var	være	vb	n/a
+iomfru	jomfru	jomfru	sb	n/a
+Isoldtt	Isold	Isold	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hun	hun	hun	pron	n/a
+talir	taler	tale	vb	n/a
+til	til	til	præp	n/a
+iomfru	jomfru	jomfru	sb	n/a
+sin	sin	sin	pron	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Giff	giv	give	vb	n/a
+dett	det	den	pron	n/a
+Gudtt-fader	Gudfader	Gudfader	pers	n/a
+y	i	i	præp	n/a
+hemmerigh	himmerig	himmerig	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+her	her	herre	sb	n/a
+Tistram	Tistram	Tristum	pers	n/a
+hann	han	han	pron	n/a
+vor	var	være	vb	n/a
+min	min	min	pron	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+</p>
+<p id="8">
+<sentence type="vers">
+Dett	det	den	pron	n/a
+suaritt	svaret	svare	vb	n/a
+da	da	da	adv	n/a
+fru	fru	frue	sb	n/a
+Crimoldtt	Kremold	Kremold	pers	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+aff	af	af	præp	n/a
+saa	så	så	adv	n/a
+vret	vred	vred	adj	n/a
+en	en	en	art	n/a
+hu	hu	hu	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Aler	aller	aldrig	adv	n/a
+hørde	hørte	høre	vb	n/a
+iegh	jeg	jeg	pron	n/a
+saa	så	så	adv	n/a
+dyertt	djærvt	djærv	adj	n/a
+ett	et	en	art	n/a
+ordtt	ord	ord	sb	n/a
+</sentence>
+<sentence type="vers">
+aff	af	af	præp	n/a
+nogen	nogen	nogen	pron	n/a
+iomfru[-]mundtt	jomfrumund	jomfrumund	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="9">
+<sentence type="vers">
+den	den	den	art	n/a
+fru	fru	frue	sb	n/a
+dha	da	da	adv	n/a
+fru	fru	frue	sb	n/a
+Krimoldtt	Kremold	Kremold	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	pron	n/a
+haffde	havde	have	vb	n/a
+till-samen	tilsammen	tilsammen	adv	n/a
+guodtt	god	god	adj	n/a
+ville	vilje	vilje	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+hunn	hun	hun	pron	n/a
+lade	lade	lade	vb	tillade
+blene	blænde	blande	vb	n/a
+en	en	en	art	n/a
+eder-dric[k]	edderdrik	edderdrik	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+deres	deres	den	pron	n/a
+venskab	venskab	venskab	sb	n/a
+wille	ville	ville	vb	n/a
+hun	hun	hun	pron	n/a
+att-skille	adskille	adskille	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="10">
+<sentence type="vers">
+Dett	det	den	pron	n/a
+wor	var	være	vb	n/a
+herre	herre	herre	sb	n/a
+Tistram	Tistram	Tristum	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+han	han	han	pron	n/a
+tager	tager	tage	vb	n/a
+till	til	til	præp	n/a
+sin	sin	sin	pron	n/a
+kniff	kniv	kniv	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Du	du	du	pron	n/a
+skaltt	skalt	skulle	vb	n/a
+dett	det	den	pron	n/a
+siell	selv	selv	pron	n/a
+uddricke	ud_drikke	ud	adv	n/a
+[*]	ud_drikke	drikke	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+eller	eller	eller	konj	n/a
+dett	det	den	pron	n/a
+skall	skal	skulle	vb	n/a
+gielde	gælde	gælde	vb	n/a
+ditt	dit	din	pron	n/a
+liff	liv	liv	sb	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+</p>
+<p id="11">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Thage	tage	tage	vb	n/a
+wi	vi	vi	pron	n/a
+guldtt	guld	guld	sb	n/a
+och	og	og	konj	n/a
+tage	tage	tage	vb	n/a
+vi	vi	vi	pron	n/a
+søll	sølv	sølv	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+lege	lægge	lægge	vb	jf._ligge
+vi	vi	vi	pron	n/a
+dett	det	den	pron	n/a
+y	i	i	præp	n/a
+kiste	kiste	kiste	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+fare	fare	fare	vb	drage_af_sted
+vi	vi	vi	pron	n/a
+bortt	bort	bort	adv	n/a
+,	,	,	tgn	n/a
+ieg	jeg	jeg	pron	n/a
+vedtt	ved	vide	vb	kendskab,_oplysning
+vel	vel	vel	adv	n/a
+hortt	hvort	hvort	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+for-gongen	forgangen	forgå	vb	n/a
+rides	ræddes	ræddes	vb	n/a
+vi	vi	vi	pron	n/a
+icke	ikke	ikke	adv	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="12">
+<sentence type="vers">
+Thistram	Tistram	Tristum	pers	n/a
+giorde	gjorde	gøre	vb	n/a
+,	,	,	tgn	n/a
+som	som	som	konj	n/a
+Isoldtt	Isold	Isold	pers	n/a
+bad	bad	bede	vb	anmode
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+redtt	red	ride	vb	n/a
+huer	hver	hver	pron	n/a
+dag	dag	dag	sb	n/a
+tiill	til	til	præp	n/a
+strande	strande	strand	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+skude	skude	skue	vb	n/a
+de	de	den	art	n/a
+skiff	skib	skib	sb	n/a
+,	,	,	tgn	n/a
+paa	på	på	præp	n/a
+vanditt	vandet	vand	sb	n/a
+laa	lå	ligge	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+mett	med	med	præp	n/a
+forgylte	forgyldte	forgylden	adj	n/a
+brande	brande	brand	sb	del_af_skib
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="13">
+<sentence type="vers">
+Nu	nu	nu	adv	n/a
+haffuer	haver	have	vb	n/a
+iomfru	jomfru	jomfru	sb	n/a
+Isoltt	Isold	Isold	pers	n/a
+</sentence>
+<sentence type="vers">
+foruunditt	forvundet	forvinde	vb	n/a
+bode	både	både	adv	n/a
+angest	angest	angst	sb	n/a
+och	og	og	konj	n/a
+harm	harm	harm	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+om	om	om	præp	n/a
+dagen	dagen	dag	sb	n/a
+slider	slider	slide	vb	n/a
+hun	hun	hun	pron	n/a
+skarlagen	skarlagen	skarlagen	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hun	hun	hun	pron	n/a
+soffuer	sover	sove	vb	n/a
+y	i	i	præp	n/a
+her	her	herre	sb	n/a
+Tistrams	Tistrams	Tristum	pers	n/a
+arm	arm	arm	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+F[or]d[i]	[**]	[*]	uvis	n/a
+t[roloffuitt]	[*]	[*]	uvis	n/a
+T[istram]	[*]	[*]	uvis	n/a
+Is[old]	[**]	[*]	uvis	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+

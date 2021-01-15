@@ -1,0 +1,742 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 34: Kong Diderik og Løven [DgF: 9 A I 132-133]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="1">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+var	var	være	vb	n/a
+her	her	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dhyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+skule	skulle	skulle	vb	n/a
+tyl	til	til	præp	n/a
+Berned	Berned	Bern	stn	n/a
+ryde	ride	ride	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+dher	der	der	adv	n/a
+saa	så	se	vb	n/a
+han	han	han	pron	n/a
+dhen	den	den	art	n/a
+løfve	løve	løve	sb	n/a
+och	og	og	konj	n/a
+dhen	den	den	art	n/a
+lynd-orm	lindorm	lindorm	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+ynkel	ynkel	ynkelig	adj	n/a
+mone	monne	monne	vb	n/a
+dhe	de	den	pron	n/a
+stryde	stride	stride	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Dhen	den	den	art	n/a
+lynd-orm	lindorm	lindorm	sb	n/a
+han	han	han	pron	n/a
+togen	tog_den	tage	vb	n/a
+[*]	tog_den	den	pron	n/a
+af	af	af	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="2">
+<sentence type="vers">
+Lenge	længe	længe	adv	n/a
+høltt	holdt	holde	vb	n/a
+heræ	herre	herre	sb	n/a
+kong	kong	konge	sb	n/a
+Dhyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+tenktte	tænkte	tænke	vb	n/a
+han	han	han	pron	n/a
+ved	ved	ved	præp	n/a
+seg	sig	sig	pron	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Alltt	alt	alt	adv	n/a
+skal	skal	skulle	vb	n/a
+ieg	jeg	jeg	pron	n/a
+dheg	dig	du	pron	n/a
+hylpe	hjælpe	hjælpe	vb	n/a
+i	i	i	præp	n/a
+dhag	dag	dag	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+i-hor	ihur	ihvor	adv	n/a
+dhett	det	den	pron	n/a
+ganger	ganger	gå	vb	n/a
+meg	mig	jeg	pron	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="3">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Hylp	hjælp	hjælpe	vb	n/a
+meg	mig	jeg	pron	n/a
+,	,	,	tgn	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dhyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dhu	du	du	pron	n/a
+hylp	hjælp	hjælpe	vb	n/a
+meg	mig	jeg	pron	n/a
+for	for	for	præp	n/a
+dhett	det	den	art	n/a
+volld	vold	vold	sb	magt
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+ieg	jeg	jeg	pron	n/a
+star	står	stå	vb	n/a
+skrefven	skreven	skrive	vb	n/a
+i	i	i	præp	n/a
+dhyn	din	din	pron	n/a
+skyold	skjold	skjold	sb	våben
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+rød	rød	rød	adj	n/a
+som	som	som	konj	n/a
+brendyns	brændends	brænde	vb	n/a
+baal	bål	bål	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="4">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+var	var	være	vb	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dhyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+han	han	han	pron	n/a
+sett	sit	sin	pron	n/a
+sver	sværd	sværd	sb	n/a
+udh-dro	ud_drog	ud	adv	n/a
+[*]	ud_drog	drage	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+ontt	ondt	ond	adj	n/a
+fek	fik	få	vb	n/a
+han	han	han	pron	n/a
+i	i	i	præp	n/a
+huen	huen	hu	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dher	der	der	konj	n/a
+han	han	han	pron	n/a
+tyl	til	til	præp	n/a
+lyndormen	lindormen	lindorm	sb	n/a
+hug	hug	hugge	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="5">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+var	var	være	vb	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+han	han	han	pron	n/a
+høg	høg	hugge	vb	n/a
+i-saa	iså	iså	adv	n/a
+fast	fast	fast	adj	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+skam	skam	skam	sb	n/a
+dha	da	da	adv	n/a
+fa	få	få	vb	n/a
+hans	hans	han	pron	n/a
+ondhe	onde	ond	adj	n/a
+svær	sværd	sværd	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+dhett	det	den	pron	n/a
+i	i	i	præp	n/a
+hyeltten	hjalten	hjalte	sb	n/a
+brast	brast	briste	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="6">
+<sentence type="vers">
+Han	han	han	pron	n/a
+tog	tog	tage	vb	n/a
+hesten	hesten	hest	sb	n/a
+under	under	under	præp	n/a
+syn	sin	sin	pron	n/a
+stertt	stjert	stjert	sb	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+manden	manden	mand	sb	n/a
+under	under	under	præp	n/a
+syn	sin	sin	pron	n/a
+tunge	tunge	tunge	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+gyk	gik	gå	vb	n/a
+han	han	han	pron	n/a
+i	i	i	præp	n/a
+byred	bjerget	bjerg	sb	n/a
+ind	ind	ind	adv	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+for	for	for	præp	n/a
+syne	sine	sin	pron	n/a
+XI	elleve	elleve	num	n/a
+unger	unger	unge	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="7">
+<sentence type="vers">
+Han	han	han	pron	n/a
+kaste	kaste	kaste	vb	n/a
+hesten	hesten	hest	sb	n/a
+for	for	for	præp	n/a
+syne	sine	sin	pron	n/a
+unger	unger	unge	sb	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+manden	manden	mand	sb	n/a
+i	i	i	præp	n/a
+en	en	en	art	n/a
+vraa	vrå	vrå	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Eder	æder	æde	vb	n/a
+dhenæ	denne	denne	pron	n/a
+lyle	lille	liden	adj	n/a
+braa	brad	brad	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+meg	mig	jeg	pron	n/a
+løster	lyster	lyste	vb	n/a
+att	at	at	ukl	n/a
+saafve	sove	sove	vb	n/a
+gaa	gå	gå	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="8">
+<sentence type="vers">
+Eder	æder	æde	vb	n/a
+nu	nu	nu	adv	n/a
+dhenæ	denne	denne	pron	n/a
+lyle	lille	liden	adj	n/a
+braa	brad	brad	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+meg	mig	jeg	pron	n/a
+løster	lyster	lyste	vb	n/a
+att	at	at	ukl	n/a
+saafve	sove	sove	vb	n/a
+gaa	gå	gå	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+forste	første	første	konj	n/a
+ieg	jeg	jeg	pron	n/a
+vogner	vågner	vågne	vb	n/a
+af	af	af	præp	n/a
+søfnen	søvnen	søvn	sb	n/a
+op	op	op	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+i	I	I	pron	n/a
+skule	skulle	skulle	vb	n/a
+en	en	en	art	n/a
+anden	anden	anden	pron	n/a
+fa	få	få	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="9">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+var	var	være	vb	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dhyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+lette	ledte	lede	vb	søge
+seg	sig	sig	pron	n/a
+fast	fast	fast	adj	n/a
+omkryng	omkring	omkring	adv	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+fantt	fandt	finde	vb	n/a
+paa	på	på	præp	n/a
+saa	så	så	adv	n/a
+gaatt	godt	god	adj	n/a
+ett	et	en	art	n/a
+sver	sværd	sværd	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+man	man	man	pron	n/a
+kaler	kalder	kalde	vb	n/a
+dhett	det	den	pron	n/a
+Adel-ryng	Adelring	Adelring	bn	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="10">
+<sentence type="vers">
+Han	han	han	pron	n/a
+fantt	fandt	finde	vb	n/a
+paa	på	på	præp	n/a
+saa	så	så	adv	n/a
+gott	godt	god	adj	n/a
+I	et	en	num	n/a
+sver	sværd	sværd	sb	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+to	to	to	num	n/a
+bheslagen	beslagen	beslå	vb	n/a
+knyfve	knive	kniv	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Gud	Gud	Gud	pers	n/a
+nade	nåde	nåde	vb	n/a
+dhyn	din	din	pron	n/a
+syel	sjæl	sjæl	sb	n/a
+,	,	,	tgn	n/a
+konyng	konning	konge	sb	n/a
+Syfred	Sigfred	Sigfred	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+her	her	her	adv	n/a
+har	har	have	vb	n/a
+dhu	du	du	pron	n/a
+ladett	ladet	lade	vb	tillade
+dhett	dit	din	pron	n/a
+lyfve	live	liv	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="11">
+<sentence type="vers">
+Ieg	jeg	jeg	pron	n/a
+hafver	haver	have	vb	n/a
+vertt	vært	være	vb	n/a
+i	i	i	præp	n/a
+mangen	mangen	mangen	adj	n/a
+stryd	strid	strid	sb	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+i	i	i	præp	n/a
+mangen	mangen	mangen	adj	n/a
+heræferd	herrefærd	herrefærd	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+ieg	jeg	jeg	pron	n/a
+aler	aller	aldrig	adv	n/a
+andett	andet	anden	pron	n/a
+veste	vidste	vide	vb	kendskab,_oplysning
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+en	end	end	konj	n/a
+du	du	du	pron	n/a
+hafde	havde	have	vb	n/a
+vertt	vært	være	vb	n/a
+vegen	vejen	veje	vb	dræbe
+mett	med	med	præp	n/a
+sver	sværd	sværd	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="12">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+var	var	være	vb	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+vyle	ville	ville	vb	n/a
+she	se	se	vb	n/a
+,	,	,	tgn	n/a
+om	om	om	konj	n/a
+svred	sværdet	sværd	sb	n/a
+kund	kunn	kunne	vb	n/a
+due	due	du	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+høg	høg	hugge	vb	n/a
+saa	så	så	adv	n/a
+i	i	i	præp	n/a
+haren	hården	hård	adj	n/a
+hald	hald	hald	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dett	det	det	konj	n/a
+byred	bjerget	bjerg	sb	n/a
+stod	stod	stå	vb	n/a
+ald	al	al	adj	n/a
+i	i	i	præp	n/a
+lue	lue	lue	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="13">
+<sentence type="vers">
+Meltte	mælte	mæle	vb	n/a
+dhett	det	den	pron	n/a
+dhen	den	den	art	n/a
+lyle	lille	liden	adj	n/a
+orm	orm	orm	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+laa	lå	ligge	vb	n/a
+op	op	op	adv	n/a
+i	i	i	præp	n/a
+en	en	en	art	n/a
+vra	vrå	vrå	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Veker	vækker	vække	vb	gøre_vågen
+dhu	du	du	pron	n/a
+vor	vor	vor	pron	n/a
+moder	moder	moder	sb	n/a
+af	af	af	præp	n/a
+dvale	dvale	dvale	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dhett	det	den	pron	n/a
+mone	monne	monne	vb	n/a
+dheg	dig	du	pron	n/a
+ile	ilde	ilde	adv	n/a
+gaa	gå	gå	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="14">
+<sentence type="vers">
+Meltte	mælte	mæle	vb	n/a
+dhett	det	den	pron	n/a
+dhen	den	den	art	n/a
+gamle	gamle	gammel	adj	n/a
+orm	orm	orm	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dher	der	der	konj	n/a
+byred	bjerget	bjerg	sb	n/a
+gyores	gjordes	gøre	vb	n/a
+lyst	lyst	lys	adj	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Hvem	hvem	hvem	pron	n/a
+gør	gør	gøre	vb	n/a
+bonen	bonden	bonde	sb	n/a
+ufred	ufred	ufred	sb	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+i	i	i	præp	n/a
+sett	sit	sin	pron	n/a
+egett	eget	egen	adj	n/a
+hus	hus	hus	sb	n/a
+?"	?"	?"	tgn	n/a
+</sentence>
+</p>
+<p id="15">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+svarede	svarede	svare	vb	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dhyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+han	han	han	pron	n/a
+blef	blev	blive	vb	n/a
+saa	så	så	adv	n/a
+gram	gram	gram	adj	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Saa	så	så	adv	n/a
+skal	skal	skulle	vb	n/a
+ieg	jeg	jeg	pron	n/a
+dhyn	din	din	pron	n/a
+moder	moder	moder	sb	n/a
+veke	vække	vække	vb	gøre_vågen
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dhett	det	det	konj	n/a
+i	I	I	pron	n/a
+skule	skulle	skulle	vb	n/a
+alle	alle	al	adj	n/a
+faa	få	få	vb	n/a
+skam	skam	skam	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="16">
+<sentence type="vers">
+Saa	så	så	adv	n/a
+vof	vog	veje	vb	dræbe
+han	han	han	pron	n/a
+dhen	den	den	art	n/a
+lyndorm	lindorm	lindorm	sb	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+saa	så	så	adv	n/a
+hans	hans	han	pron	n/a
+XI	elleve	elleve	num	n/a
+unger	unger	unge	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+vyle	ville	ville	vb	n/a
+han	han	han	pron	n/a
+af	af	af	præp	n/a
+byrett	bjerget	bjerg	sb	n/a
+gaa	gå	gå	vb	n/a
+</sentence>
+<sentence type="vers">
+mett	med	med	præp	n/a
+sver	sværd	sværd	sb	n/a
+och	og	og	konj	n/a
+brøne	brynje	brynje	sb	n/a
+hyn	hin	hin	art	n/a
+tunge	tunge	tung	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="17">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Skam	skam	skam	sb	n/a
+dha	da	da	adv	n/a
+faa	få	få	vb	n/a
+dhen	den	den	art	n/a
+løfve	løve	løve	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+here	Herre	herre	sb	n/a
+Krest	Krist	Kristus	pers	n/a
+gyfve	give	give	vb	n/a
+hyne	hende	hun	pron	n/a
+men	men	men	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+hafde	havde	have	vb	n/a
+hun	hun	hun	pron	n/a
+ike	ikke	ikke	adv	n/a
+staaet	stået	stå	vb	n/a
+skrefed	skrevet	skrive	vb	n/a
+i	i	i	præp	n/a
+myn	min	min	pron	n/a
+skyol	skjold	skjold	sb	våben
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+myn	min	min	pron	n/a
+hest	hest	hest	sb	n/a
+hafde	havde	have	vb	n/a
+vel	vel	vel	adv	n/a
+bored	båret	bære	vb	n/a
+meg	mig	jeg	pron	n/a
+frem	frem	frem	adv	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="18">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Høræ	høre	høre	vb	n/a
+dhu	du	du	pron	n/a
+,	,	,	tgn	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+bande	bande	bande	vb	n/a
+dhu	du	du	pron	n/a
+ike	ikke	ikke	adv	n/a
+meg	mig	jeg	pron	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+hug	hug	hugge	vb	n/a
+dhu	du	du	pron	n/a
+fast	fast	fast	adj	n/a
+dher[-]ingen	derinde	derinde	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+her[-]uden	herude	herude	adv	n/a
+dha	da	da	adv	n/a
+hylper	hjælper	hjælpe	vb	n/a
+ieg	jeg	jeg	pron	n/a
+deg	dig	du	pron	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="19">
+<sentence type="vers">
+Konyng	konning	konge	sb	n/a
+Dyryk	Didrik	Diderik	pers	n/a
+høg	høg	hugge	vb	n/a
+,	,	,	tgn	n/a
+och	og	og	konj	n/a
+løfven	løven	løve	sb	n/a
+grof	grov	grave	vb	n/a
+</sentence>
+<sentence type="vers">
+alltt	alt	alt	adv	n/a
+under	under	under	præp	n/a
+dhe	de	den	art	n/a
+grønæ	grønne	grøn	adj	n/a
+lyde	lide	lide	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+hafde	havde	have	vb	n/a
+hun	hun	hun	pron	n/a
+ike	ikke	ikke	adv	n/a
+fatt	fåt	få	vb	n/a
+ham	ham	han	pron	n/a
+af	af	af	præp	n/a
+byred	bjerget	bjerg	sb	n/a
+ud	ud	ud	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hun	hun	hun	pron	n/a
+hafde	havde	have	vb	n/a
+sørgett	sørget	sørge	vb	n/a
+seg	sig	sig	pron	n/a
+sel	selv	selv	pron	n/a
+af	af	af	præp	n/a
+lyfve	live	liv	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="20">
+<sentence type="vers">
+Dhett	det	den	pron	n/a
+var	var	være	vb	n/a
+heræ	herre	herre	sb	n/a
+konyng	konning	konge	sb	n/a
+Dyryk	Didrik	Diderik	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+han	han	han	pron	n/a
+gyk	gik	gå	vb	n/a
+att	ad	ad	præp	gl._at
+vegn	vejn	vej	sb	n/a
+frem	frem	frem	adv	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+alle	alle	al	adj	n/a
+dhage	dage	dag	sb	n/a
+,	,	,	tgn	n/a
+han	han	han	pron	n/a
+lefde	levde	leve	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dhen	den	den	art	n/a
+løfve	løve	løve	sb	n/a
+hun	hun	hun	pron	n/a
+tyntte	tjente	tjene	vb	n/a
+ham	ham	han	pron	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Dhen	den	den	art	n/a
+lyndorm	lindorm	lindorm	sb	n/a
+han	han	han	pron	n/a
+togen	tog_den	tage	vb	n/a
+[*]	tog_den	den	pron	n/a
+af	af	af	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+

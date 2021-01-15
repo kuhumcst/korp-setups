@@ -1,0 +1,597 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 29: Oluf og Asser Hvid [DgF: 202 A IV 173-174]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="1">
+<sentence type="vers">
+Her	her	her	adv	n/a
+hollder	holder	holde	vb	n/a
+uden	uden	uden	adv	n/a
+for	for	for	præp	n/a
+wor	vor	vor	pron	n/a
+gordtt	gård	gård	sb	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	art	n/a
+erlighe	ærlige	ærlig	adj	n/a
+mendtt	mænd	mand	sb	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+her	her	her	adv	n/a
+er	er	være	vb	n/a
+thuo	to	to	num	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+inde	inde	inde	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	pron	n/a
+vonen	vunde	vinde	vb	n/a
+dem	dem	den	pron	n/a
+egen	ej_end	ej	adv	n/a
+[*]	ej_end	end	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="2">
+<sentence type="vers">
+Her	her	herre	sb	n/a
+Olluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+</sentence>
+<sentence type="vers">
+de	de	den	pron	n/a
+tallitt	talet	tale	vb	n/a
+tiill	til	til	præp	n/a
+smaadrenge	smådrenge	smådreng	sb	n/a
+thuo	to	to	num	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Och	og	og	konj	n/a
+y	I	I	pron	n/a
+skulle	skulle	skulle	vb	n/a
+vos	vos	vi	pron	n/a
+di	de	den	art	n/a
+stolte	stolte	stolt	adj	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+</sentence>
+<sentence type="vers">
+mett	med	med	præp	n/a
+fauer	fager	fager	adj	n/a
+tale	tale	tale	sb	n/a
+faa	få	få	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Her	her	her	adv	n/a
+er	er	være	vb	n/a
+thuo	to	to	num	n/a
+i[omfruer]	[*]	[*]	uvis	n/a
+i[nde]	[*]	[*]	uvis	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="3">
+<sentence type="vers">
+Indtt	ind	ind	adv	n/a
+kom	kom	komme	vb	n/a
+liden	liden	liden	adj	n/a
+smaadrengh	smådreng	smådreng	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+stedis	stedtes	stede	vb	n/a
+di	de	den	pron	n/a
+for	for	for	præp	n/a
+bordtt	bord	bord	sb	møbel
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Iomfruer	jomfruer	jomfru	sb	n/a
+,	,	,	tgn	n/a
+y	I	I	pron	n/a
+skulle	skulle	skulle	vb	n/a
+vede	vide	vide	vb	kendskab,_oplysning
+thett	det	den	pron	n/a
+saa	så	så	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+eders	eders	I	pron	n/a
+brødre	brødre	broder	sb	n/a
+haffuer	haver	have	vb	n/a
+sentt	sendt	sende	vb	n/a
+eder	eder	I	pron	n/a
+ordtt	ord	ord	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="4">
+<sentence type="vers">
+Suarett	svaret	svare	vb	n/a
+thett	det	den	pron	n/a
+di	de	den	art	n/a
+stolte	stolte	stolt	adj	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Dett	det	den	pron	n/a
+kand	kan	kunne	vb	n/a
+vos	vos	vi	pron	n/a
+icke	ikke	ikke	adv	n/a
+[sømme]	[*]	[*]	uvis	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+vos	vos	vi	pron	n/a
+er	er	være	vb	n/a
+fader	fader	fader	sb	n/a
+och	og	og	konj	n/a
+moder	moder	moder	sb	n/a
+fra	fra	fra	præp	n/a
+døt	død	dø	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	konj	n/a
+vos	vos	vi	pron	n/a
+skall	skal	skulle	vb	n/a
+vocte	vogte	vogte	vb	n/a
+och	og	og	konj	n/a
+giemme	gemme	gemme	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="5">
+<sentence type="vers">
+"	"	"	tgn	n/a
+Io	jo	jo	intj	n/a
+,	,	,	tgn	n/a
+vett	ved	vide	vb	kendskab,_oplysning
+mendtt	mænd	mand	sb	n/a
+,	,	,	tgn	n/a
+min	min	min	pron	n/a
+stolte	stolte	stolt	adj	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+!	!	!	tgn	n/a
+</sentence>
+<sentence type="vers">
+dett	det	den	pron	n/a
+kandtt	kan	kunne	vb	n/a
+eder	eder	I	pron	n/a
+fuld[-]vell	fuldvel	fuldvel	adv	n/a
+sømme	sømme	sømme	vb	jf._tugt_sb
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+rige	rige	rig	adj	n/a
+da	da	da	adv	n/a
+har	har	have	vb	n/a
+y	I	I	pron	n/a
+brødre	brødre	broder	sb	n/a
+tuo	to	to	num	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	konj	n/a
+eder	eder	I	pron	n/a
+skall	skal	skulle	vb	n/a
+vocte	vogte	vogte	vb	n/a
+och	og	og	konj	n/a
+geme	gemme	gemme	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="6">
+<sentence type="vers">
+De	de	den	art	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+dhe	de	den	pron	n/a
+udtt[-]y	udi	i	præp	n/a
+dansen	dansen	dans	sb	n/a
+gick	gik	gå	vb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+hederligh	hæderlig	hæderlig	adj	n/a
+vell	vel	vel	adv	n/a
+de	de	den	pron	n/a
+quade	kvade	kvæde	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+effter	efter	efter	adv	n/a
+gick	gik	gå	vb	n/a
+her	her	herre	sb	n/a
+Olluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+</sentence>
+<sentence type="vers">
+mett	med	med	præp	n/a
+deris	deres	den	pron	n/a
+falske	falske	falsk	adj	n/a
+raade	råde	råd	sb	jf._råde_vb
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="7">
+<sentence type="vers">
+Effter	efter	efter	adv	n/a
+gick	gik	gå	vb	n/a
+her	her	herre	sb	n/a
+Oluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+</sentence>
+<sentence type="vers">
+mett	med	med	præp	n/a
+deris	deres	den	pron	n/a
+falske	falske	falsk	adj	n/a
+raade	råde	råd	sb	jf._råde_vb
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Och	og	og	konj	n/a
+haffde	havde	have	vb	n/a
+vi	vi	vi	pron	n/a
+wore	vore	vor	pron	n/a
+roner	runer	rune	sb	n/a
+her	her	her	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+vi	vi	vi	pron	n/a
+vonde	vunde	vinde	vb	n/a
+di	de	den	art	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+bode	både	begge	pron	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="8">
+<sentence type="vers">
+Suarett	svaret	svare	vb	n/a
+dett	det	den	pron	n/a
+liden	liden	liden	adj	n/a
+Kierstin	Kirsten	Kirsten	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hun	hun	hun	pron	n/a
+vorde	vordte	vorde	vb	n/a
+saa	så	så	adv	n/a
+bratt	brat	brat	adj	n/a
+att	at	at	ukl	n/a
+hørde	hørte	høre	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Dett	det	den	pron	n/a
+er	er	være	vb	n/a
+saa	så	så	adv	n/a
+liden	liden	liden	adj	n/a
+mandom	manddom	manddom	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+thuo	to	to	num	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+last	last	last	sb	n/a
+att	at	at	ukl	n/a
+giøre	gøre	gøre	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="9">
+<sentence type="vers">
+Fullde	fulgte	følge	vb	n/a
+dhe	de	den	pron	n/a
+the	de	den	art	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+tiill	til	til	præp	n/a
+dett	det	den	art	n/a
+høgeloft	højeloft	højeloft	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+der	der	der	adv	n/a
+vor	var	være	vb	n/a
+saa	så	så	adv	n/a
+møgett	meget	megen	adj	n/a
+mandfolck	mandfolk	mandfolk	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+lidett	lidet	liden	adj	n/a
+vor	var	være	vb	n/a
+quinde-flock	kvindeflok	kvindeflok	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="10">
+<sentence type="vers">
+Liden	liden	liden	adj	n/a
+Kierstin	Kirsten	Kirsten	pers	n/a
+staar	står	stå	vb	n/a
+for	for	for	præp	n/a
+Assers	Adsers	Adser	pers	n/a
+sengh	seng	seng	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+løsser	løser	løse	vb	n/a
+hun	hun	hun	pron	n/a
+erme-snør	ærmesnør	ærmesnøre	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Och	og	og	konj	n/a
+vor	var	være	vb	n/a
+nu	nu	nu	adv	n/a
+vore	vore	vor	pron	n/a
+brødre	brødre	broder	sb	n/a
+her	her	her	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+fuldtt[-]lidett	fuldlidet	fuldliden	adj	n/a
+tuore	turde	turde	vb	n/a
+y	I	I	pron	n/a
+vos	vos	vi	pron	n/a
+røre	røre	røre	vb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="11">
+<sentence type="vers">
+Suaritt	svaret	svare	vb	n/a
+dett	det	den	pron	n/a
+her	her	herre	sb	n/a
+Olluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+som	som	som	konj	n/a
+de	de	den	art	n/a
+ordtt	ord	ord	sb	n/a
+fortott	fortot	fortykke	vb	mishage
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Vore	vare	være	vb	n/a
+nu	nu	nu	adv	n/a
+eders	eders	I	pron	n/a
+brødre	brødre	broder	sb	n/a
+her	her	her	adv	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+wi	vi	vi	pron	n/a
+hugge	hugge	hugge	vb	n/a
+dem	dem	den	pron	n/a
+altt	alt	alt	adv	n/a
+y	i	i	præp	n/a
+støcke	stykke	stykke	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+</p>
+<p id="12">
+<sentence type="vers">
+Thack	tak	tak	sb	jf._takke_vb
+da	da	da	adv	n/a
+haffue	have	have	vb	n/a
+de	de	den	art	n/a
+stoltte	stolte	stolt	adj	n/a
+iomfruer	jomfruer	jomfru	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+deris	deres	den	pron	n/a
+brøre	brødre	broder	sb	n/a
+buden	buden	bud	sb	udsagn
+sende	sendte	sende	vb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+di	de	den	pron	n/a
+kom	kom	komme	vb	n/a
+endt	end	end	adv	n/a
+før	før	før	præp	n/a
+minnatt	midnat	midnat	sb	n/a
+</sentence>
+<sentence type="vers">
+mett	med	med	præp	n/a
+dragen	dragen	drage	vb	n/a
+suerdtt	sværd	sværd	sb	n/a
+y	i	i	præp	n/a
+hende	hænde	hånd	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="13">
+<sentence type="vers">
+Deris	deres	den	pron	n/a
+brødre	brødre	broder	sb	n/a
+di	de	den	pron	n/a
+kom	kom	komme	vb	n/a
+ridin	ridend	ride	vb	n/a
+y	i	i	præp	n/a
+gaardtt	gård	gård	sb	n/a
+</sentence>
+<sentence type="vers">
+mett	med	med	præp	n/a
+dragen	dragen	drage	vb	n/a
+suerdtt	sværd	sværd	sb	n/a
+y	i	i	præp	n/a
+hende	hænde	hånd	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Hor	hur	hvor	adv	n/a
+er	er	være	vb	n/a
+nu	nu	nu	adv	n/a
+di	de	den	art	n/a
+skalke	skalke	skalk	sb	n/a
+thuo	to	to	num	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+vore	vore	vor	pron	n/a
+søstre	søstre	søster	sb	n/a
+vilde	ville	ville	vb	n/a
+saa	så	så	adv	n/a
+skame	skæmme	skæmme	vb	n/a
+?"	?"	?"	tgn	n/a
+</sentence>
+</p>
+<p id="14">
+<sentence type="vers">
+Støtte	stødte	støde	vb	n/a
+de	de	den	pron	n/a
+paa	på	på	præp	n/a
+bure-hus-dør	burehusdør	burehusdør	sb	n/a
+</sentence>
+<sentence type="vers">
+alltt	alt	alt	adv	n/a
+bode	både	både	adv	n/a
+mett	med	med	præp	n/a
+skioldtt	skjold	skjold	sb	våben
+och	og	og	konj	n/a
+spydtt	spyd	spyd	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Stor	står	stå	vb	n/a
+op	op	op	adv	n/a
+,	,	,	tgn	n/a
+her	her	herre	sb	n/a
+Olluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+y	I	I	pron	n/a
+gaar	går	gå	vb	n/a
+y	i	i	præp	n/a
+gorden	gården	gård	sb	n/a
+udtt	ud	ud	adv	n/a
+!"	!"	!"	tgn	n/a
+</sentence>
+</p>
+<p id="15">
+<sentence type="vers">
+Thoge	toge	tage	vb	n/a
+thi	de	den	pron	n/a
+her	her	herre	sb	n/a
+Olluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+y	i	i	præp	n/a
+deris	deres	den	pron	n/a
+gule	gule	gul	adj	n/a
+lock	lok	lok	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+saa	så	så	adv	n/a
+høge	hugge	hugge	vb	n/a
+thi	de	den	pron	n/a
+deris	deres	den	pron	n/a
+hoffuitt	hoved	hoved	sb	n/a
+aff	af	af	adv	n/a
+</sentence>
+<sentence type="vers">
+altt	alt	alt	adv	n/a
+offuer	over	over	præp	n/a
+den	den	den	art	n/a
+senge-stock	sengestok	sengestok	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="16">
+<sentence type="vers">
+Nu	nu	nu	adv	n/a
+liger	ligger	ligge	vb	n/a
+her	her	herre	sb	n/a
+Olluff	Oluf	Oluf	pers	n/a
+och	og	og	konj	n/a
+her	her	herre	sb	n/a
+Asser	Adser	Adser	pers	n/a
+Huidtt	Hvid	Hvid	pers	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+dem	dem	den	pron	n/a
+riner	rinder	rinde	vb	n/a
+blodtt	blod	blod	sb	n/a
+till	til	til	præp	n/a
+døde	døde	død	sb	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+en	end	end	adv	n/a
+bere	bære	bære	vb	n/a
+de	de	den	pron	n/a
+deris	deres	den	pron	n/a
+iomfru-naffn	jomfrunavn	jomfrunavn	sb	n/a
+</sentence>
+<sentence type="vers">
+och	og	og	konj	n/a
+deris	deres	den	pron	n/a
+guldtt-krone	guldkrone	guldkrone	sb	n/a
+saa	så	så	adv	n/a
+høge	høje	høj	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Her	her	her	adv	n/a
+[er]	[*]	[*]	uvis	n/a
+[thuo]	[*]	[*]	uvis	n/a
+[iomfruer]	[*]	[*]	uvis	n/a
+[inde]	[*]	[*]	uvis	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+

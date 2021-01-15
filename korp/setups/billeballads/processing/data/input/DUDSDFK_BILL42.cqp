@@ -1,0 +1,532 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 42: Ørnen sidder paa højen Hald [DgF: 440 A VII 422]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="1">
+<sentence type="vers">
+Ørnynn	ørnen	ørn	sb	n/a
+hanndtt	han	han	pron	n/a
+siider	sidder	sidde	vb	n/a
+paa	på	på	præp	n/a
+høgenn	højen	høj	adj	n/a
+haldtt	hald	hald	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+lynenn	linden	lind	sb	n/a
+hun	hun	hun	pron	n/a
+stander	stander	stå	vb	n/a
+i	i	i	præp	n/a
+dipenn	dyben	dyb	adj	n/a
+dall	dal	dal	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Oc	og	og	konj	n/a
+i	i	i	præp	n/a
+thenn	den	den	art	n/a
+lyenn	lind	lind	sb	n/a
+ther	der	der	adv	n/a
+siunger	synger	synge	vb	n/a
+eenn	en	en	art	n/a
+ster	stær	stær	sb	fugl
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Oc	og	og	konj	n/a
+suendenn	svenden	svend	sb	n/a
+thenn	den	den	pron	n/a
+forglemmer	forglemmer	forglemme	vb	n/a
+hun	hun	hun	pron	n/a
+aldriig	aldrig	aldrig	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="2">
+<sentence type="vers">
+Altt	alt	alt	adv	n/a
+yndenn	inden	inden	præp	n/a
+thenn	den	den	art	n/a
+lydenn	linden	lind	sb	n/a
+ther	der	der	adv	n/a
+siunger	synger	synge	vb	n/a
+enn	en	en	art	n/a
+ster	stær	stær	sb	fugl
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+billdenn	bølgen	bølge	sb	n/a
+hun	hun	hun	pron	n/a
+bryder	bryder	bryde	vb	n/a
+then	den	den	art	n/a
+haarre	hårde	hård	adj	n/a
+knar	knarr	knarr	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Oc	og	og	konj	n/a
+bøllenn	bølgen	bølge	sb	n/a
+hun	hun	hun	pron	n/a
+brider	bryder	bryde	vb	n/a
+thenn	den	den	art	n/a
+hariste	hårdeste	hård	adj	n/a
+egh	eg	eg	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="3">
+<sentence type="vers">
+Bylldenn	bølgen	bølge	sb	n/a
+hun	hun	hun	pron	n/a
+bryder	bryder	bryde	vb	n/a
+thenn	den	den	art	n/a
+haarriste	hårdeste	hård	adj	n/a
+egh	eg	eg	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+ellskoenns	elskovens	elskov	sb	n/a
+sorriig	sorrig	sorg	sb	n/a
+giør	gør	gøre	vb	n/a
+kynnder	kinder	kind	sb	del_af_ansigt
+bleg	bleg	bleg	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Hun	hun	hun	pron	n/a
+giør	gør	gøre	vb	n/a
+thennom	dennum	den	pron	n/a
+baade	både	både	adv	n/a
+blege	blege	bleg	adj	n/a
+oc	og	og	konj	n/a
+domme	dumme	dum	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="4">
+<sentence type="vers">
+Hun	hun	hun	pron	n/a
+giøriir	gører	gøre	vb	n/a
+baade	både	både	adv	n/a
+blege	blege	bleg	adj	n/a
+oc	og	og	konj	n/a
+donne	dumme	dum	adj	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+rossenn-kynnder	rosenkinder	rosenkind	sb	n/a
+thennom	dennum	den	pron	n/a
+vender	vender	vende	vb	n/a
+hun	hun	hun	pron	n/a
+om	om	om	adv	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Rider	ridder	ridder	sb	n/a
+tager	tager	tage	vb	n/a
+høg	høg	høg	sb	n/a
+oc	og	og	konj	n/a
+suendenn	svenden	svend	sb	n/a
+tager	tager	tage	vb	n/a
+hunndt	hund	hund	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="5">
+<sentence type="vers">
+Riider	ridder	ridder	sb	n/a
+tager	tager	tage	vb	n/a
+høg	høg	høg	sb	n/a
+,	,	,	tgn	n/a
+oc	og	og	konj	n/a
+hanndt	han	han	pron	n/a
+tager	tager	tage	vb	n/a
+hundtt	hund	hund	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+saa	så	så	adv	n/a
+rider	rider	ride	vb	n/a
+handt	han	han	pron	n/a
+uti	udi	i	præp	n/a
+grønynn	grønnen	grøn	adj	n/a
+lunndtt	lund	lund	sb	skov
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Handt	han	han	pron	n/a
+fant	fandt	finde	vb	n/a
+under	under	under	præp	n/a
+lynndt	lind	lind	sb	n/a
+saa	så	så	adv	n/a
+grønn	grøn	grøn	adj	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="6">
+<sentence type="vers">
+Hanndtt	han	han	pron	n/a
+fannt	fandt	finde	vb	n/a
+under	under	under	præp	n/a
+lynndt	lind	lind	sb	n/a
+saa	så	så	adv	n/a
+grønn	grøn	grøn	adj	n/a
+</sentence>
+<sentence type="vers">
+enn	en	en	art	n/a
+stoltt	stolt	stolt	adj	n/a
+iomffru	jomfru	jomfru	sb	n/a
+stannde	stande	stå	vb	n/a
+y	i	i	præp	n/a
+lønn	løn	løn	sb	skjult
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Hell	hel	hel	adj	n/a
+stannde	stande	stå	vb	n/a
+i	I	I	pron	n/a
+,	,	,	tgn	n/a
+iomffru	jomfru	jomfru	sb	n/a
+,	,	,	tgn	n/a
+fauer	fager	fager	adj	n/a
+oc	og	og	konj	n/a
+fynn	fin	fin	adj	n/a
+!	!	!	tgn	n/a
+</sentence>
+</p>
+<p id="7">
+<sentence type="vers">
+Hell	hel	hel	adj	n/a
+stannde	stande	stå	vb	n/a
+y	I	I	pron	n/a
+,	,	,	tgn	n/a
+iomffru	jomfru	jomfru	sb	n/a
+,	,	,	tgn	n/a
+fauer	fager	fager	adj	n/a
+oc	og	og	konj	n/a
+fynn	fin	fin	adj	n/a
+!	!	!	tgn	n/a
+</sentence>
+<sentence type="vers">
+hui	hvi	hvi	adv	n/a
+stannder	stander	stå	vb	n/a
+i	I	I	pron	n/a
+saa	så	så	adv	n/a
+enne	ene	ene	adj	n/a
+under	under	under	præp	n/a
+løff-grønn	løvgrøn	løvgrøn	adj	n/a
+lynndtt	lind	lind	sb	n/a
+?	?	?	tgn	n/a
+</sentence>
+<sentence type="vers">
+Huadtt	hvad	hvad	pron	n/a
+hellder	heller	heller	adv	n/a
+stannde	stande	stå	vb	n/a
+i	I	I	pron	n/a
+for	for	for	præp	n/a
+fugle-sanng	fuglesang	fuglesang	sb	n/a
+?	?	?	tgn	n/a
+</sentence>
+</p>
+<p id="8">
+<sentence type="vers">
+[Huadtt]	[*]	[*]	uvis	n/a
+[hellder]	[*]	[*]	uvis	n/a
+[stannde]	[*]	[*]	uvis	n/a
+[i]	[*]	[*]	uvis	n/a
+[for]	[*]	[*]	uvis	n/a
+[fugle-sanng]	[*]	[*]	uvis	n/a
+?	?	?	tgn	n/a
+</sentence>
+<sentence type="vers">
+eller	eller	eller	konj	n/a
+[i]	[*]	[*]	uvis	n/a
+[stannde]	[*]	[*]	uvis	n/a
+for	for	for	præp	n/a
+rider-ganng	riddergang	riddergang	sb	n/a
+?"	?"	?"	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+[Her]	[*]	[*]	uvis	n/a
+[haffuer]	[*]	[*]	uvis	n/a
+[ieg]	[*]	[*]	uvis	n/a
+[standit]	[*]	[*]	uvis	n/a
+[thene]	[*]	[*]	uvis	n/a
+[natt]	[*]	[*]	uvis	n/a
+[saa]	[*]	[*]	uvis	n/a
+[lang]	[*]	[*]	uvis	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="9">
+<sentence type="vers">
+Her	her	her	adv	n/a
+haffuer	haver	have	vb	n/a
+ieg	jeg	jeg	pron	n/a
+standit	standet	stå	vb	n/a
+thene	denne	denne	pron	n/a
+natt	nat	nat	sb	n/a
+saa	så	så	adv	n/a
+langtt	langt	lang	adj	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+lyditt	lydet	lyde	vb	n/a
+paa	på	på	præp	n/a
+frydtt	fryd	fryd	sb	n/a
+oc	og	og	konj	n/a
+fugle-sang	fuglesang	fuglesang	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Oc	og	og	konj	n/a
+thu	du	du	pron	n/a
+staar	står	stå	vb	n/a
+icke	ikke	ikke	adv	n/a
+for	for	for	præp	n/a
+fugle-sangh	fuglesang	fuglesang	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="10">
+<sentence type="vers">
+Oc	og	og	konj	n/a
+thu	du	du	pron	n/a
+staar	står	stå	vb	n/a
+her	her	her	adv	n/a
+icke	ikke	ikke	adv	n/a
+for	for	for	præp	n/a
+fugle-sang	fuglesang	fuglesang	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+men	men	men	konj	n/a
+thu	du	du	pron	n/a
+staar	står	stå	vb	n/a
+mere	mere	mere	adj	n/a
+for	for	for	præp	n/a
+rydere-gangh	ridderegang	riddergang	sb	n/a
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Thett	det	den	pron	n/a
+duer	duer	du	vb	n/a
+icke	ikke	ikke	adv	n/a
+lenger	længer	længe	adv	n/a
+att	at	at	ukl	n/a
+dyllie	dølge	dølge	vb	n/a
+for	for	for	præp	n/a
+tiig	dig	du	pron	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="11">
+<sentence type="vers">
+Thett	det	den	pron	n/a
+duer	duer	du	vb	n/a
+icke	ikke	ikke	adv	n/a
+lenger	længer	længe	adv	n/a
+att	at	at	ukl	n/a
+dyllie	dølge	dølge	vb	n/a
+for	for	for	præp	n/a
+diig	dig	du	pron	n/a
+:	:	:	tgn	n/a
+</sentence>
+<sentence type="vers">
+en	en	en	art	n/a
+riidder	ridder	ridder	sb	n/a
+uttaff	udaf	af	præp	n/a
+Skonne	Skåne	Skåne	stn	n/a
+haffuer	haver	have	vb	n/a
+lockitt	lokket	lokke	vb	n/a
+mig	mig	jeg	pron	n/a
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="vers">
+"	"	"	tgn	n/a
+Oc	og	og	konj	n/a
+lad	lad	lade	vb	tillade
+thu	du	du	pron	n/a
+hannom	hannum	han	pron	n/a
+,	,	,	tgn	n/a
+oc	og	og	konj	n/a
+loffue	love	love	vb	n/a
+thu	du	du	pron	n/a
+mig	mig	jeg	pron	n/a
+!	!	!	tgn	n/a
+</sentence>
+</p>
+<p id="12">
+<sentence type="vers">
+Oc	og	og	konj	n/a
+lad	lad	lade	vb	tillade
+thu	du	du	pron	n/a
+hannom	hannum	han	pron	n/a
+,	,	,	tgn	n/a
+oc	og	og	konj	n/a
+loffue	love	love	vb	n/a
+thu	du	du	pron	n/a
+mig	mig	jeg	pron	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+oc	og	og	konj	n/a
+fyre	fire	fire	num	n/a
+gaffuer	gaver	gave	sb	n/a
+saa	så	så	adv	n/a
+giiffuer	giver	give	vb	n/a
+ieg	jeg	jeg	pron	n/a
+tiig	dig	du	pron	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Ieg	jeg	jeg	pron	n/a
+giiffuer	giver	give	vb	n/a
+tiig	dig	du	pron	n/a
+huer	hver	hver	pron	n/a
+iennffligtz-aar	jamlingsår	jamlingsår	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="13">
+<sentence type="vers">
+Ieg	jeg	jeg	pron	n/a
+giiffuer	giver	give	vb	n/a
+tiig	dig	du	pron	n/a
+huer	hver	hver	pron	n/a
+iennffligs-aar	jamlingsår	jamlingsår	sb	n/a
+</sentence>
+<sentence type="vers">
+en	en	en	art	n/a
+sepell	seppel	seppel	sb	n/a
+offuer	over	over	præp	n/a
+titt	dit	din	pron	n/a
+faure	fagre	fager	adj	n/a
+haaer	hår	hår	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Oc	og	og	konj	n/a
+ieg	jeg	jeg	pron	n/a
+giiffuer	giver	give	vb	n/a
+tiig	dig	du	pron	n/a
+huer	hver	hver	pron	n/a
+ieffnliig-meen	jamlingmen	jamlingmen	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="14">
+<sentence type="vers">
+Oc	og	og	konj	n/a
+ieg	jeg	jeg	pron	n/a
+giiffuer	giver	give	vb	n/a
+tiig	dig	du	pron	n/a
+huertt	hvert	hver	pron	n/a
+ieffnliig-men	jamlingmen	jamlingmen	sb	n/a
+</sentence>
+<sentence type="vers">
+en	en	en	art	n/a
+skaarlagen	skarlagen	skarlagen	sb	n/a
+rød	rød	rød	adj	n/a
+,	,	,	tgn	n/a
+slaar	slår	slå	vb	n/a
+paa	på	på	præp	n/a
+thyne	dine	din	pron	n/a
+been	ben	ben	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Og	og	og	konj	n/a
+ieg	jeg	jeg	pron	n/a
+giiffuer	giver	give	vb	n/a
+tiig	dig	du	pron	n/a
+huert	hvert	hver	pron	n/a
+ieffnliig-mod	jamlingmod	jamlingsmod	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="15">
+<sentence type="vers">
+Oc	og	og	konj	n/a
+ieg	jeg	jeg	pron	n/a
+giiffuer	giver	give	vb	n/a
+tiig	dig	du	pron	n/a
+huertt	hvert	hver	pron	n/a
+ieffnliig-modtt	jamlingmod	jamlingsmod	sb	n/a
+</sentence>
+<sentence type="vers">
+en	en	en	art	n/a
+skarlagen	skarlagen	skarlagen	sb	n/a
+rød	rød	rød	adj	n/a
+,	,	,	tgn	n/a
+slaar	slår	slå	vb	n/a
+paa	på	på	præp	n/a
+thyn	din	din	pron	n/a
+fodtt	fod	fod	sb	del_af_ben
+."	."	."	tgn	n/a
+</sentence>
+<sentence type="vers">
+Then	den	den	art	n/a
+iomffru	jomfru	jomfru	sb	n/a
+wor	var	være	vb	n/a
+saa	så	så	adv	n/a
+well	vel	vel	adv	n/a
+mett	med	med	præp	n/a
+the	de	den	art	n/a
+gaffuer	gaver	gave	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="16">
+<sentence type="vers">
+Then	den	den	art	n/a
+iomffru	jomfru	jomfru	sb	n/a
+hun	hun	hun	pron	n/a
+wor	var	være	vb	n/a
+saa	så	så	adv	n/a
+well	vel	vel	adv	n/a
+mett	med	med	præp	n/a
+thi	de	den	art	n/a
+gaffuer	gaver	gave	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+hun	hun	hun	pron	n/a
+troloffuit	trolovet	trolove	vb	n/a
+then	den	den	art	n/a
+riidder	ridder	ridder	sb	n/a
+,	,	,	tgn	n/a
+hun	hun	hun	pron	n/a
+wylde	ville	ville	vb	n/a
+hannom	hannum	han	pron	n/a
+haffue	have	have	vb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="vers">
+Hun	hun	hun	pron	n/a
+gaff	gav	give	vb	n/a
+hannom	hannum	han	pron	n/a
+aldtt	alt	al	adj	n/a
+syn	sin	sin	pron	n/a
+tro	tro	tro	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Oc	og	og	konj	n/a
+suennen	svenden	svend	sb	n/a
+t[henn]	[*]	[*]	uvis	n/a
+f[or]-g[lemmer]	[***]	[*]	uvis	n/a
+h[un]	[*]	[*]	uvis	n/a
+a[ldrig]	[*]	[*]	uvis	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+

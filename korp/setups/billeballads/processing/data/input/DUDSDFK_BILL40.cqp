@@ -1,0 +1,143 @@
+<corpus title="Jens Billes håndskrift" datefrom="yyyyddmm" dateto="yyyyddmm">
+<text title="Bille nr. 40: Alle mand og min mand [DS: XLVI, I 123-124]" date="yyyyddmm" datefrom="yyyyddmm" dateto="yyyyddmm" timefrom="000000" timeto="235959">
+<p id="1">
+<sentence type="vers">
+Alle	alle	al	adj	n/a
+mend	mænd	mand	sb	n/a
+haffue	have	have	vb	n/a
+hatt	hat	hat	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+min	min	min	pron	n/a
+haffuer	haver	have	vb	n/a
+ingen	ingen	ingen	pron	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+så	så	så	adv	n/a
+tugh	tog	tage	vb	n/a
+iegh	jeg	jeg	pron	n/a
+en	en	en	art	n/a
+flåen	flåen	flå	vb	n/a
+kat	kat	kat	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+giøre	gjorde	gøre	vb	n/a
+iegh	jeg	jeg	pron	n/a
+minn	min	min	pron	n/a
+man	mand	mand	sb	n/a
+en	en	en	art	n/a
+hat	hat	hat	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Nu	nu	nu	adv	n/a
+rier	rider	ride	vb	n/a
+min	min	min	pron	n/a
+man	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+fauer	fager	fager	adj	n/a
+hatt	hat	hat	sb	n/a
+haffuer	haver	have	vb	n/a
+han	han	han	pron	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="2">
+<sentence type="vers">
+Alle	alle	al	adj	n/a
+man	mand	mand	sb	n/a
+haffuer	haver	have	vb	n/a
+nogt	nokt	nokke	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+min	min	min	pron	n/a
+haffuer	haver	have	vb	n/a
+inthet	intet	ingen	pron	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+wre	vred	vride	vb	n/a
+iegh	jeg	jeg	pron	n/a
+hornit	hornet	horn	sb	n/a
+aff	af	af	præp	n/a
+vor	vor	vor	pron	n/a
+stud	stud	stud	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+satte	satte	sætte	vb	n/a
+paa	på	på	præp	n/a
+min	min	min	pron	n/a
+bondis	bondes	bonde	sb	n/a
+bugh	bug	bug	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Nu	nu	nu	adv	n/a
+rier	rider	ride	vb	n/a
+min	min	min	pron	n/a
+mand	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+fauert	fagert	fager	adj	n/a
+stude[-]hornn	studehorn	studehorn	sb	n/a
+haffuer	haver	have	vb	n/a
+han	han	han	pron	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+<p id="3">
+<sentence type="vers">
+Alle	alle	al	adj	n/a
+mand	mand	mand	sb	n/a
+haffuer	haver	have	vb	n/a
+skiort	skjort	skjorte	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+min	min	min	pron	n/a
+haffuer	haver	have	vb	n/a
+ingen	ingen	ingen	pron	n/a
+;	;	;	tgn	n/a
+</sentence>
+<sentence type="vers">
+tugh	tog	tage	vb	n/a
+iegh	jeg	jeg	pron	n/a
+mig	mig	jeg	pron	n/a
+itt	et	en	art	n/a
+bøge[-]løff	bøgeløv	bøgeløv	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="vers">
+lagde	lagde	lægge	vb	jf._ligge
+på	på	på	præp	n/a
+min	min	min	pron	n/a
+bondis	bondes	bonde	sb	n/a
+røff	røv	røv	sb	n/a
+.	.	.	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+Nu	nu	nu	adv	n/a
+rider	rider	ride	vb	n/a
+min	min	min	pron	n/a
+mand	mand	mand	sb	n/a
+,	,	,	tgn	n/a
+</sentence>
+<sentence type="omkv&#xE6;d">
+fauer	fager	fager	adj	n/a
+skiorte	skjorte	skjorte	sb	n/a
+har	har	have	vb	n/a
+han	han	han	pron	n/a
+.	.	.	tgn	n/a
+</sentence>
+</p>
+</text>
+</corpus>
+
