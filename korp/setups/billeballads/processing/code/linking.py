@@ -1,3 +1,4 @@
+import json
 import os
 import re
 
@@ -14,12 +15,16 @@ def get_inputdata(filename: str):
         return infile.read().splitlines()
 
 
-def add_links(data: list):
+def add_links(data: list, linkdict: dict):
     """Tilføj URL-links."""
 
-    def add_link(text_elem):
+    base = 'https://cst.dk/dighumlab/duds/DFK/Dorthe/html/'
+
+    def add_link(text_elem, urlbase=base):
         """Tilføj link til et enkelt <text>-element"""
-        return re.sub(r'>$', ' url="LINK HER">', text_elem)
+        title = re.match(r'<text title="(.+) \[', text_elem).groups()[0]
+        htmlfile = linkdict[title]
+        return re.sub(r'>$', f' url="{urlbase}{htmlfile}">', text_elem)
 
     return [add_link(line) if line.startswith('<text ') else line for line in data]
 
@@ -33,10 +38,19 @@ def write_outfile(data, outfile):
 def main():
     rootpath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', '..'))
     inputpath = os.path.join(rootpath, 'processing', 'data', 'input', 'DUDSDFK_BILLall.cqp')
+    jsonpath = os.path.join(rootpath, 'processing', 'data', 'resources', 'linklist.json')
     outputpath = os.path.join(rootpath, 'processing', 'data', 'output', 'DUDSDFK_BILLall.cqp')
 
+    """
+    with open(jsonpath, 'w') as jsonfile:
+        json.dump(dict(zip(KEYS, VALS)), jsonfile, indent=2, ensure_ascii=False)
+    """
+
+    with open(jsonpath, 'r') as jsonfile:
+        linkdict = json.load(jsonfile)
+
     data = get_inputdata(inputpath)
-    data_with_links = add_links(data)
+    data_with_links = add_links(data, linkdict)
     write_outfile(data_with_links, outputpath)
 
 
