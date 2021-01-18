@@ -10,6 +10,9 @@ I første omgang lægges projektet i setuppet `billeballads` under `infrastructu
 ```
 billeballads
 ├── README.md
+├── corpora
+│   ├── data
+│   └── registry
 ├── docker-compose.yml
 ├── frontend
 │   ├── Dockerfile
@@ -30,9 +33,8 @@ billeballads
     └── data
         ├── input                    # Rå data
         ├── output                   # Færdige filer med links
-        ├── resources                # Andre filer med nødvendig info
-        │   └── linklist.json        # Mapping fra visenavne til URL'er
-        └── working                  # Evt. midlertidige filer
+        └── resources                # Andre filer med nødvendig info
+            └── linklist.json        # Mapping fra visenavne til URL'er
 ```
 
 
@@ -48,6 +50,8 @@ Eksempler på viser:
 - https://cst.dk/dighumlab/duds/DFK/Dorthe/html/BILL87.htm
 
 Viser i vrt-format (CWB-format):
+
+Her bruges kun filen `DUDSDFK_BILLall.cqp`, der er en samlet vrt-file med alle viserne. Den originale fil ligger sammen med viserne som individuelle filer (`DUDSDFK_BILL1.cqp`, `DUDSDFK_BILL2.cqp` osv.) i:
 
 `nlpkorp01.nors.ku.dk:/opt/corpora/data2korp/DUDS/DUDSDFK_BILL`
 
