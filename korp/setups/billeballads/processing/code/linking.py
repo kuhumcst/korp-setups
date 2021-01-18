@@ -18,13 +18,11 @@ def get_inputdata(filename: str):
 def add_links(data: list, linkdict: dict):
     """Tilføj URL-links."""
 
-    base = 'https://cst.dk/dighumlab/duds/DFK/Dorthe/html/'
-
-    def add_link(text_elem, urlbase=base):
+    def add_link(text_elem):
         """Tilføj link til et enkelt <text>-element"""
         title = re.match(r'<text title="(.+) \[', text_elem).groups()[0]
         htmlfile = linkdict[title]
-        return re.sub(r'>$', f' url="{urlbase}{htmlfile}">', text_elem)
+        return re.sub(r'>$', f' url="{htmlfile}">', text_elem)
 
     return [add_link(line) if line.startswith('<text ') else line for line in data]
 
@@ -39,7 +37,7 @@ def main():
     rootpath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', '..'))
     inputpath = os.path.join(rootpath, 'processing', 'data', 'input', 'DUDSDFK_BILLall.cqp')
     jsonpath = os.path.join(rootpath, 'processing', 'data', 'resources', 'linklist.json')
-    outputpath = os.path.join(rootpath, 'processing', 'data', 'output', 'DUDSDFK_BILLall.cqp')
+    outputpath = os.path.join(rootpath, 'corpora', 'vrt', 'DUDSDFK_BILLall.cqp')
 
     """
     with open(jsonpath, 'w') as jsonfile:

@@ -11,9 +11,14 @@ I første omgang lægges projektet i setuppet `billeballads` under `infrastructu
 billeballads
 ├── README.md
 ├── corpora
-│   ├── data
-│   └── registry
+│   ├── data                         # Encodede CWB-data
+│   ├── encodingscripts              # Script til at indlæse vrt-filer i Korp
+│   ├── registry                     # CWB-registry
+│   └── vrt                          # Færdige filer med links (output fra "processing")
 ├── docker-compose.yml
+├── docs                             # Ønsker og instrukser fra Dorthe D.
+│   ├── Bille_i_Korp.pdf
+│   └── korrespondance.txt
 ├── frontend
 │   ├── Dockerfile
 │   ├── app
@@ -28,11 +33,10 @@ billeballads
 │   └── start.sh
 └── processing
     ├── code
-    │   ├── encodeBille.sh           # Indlæs cqp-filer i Korp
-    │   └── linking.py               # Lav links i cqp-filer
+    │   ├── encodeBille.sh
+    │   └── linking.py               # Lav links i vrt-filer
     └── data
-        ├── input                    # Rå data
-        ├── output                   # Færdige filer med links
+        ├── input                    # Oprindelige vrt-data
         └── resources                # Andre filer med nødvendig info
             └── linklist.json        # Mapping fra visenavne til URL'er
 ```
@@ -57,6 +61,17 @@ Her bruges kun filen `DUDSDFK_BILLall.cqp`, der er en samlet vrt-file med alle v
 
 
 # Kør processen
+
+- Husk at stoppe evt. kørende docker-containere på port 1234 og port 9111. (Brug `docker-compose down` i den relevante setup-mappe).
+
+- Stil dig ned i billeballads-mappen:
+`cd setups/billeballads`
+
+- Byg det specifikke Korp-setup:
+`docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encodeBille.sh`
+
+- Nu kan viserne tilgås i Korp på http://localhost:9111, og backenden på http://localhost:1234.
+
 
 
 # Noter

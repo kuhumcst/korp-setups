@@ -1,0 +1,50 @@
+Fra: Dorthe Duncker <duncker@hum.ku.dk>
+Dato: 28. december 2020 kl. 18.35.02 CET
+Til: Philip Diderichsen <cpd@hum.ku.dk>
+Emne: SV: Testviser til Korp
+
+Filerne til indlæsning i Korp, må ligge et sted på CST-serveren. Der lagde jeg dem til Lene i sin tid, men jeg har ikke adgang længere. Jeg har selv genereret dem, efter hendes formatinstruks, men jeg mener at huske at hun lavede noget efterbehandling – så det er måske ikke så relevant. Hvis Dorte H har lyst til at tage over, vil det passe mig storartet. Jeg har sygt monstertravlt og alt for få timer i døgnet.
+ 
+Hvis vi går med den simplere løsning i denne omgang, vil jeg foreslå at vi nøjes med en mindre del af korpusset og kun tager de tre ældste manuskripter med (Jens Billes visebog og to til). Så kan vi lægge alle ni visebøger ind med ordlink i næste omgang (dvs. når jeg får tid til at grave frem af gemmerne hvordan jeg lavede html-filerne).
+ 
+Du skal ikke selv bøvle med timefordelingen. Lad Torben tage sig af det – når han nu har tilbudt det.
+ 
+Mh
+Dorthe
+
+
+Fra: Philip Diderichsen <cpd@hum.ku.dk>
+Dato: 27. december 2020 kl. 11.06.13 CET
+Til: Philip Diderichsen <cpd@hum.ku.dk>
+Emne: Vedr.: Testviser til Korp
+
+Hej Dorthe
+ 
+Glædelig jul! 😊
+ 
+Nu har jeg endelig fået kastet et blik på viserne.
+ 
+Det (jeg forestiller mig) jeg kan gøre ret nemt, er at lave links fra tekstattributter (eller ordattributter) i Korp med en URL til den enkelte vise. Det kræver dog at jeg har den VRT-fil (vrt for vertikal) der indlæses i Korp, og som jeg går ud fra genereres fra XML-filer a la dem du har sendt. Er det Dorte H. der har lavet det arbejde? I så fald er det nemmeste måske hvis jeg hjælper hende med det.
+ 
+XML-strukturen gør det oplagt at lave links til det enkelte ord. Det burde være fuldt muligt. Her skal man dog både ind og justere transformationen fra XML til HTML og transformationen fra XML til VRT på en sådan måde at hvert token i VRT-opmærkningen får et link der peger på et tilsvarende anker i HTML’en. Jeg ved hvordan det skal gøres, men jeg har desværre allerede ramt loftet i min arbejdsplan. Så det er ikke realistisk at jeg kan udføre det i nær fremtid (øv).
+ 
+Hvis vi skal prøve den simplere løsning, skal jeg have Jens Bjerring til at give slip på lidt af den tid jeg skal bruge i MeMo-projektet. Det tror jeg godt jeg kan mingelere.
+ 
+😊 P
+ 
+
+ 
+From: Dorthe Duncker <duncker@hum.ku.dk>
+Subject: Testviser til Korp
+Date: 13. november 2020 kl. 12.33.26 CET
+To: Philip Diderichsen <cpd@hum.ku.dk>
+ 
+Hej Philip
+ 
+Her er nogle visefiler af forskellig slags som burde egne sig til Korp-test. Alle tekstord (element: refer) har et unikt lÃ¸benummer (lbnr). Du kan finde de tilsvarende html-filer via katalogen https://cst.dk/dighumlab/duds/DFK/Dorthe/html/JensBille.htm. Der er ikke idâ€™er i html-filerne, og tekstordene er ikke mÃ¦rket individuelt op.  
+ 
+Hvor meget tror du der skal gÃ¸res ekstra for at fÃ¥ visning, sÃ¸gning og linkning i Korp til at fungere? Hvad har du brug for for at kunne finde rundt i xml-opmÃ¦rkningen?
+ 
+Mh
+Dorthe
+ 

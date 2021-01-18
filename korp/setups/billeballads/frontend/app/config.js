@@ -114,24 +114,8 @@ settings.wordPictureConf = {
 settings.visibleModes = 5
 settings.modeConfig = [
     {
-        localekey: "modern_texts",
+        localekey: "medieval_ballads",
         mode: "default"
-    },
-    {
-        localekey: "old_danish_texts",
-        mode: "old_danish"
-    },
-    {
-        localekey: "saxo_texts",
-        mode: "saxo_danish"
-    },
-    {
-        localekey: "da1800",
-        mode: "da1800"
-    },
-    {
-        localekey: "threats",
-        mode: "threats"
     }
 ];
 
@@ -158,8 +142,8 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
-//settings.korpBackendURL = "http://127.0.0.1:1234";
+//settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
+settings.korpBackendURL = "http://127.0.0.1:1234";
 settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
 
 settings.mapCenter = {

@@ -1,0 +1,56 @@
+##
+## registry entry for corpus DUDSDFK_BILLALL
+##
+
+# long descriptive name for the corpus
+NAME ""
+# corpus ID (must be lowercase in registry!)
+ID   dudsdfk_billall
+# path to binary data files
+HOME /opt/corpora/data/dudsdfk_billall
+# optional info file (displayed by "info;" command in CQP)
+INFO /opt/corpora/data/dudsdfk_billall/.info
+
+# corpus properties provide additional information about the corpus:
+##:: charset  = "utf8" # character encoding of corpus data
+##:: language = "??"     # insert ISO code for language (de, en, fr, ...)
+
+
+##
+## p-attributes (token annotations)
+##
+
+ATTRIBUTE word
+ATTRIBUTE neutral
+ATTRIBUTE lemma
+ATTRIBUTE pos
+ATTRIBUTE glosse
+
+
+##
+## s-attributes (structural markup)
+##
+
+# <sentence type=".."> ... </sentence>
+# (no recursive embedding allowed)
+STRUCTURE sentence
+STRUCTURE sentence_type        # [annotations]
+
+# <p id=".."> ... </p>
+# (no recursive embedding allowed)
+STRUCTURE p
+STRUCTURE p_id                 # [annotations]
+
+# <text title=".." date=".." datefrom=".." dateto=".." timefrom=".." timeto=".." url=".."> ... </text>
+# (no recursive embedding allowed)
+STRUCTURE text
+STRUCTURE text_title           # [annotations]
+STRUCTURE text_date            # [annotations]
+STRUCTURE text_datefrom        # [annotations]
+STRUCTURE text_dateto          # [annotations]
+STRUCTURE text_timefrom        # [annotations]
+STRUCTURE text_timeto          # [annotations]
+STRUCTURE text_url             # [annotations]
+
+
+# Yours sincerely, the Encode tool.
