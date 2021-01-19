@@ -4,6 +4,7 @@ FROM korp_frontend_base
 # Complementing files in "modes" with local mode files is not sufficient:
 # Error "r.corpora not defined" if mode files specify corpora that are not in the backend.
 RUN rm -r /opt/korp-frontend/app/modes
+RUN ls /opt/korp-frontend/app
 
 # Next, copy files in local "app" to corresponding paths in "/opt/korp-frontend/app",
 # without substituting existing dirs. (config.js will be replaced, modes dir will be added,

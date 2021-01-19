@@ -24,6 +24,22 @@ settings.corporafolders.duds.dfk = {
 };
 
 
+
+// Custom attributes for this mode (medieval ballads)
+// From https://github.com/spraakbanken/korp-frontend/blob/dev/doc/frontend_devel.md:
+// customAttributes: creates fields in the sidebar that have no corresponding attribute in the backend. Useful for combining two different attributes. All settings concerning sidebar format for normal attributes apply in addition to:
+//    customType: "struct" / "pos" - decides if the attribute should be grouped under word attributes or text attributes.
+//    pattern: Same as pattern for normal attributes, but struct_attrs and pos_attrs also available. Example: '<p style="margin-left: 5px;"><%=struct_attrs.text_title - struct_attrs.text_description%></p>'
+settings.gldaCustomAttrs = {
+        source_wordform : {
+            label : "Kildeform, neutral form, lemmaform",
+            order : 0,
+            customType : "pos",
+            pattern : '<p style="margin-left: 15px;"><%=pos_attrs.word%></p><p style="margin-left: 15px;"><%=pos_attrs.neutral%></p><p style="margin-left: 15px;margin-bottom: 10px;"><%=pos_attrs.lemma%></p>'
+        }
+};
+
+
 // Positional attributes for this mode (medieval ballads)
 settings.gldaAttrs = {
     neutral : {
@@ -31,14 +47,16 @@ settings.gldaAttrs = {
                 type : "set",
                 opts : settings.defaultOptions,
                 extendedTemplate : "<input ng-model='model' >",
-                order : 1
+                order : 1,
+                hideSidebar: true
               },
     lemma : {
                 label: "lemma",
                 type: "set",
                 opts: settings.defaultOptions,
                 extendedTemplate: "<input ng-model='model' >",
-                order: 2
+                order: 2,
+                hideSidebar: true
                 }, 
     pos : {
                 label : "pos",
@@ -96,16 +114,18 @@ settings.gldaStructAttrs = {
 settings.corpora["dudsdfk_billall"] = {
     id : "DUDSDFK_BILLALL",
     title : "Jens Billes haandskrift (1557-1559)",
-    description : "Her svarer en sætning til en linje (vers) i en vise, og et afsnit i teksten svarer til en strofe. Ved uklar datering bruges en fiktik startdato.",
+    description : "Her svarer en sætning til en linje (vers) i en vise, og et afsnit i teksten svarer til en strofe. Ved uklar datering bruges en fiktiv startdato.",
     within : {
-                "sentence" : "sentence"
+                "sentence" : "sentence",
+                "paragraph" : "p"
                 },
     context : {
                   "1 sentence" : "1 sentence",
                   "1 p" : "1 paragraph"
               },
     attributes : settings.gldaAttrs,
-    structAttributes : settings.gldaStructAttrs
+    structAttributes : settings.gldaStructAttrs,
+    customAttributes : settings.gldaCustomAttrs
 };
 
 settings.corpusListing = new CorpusListing(settings.corpora);

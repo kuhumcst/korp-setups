@@ -3,6 +3,7 @@
 Indlæsning af viserne i Jens Billes håndskrift og linkning fra Korp til html-visninger.
 
 
+
 # Projektstruktur
 
 I første omgang lægges projektet i setuppet `billeballads` under `infrastructure/korp/setups`.
@@ -40,6 +41,7 @@ billeballads
 ```
 
 
+
 # Requirements
 
 Udviklet i Python 3.6
@@ -58,17 +60,30 @@ Her bruges kun filen `DUDSDFK_BILLall.cqp`, der er en samlet vrt-file med alle v
 `nlpkorp01.nors.ku.dk:/opt/corpora/data2korp/DUDS/DUDSDFK_BILL`
 
 
-# Kør processen
 
-- Husk at stoppe evt. kørende docker-containere på port 1234 og port 9111. (Brug `docker-compose down` i den relevante setup-mappe).
+# Tilføj links til visedataene
 
-- Stil dig ned i billeballads-mappen:
-`cd setups/billeballads`
+Inputfilen `DUDSDFK_BILLall.cqp` i `processing/data` transformeres ved at køre pythonscriptet `linking.py`. Resultatet lander i `corpora/vrt`. (Filstier er p.t. hardcodet i `linking.py`).
 
-- Byg det specifikke Korp-setup:
-`docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encodeBille.sh`
+```
+cd billeballads/processing/code
+python3 linking.py
+```
 
-- Nu kan viserne tilgås i Korp på http://localhost:9111, og backenden på http://localhost:1234.
+
+
+# Kør billeballads-setuppet i Docker
+
+Husk at stoppe evt. kørende docker-containere på port 1234 og port 9111. (Brug `docker-compose down` i den relevante setup-mappe).
+
+Byg det specifikke Korp-setup i billeballads-mappen. Herunder køres encodingscriptet `encodeBille.sh`, der indlæser `corpora/vrt/DUDSDFK_BILLall.cqp` i CWB i Docker-backend-containeren.
+
+```
+cd setups/billeballads
+docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encodeBille.sh
+```
+
+Nu kan viserne tilgås i Korp på http://localhost:9111, og backenden på http://localhost:1234.
 
 
 
