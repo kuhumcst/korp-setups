@@ -31,8 +31,8 @@ settings.corporafolders.duds.dfk = {
 //    customType: "struct" / "pos" - decides if the attribute should be grouped under word attributes or text attributes.
 //    pattern: Same as pattern for normal attributes, but struct_attrs and pos_attrs also available. Example: '<p style="margin-left: 5px;"><%=struct_attrs.text_title - struct_attrs.text_description%></p>'
 settings.gldaCustomAttrs = {
-        source_wordform : {
-            label : "Kildeform, neutral form, lemmaform",
+        source_neutral_lemma_forms : {
+            label : "source_neutral_lemma",
             order : 0,
             customType : "pos",
             pattern : '<p style="margin-left: 15px;"><%=pos_attrs.word%></p><p style="margin-left: 15px;"><%=pos_attrs.neutral%></p><p style="margin-left: 15px;margin-bottom: 10px;"><%=pos_attrs.lemma%></p>'
