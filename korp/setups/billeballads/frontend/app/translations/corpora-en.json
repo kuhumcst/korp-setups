@@ -1,4 +1,32 @@
 {
     "medieval_ballads": "Medieval ballads",
-    "threats": "Threats"
+    "threats": "Threats",
+
+	"word" : "Source word form",
+	"neutral" : "Neutral form",
+	"lemma" : "Lemma form",
+    "pos" : "Part of speech",
+    "glosse" : "Gloss",
+
+	"view_ballad" : "Link to ballad",
+	"date" : "Date",
+	"strofeid" : "Strophe id",
+	"stype" : "Verse type",
+	"title" : "Title",
+
+	"pos_ADJ" : "Adjective",
+	"pos_AB" : "Adverb",
+	"pos_UNIK" : "Unique part of speech",
+	"pos_NN" : "Noun",
+	"pos_konj" : "Conjunction",
+	"pos_intj" : "Interjection",
+	"pos_num" : "Numeral",
+	"pos_OTHER" : "Punctuation",
+	"pos_PREP" : "Preposition",
+	"pos_PRON" : "Pronoun",
+	"pos_PROPN" : "Place-/Person-/Other name",
+	"pos_uvis" : "Uncertain",
+	"pos_intp" : "Intp",
+	"pos_vb" : "Verb",
+	"pos_ukl" : "No part of speech"
 }

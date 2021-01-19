@@ -16,9 +16,7 @@ billeballads
 │   ├── registry                     # CWB-registry
 │   └── vrt                          # Færdige filer med links (output fra "processing")
 ├── docker-compose.yml
-├── docs                             # Ønsker og instrukser fra Dorthe D.
-│   ├── Bille_i_Korp.pdf
-│   └── korrespondance.txt
+├── docs                             # Ønsker og instrukser fra Dorthe D.; min logbog.
 ├── frontend
 │   ├── Dockerfile
 │   ├── app
