@@ -39,6 +39,25 @@ settings.gldaCustomAttrs = {
         }
 };
 
+/* Parts of speech present in the DUDSDFK_BILLALL corpus.
+Note: No intp! This apparently somehow disturbed the correctly displaying the "within" dropdown menu in Korp ...
+7977	pron  [#11261-#19237]
+7917	vb  [#36659-#44575]
+6661	tgn  [#29058-#35718]
+6595	sb  [#22244-#28838]
+3742	adv  [#2748-#6489]
+3006	præp  [#19238-#22243]
+2748	adj  [#0-#2747]
+1912	konj  [#7810-#9721]
+1308	pers  [#9953-#11260]
+1251	art  [#6490-#7740]
+675	uvis  [#35984-#36658]
+265	ukl  [#35719-#35983]
+231	num  [#9722-#9952]
+219	stn  [#28839-#29057]
+55	intj  [#7755-#7809]
+14	bn  [#7741-#7754]
+*/
 
 // Positional attributes for this mode (medieval ballads)
 settings.gldaAttrs = {
@@ -74,7 +93,7 @@ settings.gldaAttrs = {
                     "pron" : "PRON",
                     "stn|pers|bn" : "PROPN",
                     "uvis" : "uvis",
-                    "intp" : "intp",
+                    // "intp" : "intp",
                     "vb" : "vb",
                     "ukl" : "ukl",
                     },
