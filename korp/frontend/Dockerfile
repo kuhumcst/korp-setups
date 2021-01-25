@@ -47,8 +47,11 @@ WORKDIR /opt/korp-frontend
 RUN yarn
 
 # Recursively patch korp-frontend source code - provides basic UI localisation
-COPY app/* /opt/korp-frontend/frontend-base-patch/
-RUN cp -r /opt/korp-frontend/frontend-base-patch/* /opt/korp-frontend/app/
+# Copy files in local "app" to corresponding paths in "/opt/korp-frontend/app",
+# without substituting existing dirs. (config.js will be replaced, files in
+# includes and translations dirs will be replaced if files with corresponding file names are present
+# in local app/includes and app/translations -- the full dirs are NOT replaced).
+COPY app /opt/korp-frontend/app
 
 # Include a script to sync mode and translation files from config/ to dist/.
 # Run `docker-compose exec frontend sync.sh` in same dir as docker-compose.yml.
