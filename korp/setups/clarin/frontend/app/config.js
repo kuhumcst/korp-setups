@@ -121,8 +121,8 @@ settings.modeConfig = [
         mode: "default"
     },
     {
-        localekey: "old_danish_texts",
-        mode: "old_danish"
+        localekey: "medieval_ballads",
+        mode: "medieval_ballads"
     },
     {
         localekey: "saxo_texts",
