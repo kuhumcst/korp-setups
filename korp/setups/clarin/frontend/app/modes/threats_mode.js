@@ -6,7 +6,8 @@ settings.wordpicture = false;
 
 settings.corpora = {};
 settings.corporafolders = {};
-settings.preselected_corpora = ["threatsjeb"];
+// settings.preselected_corpora = ["threatsjeb"];
+settings.preselectedCorpora = ["threatsjeb"];
 
 
 var threatsContext = {

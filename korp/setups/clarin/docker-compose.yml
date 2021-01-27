@@ -5,7 +5,8 @@ services:
     # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
     restart: on-failure
     volumes:
-      - ${CORPORA_DIR}:/opt/corpora
+     #- ${CORPORA_DIR}:/opt/corpora
+      - /opt/corpora:/opt/corpora
     ports:
       # Korp backend server
       - "1234:1234"
