@@ -1,0 +1,33 @@
+{
+    "medieval_ballads": "Visebøger",
+    "threats": "Trusler",
+
+	"word" : "Kildeform",
+	"neutral" : "Neutral form",
+	"lemma" : "Lemmaform",
+    "pos" : "Ordklasse",
+    "glosse" : "Glosse",
+    "source_neutral_lemma" : "Kildeform, neutral form, lemmaform",
+
+	"view_ballad" : "Link til vise",
+	"date" : "Datering",
+	"strofeid" : "Strofe nr.",
+	"stype" : "Verstype",
+	"title" : "Titel",
+
+	"pos_ADJ" : "Adjektiv",
+	"pos_AB" : "Adverbium",
+	"pos_UNIK" : "Unik ordklasse",
+	"pos_NN" : "Substantiv",
+	"pos_konj" : "Konjunktion",
+	"pos_intj" : "Interjektion",
+	"pos_num" : "Talord",
+	"pos_OTHER" : "Tegnsætning",
+	"pos_PREP" : "Præposition",
+	"pos_PRON" : "Pronomen",
+	"pos_PROPN" : "Sted-/Person-/Broknavn",
+	"pos_uvis" : "Uvis ordklasse",
+	"pos_intp" : "Intp",
+	"pos_vb" : "Verbum",
+	"pos_ukl" : "Uden ordklasse"
+}

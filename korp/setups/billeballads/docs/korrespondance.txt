@@ -1,0 +1,127 @@
+Fra Dorthe 15. januar 2021
+
+For ‘voksne’ brugere kan det godt give mening at lave håndbyggede korpusser (fx for en bestemt skriverhånd), men i forhold til de studerende giver det ingen mening. Og det vil kunne gå vilkårligt galt for dem…
+ 
+Fra: Philip Diderichsen <cpd@hum.ku.dk> 
+Sendt: 15. januar 2021 13:10
+Til: Dorthe Duncker <duncker@hum.ku.dk>
+Emne: Re: Visevisninger
+ 
+OK :)
+ 
+(OBS: Man kan fint søge på tværs af forskellige korpusser, i dette tilfælde de forskellige viser. Men jeg er enig - et korpus fx pr. genre virker mere rimeligt).
+ 
+:) P
+
+
+Den 15. jan. 2021 kl. 13.01 skrev Dorthe Duncker <duncker@hum.ku.dk>:
+
+Hej Philip
+Jeg tror ikke det giver nogen mening at gøre hver enkelt vise til et ‘korpus’. Det giver mening at gøre hver visebog til et korpus og senere – når alle visebøgerne er lagt ind – at lave særkorpusser for de forskellige visegenrer. Man skal kunne søge på tværs af teksterne for at kunne se mønstre som er karakteristiske for de forskellige genrer/visebøger.
+Mh
+Dorthe
+ 
+Fra: Philip Diderichsen <cpd@hum.ku.dk> 
+Sendt: 15. januar 2021 11:53
+Til: Dorthe Duncker <duncker@hum.ku.dk>
+Emne: Re: Visevisninger
+ 
+Hej Dorthe
+ 
+Visesamlingen i Korp er jo ret så tyndbenet, men jeg vil så sørge for at lægge alle Bille-viserne i kataloget ind når jeg nu alligevel er i gang med dataene.
+ 
+Der er mulighed for at lægge hver vise ind som et separat mikrokorpus, a la hvordan de enkelte underkorpusser i trusselsprojektet er lagt ind (se billeder (som er fra min lokale installation)). Er du interesseret i det?
+ 
+Fordele:
+-          Det er muligt at søge i hver vise separat/fjerne viser man ikke ønsker at søge i på en intuitiv måde/sammensætte en samling viser at søge i helt som man vil.
+-          Forekomststatistik vises automatisk pr. valgt korpus under ”Statistik”-fanen.
+ 
+Ulemper:
+-          Antallet af korpusser begynder at blive en smule stort – Korp er ikke god til at håndtere meget store mængder forskellige korpusser. Men vi er indenfor det ladsiggørlige her.
+-          Datamængderne i de enkelte korpusser bliver så små at det måske ikke giver mening?
+-          You tell me?
+ 
+<image003.png>
+ 
+<image004.png>
+ 
+😊 P
+ 
+ 
+ 
+From: Dorthe Duncker <duncker@hum.ku.dk>
+Date: Sunday, 10 January 2021 at 11.26
+To: Philip Diderichsen <cpd@hum.ku.dk>
+Subject: SV: Visevisninger
+ 
+Hej Philip
+ 
+Det lyder godt :) Jeg håber at projektet kommer til at forløbe nogenlunde smertefrit for dig - men hvad gør vi med alle de øvrige visebøger? Det er jo kun viserne i Jens Billes håndskrift du kan linke nu. Er planen at udvikle en metode som så kan rulles ud over hele materialet?
+ 
+Mh
+Dorthe
+ 
+ 
+Fra: Philip Diderichsen <cpd@hum.ku.dk> 
+Sendt: 7. januar 2021 16:17
+Til: Dorthe Duncker <duncker@hum.ku.dk>
+Emne: Visevisninger
+ 
+Hej Dorthe
+ 
+Jeg har nu fundet vej til de filer jeg skal bruge, så jeg vil se hvad jeg kan gøre ift. linkningen. Jens B. har sagt god for at jeg bruger noget tid på det (bl.a. fordi han selv vil kunne drage nytte af linkningen), og jeg har skrevet til Torben. Så scenen burde være sat.
+ 
+😊 P
+
+
+
+Fra: Dorthe Duncker <duncker@hum.ku.dk>
+Dato: 28. december 2020 kl. 18.35.02 CET
+Til: Philip Diderichsen <cpd@hum.ku.dk>
+Emne: SV: Testviser til Korp
+
+Filerne til indlæsning i Korp, må ligge et sted på CST-serveren. Der lagde jeg dem til Lene i sin tid, men jeg har ikke adgang længere. Jeg har selv genereret dem, efter hendes formatinstruks, men jeg mener at huske at hun lavede noget efterbehandling – så det er måske ikke så relevant. Hvis Dorte H har lyst til at tage over, vil det passe mig storartet. Jeg har sygt monstertravlt og alt for få timer i døgnet.
+ 
+Hvis vi går med den simplere løsning i denne omgang, vil jeg foreslå at vi nøjes med en mindre del af korpusset og kun tager de tre ældste manuskripter med (Jens Billes visebog og to til). Så kan vi lægge alle ni visebøger ind med ordlink i næste omgang (dvs. når jeg får tid til at grave frem af gemmerne hvordan jeg lavede html-filerne).
+ 
+Du skal ikke selv bøvle med timefordelingen. Lad Torben tage sig af det – når han nu har tilbudt det.
+ 
+Mh
+Dorthe
+
+
+Fra: Philip Diderichsen <cpd@hum.ku.dk>
+Dato: 27. december 2020 kl. 11.06.13 CET
+Til: Philip Diderichsen <cpd@hum.ku.dk>
+Emne: Vedr.: Testviser til Korp
+
+Hej Dorthe
+ 
+Glædelig jul! 😊
+ 
+Nu har jeg endelig fået kastet et blik på viserne.
+ 
+Det (jeg forestiller mig) jeg kan gøre ret nemt, er at lave links fra tekstattributter (eller ordattributter) i Korp med en URL til den enkelte vise. Det kræver dog at jeg har den VRT-fil (vrt for vertikal) der indlæses i Korp, og som jeg går ud fra genereres fra XML-filer a la dem du har sendt. Er det Dorte H. der har lavet det arbejde? I så fald er det nemmeste måske hvis jeg hjælper hende med det.
+ 
+XML-strukturen gør det oplagt at lave links til det enkelte ord. Det burde være fuldt muligt. Her skal man dog både ind og justere transformationen fra XML til HTML og transformationen fra XML til VRT på en sådan måde at hvert token i VRT-opmærkningen får et link der peger på et tilsvarende anker i HTML’en. Jeg ved hvordan det skal gøres, men jeg har desværre allerede ramt loftet i min arbejdsplan. Så det er ikke realistisk at jeg kan udføre det i nær fremtid (øv).
+ 
+Hvis vi skal prøve den simplere løsning, skal jeg have Jens Bjerring til at give slip på lidt af den tid jeg skal bruge i MeMo-projektet. Det tror jeg godt jeg kan mingelere.
+ 
+😊 P
+ 
+
+ 
+From: Dorthe Duncker <duncker@hum.ku.dk>
+Subject: Testviser til Korp
+Date: 13. november 2020 kl. 12.33.26 CET
+To: Philip Diderichsen <cpd@hum.ku.dk>
+ 
+Hej Philip
+ 
+Her er nogle visefiler af forskellig slags som burde egne sig til Korp-test. Alle tekstord (element: refer) har et unikt lÃ¸benummer (lbnr). Du kan finde de tilsvarende html-filer via katalogen https://cst.dk/dighumlab/duds/DFK/Dorthe/html/JensBille.htm. Der er ikke idâ€™er i html-filerne, og tekstordene er ikke mÃ¦rket individuelt op.  
+ 
+Hvor meget tror du der skal gÃ¸res ekstra for at fÃ¥ visning, sÃ¸gning og linkning i Korp til at fungere? Hvad har du brug for for at kunne finde rundt i xml-opmÃ¦rkningen?
+ 
+Mh
+Dorthe
+ 
