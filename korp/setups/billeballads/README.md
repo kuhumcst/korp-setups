@@ -1,12 +1,14 @@
-# Jens Bille
+# Billeballads
 
-Indlæsning af viserne i Jens Billes håndskrift og linkning fra Korp til html-visninger.
+Indlæsning i Korp af viserne i Jens Billes håndskrift og linkning fra Korp til html-visninger.
 
 
 
 # Projektstruktur
 
-I første omgang lægges projektet i setuppet `billeballads` under `infrastructure/korp/setups`.
+Projektet udvikles i setuppet `billeballads` under `infrastructure/korp/setups`.
+
+Sidenhen integreres det i clarin-setuppet. Setuppet `billeballads` bevares som dokumentation.
 
 ```
 billeballads
@@ -32,7 +34,6 @@ billeballads
 │   └── start.sh
 └── processing
     ├── code
-    │   ├── encodeBille.sh
     │   └── linking.py               # Lav links i vrt-filer
     └── data
         ├── input                    # Oprindelige vrt-data
@@ -46,9 +47,9 @@ billeballads
 
 Udviklet i Python 3.6
 
-Katalog over viserne: https://cst.dk/dighumlab/duds/DFK/Dorthe/html/JensBille.htm
+Katalog over de vise-visninger der skal linkes til: https://cst.dk/dighumlab/duds/DFK/Dorthe/html/JensBille.htm
 
-Eksempler på viser:
+Eksempler på vise-visninger:
 
 - https://cst.dk/dighumlab/duds/DFK/Dorthe/html/BILL1.htm
 - https://cst.dk/dighumlab/duds/DFK/Dorthe/html/BILL87.htm
@@ -72,14 +73,21 @@ python3 linking.py
 
 
 
-# Kør billeballads-setuppet i Docker
+# Test billeballads-setuppet i Docker
 
 Husk at stoppe evt. kørende docker-containere på port 1234 og port 9111. (Brug `docker-compose down` i den relevante setup-mappe).
+
+Det specifikke setup afhænger af det generelle Korp-setup, som typisk allerede vil være bygget. Hvis ikke, bygges det sådan:
+
+```
+cd infrastructure/korp
+docker-compose build
+```
 
 Byg det specifikke Korp-setup i billeballads-mappen. Herunder køres encodingscriptet `encodeBille.sh`, der indlæser `corpora/vrt/DUDSDFK_BILLall.cqp` i CWB i Docker-backend-containeren.
 
 ```
-cd setups/billeballads
+cd infrastructure/korp/setups/billeballads
 docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encodeBille.sh
 ```
 
@@ -87,7 +95,17 @@ Nu kan viserne tilgås i Korp på http://localhost:9111, og backenden på http:/
 
 
 
-# Noter
+# Integrer billeballads-setuppet i clarin-setuppet
 
-P.t. i Korp: Kun to testviser ... 
+I produktion lægges Jens Bille-korpusset som en del af clarin-setuppet, som ikke grises til med rå data og processeringsscripts. Gør følgende for at integrere billeballads-setuppet i clarin-setuppet.
+
+1. Generer korpusset ved at køre billeballads-setuppet i Docker som beskrevet ovenfor.
+2. Kopier encodet korpus til backenden på Clarin-serveren (nlpkorp01fl): `cp -r billeballads/corpora/data/dudsdfk_billall /opt/corpora/data/ ; cp billeballads/corpora/registry/dudsdfk_billall /opt/corpora/registry/`
+3. Lav en ny mode-fil til korpusset/korpustypen under `setups/clarin/frontend/app/modes` (eller nøjes med at redigere en eksisterende). Jeg oprettede den nye mode-fil `medieval_ballads_mode.js`.
+4. Rediger settings.modeConfig i `setups/clarin/frontend/app/config.js`. (`localekey: "medieval_ballads", mode: "medieval_ballads"`).
+5. Rediger oversættelsesfilerne (`setups/clarin/frontend/app/translations/corpora-da.json` osv.) så alle nye labels har en oversættelse.
+6. Byg Clarin-containeren på ny i Docker: `cd setups/clarin ; docker-compose down ; docker-copose up -d --build`.
+
+
+
 
