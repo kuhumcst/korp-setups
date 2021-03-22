@@ -2,6 +2,8 @@
 
 Det følgende er en vejledning i at sætte Korp op i Docker med data fra trusselsprojektet. Løsningen er testet på Windows og Mac.
 
+Se nederst for en beskrivelse af hvordan dataene fra threats-setuppet lægges i produktion i Clarin-setuppet.
+
 > **OBS**: Der er forskel på Windows og andre styresystemer (Mac og Linux). Det nedenstående er skrevet med udgangspunkt i Windows. Således er der fx i kommandoer som `cd infrastructure\korp` brugt backslash. På Mac og Linux bruges der i stedet almindelig skråstreg. (Tjek også om ";" i kommandoer virker i PowerShell!).
 
 ## Byg Korp i Docker
@@ -107,5 +109,64 @@ Følgende kommando stopper serverne og bygger dem op igen ovenpå det generiske 
 Lav dine ændringer, og kør herefter kommandoen fra mappen `C:\MinKorp\infrastructure\korp\setups`.
 
 `docker-compose down ; docker-compose up -d --build`
+
+
+## Integrer threats-dataene i Clarin-setuppet
+
+Når threats-setuppet fungerer korrekt lokalt, kan de genererede data lægges offentligt ud på Clarin-serveren som følger.
+
+Bemærk at nedenstående tager udgangspunkt i linux/unix-kommandoer.
+
+Kopier korpusdata og registry-indgange fra lokal maskine til serveren. NB: Facebook-dataene lægges IKKE ud offentligt.
+
+```
+cd korp/setups/threats/corpora/data
+scp -r threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/data/
+cd ../registry
+scp threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/registry/
+```
+
+Log herefter ind på serveren (`ssh phb514@nlpkorp01.nors.ku.dk`) og overfør konfigurationsfiler fra threats-setuppet til clarin-setuppet.
+
+Filerne `config.js` og `common.js` såvel som diverse translations-filer genbruges fra det eksisterende threats-setup i Clarin-setuppet.
+
+Mode-filen `default_mode.js` skal derimod kopieres over i clarin-setuppet og erstatte den eksisterende `threats_mode.js`.
+
+```
+sudo cp setups/threats/frontend/app/modes/default_mode.js setups/clarin/frontend/app/modes/threats_mode.js
+```
+
+Eftersom Facebookdataene ikke er kopieret med over, skal alle henvisninger til `threats_fac` fjernes fra `threats_mode.js`:
+
+```
+ settings.corporafolders.trusler = {
+         title : "Danske trusler",
+-        contents : ["threats_jeb","threats_jtb","threats_fac","threats_kar", "threats_art"],
++        contents : ["threats_jeb","threats_jtb","threats_kar", "threats_art"],
+         description : "Trusselsbreve mv."
+ };
+  
+-settings.corpora.threats_fac = {
+-    id : "threats_fac",
+-    title : "Udvalgte trusselsbreve fra Facebook",
+-    description : "Udvalgte trusselsbreve fra Facebook",
+-       //within : settings.defaultWithin,
+-    // context : settings.defaultContext,
+-       within : threatsWithin,
+-       context : threatsContext,
+-
+-    attributes : truAttrs,
+-    structAttributes : truStructAttributes
+-};
+-
+```
+
+Til sidst bygges clarin-setuppet på ny:
+
+```
+cd setups/clarin
+sudo docker-compose down ; sudo docker-compose up -d --build
+```
+
 
 
