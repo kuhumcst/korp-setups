@@ -1,58 +1,44 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
-# TODO: investigate if mysql deps are all necessary
 # Install dependency libraries
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install --no-install-recommends -y \
-    bison \
-    flex \
-    libglib2.0-0 \
-    libreadline7 \
-    readline-common \
-    python3 \
-    python3-dev \
-    python3-pip \
-    python3-setuptools \
+    curl \
+    ca-certificates \
     git \
-    gcc \
-    mysql-server \
-    libmysqlclient-dev \
+    mysql-server
+
+# Fetch and run script to add nodejs repos alongside standard Ubuntu ones.
+# Replace setup_12.x with setup_xx.x for whatever specific version is needed.
+# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-2-%E2%80%94-installing-node-js-with-apt-using-a-nodesource-ppa
+RUN curl https://deb.nodesource.com/setup_12.x > setup_nodejs.sh
+RUN bash setup_nodejs.sh
+
+# Then install Nodejs (and NPM as a implicit, recommended install)
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y \
+    nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-# complicated yarn install: https://linuxize.com/post/how-to-install-yarn-on-ubuntu-18-04/
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install --no-install-recommends -y \
-    curl \
-    gnupg \
-    && rm -rf /var/lib/apt/lists/*
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y \
-    yarn \
-    && rm -rf /var/lib/apt/lists/*
+# With NPM installed, we can install yarn
+RUN npm install --global yarn
 
 # Fetch the korp-frontend
 WORKDIR /opt
-RUN git clone https://github.com/kuhumcst/korp-frontend.git
+RUN git clone https://github.com/spraakbanken/korp-frontend.git
 WORKDIR /opt/korp-frontend
 RUN git fetch --all
-RUN git checkout ad56371387c7d582fa6b2658df6921f4458584da
+RUN git checkout f5c4e4fd7bb91ad6bcdd3389f3a28f80154be8b4
 
 # Fetch korp-frontend dependencies
 WORKDIR /opt/korp-frontend
 RUN yarn
 
-# Recursively patch korp-frontend source code - provides basic UI localisation
-# Copy files in local "app" to corresponding paths in "/opt/korp-frontend/app",
-# without substituting existing dirs. (config.js will be replaced, files in
-# includes and translations dirs will be replaced if files with corresponding file names are present
-# in local app/includes and app/translations -- the full dirs are NOT replaced).
+# Patch korp-frontend source code - provides basic UI localisation
 COPY app /opt/korp-frontend/app
 
+# TODO: revisit - still relevant?
 # Include a script to sync mode and translation files from config/ to dist/.
 # Run `docker-compose exec frontend sync.sh` in same dir as docker-compose.yml.
 COPY exec/sync.sh /bin/
