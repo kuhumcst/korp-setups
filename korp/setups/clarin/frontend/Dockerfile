@@ -1,8 +1,9 @@
 FROM korp_frontend_base
 
-# Recursively patch korp-frontend source code with local setup files
-COPY app/* /opt/korp-frontend/config/
-RUN cp -r /opt/korp-frontend/config/* /opt/korp-frontend/app/
+COPY app /opt/korp-frontend/app
+
+# The current-as-of-writing-this version of Korp requires a dummy HTML file.
+RUN touch /opt/korp-frontend/app/modes/glen.html
 
 # Build the project from the patched korp-frontend source code (and its deps)
 RUN yarn build
