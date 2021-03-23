@@ -35,7 +35,12 @@ RUN git checkout f5c4e4fd7bb91ad6bcdd3389f3a28f80154be8b4
 WORKDIR /opt/korp-frontend
 RUN yarn
 
-# Patch korp-frontend source code - provides basic UI localisation
+# Hotfix for a dumb bug in the korp-frontend source code
+# https://github.com/spraakbanken/korp-frontend/pull/130
+# https://github.com/spraakbanken/korp-frontend/issues/131
+RUN sed -i 's/templateUrl/template/g' /opt/korp-frontend/app/scripts/directives.js
+
+# Add basic UI localisation for Danish
 COPY app /opt/korp-frontend/app
 
 # TODO: revisit - still relevant?
