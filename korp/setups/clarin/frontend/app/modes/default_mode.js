@@ -4,6 +4,36 @@ settings.autocomplete = false;
 settings.lemgramSelect = false;
 settings.wordpicture = false;
 
+var modernDanishAttrs = {
+    pos : {
+        label: "pos",
+        translationKey: "pos_",
+        dataset : {
+        "ADJ" : "ADJ",
+        "ADV" : "ADV",
+        "CONJ" : "CONJ",
+        "INTERJ" : "INTERJ",
+        "N" : "N",
+        "NUM" : "NUM",
+        "OTHER" : "OTHER",
+        "PREP" : "PREP",
+        "PRON" : "PRON",
+        "PROPN" : "PROPN",
+        "UNIK" : "UNIK",
+        "V" : "V"
+        },
+        opts: liteOptions,
+        extendedComponent: "datasetSelect",
+        escape: false,
+        order: 0
+    },
+    msd : attrs.msd,
+    lemma : attrs.baseform,
+    ref : attrs.ref,
+    prefix : attrs.prefix,
+    suffix : attrs.suffix
+};
+
 // TODO: something wrong with lsphealth2sundheddk4, commented out for now
 settings.corpora = {};
 settings.corporafolders = {};
@@ -57,7 +87,7 @@ settings.corpora.lspagriculturejordbrugsforskning = {
     description : "LSP Dansk Jordbrugsforskning",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -69,7 +99,7 @@ settings.corpora.lspconstructioneb1 = {
     description : " ",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -81,7 +111,7 @@ settings.corpora.lspconstructioneb2 = {
     description : " ",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -93,7 +123,7 @@ settings.corpora.lspconstructionmuro = {
     description : " ",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -105,7 +135,7 @@ settings.corpora.lspconstructionsbi = {
     description : " ",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -117,7 +147,7 @@ settings.corpora.lspconstructionsbi = {
     description : "LSP Byggeri token,3*(w,nypos,nymsd,lemma):sent:p)",
     within : settings.spWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -129,7 +159,7 @@ settings.corpora.lspclimateaktuelnaturvidenskab = {
     description : "LSP CLIMATE  Akt nat vid",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -141,7 +171,7 @@ settings.corpora.lspclimatedmu = {
     description : "LSP CLIMATE DMU",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -153,7 +183,7 @@ settings.corpora.lspclimatehovedland = {
     description : "LSP CLIMATE Forlaget HOVEDLAND",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -165,7 +195,7 @@ settings.corpora.lspclimateoekraad = {
     description : "LSP CLIMATE Oekråd",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -177,7 +207,7 @@ settings.corpora.lsphealth1aktuelnaturvidenskab = {
     description : "LSP Health, AktuelNaturvidenskab 2001-2009",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -189,7 +219,7 @@ settings.corpora.lsphealth1librissundhed = {
     description : "LSP Health, Libris 2005-2006",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -201,7 +231,7 @@ settings.corpora.lsphealth1netpatient = {
     description : "LSP Health, Netpatient.dk 2007",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -213,7 +243,7 @@ settings.corpora.lsphealth1regionh = {
     description : "LSP Health, RegionH 2006",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -225,7 +255,7 @@ settings.corpora.lsphealth1soefartsstyrelsen = {
     description : "LSP Health,  Søfartsstyrelsen 2005-2010",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -237,7 +267,7 @@ settings.corpora.lsphealth1sst = {
     description : "LSP Health, SST 2000-2010",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -249,7 +279,7 @@ settings.corpora.lsphealth2sundheddk1 = {
     description : "LSP Health, Sundhed.dk 1",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -261,7 +291,7 @@ settings.corpora.lsphealth2sundheddk2 = {
     description : "LSP Health, Sundhed.dk 2",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -273,7 +303,7 @@ settings.corpora.lsphealth2sundheddk3 = {
     description : "LSP Health, Sundhed.dk 3",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -285,7 +315,7 @@ settings.corpora.lsphealth2sundheddk3 = {
 //    description : "LSP Health, Sundhed.dk 4",
 //    within : settings.defaultWithin,
 //    context : defaultContext,
-//    attributes : modernAttrs,
+//    attributes : modernDanishAttrs,
 //    structAttributes : {
 //        text_title : {label : "title"},
 //    }
@@ -297,7 +327,7 @@ settings.corpora.lsphealth2sundheddk5 = {
     description : "LSP Health, Sundhed.dk 5",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -310,7 +340,7 @@ settings.corpora.lspnanonano1 = {
     description : "LSP Nano 1: DTU, iNano, Institut for Fysik og Astronomi, Niels Bohr Institutet, KU",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -322,7 +352,7 @@ settings.corpora.lspnanonano2 = {
     description : "LSP Nano 2: iNano, Aarhus Universitetsforlag",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -334,7 +364,7 @@ settings.corpora.lspnanonano3 = {
     description : "LSP Nano 3: Forskningscenter Risoe, Miljoestyrelsen, Ministeriet for Sundhed og Forebyggelse",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -346,7 +376,7 @@ settings.corpora.lspnanonano4 = {
     description : "LSP Nano 4: Interdisciplinary Nanoscience Center, Aarhus Universitet",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }
@@ -358,7 +388,7 @@ settings.corpora.lspnanoaktuelnaturvidenskab = {
     description : "LSP Nano : Aktuel Naturvidenskab",
     within : settings.defaultWithin,
     context : defaultContext,
-    attributes : modernAttrs,
+    attributes : modernDanishAttrs,
     structAttributes : {
         text_title : {label : "title"},
     }

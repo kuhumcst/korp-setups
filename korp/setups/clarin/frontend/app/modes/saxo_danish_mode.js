@@ -247,29 +247,4 @@ settings.corpora.saxodel16= {
     }
 };
 
-/*settings.corpora.saxos= {
-    id : "SAXOS",
-    title : "Saxo test",
-    description : "Saxo TEST",
-    within : settings.defaultWithin,
-    context : defaultContext,
-    attributes : modernAttrs,
-    structAttributes : {
-        text_title : {label : "title"},
-    }
-};
-
-settings.corpora.saxoa= {
-    id : "SAXOA",
-    title : "Saxo test A",
-    description : "Saxo TEST",
-    within : settings.defaultWithin,
-    context : defaultContext,
-    attributes : modernAttrs,
-    structAttributes : {
-        text_title : {label : "title"},
-    }
-};*/
-
 settings.corpusListing = new CorpusListing(settings.corpora);
-
