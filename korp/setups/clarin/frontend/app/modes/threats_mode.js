@@ -1,13 +1,19 @@
-settings.primaryColor = "#F7D1E4";
-settings.primaryLight = "#FFEBF5";
+settings.primaryColor = "#ded8d3";
+settings.primaryLight = "#f4f2f0";
 settings.autocomplete = false;
 settings.lemgramSelect = false;
 settings.wordpicture = false;
 
 settings.corpora = {};
 settings.corporafolders = {};
-settings.preselected_corpora = ["threatsjeb"];
+// Note: Subtle gotcha - preselectedCorpora was previously preselected_corpora.
+settings.preselectedCorpora = ["threats_jeb"];
 
+settings.corporafolders.trusler = {
+        title : "Danske trusler",
+        contents : ["threats_jeb","threats_jtb","threats_kar", "threats_art"],
+        description : "Trusselsbreve mv."
+};
 
 var threatsContext = {
     "1 sentence": "1 sentence",
@@ -43,9 +49,16 @@ truattrs.pos = {
     escape: false,
 };
 
+var my_custom_msd = {
+    label: "msd",
+    opts: settings.defaultOptions,
+    order: 1
+};
+
 var truAttrs = {
     pos : truattrs.pos,
-    msd : attrs.msd,
+    //msd : attrs.msd,
+    msd : my_custom_msd,
     lemma : attrs.baseform,
     prefix : attrs.prefix,
     suffix : attrs.suffix
@@ -53,13 +66,6 @@ var truAttrs = {
 
 $("#lemgram_list_item").remove();
 //$("#showLineDiagram").remove();
-
-settings.corporafolders.trusler = {
-        title : "Danske trusler",
-        contents : ["threatsjeb","threatsjeb2","threatskar","threatsart"],
-        description : "Trusselsbreve mv."
-};
-
 
 var truStructAttributes = {
     text_title : {label : "title"},
@@ -84,10 +90,14 @@ var truStructAttributes = {
     text_Victimgender : {label : "Victimgender"},
     sentence_id : {label : "id"},
     paragraph_id : {label : "idp"}
-}
+};
 
-settings.corpora.threatsjeb = {
-    id : "THREATSJEB",
+
+
+
+
+settings.corpora.threats_jeb = {
+    id : "threats_jeb",
     title : "Udvalgte trusselsbreve fra Rigspolitiets arkiv: JEB 1",
     description : "JEB - Udvalgte trusselsbreve fra Rigspolitiets arkiv, 1980 til 2007",
 	//within : settings.defaultWithin,
@@ -99,10 +109,11 @@ settings.corpora.threatsjeb = {
     structAttributes : truStructAttributes
 };
 
-settings.corpora.threatsjeb2 = {
-    id : "THREATSJEB2",
-    title : "Udvalgte trusselsbreve fra Rigspolitiets arkiv: JEB 2",
-    description : "JEB - Udvalgte trusselsbreve fra Rigspolitiets arkiv 2, 1980 til 2007",
+
+settings.corpora.threats_jtb = {
+    id : "threats_jtb",
+    title : "Udvalgte trusselsbreve fra threats_jtb",
+    description : "Udvalgte trusselsbreve fra threats_jtb",
 	//within : settings.defaultWithin,
     // context : settings.defaultContext,
 	within : threatsWithin,
@@ -112,8 +123,8 @@ settings.corpora.threatsjeb2 = {
     structAttributes : truStructAttributes
 };
 
-settings.corpora.threatskar = {
-    id : "THREATSKAR",
+settings.corpora.threats_kar = {
+    id : "threats_kar",
     title : "Trusler fra Karnov online",
     description : "Trusler fra Karnov online",
 	//within : settings.defaultWithin,
@@ -125,8 +136,8 @@ settings.corpora.threatskar = {
     structAttributes : truStructAttributes
 };
 
-settings.corpora.threatsart = {
-    id : "THREATSART",
+settings.corpora.threats_art = {
+    id : "threats_art",
     title : "Trusselsbeskeder fra artikler",
     description : "Trusselsbeskeder fra artikler",
 	//within : settings.defaultWithin,
