@@ -20,6 +20,7 @@
     "lang_SK": "slovakiska",
     "lang_ET": "estniska",
 
+    "menu": "Meny",
     "docs": "Användarhandledning",
     "swedish": "Svenska",
     "english": "English",
@@ -35,6 +36,7 @@
     "not_containing": "Innehåller inte",
     "negate_explanation": "Ger alla meningar som inte matchar sökuttrycket.",
     "about": "Om Korp / Referera till Korp",
+    "about_short": "Om Korp",
     "about_body": "Korp är Språkbankens konkordansverktyg. För mer information, kommentarer eller förslag, kontakta <a href='mailto:sb-info@svenska.gu.se'>Språkbanken</a>.",
     "about_cite_header": "Referera till Korp",
     "about_cite": "Lars Borin, Markus Forsberg and Johan Roxendal. 2012. <a target='_blank' href='https://spraakbanken.gu.se/eng/publikationer/korp-%E2%80%93-corpus-infrastructure-sprakbanken'>Korp – the corpus infrastructure of Språkbanken</a>. Proceedings of LREC 2012. Istanbul: ELRA, pages 474–478.<br><a href='https://spraakbanken.gu.se/publication/1822/bibtex'><img src='https://spraakbanken.gu.se/sites/spraakbanken.gu.se/modules/custom/gup_publications/images/bibtex.png' alt='BibTeX'></a>",
@@ -119,6 +121,7 @@
     "matches_not": "inte regexp",
 
     "repeat": "Upprepa",
+    "from": "från",
     "to": "till",
     "times": "gånger",
 
@@ -328,6 +331,7 @@
 
     "no_geo_info": "Platsinformation ej tillgänglig",
     "map_cluster": "Sammanställ",
+    "no_row_selected_map": "Välj minst en rad för att visa kartan",
 
     "global_filter": "Filter",
     "add_filter": "Lägg till filter",
@@ -335,7 +339,7 @@
 
     "repeat_error": "Fel: Det går inte att upprepa från 0 på alla token.",
 
-    "choose_lemgram": "Välj lemgram",
+    "choose_value": "Välj ett värde",
     "login_needed_for_corpora": "Inloggning behövs för åtkomst till",
 
     "stats_warn": "Statistiken är avaktiverad",
