@@ -791,15 +791,6 @@ var modernAttrs = {
 };
 
 /*
-    ==================================================================
-    BELOW: GlOBAL SETTINGS THAT ARE REQUIRED, YET UNSET by DEFAULT
-    ==================================================================
-*/
-
-// The statistics tab will fail if this setting is left undefined [sg]
-settings.groupStatistics = []
-
-/*
     =================================================================
                        END OF CST-SPECIFIC ADDITIONS
     ==================================================================
