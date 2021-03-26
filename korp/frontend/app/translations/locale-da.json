@@ -53,10 +53,10 @@
     "show_more": "Vis flere",
     "show_less": "Vis færre",
     "in_corpus": "i korpus",
-    "cqp_query": "Komplet CQP-forespørgsel",
+    "cqp_query": "Komplet CQP-søgning",
     "cqp_docs": "Hent CQP-dokumentationen",
-    "active_cqp_simple": "Aktiv CQP-forespørgsel i enkel",
-    "active_cqp_extended": "Aktiv CQP-forespørgsel i udvidet",
+    "active_cqp_simple": "Aktuel CQP-søgning (simpel)",
+    "active_cqp_extended": "Aktuel CQP-søgning (udvidet)",
     "max": "op til",
     "min": "mindst",
     "and": "og",
@@ -120,7 +120,7 @@
     "matches": "matcher",
     "matches_not": "matcher ikke",
 
-    "repeat": "Fortsæt",
+    "repeat": "Gentag",
     "from": "fra",
     "to": "til",
     "times": "gange",
@@ -350,7 +350,8 @@
     "add_token": "Tilføj token",
 
     "in_order_chk": "i rækkefølge",
-    "prefix_chk": "præfix",
-    "suffix_chk": "suffix",
+    "prefix_chk": "præfiks",
+    "compound_middle": "infiks",
+    "suffix_chk": "suffiks",
     "text_tab_header": "Læsetilstand"
 }
