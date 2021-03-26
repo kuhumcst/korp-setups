@@ -3,11 +3,6 @@ services:
   backend:
     build: backend/
     image: korp_backend_base
-    restart: on-failure
-    volumes:
-      - ${CORPORA_DIR}:/opt/corpora
-    ports:
-      - "1234:1234"
 
   # NOTE: lacks an entrypoint - extend korp_frontend_base in separate Dockerfile
   frontend:
