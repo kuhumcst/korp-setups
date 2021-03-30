@@ -238,7 +238,7 @@
     "empty": "[empty]",
     "link": "link",
     "text": "text",
-    "word": "word",
+    "word": "token",
 
     "compare_vb": "Compare",
     "compare_with": "with",
