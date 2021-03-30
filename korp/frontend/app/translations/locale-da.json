@@ -237,7 +237,6 @@
     "empty": "[tom]",
     "link": "link",
     "text": "tekst",
-    "word": "ordform",
 
     "compare_vb": "Sammenlign",
     "compare_with": "med",
@@ -353,5 +352,17 @@
     "prefix_chk": "præfiks",
     "compound_middle": "infiks",
     "suffix_chk": "suffiks",
-    "text_tab_header": "Læsetilstand"
+    "text_tab_header": "Læsetilstand",
+
+    "word": "Ordform",
+    "neutral" : "Neutral form",
+    "lemma" : "Lemma",
+    "baseform" : "Lemma",
+    "prefix" : "Præfiks",
+    "suffix" : "Suffiks",
+    "pos" : "Ordklasse",
+    "glosse" : "Glosse",
+    "source_neutral_lemma" : "Ordform, neutral form, lemma",
+    "msd" : "MSD",
+    "date_interval" : "Datointerval"
 }

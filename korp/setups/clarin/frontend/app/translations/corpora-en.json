@@ -5,17 +5,6 @@
   "da1800": "Danish 1800",
   "threats": "Threats",
 
-  "neutral" : "Neutral form",
-  "lemma" : "Lemma",
-  "baseform" : "Lemma",
-  "prefix" : "Prefix",
-  "suffix" : "Suffix",
-  "pos" : "PoS",
-  "glosse" : "Gloss",
-  "source_neutral_lemma" : "Token, neutral form, lemma",
-  "msd" : "MSD",
-  "date_interval" : "Date interval",
-
   "view_ballad": "Link to ballad",
   "date": "Date",
   "strofeid": "Strophe id",

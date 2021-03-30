@@ -238,7 +238,6 @@
     "empty": "[empty]",
     "link": "link",
     "text": "text",
-    "word": "token",
 
     "compare_vb": "Compare",
     "compare_with": "with",
@@ -356,5 +355,17 @@
     "prefix_chk": "initial part",
     "compound_middle": "middle part",
     "suffix_chk": "final part",
-    "text_tab_header": "Reading mode"
+    "text_tab_header": "Reading mode",
+
+    "word": "Token",
+    "neutral" : "Neutral form",
+    "lemma" : "Lemma",
+    "baseform" : "Lemma",
+    "prefix" : "Prefix",
+    "suffix" : "Suffix",
+    "pos" : "PoS",
+    "glosse" : "Gloss",
+    "source_neutral_lemma" : "Token, neutral form, lemma",
+    "msd" : "MSD",
+    "date_interval" : "Date interval"
 }

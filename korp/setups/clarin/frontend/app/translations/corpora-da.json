@@ -5,17 +5,6 @@
   "da1800": "Dansk 1800",
   "threats": "Trusler",
 
-  "neutral" : "Neutral form",
-  "lemma" : "Lemma",
-  "baseform" : "Lemma",
-  "prefix" : "Præfiks",
-  "suffix" : "Suffiks",
-  "pos" : "Ordklasse",
-  "glosse" : "Glosse",
-  "source_neutral_lemma" : "Ordform, neutral form, lemma",
-  "msd" : "MSD",
-  "date_interval" : "Datointerval",
-
   "view_ballad": "Link til vise",
   "date": "Datering",
   "strofeid": "Strofe nr.",
