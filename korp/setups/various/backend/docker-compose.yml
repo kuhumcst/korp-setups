@@ -1,9 +1,0 @@
-version: '3'
-services:
-  backend:
-    build: .
-    volumes:
-      - ./corpora:/opt/host_corpora
-    ports:
-      # Korp backend server
-      - "1234:1234"
