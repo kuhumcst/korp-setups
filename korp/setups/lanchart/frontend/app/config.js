@@ -1,8 +1,9 @@
+console.log('Top of config.js');
 
 var isLab = window.isLab || false;
 
 // The statistics tab will fail if this setting is left undefined [sg]
-settings.groupStatistics = []
+settings.groupStatistics = [];
 
 settings.autocomplete = true;
 settings.enableMap = !isLab;
@@ -64,8 +65,7 @@ settings.reduceStructAttributeSelector = "intersection";
 
 settings.filterSelection = "intersection"
 
-// Commented out to remove the news alerts in the top right corner [sg]
-//settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+// settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
 
 settings.wordpictureTagset = {
     // supported pos-tags
@@ -115,45 +115,17 @@ settings.wordPictureConf = {
 
 }
 
+
 settings.visibleModes = 5
+console.log('config.js before settings.modeConfig');
 settings.modeConfig = [
     {
-        localekey: "modern_texts",
+        localekey: "lanchart_transcriptions",
         mode: "default"
-    },
-    {
-        localekey: "medieval_ballads",
-        mode: "medieval_ballads"
-    },
-    {
-        localekey: "memo_yearcorp",
-        mode: "memo_yearcorpora"
-    },
-    {
-        localekey: "threats",
-        mode: "threats"
-    },
-    {
-        localekey: "saxo_texts",
-        mode: "saxo_danish"
-    },
-    {
-        localekey: "memo_fraktur_corrected",
-        mode: "memo_frakturcorr"
-    },
-    {
-        localekey: "memo_authors",
-        mode: "memo_authornovels"
-    },
-    {
-        localekey: "memo_fraktur_goldstandard",
-        mode: "memo_frakturgold"
-    },
-    {
-        localekey: "da1800",
-        mode: "da1800"
     }
 ];
+console.log('config.js after settings.modeConfig');
+
 
 settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
@@ -162,7 +134,7 @@ settings.defaultOverviewContext = "1 sentence"
 settings.defaultReadingContext = "1 paragraph"
 
 settings.defaultWithin = {
-    "sentence": "sentence"
+    "paragraph": "paragraph"
 };
 
 // for optimization purposes
@@ -178,9 +150,10 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
+//SET THIS BY PROJECT.
 //settings.korpBackendURL = "http://127.0.0.1:1234";
-settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
+settings.korpBackendURL = "https://lanchartkorp.ku.dk/backend";
+console.log('settings.korpBackendURL set to: "' + settings.korpBackendURL + '". If this is not valid, a "TypeError: r.corpora is undefined" will be raised.');
 
 settings.mapCenter = {
   lat: 62.99515845212052,
@@ -189,3 +162,6 @@ settings.mapCenter = {
 };
 
 settings.readingModeField = "sentence_id"
+
+console.log('Bottom of config.js');
+

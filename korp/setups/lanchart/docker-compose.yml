@@ -1,0 +1,31 @@
+version: '3'
+services:
+  backend:
+    build: ../../backend
+    # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
+    restart: on-failure
+    volumes:
+      - ./corpora:/opt/corpora
+    ports:
+      # Korp backend server
+      - "1234:1234"
+  frontend:
+    build: frontend/
+    restart: on-failure
+    depends_on:
+      - backend
+    ports:
+      # Korp frontend server
+      - "9111:9111"
+  partitur:
+    build: partitur/
+    restart: on-failure
+    volumes:
+      # DB_PATH=/Users/phb514/custom_software/parse_textgrids/output docker-compose up -d --build
+      # Win PowerShell: $env:DB_PATH='C:\custom_software\parse_textgrids\output' ; docker-compose up -d --build
+      - $DB_PATH:/opt/output
+    ports:
+      # "Partitur" view server
+      # <host port>:<docker port>! 5000: Flask app default port
+      - "5005:5000"
+

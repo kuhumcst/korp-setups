@@ -4,6 +4,10 @@
   "saxo_texts": "Saxo",
   "da1800": "Danish 1800",
   "threats": "Threats",
+  "memo_yearcorp": "MeMo test",
+  "memo_fraktur_corrected" : "MeMo corrected fraktur",
+  "memo_authors": "MeMo authors",
+  "memo_fraktur_goldstandard": "MeMo fraktur OCR errors",
 
   "view_ballad": "Link to ballad",
   "date": "Date",

@@ -1,8 +1,7 @@
 
 var isLab = window.isLab || false;
 
-// The statistics tab will fail if this setting is left undefined [sg]
-settings.groupStatistics = []
+settings.groupStatistics = [];
 
 settings.autocomplete = true;
 settings.enableMap = !isLab;
@@ -64,8 +63,7 @@ settings.reduceStructAttributeSelector = "intersection";
 
 settings.filterSelection = "intersection"
 
-// Commented out to remove the news alerts in the top right corner [sg]
-//settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+// settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
 
 settings.wordpictureTagset = {
     // supported pos-tags
@@ -116,42 +114,21 @@ settings.wordPictureConf = {
 }
 
 settings.visibleModes = 5
+// Change this in new setups.
+// And remember to change translations/corpora-xx.json and
+// modes/xxx_mode.js and possibly modes/common.js accordingly.
 settings.modeConfig = [
     {
-        localekey: "modern_texts",
+        localekey: "memo_testcorpus_years",
         mode: "default"
     },
     {
-        localekey: "medieval_ballads",
-        mode: "medieval_ballads"
-    },
-    {
-        localekey: "memo_yearcorp",
-        mode: "memo_yearcorpora"
-    },
-    {
-        localekey: "threats",
-        mode: "threats"
-    },
-    {
-        localekey: "saxo_texts",
-        mode: "saxo_danish"
-    },
-    {
-        localekey: "memo_fraktur_corrected",
-        mode: "memo_frakturcorr"
-    },
-    {
-        localekey: "memo_authors",
+        localekey: "memo_testcorpus_authornovels",
         mode: "memo_authornovels"
     },
     {
-        localekey: "memo_fraktur_goldstandard",
+        localekey: "memo_testcorpus_frakturgold",
         mode: "memo_frakturgold"
-    },
-    {
-        localekey: "da1800",
-        mode: "da1800"
     }
 ];
 
@@ -162,7 +139,7 @@ settings.defaultOverviewContext = "1 sentence"
 settings.defaultReadingContext = "1 paragraph"
 
 settings.defaultWithin = {
-    "sentence": "sentence"
+    "paragraph": "paragraph"
 };
 
 // for optimization purposes
@@ -178,9 +155,8 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "https://alf.hum.ku.dk/korp/backend";
-//settings.korpBackendURL = "http://127.0.0.1:1234";
-settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
+//SET THIS BY PROJECT.
+settings.korpBackendURL = "http://127.0.0.1:1234";
 
 settings.mapCenter = {
   lat: 62.99515845212052,
