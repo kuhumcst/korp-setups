@@ -4,6 +4,10 @@
   "saxo_texts": "Saxo",
   "da1800": "Dansk 1800",
   "threats": "Trusler",
+  "memo_yearcorp": "MeMo test",
+  "memo_fraktur_corrected" : "MeMo korrigeret fraktur",
+  "memo_authors": "MeMo forfattere",
+  "memo_fraktur_goldstandard": "MeMo fraktur-OCR-fejl",
 
   "view_ballad": "Link til vise",
   "date": "Datering",

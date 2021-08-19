@@ -126,16 +126,32 @@ settings.modeConfig = [
         mode: "medieval_ballads"
     },
     {
-        localekey: "saxo_texts",
-        mode: "saxo_danish"
-    },
-    {
-        localekey: "da1800",
-        mode: "da1800"
+        localekey: "memo_yearcorp",
+        mode: "memo_yearcorpora"
     },
     {
         localekey: "threats",
         mode: "threats"
+    },
+    {
+        localekey: "saxo_texts",
+        mode: "saxo_danish"
+    },
+    {
+        localekey: "memo_fraktur_corrected",
+        mode: "memo_frakturcorr"
+    },
+    {
+        localekey: "memo_authors",
+        mode: "memo_authornovels"
+    },
+    {
+        localekey: "memo_fraktur_goldstandard",
+        mode: "memo_frakturgold"
+    },
+    {
+        localekey: "da1800",
+        mode: "da1800"
     }
 ];
 
