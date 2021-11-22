@@ -1,0 +1,759 @@
+=== Makeall: processing corpus MEMO_FRAKTUR_GOLD ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lineword
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE line
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE page
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE sentword
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_FRAKTUR_GOLD ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lineword
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE line
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE page
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE sentword
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_FRAKTUR_GOLD ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lineword
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE line
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE page
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE kb_subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_ocrtok
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_leven
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_ratio
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_cer
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_levcat
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE corr_subst
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE sentword
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================

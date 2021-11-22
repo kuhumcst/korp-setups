@@ -1,0 +1,5504 @@
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/host_corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_FAEDRA_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_PRAESTER_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STILLEEKSISTENSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_STUK_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_BANGH_TINE_1889 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_STAEKKEDEVINGER_1881 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SANDINGEMENIGHED_1883 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MIMOSER_1886 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_ISBJOERNEN_1887 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_SKYER_1890 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_MULD_1891 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DETFORJAETTEDELAND_1892 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DENGAMLEADAM_1894 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_DOMMENSDAG_1895 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_HOEJSANG_1896 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
+=== Makeall: processing corpus MEMO_PONTOPPIDAN_KIRKESKUDEN_1897 ===
+Registry directory: /opt/corpora/registry
+ATTRIBUTE word
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE pos2
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+ATTRIBUTE lemma
+ + creating LEXSRT ... OK
+ - lexicon      OK
+ + creating FREQS ... OK
+ - frequencies  OK
+ - token stream OK
+ + creating REVCIDX ... OK
+ + creating REVCORP ... OK
+ ? validating REVCORP ... OK
+ - index        OK
+========================================
