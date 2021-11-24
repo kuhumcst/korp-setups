@@ -1,49 +1,163 @@
 # Korp med trusselsdata
 
-Det følgende er en vejledning i at sætte Korp op i Docker med data fra trusselsprojektet. Løsningen er testet på Windows og Mac.
+Philip Diderichsen, november 2021
 
-Se nederst for en beskrivelse af hvordan dataene fra threats-setuppet lægges i produktion i Clarin-setuppet.
+Processer data fra trusselsprojektet og læg dem ind i Korp -- lokalt på privat maskine og offentligt i Clarins Korp.
 
-> **OBS**: Der er forskel på Windows og andre styresystemer (Mac og Linux). Det nedenstående er skrevet med udgangspunkt i Windows. Således er der fx i kommandoer som `cd infrastructure\korp` brugt backslash. På Mac og Linux bruges der i stedet almindelig skråstreg. (Tjek også om ";" i kommandoer virker i PowerShell!).
+OBS!
+På Windows skal fx Git Bash eller Cygwin være installeret med Perl for at kunne processere korpusdataene med Dorte Haltrups Perl-scripts. Desuden skal Windows Subsystem for Linux være installeret, og det SKAL være version 2 (WSL 2). Sørg også for, uanset styresystem, at have installeret Docker, Git, Subversion (og på Windows evt. TortoiseSVN).
 
-## Byg Korp i Docker
 
-- På en Windowsmaskine skal Windows Subsystem for Linux være installeret, og det SKAL være version 2 (WSL 2). Sørg også for, uanset styresystem, at have installeret *Docker*, *Git*, *Subversion* (og på Windows evt. *TortoiseSVN*). Det er alt sammen gratis software. Søg på nettet for at finde vejledninger i at installere programmerne.
-(Når Docker installeres på Windows, kommer der muligvis en besked om noget med "Docker Filesharing". Docker skal have adgang til filsystemet for at kunne oprette de filer serverne installeres i. Så man skal enten godkende Filesharing eller tage Filesharing ad notam, dvs. vælge "Don't show again").
+## 1. Processer trusselskorpusser (trusselsadmin)
 
-- Hent Korp-koden fra Github: Opret en ny mappe (Windows: på C-drevet, fx `C:\MinKorp`; Mac: fx `/Users/<dit brugernavn>/MinKorp`). Åbn en terminal (Windows: PowerShell, skal køres som administrator; Mac: Terminal) og stil dig ned i den nye mappe vha. kommandoen `cd C:\MinKorp`. (Giver det problemer, så søg på nettet efter "switch directory PowerShell" eller lign.). Kør herefter følgende kommando (hvis begrebet "køre en kommando" ikke giver mening, så søg på nettet efter fx "how to run command in terminal"):
-`git clone https://github.com/kuhumcst/infrastructure.git`
-Koden downloades nu. I terminalen skal du derefter stille dig ned i mappen `korp` vha. kommandoen `cd infrastructure\korp`.
+1. Hent eller opdater `svn://norsdivsvn01fw.unicph.domain/threats/` (svn checkout/svn update)
+2. Opret mappen `threats/korpusdata/` og læg mapper med XML-data i `threats/korpusdata/xml/` jf. nedenstående filtræ. (NB: Mappen SKAL hedde `korpusdata/` da denne ignoreres af Subversion vha. svn:global-ignores. På den måde 'opdages' følsomme data ikke af Subversion).
+3. Lav en kopi af filen `parametre-EKSEMPEL.txt` for hvert korpus, og læg filerne i `threats/parametre/`. Udfyld med værdier der passer til det enkelte korpus. Gem filerne med navne som `FAC-parametre.txt` ("XXX-parametre" skal passe til mappenavnet XXX-korpus). (NB: Indholdet af `parametre/` ignoreres vha. svn:global-ignores-mønsteret *-parametre.txt. Det samme gælder `filer.txt` og `parameterfiler.txt` i `programmer/`).
+4. Opret mappen `threats/korpusdata/vrt/`.
+5. Åbn en terminal (Git Bash eller Cygwin på Windows) (Perl skal være installeret); skift til `threats/programmer/`
+6. Kør: `perl RUN-korp.pl`. Transformerede VRT-filer til CorpusWorkbench ligger nu i `korpusdata/vrt/`
+7. Opret mappen `threats/korpusdata/vrt_rettet/`.
+8. Kør Davids nummereringstagger (som passende kan placeres i fx `C:\Program Files\Davids nummereringstagger\`). Outputtet sendes til mappen `korpusdata/vrt_rettet/`.
+9. Søg og erstat evt. yderligere fejl vha. Notepad++.
 
-- Nu skal fundamentet for Docker-installationen bygges. Det skal kun gøres én gang, hvis alt ellers går vel. Kør følgende kommando. Det vil tage adskillige minutter (der kommer en masse output inkl. nogle advarselsbeskeder. De kan igoreres):
-`docker-compose build`
+```
+korpusdata/
+    ├── vrt
+    │   ├── THREATS_ART.vrt
+    │   ├── THREATS_KAR.vrt
+    │   ...
+    ├── vrt_rettet
+    │   ├── THREATS_ART.vrt
+    │   ├── THREATS_KAR.vrt
+    │   ...
+    └── xml
+        ├── Trusler-fra-Karnov
+        │   ├── KAR-korpus
+        │   │   ├── KAR-001.xml
+        │   │   ├── ...
+        │   │   └── KAR-047.xml
+        │   └── KAR-korpus.zip
+        ├── Trusselsbeskeder-fra-artikler
+        │   ├── ART-korpus
+        │   │   ├── ART-001.xml
+        │   │   ├── ...
+        │   │   └── ART-078.xml
+        │   └── ART-korpus.zip
+        ...
+```
 
-- Hvis strømmen af output slutter med følgende besked, er alt gået godt.
-`Successfully tagged korp_frontend_base:latest`
 
-- Hvis alt ikke er gået godt, så prøv i første omgang at køre den samme kommando igen:
-`docker-compose build`. Hvis det ikke hjælper, så spørg om hjælp :)
+## 2 Byg fundamentet for Korp i Docker (trusselsadmin)
 
-- Nu er Korp med frontend (brugerflade) og backend (database) bygget i en generisk version. Herefter skal dit specifikke Korp-setup bygges ovenpå. Stil dig først ned i dit projekts mappe. Hvis projektet fx er trusselsprojektet, så stil dig ned i `threats` vha. kommandoen `cd setups\threats`. Kør herefter følgende kommandoer (også her kommer der advarselsbeskeder der kan ignoreres). **OBS**: På dette trin er det nødvendigt at være på KU's netværk, evt. over VPN (for at kunne hente de ikke-fortrolige trusselskorpusser via Subversion).
-`docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encode_threats.sh`
+OBS: Når Docker installeres på Windows, kommer der muligvis en besked om noget med "Docker Filesharing". Docker skal have adgang til filsystemet for at kunne oprette de filer serverne installeres i. Så man skal enten godkende Filesharing eller tage Filesharing ad notam, dvs. vælge "Don't show again".
 
-- Hvis alt er gået godt med at bygge Korp-setuppet, står der et sted i slutningen af outputtet:
-`Creating threats_frontend_1 ... done`
+### 2.1 Forbered installation
 
-- Hvis alt er gået godt med at indlæse trusselskorpusserne, står der helt til sidst:
-`Done encoding THREATS_KAR`
+1. Hent Korp-koden fra Github: Opret en ny mappe (Windows: på C-drevet, fx `C:\MinKorp`; Mac: fx `/Users/<dit brugernavn>/MinKorp`). Åbn en terminal (Windows: PowerShell, skal køres som administrator (eller Git Bash); Mac: Terminal) og stil dig ned i den nye mappe vha. kommandoen `cd C:\MinKorp`. 
+2. Kør: `git clone https://github.com/kuhumcst/infrastructure.git`
+3. (Dette er kun midlertidigt ..) Kør: `git checkout shadowmaster`.
 
-- Hvad betyder ovenstående kommando?
-    - `docker-compose up` er den primære kommando, der starter serverne bag Korp.
+### 2.2 Byg Docker-fundament 
+
+Nu skal fundamentet for Docker-installationen bygges. Det tager flere minutter, men skal kun gøres én gang.
+
+1. Skift til `korp/`. Kør: `cd infrastructure\korp`.
+2.  Kør: `docker-compose build`
+
+Hvis strømmen af output slutter med følgende besked, er alt gået godt.
+`Successfully tagged korp_frontend_base:latest`. 
+Hvis alt ikke er gået godt, så prøv i første omgang at køre den samme kommando igen: `docker-compose build`. Hvis det ikke hjælper, så spørg om hjælp :)
+
+
+## 3. Byg Korp med alle trusselskorpusser på privat/beskyttet maskine (trusselsadmin)
+
+Når Korp-fundamentet med frontend (brugerflade) og backend (database) er bygget i en generisk version, skal det specifikke Korp-setup med data fra trusselsprojektet bygges ovenpå.
+
+### 3.1 Byg threats-setuppet og indlæs korpusdata i backenden
+
+De genererede VRT-filer skal kopieres til den relevante mappe i threats-setuppet. Herefter bygges trusselsprojektets Korp-setup, og VRT-filerne indlæses i CWB i backenden af dette. Trusselskorpusserne skal herefter specificeres i Korps konfigurationsfiler i frontenden, og til sidst skal threats-setuppet bygges igen for at få ændringerne i frontenden ind i Docker.
+
+
+1. Kopier VRT-filerne genereret vha. Dorte Haltrups Perl-scripts fra `korpusdata/vrt_rettet/` til `C:\MinKorp\infrastructure\korp\setups\threats\corpora\vrt`.
+2. Skift til `threats`. Kør: `cd C:\MinKorp\infrastructure\korp\setups\threats`
+3. Hvis der er tilføjet eller fjernet opmærkningskategorier (fx numincorpus osv.), så opdater `encode_threats.sh` (i `setups/threats/corpora/encodingscripts/`)
+3. Byg threats-setuppet af Korp og indlæs VRT-filer. Kør: `docker-compose down ; docker-compose up -d --build ; docker-compose exec -d backend bash /opt/corpora/encodingscripts/encode_threats.sh`.
+
+Hvis alt er gået godt med at bygge Korp-setuppet, står der et sted i slutningen af outputtet:
+`Creating threats_frontend_1 ... done`. Hvis alt er gået godt med at indlæse trusselskorpusserne, står der helt til sidst: `Done encoding THREATS_KAR`.
+
+> Hvad betyder ovenstående kommandoer?
+        - `docker-compose down` stopper evt. kørende Docker-containere.
+        - `docker-compose up` er den primære kommando, der starter serverne bag Korp.
     - `-d` skjuler outputtet fra byggeprocessen og outputtet fra kørende servere så det ikke overtager terminalen.
     - `--build` får Docker til at bygge serveren, ikke bare starte den.
     - `docker-compose exec -d backend bash ...` kører en kommando i backend-serveren, her kommandoen `/opt/corpora/encodingscripts/encode_threats.sh`, som indlæser trusselskorpusserne i Korp-backenden (databasen). 
 
-- Trusselssetuppet af Korp er nu bygget, og Korp kan tilgås på http://localhost:9111. Man kan se backenden (en liste af de korpusser der er tilgængelige i CWB) på http://localhost:1234.
+### 3.2 Konfigurer korpusser i frontenden
+
+De nye korpusser skal nu tilføjes i Korps konfigurationsfiler for at dukke op i Korp. Det foregår i frontenden. I mappen `C:\MinKorp\infrastructure\korp\setups\threats\frontend\app\modes` findes filen `default_mode.js`. Søg i denne fil efter fx `threats_fac`, som er Facebook-korpussets ID. Alle de steder hvor der står `threats_fac`, er der konfigureret noget for Facebookdataene. Tilsvarende konfigurationer skal oprettes for de nye korpusser. Et nyt korpus-ID kunne fx være `threats_yyyy` (`threats_` efterfulgt af korpusnavnet `YYYY` (jf. ovenfor) -- alt med små bogstaver):
+- Korpusset skal tilføjes i listen `contents` -- indsæt `"threats_yyyy"` i den kommaseparerede liste.
+- Korpusset skal specificeres med ID, titel, beskrivelse og attributter. Kopier hele blokken der starter med `settings.corpora.threats_fac` og slutter med `truStructAttributes };`, og erstat `threats_fac` med `threats_yyyy` alle steder.
+- Det samme skal gøres for alle nye korpusser.
+- Korpusser der er fjernet, skal også slettes fra `default_mode.js`.
+
+Til sidst skal Korp-setuppet bygges igen: `docker-compose down ; docker-compose up -d --build`. Efter få minutter er Korp klar igen, nu med de nye (eller rettede) korpusser.
+
+- Korp: http://localhost:9111
+- Backend: http://localhost:1234.
 
 
+## 4. Send offentlige trusselskorpusser til indlæsning i Clarin (trusselsadmin)
 
-## Stop systemet
+Truslerne er for en stor dels vedkommende stærkt personfølsomme og skal derfor ikke lægges offentligt ud. Enkelte korpusser kan dog lægges ud offentligt. Disse committes til et Subversion-repositorie til formålet (`svn://norsdivsvn01fw.unicph.domain/threats_public_data/`) og kan herefter lægges i Clarins offentligt tilgængelige Korp af Clarins  korpusadministratorer.
+
+1. svn checkout eller svn update `threats_public_data/` (working copy af `svn://norsdivsvn01fw.unicph.domain/threats_public_data/`) på lokal maskine.
+2. Kopier de offentlige XML-data (Trusler-fra-Karnov, Trusselsbeskeder-fra-artikler osv.) til `threats_public_data/xml/`
+3. Kopier de offentlige VRT-data fra `korpusdata/vrt` til `threats_public_data/vrt/` og fra `korpusdata/vrt_rettet` til `threats_public_data/vrt_rettet`.
+4. Kopier de offentlige data fra `setups/threats/corpora/data` til `threats_public_data/data/`
+5. Kopier de offentlige registry-data fra setups/threats/corpora/registry til `threats_public_data/registry/`
+6. Kopier `default_mode.js` til `threats_public_data/modes/`
+7. Hvis det er ændret, så kopier encodingscriptet `encode_threats.sh` til `threats_public_data/encodingscripts/`
+8. svn add alle nye, ikke-versionerede filer.
+9. Skub dataene til `svn://norsdivsvn01fw.unicph.domain/threats_public_data/` vha. svn commit.
+
+
+## 5. Integrer de offentlige threats-data i Clarin-setuppet (Clarin-admin)
+
+Når threats-setuppet fungerer korrekt lokalt og de offentlige korpusser er committet til `svn://norsdivsvn01fw.unicph.domain/threats_public_data/`, kan de lægges ud i Korp på Clarin-serveren som følger. Start med at verificere at alt virker på lokal maskine; skub herefter data til serveren.
+
+### 5.1 Lokal maskine
+
+1. svn-opdater `threats_public_data/` og git pull `.../infrastructure/` på lokal maskine.
+2. Kopier `threats_public_data/data/`, `threats_public_data/registry/`, `threats_public_data/encodingscripts/` og `threats_public_data/vrt/` til `.../setups/threats/corpora/` på lokal maskine.
+3. Kopier `threats_public_data/modes/default_mode.js` til `.../setups/threats/frontend/app/modes/default_mode.js` på lokal maskine.
+4. Fjern alt andet end de offentlige korpusser fra `default_mode.js`.
+5. Skift til `setups/threats/`.
+6. Byg threats-setuppet på ny: `sudo docker-compose down ; sudo docker-compose up -d --build`.
+
+Hvis alt virker, så git commit de forskellige ændringer i `.../infrastructure/korp/setups/threats/` og git push.
+
+### 5.2 Clarin-server
+
+Skub herefter dataene op på serveren.
+
+1. Kopier `.../setups/threats/frontend/app/modes/default_mode.js` til `.../setups/clarin/frontend/app/modes/threats_mode.js` på lokal maskine.
+2. git commit den ændrede `threats_mode.js` og git push.
+3. sudo git pull `/opt/corpora/infrastructure/` på serveren.
+4. Kopier korpusdata fra `korp/setups/threats/corpora/data/` på lokal maskine til serveren: `scp -r threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/data/`
+5. Kopier registry-indgange fra `korp/setups/threats/corpora/registry/` på lokal maskine til serveren: `scp threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/registry/`
+6. Log ind på serveren, og skift til `infrastructure/.../setups/clarin/`.
+7. Byg clarin-setuppet på ny: `sudo docker-compose down ; sudo docker-compose up -d --build`.
+
+## 6. Kommandoer
+
+### 6.1 Start systemet
+
+Dockerserverne kan startes igen med følgende kommando. (Husk at stå i mappen `C:\MinKorp\infrastructure\korp\setups`). Serverne skal ikke bygges fra bunden, men det vil alligevel tage et par minutter at starte Korp. Herefter vil der igen være liv i Korp (http://localhost:9111) og CWB-backenden (http://localhost:1234).
+
+`docker-compose up -d`
+
+### 6.2 Stop systemet
 
 Dockerserverne bag Korp kan stoppes med følgende kommando.
 
@@ -52,57 +166,27 @@ Dockerserverne bag Korp kan stoppes med følgende kommando.
 Der vil så ikke længere være noget at se på http://localhost:9111 og http://localhost:1234.
 
 
-## Start systemet
-
-Dockerserverne kan startes igen med følgende kommando. (Husk at stå i mappen `C:\MinKorp\infrastructure\korp\setups`). Serverne skal ikke bygges fra bunden, men det vil alligevel tage et par minutter at starte Korp. Herefter vil der igen være liv i Korp (http://localhost:9111) og CWB-backenden (http://localhost:1234).
-
-`docker-compose up -d`
-
-
-## Genstart systemet
+### 6.3 Genstart systemet
 
 Man kan stoppe og starte i ét hug ved at kombinere kommandoerne:
 
 `docker-compose down ; docker-compose up -d`
 
 
-## Byg alt forfra
+### 6.4 Byg alt forfra
 
-Hvis noget går i skuddermudder, så prøv at bygge hele Dockerinfrastrukturen forfra vha. følgende kommandoer.
+Hvis noget går i skuddermudder, så prøv at bygge hele Dockerinfrastrukturen forfra: Fjern hele Dockerinfrastrukturen, skift til `korp/`-mappen og byg den op igen. Byg herefter det specifikke threats-setup af Korp. Kommandoer:
 
-- Fjern hele Dockerinfrastrukturen:
-`docker-compose down ; docker image prune -af`
+1. Fjern infrastruktur: `docker-compose down ; docker image prune -af`
+2. Skift til `korp/`: `cd C:\MinKorp\infrastructure\korp`
+3. Byg grundlæggende infrastruktur op igen: `docker-compose build`
+4. Skift til `threats/`: `cd setups\threats`
+5. Byg threats-setup: `docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encode_threats.sh`
 
-- Stil dig i `korp`-mappen:
-`cd C:\MinKorp\infrastructure\korp`
- 
-- Byg den grundlæggende Korp-infrastruktur. Hvis noget fejler, så prøv samme kommando igen.
-`docker-compose build`
-
-- Stil dig ned i threats-mappen:
-`cd setups\threats`
-
-- Byg det specifikke Korp-setup:
-`docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encode_threats.sh`
-
-- Nu kan Korp igen tilgås på http://localhost:9111, og backenden på http://localhost:1234.
+Nu kan Korp igen tilgås på http://localhost:9111, og backenden på http://localhost:1234.
 
 
-
-## Tilføj nye data/ændringer i backenden
-
-Når Korp er bygget, kan nye korpusser, fx fortrolige korpusser, tilføjes som følger -- uden at stoppe serverne. Rettede korpusser kan tilføjes på samme måde.
-
-1. Læg korpussets XML-filer i en mappe under "threats". Ligesom filerne fra Facebook ligger i `corpora\transformation\threats\Trusler-fra-Facebook\FAC-korpus`, skal de nye filer ligge i `corpora\transformation\threats\XXXXXX\YYYY-korpus`.
-2. Kopier filen `parametre-EKSEMPEL.txt`. Udfyld med værdier der er aktuelle for det nye korpus. Gem filen i mappen `parametre` som `YYYY-parametre.txt` (a la `FAC-parametre.txt` -- "YYYY" skal passe til mappenavnet YYYY-korpus).
-3. Stå i mappen `C:\MinKorp\infrastructure\korp\setups`, og kør kommandoen `docker-compose exec -d backend bash /opt/corpora/encodingscripts/encode_threats.sh` for at generere alle korpusfiler forfra og indlæse dem i CWB.
-4.  Det nye korpus skal nu tilføjes i Korps konfigurationsfiler for at dukke op i Korp. Det foregår i frontenden. I mappen `C:\MinKorp\infrastructure\korp\setups\threats\app\frontend\modes` findes filen `default_mode.js`. Prøv at søge i denne fil efter `threats_fac`, som er Facebook-korpussets ID. Alle de steder hvor der står `threats_fac`, er der konfigureret noget for Facebookdataene. Tilsvarende konfigurationer skal oprettes for det nye korpus. Vi antager i det følgende at det nye korpus-ID er `threats_yyyy` (`threats_` efterfulgt af korpusnavnet `YYYY` (jf. ovenfor) -- alt med små bogstaver):
-	- Korpusset skal tilføjes i listen `contents` -- indsæt `"threats_yyyy"` i den kommaseparerede liste.
-	- Korpusset skal specificeres med ID, titel, beskrivelse og attributter. Kopier hele blokken der starter med `settings.corpora.threats_fac` og slutter med `truStructAttributes };`, og erstat `threats_fac` med `threats_yyyy` alle steder.
-5. Til sidst skal Korp-setuppet bygges igen: `docker-compose down ; docker-compose up -d --build`. Efter få minutter er Korp klar igen, nu med det nye (eller rettede) korpus.
-
-
-## Ændringer i frontenden
+### 6.5 Ændringer i frontenden
 
 Følgende kommando stopper serverne og bygger dem op igen ovenpå det generiske Korp-setup, nu med evt. ændringer i frontenden. (Det går relativt hurtigt). Det kan fx være en anden benævnelse af en attribut, fjernelse af et korpus fra korpusvælgeren eller lign.
 
@@ -111,62 +195,8 @@ Lav dine ændringer, og kør herefter kommandoen fra mappen `C:\MinKorp\infrastr
 `docker-compose down ; docker-compose up -d --build`
 
 
-## Integrer threats-dataene i Clarin-setuppet
 
-Når threats-setuppet fungerer korrekt lokalt, kan de genererede data lægges offentligt ud på Clarin-serveren som følger.
 
-Bemærk at nedenstående tager udgangspunkt i linux/unix-kommandoer.
-
-Kopier korpusdata og registry-indgange fra lokal maskine til serveren. NB: Facebook-dataene lægges IKKE ud offentligt.
-
-```
-cd korp/setups/threats/corpora/data
-scp -r threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/data/
-cd ../registry
-scp threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/registry/
-```
-
-Log herefter ind på serveren (`ssh phb514@nlpkorp01.nors.ku.dk`) og overfør konfigurationsfiler fra threats-setuppet til clarin-setuppet.
-
-Filerne `config.js` og `common.js` såvel som diverse translations-filer genbruges fra det eksisterende threats-setup i Clarin-setuppet.
-
-Mode-filen `default_mode.js` skal derimod kopieres over i clarin-setuppet og erstatte den eksisterende `threats_mode.js`.
-
-```
-sudo cp setups/threats/frontend/app/modes/default_mode.js setups/clarin/frontend/app/modes/threats_mode.js
-```
-
-Eftersom Facebookdataene ikke er kopieret med over, skal alle henvisninger til `threats_fac` fjernes fra `threats_mode.js`:
-
-```
- settings.corporafolders.trusler = {
-         title : "Danske trusler",
--        contents : ["threats_jeb","threats_jtb","threats_fac","threats_kar", "threats_art"],
-+        contents : ["threats_jeb","threats_jtb","threats_kar", "threats_art"],
-         description : "Trusselsbreve mv."
- };
-  
--settings.corpora.threats_fac = {
--    id : "threats_fac",
--    title : "Udvalgte trusselsbreve fra Facebook",
--    description : "Udvalgte trusselsbreve fra Facebook",
--       //within : settings.defaultWithin,
--    // context : settings.defaultContext,
--       within : threatsWithin,
--       context : threatsContext,
--
--    attributes : truAttrs,
--    structAttributes : truStructAttributes
--};
--
-```
-
-Til sidst bygges clarin-setuppet på ny:
-
-```
-cd setups/clarin
-sudo docker-compose down ; sudo docker-compose up -d --build
-```
 
 
 
