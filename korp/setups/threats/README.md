@@ -88,20 +88,6 @@ Hvis noget går i skuddermudder, så prøv at bygge hele Dockerinfrastrukturen f
 - Nu kan Korp igen tilgås på http://localhost:9111, og backenden på http://localhost:1234.
 
 
-
-## Tilføj nye data/ændringer i backenden
-
-Når Korp er bygget, kan nye korpusser, fx fortrolige korpusser, tilføjes som følger -- uden at stoppe serverne. Rettede korpusser kan tilføjes på samme måde.
-
-1. Læg korpussets XML-filer i en mappe under "threats". Ligesom filerne fra Facebook ligger i `corpora\transformation\threats\Trusler-fra-Facebook\FAC-korpus`, skal de nye filer ligge i `corpora\transformation\threats\XXXXXX\YYYY-korpus`.
-2. Kopier filen `parametre-EKSEMPEL.txt`. Udfyld med værdier der er aktuelle for det nye korpus. Gem filen i mappen `parametre` som `YYYY-parametre.txt` (a la `FAC-parametre.txt` -- "YYYY" skal passe til mappenavnet YYYY-korpus).
-3. Stå i mappen `C:\MinKorp\infrastructure\korp\setups`, og kør kommandoen `docker-compose exec -d backend bash /opt/corpora/encodingscripts/encode_threats.sh` for at generere alle korpusfiler forfra og indlæse dem i CWB.
-4.  Det nye korpus skal nu tilføjes i Korps konfigurationsfiler for at dukke op i Korp. Det foregår i frontenden. I mappen `C:\MinKorp\infrastructure\korp\setups\threats\app\frontend\modes` findes filen `default_mode.js`. Prøv at søge i denne fil efter `threats_fac`, som er Facebook-korpussets ID. Alle de steder hvor der står `threats_fac`, er der konfigureret noget for Facebookdataene. Tilsvarende konfigurationer skal oprettes for det nye korpus. Vi antager i det følgende at det nye korpus-ID er `threats_yyyy` (`threats_` efterfulgt af korpusnavnet `YYYY` (jf. ovenfor) -- alt med små bogstaver):
-	- Korpusset skal tilføjes i listen `contents` -- indsæt `"threats_yyyy"` i den kommaseparerede liste.
-	- Korpusset skal specificeres med ID, titel, beskrivelse og attributter. Kopier hele blokken der starter med `settings.corpora.threats_fac` og slutter med `truStructAttributes };`, og erstat `threats_fac` med `threats_yyyy` alle steder.
-5. Til sidst skal Korp-setuppet bygges igen: `docker-compose down ; docker-compose up -d --build`. Efter få minutter er Korp klar igen, nu med det nye (eller rettede) korpus.
-
-
 ## Ændringer i frontenden
 
 Følgende kommando stopper serverne og bygger dem op igen ovenpå det generiske Korp-setup, nu med evt. ændringer i frontenden. (Det går relativt hurtigt). Det kan fx være en anden benævnelse af en attribut, fjernelse af et korpus fra korpusvælgeren eller lign.
@@ -111,55 +97,76 @@ Lav dine ændringer, og kør herefter kommandoen fra mappen `C:\MinKorp\infrastr
 `docker-compose down ; docker-compose up -d --build`
 
 
-## Integrer threats-dataene i Clarin-setuppet
 
-Når threats-setuppet fungerer korrekt lokalt, kan de genererede data lægges offentligt ud på Clarin-serveren som følger.
+## Processer trusselskorpusser
 
-Bemærk at nedenstående tager udgangspunkt i linux/unix-kommandoer.
+1. Hent eller opdater svn://norsdivsvn01fw.unicph.domain/threats/ (svn checkout/svn update)
+2. Læg mapper med XML-data i threats/korpusdata/xml/ jf. nedenstående filtræ.
+3. Lav en kopi af filen `parametre-EKSEMPEL.txt` for hvert korpus, og læg dem i threats/parametre. Udfyld med værdier der passer til det enkelte korpus korpus. Gem filen i mappen parametre (fx FAC-parametre.txt "XXX-parametre" skal passe til mappenavnet XXX-korpus).
+4. Åbn terminal/Cygwin (perl skal være installeret); stå i threats/programmer/
+5. Kør: perl RUN-korp.pl
+   Transformerede VRT-filer til CorpusWorkbench ligger nu i korpusdata/vrt/
+6. Kør Davids nummereringsprogram.
+   VRT-filer med nummerering ligger nu i XXXXXXXX
+7. Kør andre retteprogrammer, søg og erstat med Notepad++ osv.
+   Rettede VRT-filer ligger nu i YYYYYYYY
 
-Kopier korpusdata og registry-indgange fra lokal maskine til serveren. NB: Facebook-dataene lægges IKKE ud offentligt.
+korpusdata/
+    ├── vrt
+    │   ├── THREATS_ART.vrt
+    │   ├── THREATS_KAR.vrt
+    │   ...
+    └── xml
+        ├── Trusler-fra-Karnov
+        │   ├── KAR-korpus
+        │   │   ├── KAR-001.xml
+        │   │   ├── ...
+        │   │   └── KAR-047.xml
+        │   └── KAR-korpus.zip
+        ├── Trusselsbeskeder-fra-artikler
+        │   ├── ART-korpus
+        │   │   ├── ART-001.xml
+        │   │   ├── ...
+        │   │   └── ART-078.xml
+        │   └── ART-korpus.zip
+        ...
 
-```
-cd korp/setups/threats/corpora/data
-scp -r threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/data/
-cd ../registry
-scp threats_art threats_jeb threats_jtb threats_kar nlpkorp01.nors.ku.dk:/opt/corpora/registry/
-```
 
-Log herefter ind på serveren (`ssh phb514@nlpkorp01.nors.ku.dk`) og overfør konfigurationsfiler fra threats-setuppet til clarin-setuppet.
 
-Filerne `config.js` og `common.js` såvel som diverse translations-filer genbruges fra det eksisterende threats-setup i Clarin-setuppet.
+## Læg trusselskorpusser i Korp på privat/beskyttet maskine
 
-Mode-filen `default_mode.js` skal derimod kopieres over i clarin-setuppet og erstatte den eksisterende `threats_mode.js`.
+1. Kopier de genererede VRT-filer til mappen `C:\MinKorp\infrastructure\korp\setups\threats\corpora\vrt`.
+2. Stå i mappen `C:\MinKorp\infrastructure\korp\setups\threats`, og kør kommandoen `docker-compose exec -d backend bash /opt/corpora/encodingscripts/encode_threats.sh` for at indlæse alle trusselskorpusserne i CWB.
+3. De nye korpusser skal nu tilføjes i Korps konfigurationsfiler for at dukke op i Korp. Det foregår i frontenden. I mappen `C:\MinKorp\infrastructure\korp\setups\threats\app\frontend\modes` findes filen `default_mode.js`. Søg i denne fil efter fx `threats_fac`, som er Facebook-korpussets ID. Alle de steder hvor der står `threats_fac`, er der konfigureret noget for Facebookdataene. Tilsvarende konfigurationer skal oprettes for de nye korpusser. Et nyt korpus-ID kunne fx være `threats_yyyy` (`threats_` efterfulgt af korpusnavnet `YYYY` (jf. ovenfor) -- alt med små bogstaver):
+	- Korpusset skal tilføjes i listen `contents` -- indsæt `"threats_yyyy"` i den kommaseparerede liste.
+	- Korpusset skal specificeres med ID, titel, beskrivelse og attributter. Kopier hele blokken der starter med `settings.corpora.threats_fac` og slutter med `truStructAttributes };`, og erstat `threats_fac` med `threats_yyyy` alle steder.
+    - Det samme skal gøres for de øvrige nye korpusser.
+    - Korpusser der er fjernet, skal også fjernes i mode-filen.
+4. Til sidst skal Korp-setuppet bygges igen: `docker-compose down ; docker-compose up -d --build`. Efter få minutter er Korp klar igen, nu med det nye (eller rettede) korpus.
 
-```
-sudo cp setups/threats/frontend/app/modes/default_mode.js setups/clarin/frontend/app/modes/threats_mode.js
-```
 
-Eftersom Facebookdataene ikke er kopieret med over, skal alle henvisninger til `threats_fac` fjernes fra `threats_mode.js`:
+## Send offentlige trusselskorpusser til indlæsning i Clarin
 
-```
- settings.corporafolders.trusler = {
-         title : "Danske trusler",
--        contents : ["threats_jeb","threats_jtb","threats_fac","threats_kar", "threats_art"],
-+        contents : ["threats_jeb","threats_jtb","threats_kar", "threats_art"],
-         description : "Trusselsbreve mv."
- };
-  
--settings.corpora.threats_fac = {
--    id : "threats_fac",
--    title : "Udvalgte trusselsbreve fra Facebook",
--    description : "Udvalgte trusselsbreve fra Facebook",
--       //within : settings.defaultWithin,
--    // context : settings.defaultContext,
--       within : threatsWithin,
--       context : threatsContext,
--
--    attributes : truAttrs,
--    structAttributes : truStructAttributes
--};
--
-```
+1. svn update threats_public_data på lokal maskine
+2. Kopier de offentlige XML-data (Trusler-fra-Karnov, Trusselsbeskeder-fra-artikler osv.) til threats_public_data/xml/
+3. Kopier de offentlige VRT-data til threats_public_data/vrt/
+4. Kopier de offentlige data fra setups/threats/corpora/data til threats_public_data/data/
+5. Kopier de offentlige registry-data fra setups/threats/corpora/registry til threats_public_data/registry/
+6. Kopier `default_mode.js` til threats_public_data/modes/
+7. Skub dataene til svn://norsdivsvn01fw.unicph.domain/threats_public_data/ vha. svn commit.
+
+
+
+
+
+## Integrer de offentlige threats-data i Clarin-setuppet
+
+Når threats-setuppet fungerer korrekt lokalt og de offentlige korpusser er committet til svn://norsdivsvn01fw.unicph.domain/threats_public_data/, kan de lægges ud på Clarin-serveren som følger.
+
+1. svn-opdater threats_public_data/
+2. Kopier data fra threats_public_data/ til /opt/corpora/data/ og /opt/corpora/registry/
+3. Kopier threats_public_data/modes/default_mode.js til /opt/corpora/infrastructure/korp/setups/clarin/frontend/app/modes/threats_mode.js
+4. Fjern alt andet end de offentlige korpusser fra threats_mode.js
 
 Til sidst bygges clarin-setuppet på ny:
 
@@ -167,6 +174,9 @@ Til sidst bygges clarin-setuppet på ny:
 cd setups/clarin
 sudo docker-compose down ; sudo docker-compose up -d --build
 ```
+
+
+
 
 
 

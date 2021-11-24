@@ -13,7 +13,7 @@ console.log('Preselected corpora defined');
 
 settings.corporafolders.trusler = {
         title : "Danske trusler",
-        contents : ["threats_jeb","threats_jtb","threats_fac","threats_kar", "threats_art"],
+        contents : ["threats_jeb","threats_jtb","threats_kar", "threats_art"],
         description : "Trusselsbreve mv."
 };
 
@@ -121,19 +121,6 @@ settings.corpora.threats_jtb = {
     id : "threats_jtb",
     title : "Udvalgte trusselsbreve fra threats_jtb",
     description : "Udvalgte trusselsbreve fra threats_jtb",
-	//within : settings.defaultWithin,
-    // context : settings.defaultContext,
-	within : threatsWithin,
-	context : threatsContext,
-
-    attributes : truAttrs,
-    structAttributes : truStructAttributes
-};
-
-settings.corpora.threats_fac = {
-    id : "threats_fac",
-    title : "Udvalgte trusselsbreve fra Facebook",
-    description : "Udvalgte trusselsbreve fra Facebook",
 	//within : settings.defaultWithin,
     // context : settings.defaultContext,
 	within : threatsWithin,
