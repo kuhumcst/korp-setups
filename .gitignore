@@ -4,7 +4,7 @@
 /localhost.crt
 /localhost.key
 
-korp/setups/threats/corpora/transformation/threats
-korp/setups/threats/corpora/data
-korp/setups/threats/corpora/registry
+setups/threats/corpora/transformation/threats
+setups/threats/corpora/data
+setups/threats/corpora/registry
 
