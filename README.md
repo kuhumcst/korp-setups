@@ -22,6 +22,8 @@ None of the setups come with any kind of SSL certificate support, thus it become
 Docker commands
 ---------------
 > _NOTE: all commands must be run in a directory containing a `docker-compose.yml` file!_
+> 
+> _It is likely that the filesystem permissions are set up in such a way that these commands must be run as a superuser, e.g by prepending them with `sudo`._
 
 ### Building base images
 To build image(s) and store them in the local Docker repo, but _not_ run them:
@@ -47,7 +49,7 @@ This is the most common way to build _and_ run a setup.
 ### Debugging
 Of course, in the real world, you will need to debug the system.
 
-When something is misbehaving, get feedback by NOT rerunning in a detached state. This means omitting the `-d` option - and optionally the `--build` option to skip the build step:
+When something is misbehaving, get feedback by rerunning in a non-detached state. This means omitting the `-d` option - and optionally the `--build` option to skip the build step:
 
 ```shell
 # running with command-line output
