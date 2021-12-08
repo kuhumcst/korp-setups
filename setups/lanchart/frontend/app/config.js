@@ -55,14 +55,19 @@ settings.downloadFormatParams = {
     },
 };
 
+// 'union' vs. 'intersection':
+// 'union' will show the union of all attributes available in any corpora.
+// 'intersection' will show only attributes available in all corpora. 
+
 // for extended search dropdown, can be 'union' or 'intersection'
 settings.wordAttributeSelector = "union";
 settings.structAttributeSelector = "union";
 
 // for 'compile statistics by' selector, can be 'union' or 'intersection'
-settings.reduceWordAttributeSelector = "intersection";
-settings.reduceStructAttributeSelector = "intersection";
+settings.reduceWordAttributeSelector = "union";
+settings.reduceStructAttributeSelector = "union";
 
+// TODO: What is this?
 settings.filterSelection = "intersection"
 
 // settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
@@ -151,6 +156,7 @@ settings.defaultOptions = {
 }
 
 //SET THIS BY PROJECT.
+// Local development: Use "http://127.0.0.1:1234"
 //settings.korpBackendURL = "http://127.0.0.1:1234";
 settings.korpBackendURL = "https://lanchartkorp.ku.dk/backend";
 console.log('settings.korpBackendURL set to: "' + settings.korpBackendURL + '". If this is not valid, a "TypeError: r.corpora is undefined" will be raised.');
