@@ -29,16 +29,12 @@ WORKDIR /opt
 RUN git clone https://github.com/spraakbanken/korp-frontend.git
 WORKDIR /opt/korp-frontend
 RUN git fetch --all
-RUN git checkout f5c4e4fd7bb91ad6bcdd3389f3a28f80154be8b4
+# Checkout commit from 18.1.2022
+RUN git checkout d3a09514a43c4e9a266c5be50fa181f57b60d70b
 
 # Fetch korp-frontend dependencies
 WORKDIR /opt/korp-frontend
 RUN yarn
-
-# Hotfix for a dumb bug in the korp-frontend source code
-# https://github.com/spraakbanken/korp-frontend/pull/130
-# https://github.com/spraakbanken/korp-frontend/issues/131
-RUN sed -i 's/templateUrl/template/g' /opt/korp-frontend/app/scripts/directives.js
 
 # Add basic UI localisation for Danish
 COPY app /opt/korp-frontend/app
