@@ -13,8 +13,6 @@ settings.preselectedCorpora = ["memo_fraktur_gold"];
  * Positional attributes for test corpus.
  */
 
-// Note: liteOptions is hard to find, but exists in common.js, 
-// which we currently import directly from Spraakbanken's github.
 var memofrakturgoldAttrs = {
     lemma : attrs.baseform,
     pos : {
@@ -54,119 +52,271 @@ var memofrakturgoldAttrs = {
         extendedComponent: "datasetSelect",
         escape: false
         },
-    lineword: {
-        label : "lineword",
+    token: {
+        label : "TOKEN",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    lineword: {
+        label : "LINEWORD",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     line: {
-        label : "line",
+        label : "LINE",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     page: {
-        label : "page",
+        label : "PAGE",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
-    ocrtok: {
-        label : "ocrtok",
+    novel_id: {
+        label : "NOVEL_ID",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
-    leven: {
-        label : "leven",
+    fraktur_ocrtok: {
+        label : "FRAKTUR_OCRTOK",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
-    ratio: {
-        label : "ratio",
+    fraktur_leven: {
+        label : "FRAKTUR_LEVEN",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
-    cer: {
-        label : "cer",
+    fraktur_ratio: {
+        label : "FRAKTUR_RATIO",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
-    levcat: {
-        label : "levcat",
+    fraktur_cer: {
+        label : "FRAKTUR_CER",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
-    subst: {
-        label : "subst",
+    fraktur_levcat: {
+        label : "FRAKTUR_LEVCAT",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    fraktur_subst: {
+        label : "FRAKTUR_SUBST",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    fraktur_infreq: {
+        label : "FRAKTUR_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_ocrtok: {
+        label : "DAN_OCRTOK",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_leven: {
+        label : "DAN_LEVEN",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_ratio: {
+        label : "DAN_RATIO",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_cer: {
+        label : "DAN_CER",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_levcat: {
+        label : "DAN_LEVCAT",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_subst: {
+        label : "DAN_SUBST",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    dan_infreq: {
+        label : "DAN_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_ocrtok: {
+        label : "FRK_OCRTOK",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_leven: {
+        label : "FRK_LEVEN",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_ratio: {
+        label : "FRK_RATIO",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_cer: {
+        label : "FRK_CER",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_levcat: {
+        label : "FRK_LEVCAT",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_subst: {
+        label : "FRK_SUBST",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    frk_infreq: {
+        label : "FRK_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     kb_ocrtok: {
-        label : "kb_ocrtok",
+        label : "KB_OCRTOK",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     kb_leven: {
-        label : "kb_leven",
+        label : "KB_LEVEN",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     kb_ratio: {
-        label : "kb_ratio",
+        label : "KB_RATIO",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     kb_cer: {
-        label : "kb_cer",
+        label : "KB_CER",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     kb_levcat: {
-        label : "kb_levcat",
+        label : "KB_LEVCAT",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     kb_subst: {
-        label : "kb_subst",
+        label : "KB_SUBST",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    kb_infreq: {
+        label : "KB_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     corr_ocrtok: {
-        label : "corr_ocrtok",
+        label : "CORR_OCRTOK",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     corr_leven: {
-        label : "corr_leven",
+        label : "CORR_LEVEN",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     corr_ratio: {
-        label : "corr_ratio",
+        label : "CORR_RATIO",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     corr_cer: {
-        label : "corr_cer",
+        label : "CORR_CER",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     corr_levcat: {
-        label : "corr_levcat",
+        label : "CORR_LEVCAT",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     corr_subst: {
-        label : "corr_subst",
+        label : "CORR_SUBST",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    corr_infreq: {
+        label : "CORR_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         },
     sentword: {
-        label : "sentword",
+        label : "SENTWORD",
         opts : settings.defaultOptions,
-        order : 1
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    lemma: {
+        label : "LEMMA",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    pos: {
+        label : "POS",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
+        },
+    gold_infreq: {
+        label : "GOLD_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1,
+        stats_stringify: function(values) {return values.join(" ")}
         }
 };
-
-
 
 
 $("#lemgram_list_item").remove();

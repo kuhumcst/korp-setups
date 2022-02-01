@@ -14,6 +14,11 @@ then
 	> memo_yearcorpora_encoding_output.txt
 	> memo_yearcorpora_configs.txt
 
+    # Hvis der ikke er nogen registry-mappe, så lav den.
+    if [ ! -d $CORPORADIR/registry ]
+    then mkdir -p $CORPORADIR/registry
+    fi
+
 	for f in $YEARCORPDIR/*.xml; do
 
 		#echo "MY_VAR.xml" | sed -e 's/_//g' -e 's/\.xml//g'
@@ -46,15 +51,15 @@ then
 		           -P pos -P pos2 -P lemma \
 		           -S sentence:0+id \
 		           -S text:0+title+author+pseudonym+date+datefrom+dateto+timefrom+timeto+gender+source+nationality+subtitle+pages+illustrations+typeface+publisher+price \
-		           -S corpus:0+title+datefrom+dateto \
-		           &>> memo_yearcorpora_encoding_output.txt
+		           -S corpus:0+title+datefrom+dateto # \
+		           # &>> memo_yearcorpora_encoding_output.txt
 
 		# Gennemfør indekseringen
 		cwb-makeall -V -r $CORPORADIR/registry $CORPUSUPPER &>> $CORPORADIR/encodingscripts/output/memo_yearcorpora_encoding_output.txt
 
 	    echo ""
 
-	    PYTHONIOENCODING=utf-8 python3 $CORPORADIR/encodingscripts/create_MEMOconfigs.py $CORPUSNAME >> $CORPORADIR/encodingscripts/output/memo_yearcorpora_configs.txt
+	    # PYTHONIOENCODING=utf-8 python3 $CORPORADIR/encodingscripts/create_MEMOconfigs.py $CORPUSNAME >> $CORPORADIR/encodingscripts/output/memo_yearcorpora_configs.txt
 
 	    echo ""
 	done

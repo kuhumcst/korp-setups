@@ -8,7 +8,7 @@ services:
       - ./corpora:/opt/corpora
     ports:
       # Korp backend server
-      - "1234:1234"
+      - "1235:1234"
   frontend:
     build: frontend/
     restart: on-failure
@@ -16,4 +16,4 @@ services:
       - backend
     ports:
       # Korp frontend server
-      - "9111:9111"
+      - "9112:9111"
