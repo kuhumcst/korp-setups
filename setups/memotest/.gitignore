@@ -2,4 +2,5 @@ corpora/data
 corpora/annotated
 corpora/registry
 venv
+corpora/encodingscripts/output
 

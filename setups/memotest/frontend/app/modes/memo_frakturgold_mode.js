@@ -13,8 +13,6 @@ settings.preselectedCorpora = ["memo_fraktur_gold"];
  * Positional attributes for test corpus.
  */
 
-// Note: liteOptions is hard to find, but exists in common.js, 
-// which we currently import directly from Spraakbanken's github.
 var memofrakturgoldAttrs = {
     lemma : attrs.baseform,
     pos : {
@@ -54,119 +52,227 @@ var memofrakturgoldAttrs = {
         extendedComponent: "datasetSelect",
         escape: false
         },
+    token: {
+        label : "TOKEN",
+        opts : settings.defaultOptions,
+        order : 1
+        },
     lineword: {
-        label : "lineword",
+        label : "LINEWORD",
         opts : settings.defaultOptions,
         order : 1
         },
     line: {
-        label : "line",
+        label : "LINE",
         opts : settings.defaultOptions,
         order : 1
         },
     page: {
-        label : "page",
+        label : "PAGE",
         opts : settings.defaultOptions,
         order : 1
         },
-    ocrtok: {
-        label : "ocrtok",
+    novel_id: {
+        label : "NOVEL_ID",
         opts : settings.defaultOptions,
         order : 1
         },
-    leven: {
-        label : "leven",
+    fraktur_ocrtok: {
+        label : "FRAKTUR_OCRTOK",
         opts : settings.defaultOptions,
         order : 1
         },
-    ratio: {
-        label : "ratio",
+    fraktur_leven: {
+        label : "FRAKTUR_LEVEN",
         opts : settings.defaultOptions,
         order : 1
         },
-    cer: {
-        label : "cer",
+    fraktur_ratio: {
+        label : "FRAKTUR_RATIO",
         opts : settings.defaultOptions,
         order : 1
         },
-    levcat: {
-        label : "levcat",
+    fraktur_cer: {
+        label : "FRAKTUR_CER",
         opts : settings.defaultOptions,
         order : 1
         },
-    subst: {
-        label : "subst",
+    fraktur_levcat: {
+        label : "FRAKTUR_LEVCAT",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    fraktur_subst: {
+        label : "FRAKTUR_SUBST",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    fraktur_infreq: {
+        label : "FRAKTUR_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_ocrtok: {
+        label : "DAN_OCRTOK",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_leven: {
+        label : "DAN_LEVEN",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_ratio: {
+        label : "DAN_RATIO",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_cer: {
+        label : "DAN_CER",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_levcat: {
+        label : "DAN_LEVCAT",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_subst: {
+        label : "DAN_SUBST",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    dan_infreq: {
+        label : "DAN_INFREQ",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_ocrtok: {
+        label : "FRK_OCRTOK",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_leven: {
+        label : "FRK_LEVEN",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_ratio: {
+        label : "FRK_RATIO",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_cer: {
+        label : "FRK_CER",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_levcat: {
+        label : "FRK_LEVCAT",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_subst: {
+        label : "FRK_SUBST",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    frk_infreq: {
+        label : "FRK_INFREQ",
         opts : settings.defaultOptions,
         order : 1
         },
     kb_ocrtok: {
-        label : "kb_ocrtok",
+        label : "KB_OCRTOK",
         opts : settings.defaultOptions,
         order : 1
         },
     kb_leven: {
-        label : "kb_leven",
+        label : "KB_LEVEN",
         opts : settings.defaultOptions,
         order : 1
         },
     kb_ratio: {
-        label : "kb_ratio",
+        label : "KB_RATIO",
         opts : settings.defaultOptions,
         order : 1
         },
     kb_cer: {
-        label : "kb_cer",
+        label : "KB_CER",
         opts : settings.defaultOptions,
         order : 1
         },
     kb_levcat: {
-        label : "kb_levcat",
+        label : "KB_LEVCAT",
         opts : settings.defaultOptions,
         order : 1
         },
     kb_subst: {
-        label : "kb_subst",
+        label : "KB_SUBST",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    kb_infreq: {
+        label : "KB_INFREQ",
         opts : settings.defaultOptions,
         order : 1
         },
     corr_ocrtok: {
-        label : "corr_ocrtok",
+        label : "CORR_OCRTOK",
         opts : settings.defaultOptions,
         order : 1
         },
     corr_leven: {
-        label : "corr_leven",
+        label : "CORR_LEVEN",
         opts : settings.defaultOptions,
         order : 1
         },
     corr_ratio: {
-        label : "corr_ratio",
+        label : "CORR_RATIO",
         opts : settings.defaultOptions,
         order : 1
         },
     corr_cer: {
-        label : "corr_cer",
+        label : "CORR_CER",
         opts : settings.defaultOptions,
         order : 1
         },
     corr_levcat: {
-        label : "corr_levcat",
+        label : "CORR_LEVCAT",
         opts : settings.defaultOptions,
         order : 1
         },
     corr_subst: {
-        label : "corr_subst",
+        label : "CORR_SUBST",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    corr_infreq: {
+        label : "CORR_INFREQ",
         opts : settings.defaultOptions,
         order : 1
         },
     sentword: {
-        label : "sentword",
+        label : "SENTWORD",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    lemma: {
+        label : "LEMMA",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    pos: {
+        label : "POS",
+        opts : settings.defaultOptions,
+        order : 1
+        },
+    gold_infreq: {
+        label : "GOLD_INFREQ",
         opts : settings.defaultOptions,
         order : 1
         }
 };
-
-
 
 
 $("#lemgram_list_item").remove();
