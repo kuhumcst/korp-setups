@@ -160,8 +160,8 @@ settings.defaultOptions = {
 
 //SET THIS BY PROJECT.
 // Local development: Use "http://127.0.0.1:1234"
-//settings.korpBackendURL = "http://127.0.0.1:1234";
-settings.korpBackendURL = "https://lanchartkorp.ku.dk/backend";
+settings.korpBackendURL = "http://127.0.0.1:1234";
+//settings.korpBackendURL = "https://lanchartkorp.ku.dk/backend";
 console.log('settings.korpBackendURL set to: "' + settings.korpBackendURL + '". If this is not valid, a "TypeError: r.corpora is undefined" will be raised.');
 
 settings.mapCenter = {
