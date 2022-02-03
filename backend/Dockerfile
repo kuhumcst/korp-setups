@@ -46,6 +46,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     bison \
     flex \
+    gawk \
     libglib2.0-0 \
     libreadline7 \
     readline-common \
