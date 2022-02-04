@@ -136,11 +136,14 @@ settings.primaryColor = "rgb(221, 233, 255)";
 settings.primaryLight = "rgb(242, 247, 255)";
 
 settings.defaultOverviewContext = "1 sentence"
-settings.defaultReadingContext = "1 paragraph"
+settings.defaultReadingContext = "5 sentence"
 
-settings.defaultWithin = {
-    "paragraph": "paragraph"
-};
+// settings.defaultWithin causes trouble if set to e.g.
+// "sentence": "sentence", "text": "text", even when the corpus has
+// both <sentence> and <text> elements. For now, it must be just "sentence": "sentence",
+// and multiple 'within' values have to be set on each corpus individually.
+// Cf. https://github.com/spraakbanken/korp-frontend/issues/221
+settings.defaultWithin = { "sentence": "sentence" };
 
 // for optimization purposes
 settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
@@ -157,8 +160,8 @@ settings.defaultOptions = {
 
 //SET THIS BY PROJECT.
 // Local development: Use "http://127.0.0.1:1234"
-//settings.korpBackendURL = "http://127.0.0.1:1234";
-settings.korpBackendURL = "https://lanchartkorp.ku.dk/backend";
+settings.korpBackendURL = "http://127.0.0.1:1234";
+//settings.korpBackendURL = "https://lanchartkorp.ku.dk/backend";
 console.log('settings.korpBackendURL set to: "' + settings.korpBackendURL + '". If this is not valid, a "TypeError: r.corpora is undefined" will be raised.');
 
 settings.mapCenter = {
