@@ -15,6 +15,12 @@ then
 	> memo_individual_encoding_output.txt
 	> memo_individual_configs.txt
 
+    # Hvis der ikke er nogen registry-mappe, så lav den.
+    if [ ! -d $CORPORADIR/registry ]
+    then mkdir -p $CORPORADIR/registry
+    fi
+
+
 	# Her kan man vha. en passende globstreng begrænse til fx Pontoppidan og Bang.
 	#for f in $NOVELSDIR/188*.xml; do
 	for f in $NOVELSDIR/18*_BangH_*.xml $NOVELSDIR/18*_Pontoppidan_*.xml; do
