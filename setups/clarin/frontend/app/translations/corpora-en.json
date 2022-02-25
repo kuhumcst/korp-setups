@@ -9,6 +9,13 @@
   "memo_authors": "MeMo authors",
   "memo_fraktur_goldstandard": "MeMo fraktur OCR errors",
 
+  "within_sentence": "sentence",
+  "within_paragraph": "paragraph",
+  "within_text": "text",
+
+  "tag_sentence": "Sentence",
+  "tag_text": "Text",
+
   "view_ballad": "Link to ballad",
   "date": "Date",
   "strofeid": "Strophe id",

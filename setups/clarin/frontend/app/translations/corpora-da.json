@@ -9,6 +9,13 @@
   "memo_authors": "MeMo forfattere",
   "memo_fraktur_goldstandard": "MeMo fraktur-OCR-fejl",
 
+  "within_sentence": "sætning",
+  "within_paragraph": "paragraf",
+  "within_text": "tekst",
+
+  "tag_sentence": "Sætning",
+  "tag_text": "Tekst",
+
   "view_ballad": "Link til vise",
   "date": "Datering",
   "strofeid": "Strofe nr.",
