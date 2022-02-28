@@ -143,7 +143,7 @@ settings.defaultReadingContext = "5 sentence"
 // both <sentence> and <text> elements. For now, it must be just "sentence": "sentence",
 // and multiple 'within' values have to be set on each corpus individually.
 // Cf. https://github.com/spraakbanken/korp-frontend/issues/221
-settings.defaultWithin = { "sentence": "sentence" };
+settings.defaultWithin = { "text": "text" };
 
 // for optimization purposes
 settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
