@@ -33,7 +33,7 @@ services:
     restart: on-failure
     volumes:
       - ./audioservice/html:/var/www/html
-      - /tmp/sounds:/opt/sounds
+      - ./audioservice/testsounds:/opt/sounds
     ports:
       # "Partitur" view server
       # <host port>:<docker port>! 80: PHP default port

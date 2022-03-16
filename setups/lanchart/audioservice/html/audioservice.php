@@ -10,7 +10,9 @@ if (!preg_match('/^[0-9.]+$/', $_GET['from']) || !preg_match('/^[0-9.]*$/', $_GE
 if (!preg_match('~^[a-zA-Z0-9/+_.-]+$~',$_GET['file'])) { exit; }
 
 # Header for testing on Korp (CORS circumvention)
-# header('Access-Control-Allow-Origin: *');
+if(strpos($_SERVER['HTTP_HOST'], 'localhost') >= 0){
+    header('Access-Control-Allow-Origin: http://localhost:5000');
+}
 
 # Header for outputting mp3 (format determined in ffmpeg by -f mp3)
 header('Content-Type: audio/mpeg');
@@ -22,7 +24,7 @@ header('Content-Type: audio/mpeg');
 # -f wav - output format
 # -v fatal - only fatal messages (otherwise server logs will get a bit full!)
 # - (end) output to STDOUT (i.e. through apache to browser)
-$ffmpegcommand = sprintf("ffmpeg -ss %d -t %d -i /opt/sounds/%s -f mp3 -v fatal -",
+$ffmpegcommand = sprintf("ffmpeg -ss %f -t %f -i /opt/sounds/%s -f mp3 -b 128 -v fatal -",
                          $_GET['from'], $_GET['len'], escapeshellarg($_GET['file']));
 system($ffmpegcommand);
 
