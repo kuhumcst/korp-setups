@@ -127,6 +127,10 @@ settings.modeConfig = [
     {
         localekey: "lanchart_transcriptions",
         mode: "default"
+    },
+    {
+        localekey: "lanchart_greenlandic",
+        mode: "greenlandic"
     }
 ];
 console.log('config.js after settings.modeConfig');
