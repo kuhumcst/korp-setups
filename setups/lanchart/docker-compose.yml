@@ -39,15 +39,3 @@ services:
       # "Partitur" view server
       # <host port>:<docker port>! 5000: Flask app default port
       - "5006:5000"
-  audioservice:
-    build: audioservice/
-    restart: on-failure
-    volumes:
-      - ./audioservice/html:/var/www/html
-      - ./audioservice/testsounds:/opt/sounds
-    ports:
-      # "Partitur" view server
-      # <host port>:<docker port>! 80: PHP default port
-      - "8088:80"
-
-

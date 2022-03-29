@@ -15,7 +15,7 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Get partitur code
-RUN pwd
+RUN echo bla
 RUN mkdir /opt/partiturtest
 WORKDIR /opt/partiturtest
 RUN git clone https://philip_diderichsen@bitbucket.org/philip_diderichsen/lanchart_partitur.git
