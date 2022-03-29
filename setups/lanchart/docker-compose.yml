@@ -28,6 +28,17 @@ services:
       # "Partitur" view server
       # <host port>:<docker port>! 5000: Flask app default port
       - "5005:5000"
+  partiturtest:
+    build: partiturtest/
+    restart: on-failure
+    volumes:
+      # DB_PATH=/Users/phb514/custom_software/parse_textgrids/output docker-compose up -d --build
+      # Win PowerShell: $env:DB_PATH='C:\custom_software\parse_textgrids\output' ; docker-compose up -d --build
+      - $DB_PATH:/opt/output
+    ports:
+      # "Partitur" view server
+      # <host port>:<docker port>! 5000: Flask app default port
+      - "5006:5000"
   audioservice:
     build: audioservice/
     restart: on-failure
