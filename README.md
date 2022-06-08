@@ -127,6 +127,9 @@ CMD ./start.sh
 
 However, before we can create Dockerfiles that extend `korp_frontend_base` or `korp_backend_base` we must first build these images. That is accomplished by running `docker-compose build` inside the root directory where the `docker-compose.yml` creating the base images is located.
 
+### Editing Korp templates
+Korp uses [AngularJS](https://angularjs.org/) to generate HTML in the frontend (note that this is different from _Angular_). In some cases you will also run into [JSP syntax](https://www.tutorialspoint.com/jsp/jsp_syntax.htm), e.g. in some of the files located in `modes`. To edit these templates strings you will thus need to familiarise yourself with both template languages used.
+
 Running the frontend independently
 ----------------------------------
 In case _only_ the backend service needs to be started, make sure the relevant `docker-compose.yml` does not start a frontend container, e.g. by commenting out the relevant code or by using a `docker-compose.yml` that doesn't explicitly start the Korp frontend. The frontend can then be run independently, e.g. from a checked out `korp-frontend` git repo, using the following commands:
@@ -166,3 +169,4 @@ The documentation for the korp-frontend also specifies that one should [put a ru
 Inspiration
 -----------
 * https://github.com/fau-klue/docker-corpus-tool
+* https://github.com/spraakbanken/korp-frontend-sb
