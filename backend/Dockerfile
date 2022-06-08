@@ -26,9 +26,9 @@ RUN apt-get update && \
 
 # Download latest cwb source,
 # excluding /cwb/doc to keep svn from timing out.
-RUN svn checkout --depth immediates http://svn.code.sf.net/p/cwb/code/cwb/trunk cwb/
-RUN svn update --set-depth exclude /cwb/doc
-RUN svn update --set-depth infinity /cwb/*
+RUN svn checkout -r1557 --depth immediates http://svn.code.sf.net/p/cwb/code/cwb/trunk cwb/
+RUN svn update -r1557 --set-depth exclude /cwb/doc
+RUN svn update -r1557 --set-depth infinity /cwb/*
 # Run install script and Move to unified location
 WORKDIR /cwb
 RUN ./install-scripts/install-linux
@@ -49,6 +49,7 @@ RUN apt-get update && \
     gawk \
     libglib2.0-0 \
     libreadline7 \
+    make \
     readline-common \
     python3 \
     python3-dev \
