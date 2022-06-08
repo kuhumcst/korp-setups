@@ -16,9 +16,20 @@ RUN curl https://deb.nodesource.com/setup_12.x > setup_nodejs.sh
 RUN bash setup_nodejs.sh
 
 # Then install Nodejs (and NPM as a implicit, recommended install)
-RUN DEBIAN_FRONTEND=noninteractive \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \
     nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+# Additional source compilation tools needed for ARM64 builds, e.g. Mac M1
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y \
+    python2 \
+    python-is-python3 \
+    make \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # With NPM installed, we can install yarn

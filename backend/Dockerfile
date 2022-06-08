@@ -1,6 +1,6 @@
 # Based on: https://github.com/fau-klue/docker-corpus-tool
 
-FROM ubuntu:bionic as builder
+FROM ubuntu:jammy as builder
 
 # Install cwb dependencies
 RUN apt-get update && \
@@ -17,7 +17,7 @@ RUN apt-get update && \
     libncurses5 \
     libncurses5-dev \
     libpcre3-dev \
-    libreadline7 \
+    libreadline8 \
     libreadline-dev \
     make \
     pkg-config \
@@ -37,7 +37,7 @@ RUN mv /usr/local/cwb-* /usr/local/cwb
 ###########################################
 # Actual Image without build dependencies #
 ###########################################
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 # TODO: investigate if mysql deps are all necessary
 # Install dependency libraries
@@ -48,7 +48,7 @@ RUN apt-get update && \
     flex \
     gawk \
     libglib2.0-0 \
-    libreadline7 \
+    libreadline8 \
     make \
     readline-common \
     python3 \
@@ -60,6 +60,8 @@ RUN apt-get update && \
     mysql-server \
     libmysqlclient-dev \
     subversion \
+    memcached \
+    libmemcached-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
