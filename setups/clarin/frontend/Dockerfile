@@ -14,9 +14,7 @@ RUN touch /opt/korp-frontend/app/modes/glen.html
 RUN yarn build
 
 # Start the main process
-COPY start.sh ./
-RUN chmod +x ./start.sh
-CMD ./start.sh
+CMD yarn start:dist
 
 # Debugging: Keep running and enter using `docker-compose exec frontend bash`
 #CMD tail -f /dev/null

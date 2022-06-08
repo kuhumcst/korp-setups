@@ -102,10 +102,7 @@ A Dockerfile file cannot extend another Dockerfile, only Docker images. These im
 ```Dockerfile
 FROM korp_frontend_base
 
-# Using a custom entrypoint
-COPY start.sh ./
-RUN chmod +x ./start.sh
-CMD ./start.sh
+CMD yarn start:dist
 ```
 
 However, before we can create Dockerfiles that extend `korp_frontend_base` or `korp_backend_base` we must first build these images. That is accomplished by running `docker-compose build` inside the root directory where the `docker-compose.yml` creating the base images is located.

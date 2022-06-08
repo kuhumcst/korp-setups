@@ -86,6 +86,4 @@ RUN service mysql start && \
     mysql -uroot -ppassword < ./db_setup.sql
 
 # Start the main process
-COPY start.sh ./
-RUN chmod +x ./start.sh
-CMD ./start.sh
+CMD service mysql start && python3 /opt/korp-backend/korp.py
