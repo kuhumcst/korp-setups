@@ -92,23 +92,6 @@ docker-compose stop
 docker-compose down --remove-orphans --volumes
 ```
 
-### Updating modes and translations
-It is possible to update mode files and translation files while the system is running without restarting it. In order to synchronize files, the user should navigate to the korp project directory (in the case of the current Clarin production version that is `/opt/corpora/korp-setups/setups/clarin`) and execute the following command:
-
-```bash
-docker-compose exec frontend sync.sh
-```
-
-This command will run a script copying files from `modes/` and `translations/` to the `dist/` folder that is internal to the Korp docker container. The `modes/` and `translations/` folders are subfolders of `/opt/corpora/korp-setups/setups/clarin/frontend/app` in the current CST Korp installation.
-
-Any other updates to files in `/opt/corpora/korp-setups/setups/clarin/frontend/app` will require both rebuilding and restarting the Docker container (takes a couple of minutes):
-
-```bash
-docker-compose -d --build
-```
-
-> _Note: in order to see the changes in the browser, it might be necessary to reload the page too!_
-
 Creating setups that inherit from parent images
 -----------------------------------------------
 The [setups](/setups) directory contains custom setups used in different contexts. As an example,

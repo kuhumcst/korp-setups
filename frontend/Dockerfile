@@ -50,12 +50,6 @@ RUN yarn
 # Add basic UI localisation for Danish
 COPY app /opt/korp-frontend/app
 
-# TODO: revisit - still relevant?
-# Include a script to sync mode and translation files from config/ to dist/.
-# Run `docker-compose exec frontend sync.sh` in same dir as docker-compose.yml.
-COPY exec/sync.sh /bin/
-RUN chmod +x /bin/sync.sh
-
 # This Dockerfile does NOT contain an entrypoint! You MUST extend it by writing
 # your own Dockerfile, using `korp_frontend_base` as a parent image.
 # See korp/setups/clarin for an example setup including a Dockerfile.
