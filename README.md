@@ -124,22 +124,6 @@ The `config.js` must contain a valid `korpBackendURL` endpoint. For the CST prod
 
 The ideal development loop consists of running the backend service in a Docker container, while making changes to the frontend project and then copying the relevant files to [frontend/app/](/frontend/app) in this project. For production systems, the frontend Dockerfile should point to the latest stable git commit and the `docker-compose.yml` in this outer directory should be used to run the full system (backend + frontend services).
 
-Up-to-date fork
----------------
-The old CST installation of Korp is based on the Korp [frontend](https://github.com/CSCfi/Kielipankki-korp-frontend) and [backend](https://github.com/CSCfi/Kielipankki-korp-backend) forks maintained by Kielipankki, the Language Bank of Finland (frontend: [this commit](https://github.com/CSCfi/Kielipankki-korp-frontend/commit/c405880462eae55000fd56c5d039050e132b87f7); backend: [this commit](https://github.com/CSCfi/Kielipankki-korp-backend/commit/c1d6a83f2511e7bbd9dddfa5c0089a13dc687001)). In their frontend README, they explicitly state
-
-> Please fork the original Språkbanken’s korp-frontend GitHub repository instead of this one in the first place.
-
-So this new Docker setup uses the original Språkbanken code as its base instead of Kielipankki's forks. Språkbanken's current instance of Korp is live at: https://spraakbanken.gu.se/korp
-
-### Git branches
-For the korp-frontend repo, the CST specific changes are kept in the `cst-setup` branch. The branch is then continuously rebased on top of the `upstream-master-bugfixes` branch which tracks the upstream code changes by Språkbanken and applies a few bugfixes.
-
-### Major changes
-* `datasetSelect` replaces the previous `selectType.controller` format.
-* Lots of JSON keys have been converted from snake-case to camelCase, e.g. `struct_attributes` -> `structAttributes`
-* The language selection menu in `includes/header.pug` has had a line with Danish added.
-
 ### Configuration documentation
 * https://github.com/spraakbanken/korp-frontend/blob/dev/doc/frontend_devel.md
 
