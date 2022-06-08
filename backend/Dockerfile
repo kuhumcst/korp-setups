@@ -75,6 +75,7 @@ ENV PATH="/usr/local/cwb/bin/:${PATH}"
 WORKDIR /opt
 RUN git clone https://github.com/spraakbanken/korp-backend.git
 WORKDIR /opt/korp-backend
+RUN git checkout 65e759199464a26b512608cde2e52e62a5989351
 RUN pip3 install wheel
 RUN pip3 install -r requirements.txt
 COPY config.py /opt/korp-backend/config.py
