@@ -28,6 +28,8 @@
     "corr_levcat" : "Rettet Tess: Fejlkategori",
     "corr_subst" : "Rettet Tess: Udskiftninger",
     "sentword": "Ordnr. i sætning",
+    "baseform": "Lemma",
+    "pos" : "Part of speech",
 
     "corpus_id" : "Corpus id",
 
