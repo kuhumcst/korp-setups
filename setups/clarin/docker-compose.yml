@@ -5,9 +5,9 @@ services:
     # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
     restart: on-failure
     volumes:
-      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/ 
+#      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/ 
 #     - /Users/rqf595/Desktop/korp-old/korp-corpora:/opt/corpora
-#      - /opt/corpora:/opt/corpora
+      - /opt/corpora:/opt/corpora
     ports:
       # Korp backend server
       - "1234:1234"
