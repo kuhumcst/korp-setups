@@ -231,7 +231,7 @@
     "find": "Søg efter",
     "get_sentence": "Hent kontekst",
     "example_dialog_header": "Sætningseksempler",
-    "empty": "[tom]",
+    "empty": "__UNDEF__",
     "link": "link",
     "text": "tekst",
     "word": "ord",
@@ -348,27 +348,5 @@
     "in_order_chk": "i rækkefølge",
     "prefix_chk": "præfix",
     "suffix_chk": "suffix",
-    "text_tab_header": "Læsetilstand",
-
-    "baseform": "Lemma",
-    "pos" : "Ordklasse",
-	"corpus_id" : "Korpus-id",
-	"title" : "Titel",
-	"author" : "Forfatter",
-	"pseudonym" : "Pseudonym",
-	"date" : "Dato",
-	"datefrom" : "Datofra",
-	"dateto" : "Datotil",
-	"timefrom" : "Tidfra",
-	"timeto" : "Tidtil",
-	"gender" : "Køn",
-	"source" : "Kilde",
-	"nationality" : "Nationalitet",
-	"subtitle" : "Undertitel",
-	"pages" : "Sider",
-	"illustrations" : "Illustrationer",
-	"typeface" : "Skriftsnit",
-	"publisher" : "Udgiver",
-	"price" : "Pris"
-
+    "text_tab_header": "Læsetilstand"
 }
