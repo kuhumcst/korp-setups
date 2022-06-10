@@ -5,6 +5,7 @@
     "modern_texts": "Moderne dansk testkorpus",
     "memo_testcorpus_authornovels": "Romaner af udvalgte forfattere",
     "memo_testcorpus_frakturgold" : "Frakturguldstandard/OCR-fejlkorpus",
+    "memo_all_test" : "MeMo v0.5",
 
     "lineword" : "Ordnr. på linje",
     "line" : "Linjenummer",
