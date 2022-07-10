@@ -123,6 +123,10 @@ settings.modeConfig = [
         mode: "default"
     },
     {
+        localekey: "memo_all_test",
+        mode: "memo_all"
+    },
+    {
         localekey: "memo_testcorpus_authornovels",
         mode: "memo_authornovels"
     },

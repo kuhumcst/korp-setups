@@ -122,6 +122,10 @@ settings.modeConfig = [
         mode: "default"
     },
     {
+        localekey: "memo_all_test",
+        mode: "memo_all"
+    },
+    {
         localekey: "medieval_ballads",
         mode: "medieval_ballads"
     },

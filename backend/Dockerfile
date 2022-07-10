@@ -1,6 +1,6 @@
 # Based on: https://github.com/fau-klue/docker-corpus-tool
 
-FROM ubuntu:bionic as builder
+FROM ubuntu:jammy as builder
 
 # Install cwb dependencies
 RUN apt-get update && \
@@ -17,7 +17,7 @@ RUN apt-get update && \
     libncurses5 \
     libncurses5-dev \
     libpcre3-dev \
-    libreadline7 \
+    libreadline8 \
     libreadline-dev \
     make \
     pkg-config \
@@ -26,9 +26,9 @@ RUN apt-get update && \
 
 # Download latest cwb source,
 # excluding /cwb/doc to keep svn from timing out.
-RUN svn checkout --depth immediates http://svn.code.sf.net/p/cwb/code/cwb/trunk cwb/
-RUN svn update --set-depth exclude /cwb/doc
-RUN svn update --set-depth infinity /cwb/*
+RUN svn checkout -r1557 --depth immediates http://svn.code.sf.net/p/cwb/code/cwb/trunk cwb/
+RUN svn update -r1557 --set-depth exclude /cwb/doc
+RUN svn update -r1557 --set-depth infinity /cwb/*
 # Run install script and Move to unified location
 WORKDIR /cwb
 RUN ./install-scripts/install-linux
@@ -37,7 +37,7 @@ RUN mv /usr/local/cwb-* /usr/local/cwb
 ###########################################
 # Actual Image without build dependencies #
 ###########################################
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 # TODO: investigate if mysql deps are all necessary
 # Install dependency libraries
@@ -48,7 +48,8 @@ RUN apt-get update && \
     flex \
     gawk \
     libglib2.0-0 \
-    libreadline7 \
+    libreadline8 \
+    make \
     readline-common \
     python3 \
     python3-dev \
@@ -59,6 +60,8 @@ RUN apt-get update && \
     mysql-server \
     libmysqlclient-dev \
     subversion \
+    memcached \
+    libmemcached-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
@@ -72,6 +75,7 @@ ENV PATH="/usr/local/cwb/bin/:${PATH}"
 WORKDIR /opt
 RUN git clone https://github.com/spraakbanken/korp-backend.git
 WORKDIR /opt/korp-backend
+RUN git checkout 65e759199464a26b512608cde2e52e62a5989351
 RUN pip3 install wheel
 RUN pip3 install -r requirements.txt
 COPY config.py /opt/korp-backend/config.py
@@ -82,6 +86,4 @@ RUN service mysql start && \
     mysql -uroot -ppassword < ./db_setup.sql
 
 # Start the main process
-COPY start.sh ./
-RUN chmod +x ./start.sh
-CMD ./start.sh
+CMD service mysql start && python3 /opt/korp-backend/korp.py
