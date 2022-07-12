@@ -24,6 +24,7 @@ services:
       # DB_PATH=/Users/phb514/custom_software/parse_textgrids/output docker-compose up -d --build
       # Win PowerShell: $env:DB_PATH='C:\custom_software\parse_textgrids\output' ; docker-compose up -d --build
       - $DB_PATH:/opt/output
+      - $AUDIO_DIR:/opt/audio
     ports:
       # "Partitur" view server
       # <host port>:<docker port>! 5000: Flask app default port
