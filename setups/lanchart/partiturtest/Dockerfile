@@ -15,14 +15,9 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Get partitur code
-RUN echo blaaaia
 RUN mkdir /opt/partiturtest
 WORKDIR /opt/partiturtest
 RUN git clone https://philip_diderichsen@bitbucket.org/philip_diderichsen/lanchart_partitur.git
-WORKDIR lanchart_partitur
-RUN git fetch --all
-# Checkout branch with experimental code
-RUN git checkout wavesurf
 
 # Start the main process
 COPY start.sh /opt/start.sh
