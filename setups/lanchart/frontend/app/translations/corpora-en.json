@@ -19,7 +19,7 @@
 
     "file_custom" : "File",
     "basic_annotations_custom" : "Token",
-    "show_partitur" : "Partitur view",
+    "show_partitur" : "Play sound ➚",
     "size" : "Number Of Tiers",
     "textmin" : "Recording Start",
     "textmax" : "Recording End",

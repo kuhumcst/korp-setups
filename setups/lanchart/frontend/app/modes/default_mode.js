@@ -62,7 +62,7 @@ settings.lanchartCustomAttrs = {
                   '&targetend=<%=pos_attrs.xmax%>' +
                   '&file=<%=encodeURIComponent(struct_attrs.text_filename)%>' + 
                   '" target="_blank">' +
-                  '<span rel="localize[show_partitur]">Vis partitur ..</span></a>)' +
+                  '<span rel="localize[show_partitur]">Afspil lyd ➚</span></a>)' +
                   '<div style="margin-top: 5px; margin-bottom: 5px"> ' + 
 
                   '<span rel="localize[ipa]">ipa</span>: <%=pos_attrs.ipa || "<small>__UNDEF__</small>"%>, ' +
