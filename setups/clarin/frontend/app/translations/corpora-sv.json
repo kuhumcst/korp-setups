@@ -5,7 +5,8 @@
     "modern_texts": "Moderne dansk testkorpus",
     "memo_testcorpus_authornovels": "Romaner af udvalgte forfattere",
     "memo_testcorpus_frakturgold" : "Frakturguldstandard/OCR-fejlkorpus",
-    
+    "ft_corpus" : "DK Parlament",
+  
     "lineword" : "Ordnr. på linje",
     "line" : "Linjenummer",
     "page" : "Sidetal",
@@ -27,5 +28,33 @@
     "corr_cer" : "Rettet Tess: Char error rate",
     "corr_levcat" : "Rettet Tess: Fejlkategori",
     "corr_subst" : "Rettet Tess: Udskiftninger",
-    "sentword": "Ordnr. i sætning"
+    "sentword": "Ordnr. i sætning",
+
+    "FTagendaTitle" : "Dagsordenspunkt",
+    "FTsubject1" : "Emne 1",
+    "FTsubject2" : "Emne 2",
+    "FTname" : "Navn",
+    "FTparty" : "Parti",
+    "FTrole" : "Rolle",
+    "FTMPtitle" : "MF-titel",
+    "FTgender" : "Køn",
+    "FTage" : "Alder",
+    "FTbirth" : "Fødselsdato",
+    "FTdate" : "Dato",
+    "FTtimeFrom" : "Fra kl.",
+    "FTtimeTo" : "Til kl.",
+    "FTduration" : "Taletid (sek.)",
+    "FTparagraph_id" : "Afsnit nr.",
+    "FTsentence_id" : "Sætning nr.",
+    "FTcaseNo" : "Case-nr.",
+    "FTcaseType" : "Case-type",
+    "FTagendaItemNo" : "Punkt nr.",
+    "FTtitle" : "Punkt titel",
+
+    "TOKEN" : "token",
+    "WORDNUM" : "Ord nr. i bog",
+    "LINEWORD" : "Ord nr. på linje",
+    "LINE" : "Linje nr.",
+    "PAGE" : "Side nr.",
+    "NOVEL_ID" : "Roman-id"
 }

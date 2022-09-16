@@ -122,6 +122,10 @@ settings.modeConfig = [
         mode: "default"
     },
     {
+        localekey: "ft_corpus",
+        mode: "FT"
+    },
+    {
         localekey: "memo_all_test",
         mode: "memo_all"
     },
