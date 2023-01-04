@@ -77,8 +77,8 @@
     "dep_tree": "Afhængighedstræ",
     "download": "Download som",
 
-    "case_insensitive": "ingen forskel på store/små bogstaver",
-    "case_sensitive": "forskel på store/små bogstaver",
+    "case_insensitive": "uden forskel på store/små bogstaver",
+    "case_sensitive": "med forskel på store/små bogstaver",
     "reduce_text": "kompiler baseret på",
     "show_stats": "Vis statistik",
     "update_btn": "Opdater",
@@ -227,7 +227,7 @@
     "show_wordclass": "Vis ordklasse",
     "word_pic_number_of_hits": "Antal resultater",
     "search": "   Søg   ",
-    "and_include": "også som",
+    "and_include": "også",
     "hits_per_page": "resultater per side",
     "num_results": "Antal resultater",
     "next": "Næste",
@@ -250,7 +250,7 @@
     "compare_name": "Navn",
     "compare_save": "Gem",
 
-    "compare_distinctive": "Udmærket ved",
+    "compare_distinctive": "Statistisk overrepræsenteret i",
 
     "msd_long": "Morfosyntaktisk beskrivelse",
 
@@ -354,9 +354,9 @@
     "add_token": "Tilføj token",
 
     "in_order_chk": "i rækkefølge",
-    "prefix_chk": "præfiks",
-    "compound_middle": "infiks",
-    "suffix_chk": "suffiks",
+    "prefix_chk": "først i ord",
+    "compound_middle": "inde i ord",
+    "suffix_chk": "sidst i ord",
     "text_tab_header": "Læsetilstand",
 
     "word": "Ordform",
