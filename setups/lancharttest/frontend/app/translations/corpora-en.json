@@ -7,6 +7,7 @@
     "saxo_texts": "Saxo",
     "da1800": "Danish 1800",
     "threats": "Threats",
+    "lanchart_greenlandic": "Greenlandic test corpus",
     "empty": "__UNDEF__",
 
     "within_sentence": "fragment",
