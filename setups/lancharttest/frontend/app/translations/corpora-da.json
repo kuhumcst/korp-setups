@@ -20,7 +20,7 @@
 
     "file_custom" : "Fil",
     "basic_annotations_custom" : "Ordform",
-    "show_partitur" : "Afspil lyd ➚",
+    "show_partitur" : "Afspil i partitur ➚",
     "size" : "Antal tiers",
     "textmin" : "Indspilning start",
     "textmax" : "Indspilning slut",
