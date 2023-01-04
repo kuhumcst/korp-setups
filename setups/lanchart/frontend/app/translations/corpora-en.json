@@ -7,6 +7,7 @@
     "saxo_texts": "Saxo",
     "da1800": "Danish 1800",
     "threats": "Threats",
+    "lanchart_greenlandic": "Greenlandic test corpus",
     "empty": "__UNDEF__",
 
     "within_sentence": "fragment",
@@ -19,7 +20,7 @@
 
     "file_custom" : "File",
     "basic_annotations_custom" : "Token",
-    "show_partitur" : "Play sound ➚",
+    "show_partitur" : "Play in score view ➚",
     "size" : "Number Of Tiers",
     "textmin" : "Recording Start",
     "textmax" : "Recording End",
