@@ -126,7 +126,7 @@ settings.modeConfig = [
         mode: "FT"
     },
     {
-        localekey: "memo_all_test",
+        localekey: "memo_all",
         mode: "memo_all"
     },
     {
