@@ -123,7 +123,7 @@ settings.modeConfig = [
         mode: "default"
     },
     {
-        localekey: "memo_all_test",
+        localekey: "memo_all",
         mode: "memo_all"
     },
     {
