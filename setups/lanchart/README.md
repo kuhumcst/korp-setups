@@ -1,6 +1,8 @@
 # LANCHART-setuppet
 
-Philip Diderichsen, december 2021
+Philip Diderichsen, marts 2023
+
+Følgende gælder primært for setuppet "setups/lanchart". Det samme gælder dog for setuppet "setups/lancharttest", bortset fra at Korp lokalt kører på port 19111, backenden på 11234 og partituret på 15005. Og på serveren kører det på lanchartpartitur.ku.dk i stedet for lanchartkorp.ku.dk.
 
 Korp-setup til LANCHART-dataene. Korp med talesprogsdata fra Sprogforandringscentret (LANCHART-korpusset) bygges kort fortalt i tre trin:
 
@@ -24,7 +26,8 @@ lanchart/
 │   │   ├── ...
 │   │   └── lanchart_vollsmose
 │   ├── encodingscripts
-│   │   └── encode_all_lanchart_corpora.sh  # Script til at encode korpusdata i CWB
+│   │   ├── encode_all_lanchart_corpora.sh  # Script til at encode korpusdata i CWB
+│   │   └── write_trenddiagram_data.sh      # Script til at skrive trenddata
 │   ├── registry                   # CWB-registry 
 │   │   ├── lanchart_amager
 │   │   ├── ...
@@ -57,13 +60,6 @@ lanchart/
 
 
 
-## TODO
-
-- Issue med tomme opmærkninger. cwb-encode ændrer tomme opmærkninger til `__UNDEF__`. Man kan således ikke umiddelbart skelne mellem tomme og ikke-tomme intervaller.
-- Issue med at "kompilere baseret på" IPA og TtT. Er tegnene i de tiers for mærkelige? (Der er også problemer med det andre steder, fx i Jens Billes visebog).
-
-
-
 ## Kør LANCHART-setuppet i Docker
 
 Husk at stoppe evt. kørende docker-containere på port 1234 (backend), 9111 (frontend) og 5005 (partitur). (Brug `docker-compose down` i den relevante setups/lanchart/-mappe).
@@ -76,12 +72,20 @@ cd korp-setups
 docker-compose build
 ```
 
+Byg helt fra bunden:
+
+```
+cd korp-setups
+docker-compose build --no-cache
+```
+
+
 
 ### 2. Generer korpusdata
 
 Korpusdataene skal lægges i lanchart/corpora/.
 
-Git clone <bitbucket.org/philip_diderichsen/parse_textgrids> og følg README'en. Der skal bl.a. installeres diverse dependencies i et Python virtual environment, skabes adgang til LANCHART-korpusdataene via Subversion og konfigureres diverse filstier på den givne maskine.
+Git clone <bitbucket.org/philip_diderichsen/parse_textgrids> og følg README'en. Der skal bl.a. installeres diverse dependencies i et Python virtual environment, skabes adgang til LANCHART-korpusdataene via Subversion og konfigureres diverse filstier på den givne maskine. Koden genererer vrt-filer såvel som encodingscripts og Korp-konfigurationsscripts.
 
 
 
@@ -104,16 +108,18 @@ Husk ift. håndholdt styling af attributter i højrepanelet: The S-attrs used he
 
 #### 3.2 Byg lanchart-setuppet i Docker
 
-Byg det specifikke Korp-setup i lanchart-mappen. Herunder bygges Partitur-appen (koden hentes automatisk fra <bitbucket.org/philip_diderichsen/lanchart_partitur>).
-
-Husk env-variablen `DB_PATH` med Partitur-appens db-sti.
-
-Kør i samme ombæring encodingscriptet `encode_all_lanchart_corpora.sh`, hvilket indlæser diverse LANCHART-vrt-filer i CWB i Docker-backend-containeren.
-
 ```
 cd setups/lanchart
-DB_PATH=./corpora/sqlitedb docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encode_all_lanchart_corpora.sh
+DB_PATH=./corpora/sqlitedb AUDIO_DIR=/mnt/KORPUS/Lydoptagelser docker-compose up -d --build
+docker-compose exec backend bash /opt/corpora/encodingscripts/encode_all_lanchart_corpora.sh
+docker-compose exec backend bash /opt/corpora/encodingscripts/write_trenddiagram_data.sh
 ```
+
+Byg det specifikke Korp-setup i lanchart-mappen. Herunder bygges Partitur-appen (koden hentes automatisk fra <bitbucket.org/philip_diderichsen/lanchart_partitur>).
+
+Husk env-variablerme `DB_PATH` med Partitur-appens db-sti og `AUDIO_DIR` med stien til korpussets lydfiler.
+
+Kør så encodingscriptet `encode_all_lanchart_corpora.sh`, hvilket indlæser diverse LANCHART-vrt-filer i CWB i Docker-backend-containeren og `write_trenddiagram_data.sh`, der indlæser data til trenddiagrammet i Korp.
 
 OBS: Da variablen `DB_PATH` ikke bruges i containeren, kan der komme en advarsel (`WARNING: The DB_PATH variable is not set. Defaulting to a blank string.`"). Det kan ignoreres.
 
@@ -121,18 +127,17 @@ OBS: Anden envvar-syntaks i Windows PowerShell:
 
 ```
 cd docker-partitur
-$env:DB_PATH='C:\custom_software\parse_textgrids\output' ; docker-compose up -d --build
+$env:DB_PATH='C:\custom_software\parse_textgrids\output' $env:AUDIO_DIR='C:\lydfiler' ; docker-compose up -d --build
 ```
 
 
 Efter lidt opstarttid kan LANCHART-korpusset tilgås i Korp på <localhost:9111>, backenden på <localhost:1234> og Partitur-appen på <localhost:5005>.
 
-NB: Partitur tilgås via links fra hvert token i Korp. Disse links er hardcodet i config.js til at pege på lanchartpartitur.ku.dk. De vil derfor ikke virke lokalt. (For at se om Partitur virker lokalt, kan man tage querystrengen fra en given lanchartpartitur.ku.dk-adresse og sætte den på localhost:5005.)
 
 
 #### 3.3 Apache-konfiguration
 
-Med det korrekte Apache-setup på norsdivweb01fl kan Korp tilgås på <lanchartkorp.ku.dk>,  backenden på <lanchartkorp.ku.dk/backend> og Partitur på <lanchartpartitur.ku.dk>.
+Med det korrekte Apache-setup på norsdivweb01fl kan Korp tilgås på <lanchartkorp.ku.dk>,  backenden på <lanchartkorp.ku.dk/backend> og Partitur på <lanchartkorp.ku.dk/partitur>.
 
 
 
