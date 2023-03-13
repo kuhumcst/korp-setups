@@ -19,3 +19,12 @@ services:
     ports:
       # Korp frontend server
       - "9111:9111"
+  backend-v6:
+    build: docker/backend-v6/
+    restart: on-failure
+    volumes:
+      #      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/
+      - /Users/rqf595/Desktop/korp-old/korp-corpora:/opt/corpora
+    #      - /opt/corpora:/opt/corpora
+    ports:
+      - "2345:1234"
