@@ -1,5 +1,7 @@
 version: '3'
 services:
+
+  # The top two containers is the actual Korp backend + frontend Clarin setup.
   backend:
     build: ../../backend
     # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
@@ -19,12 +21,25 @@ services:
     ports:
       # Korp frontend server
       - "9111:9111"
+
+  # The bottom three containers all relate entirely to korp-fcs-endpoint.
+  # Note that the fcs-prep container only runs until `mvn test` completes.
   backend-v6:
     build: docker/backend-v6/
     restart: on-failure
     volumes:
-      #      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/
-      - /Users/rqf595/Desktop/korp-old/korp-corpora:/opt/corpora
-    #      - /opt/corpora:/opt/corpora
+#      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/
+#      - /Users/rqf595/Desktop/korp-old/korp-corpora:/opt/corpora
+      - /opt/corpora:/opt/corpora
+  fcs-prep:
+    build: docker/fcs/prep/
+    image: fcs-prep-build
+    depends_on:
+      - backend-v6
+  fcs:
+    build: docker/fcs/
+    depends_on:
+      - fcs-prep
+    restart: on-failure
     ports:
-      - "2345:1234"
+      - "8088:8080"
