@@ -50,6 +50,15 @@ RUN yarn
 # Add basic UI localisation for Danish
 COPY app /opt/korp-frontend/app
 
+# Install mkdocs for building user guides.
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip install mkdocs
+
 # This Dockerfile does NOT contain an entrypoint! You MUST extend it by writing
 # your own Dockerfile, using `korp_frontend_base` as a parent image.
 # See korp/setups/clarin for an example setup including a Dockerfile.

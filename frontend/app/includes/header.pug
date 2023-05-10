@@ -41,12 +41,12 @@
       #news_area
         div(news-desk="", header="'newsdesk-header'", storage="'korp_last_read_newsitem'")
 
+      #usrguide
+        a(href='/userguide' target='_blank') {{'user_guide' | loc:lang}}
 
       a.mr-2.transiton.duration-200.hover_text-blue-600.mx-2(ng-click="citeClick()") {{'about_cite_header' | loc:lang}}
 
-      button.px-2.py-1.border.border-gray-300.bg-gray-200.rounded.text-gray-800(popover-class="cog_menu" popover-placement="bottom-right" uib-popover-template="'aboutTemplate.html'" type="button" popover-trigger="'outsideClick'" popover-is-open="$root.isPopoverOpen")
-        span.font-bold.uppercase {{'menu' | loc:lang}}
-        i.fa.fa-lg.fa-bars.ml-2.align-middle.text-indigo-600
+
 
   #header_left.flex.items-end.ml-2.pb-1.mb-3.mt-3.px-3
     a.flex-shrink-0.ml-4.relative(ng-click="logoClick()")
