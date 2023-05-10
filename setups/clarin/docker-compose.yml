@@ -1,7 +1,10 @@
 version: '3'
 services:
 
-  # The top two containers is the actual Korp backend + frontend Clarin setup.
+  doc:
+    build: ../../doc/
+    image: korp_docs
+  # The "backend" and "frontend" containers is the actual Korp backend + frontend Clarin setup.
   backend:
     build: ../../backend
     # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
@@ -17,6 +20,7 @@ services:
     build: frontend/
     restart: on-failure
     depends_on:
+      - doc
       - backend
     ports:
       # Korp frontend server

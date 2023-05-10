@@ -1,0 +1,7 @@
+site_name: Brugervejledning til Korp
+theme: readthedocs
+# To add proper navigation, append in something like this
+# in the setup image:
+#nav:
+#    - Korp: index.md
+#    - Regulære udtryk: regex.md

@@ -110,6 +110,13 @@ However, before we can create Dockerfiles that extend `korp_frontend_base` or `k
 ### Editing Korp templates
 Korp uses [AngularJS](https://angularjs.org/) to generate HTML in the frontend (note that this is different from _Angular_). In some cases you will also run into [JSP syntax](https://www.tutorialspoint.com/jsp/jsp_syntax.htm), e.g. in some of the files located in `modes`. To edit these templates strings you will thus need to familiarise yourself with both template languages used.
 
+### User documentation
+In the `doc/userguides/docs` directory, we maintain a general Korp user guide that can be built into a static subsite with the mkdocs program. There are a number of markdown files; index.md and regex.md constitute a general user guide with a separate page on regular expression search. The other pages are only relevant to specific setups and can be added or removed as needed using Docker commands.
+
+The `doc` directory has its own Dockerfile, which will build an image containing the `userguides` directory. This is then copied in by the frontend images of the individual setups to make the user guide available in each setup. The frontend Dockerfile takes care of removing pages not relevant to the setup and adding a relevant navigation menu before building the user guide using mkdocs.
+
+A user guide link in the header has been added as part of the frontend base image in `korp-setups/frontend/app/includes/header.pug`.
+
 Running the frontend independently
 ----------------------------------
 In case _only_ the backend service needs to be started, make sure the relevant `docker-compose.yml` does not start a frontend container, e.g. by commenting out the relevant code or by using a `docker-compose.yml` that doesn't explicitly start the Korp frontend. The frontend can then be run independently, e.g. from a checked out `korp-frontend` git repo, using the following commands:

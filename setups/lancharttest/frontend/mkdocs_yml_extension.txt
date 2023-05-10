@@ -1,0 +1,5 @@
+nav:
+    - Korp: index.md
+    - Partiturvisningen: lanchart-partitur.md
+    - Annotationer i LANCHART: lanchart-annotationer.md
+    - Regulære udtryk: regex.md
