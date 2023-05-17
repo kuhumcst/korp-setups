@@ -10,8 +10,26 @@ COPY app/ /opt/korp-frontend/app/
 # The current-as-of-writing-this version of Korp requires a dummy HTML file.
 RUN touch /opt/korp-frontend/app/modes/glen.html
 
+
+# Copy markdown user guides organized for the mkdocs static site generator.
+COPY --from=korp_docs /userguides /opt/korp-frontend/userguides
+WORKDIR /opt/korp-frontend/userguides
+
+# Add navigation to mkdocs user guide.
+COPY mkdocs_yml_extension.txt ./
+RUN cat mkdocs_yml_extension.txt >> mkdocs.yml
+
+# Remove unwanted mkdocs pages, e.g.:
+RUN rm docs/lanchart-*.md
+
+# Build mkdocs user guide.
+RUN mkdocs build
+
+
 # Build the project from the patched korp-frontend source code (and its deps)
 RUN yarn build
+
+RUN mv userguides/site dist/userguide
 
 # Start the main process
 COPY start.sh ./
