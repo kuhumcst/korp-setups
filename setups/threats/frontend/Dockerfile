@@ -27,6 +27,7 @@ RUN mkdocs build
 
 
 # Build the project from the patched korp-frontend source code (and its deps)
+WORKDIR /opt/korp-frontend
 RUN yarn build
 
 RUN mv userguides/site dist/userguide
