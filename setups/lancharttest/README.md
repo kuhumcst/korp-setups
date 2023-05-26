@@ -110,14 +110,18 @@ Husk ift. håndholdt styling af attributter i højrepanelet: The S-attrs used he
 
 ```
 cd setups/lanchart
+# Specificer en anden AUDIO_DIR-path med lydfiler lokalt, fx mygit/lanchart_partitur/static.
 DB_PATH=./corpora/sqlitedb AUDIO_DIR=/mnt/KORPUS/Lydoptagelser docker-compose up -d --build
 docker-compose exec backend bash /opt/corpora/encodingscripts/encode_all_lanchart_corpora.sh
 docker-compose exec backend bash /opt/corpora/encodingscripts/write_trenddiagram_data.sh
+# Hvis disse to docker-compose exec ..-kommandoer ikke virker, så prøv med env-variablerne:
+# DB_PATH=./corpora/sqlitedb AUDIO_DIR=/mnt/KORPUS/Lydoptagelser docker-compose exec backend bash /opt/corpora/encodingscripts/encode_all_lanchart_corpora.sh
+# DB_PATH=./corpora/sqlitedb AUDIO_DIR=/mnt/KORPUS/Lydoptagelser docker-compose exec backend bash /opt/corpora/encodingscripts/write_trenddiagram_data.sh
 ```
 
 Byg det specifikke Korp-setup i lanchart-mappen. Herunder bygges Partitur-appen (koden hentes automatisk fra <bitbucket.org/philip_diderichsen/lanchart_partitur>).
 
-Husk env-variablerme `DB_PATH` med Partitur-appens db-sti og `AUDIO_DIR` med stien til korpussets lydfiler.
+Husk env-variablerne `DB_PATH` med Partitur-appens db-sti og `AUDIO_DIR` med stien til korpussets lydfiler.
 
 Kør så encodingscriptet `encode_all_lanchart_corpora.sh`, hvilket indlæser diverse LANCHART-vrt-filer i CWB i Docker-backend-containeren og `write_trenddiagram_data.sh`, der indlæser data til trenddiagrammet i Korp.
 

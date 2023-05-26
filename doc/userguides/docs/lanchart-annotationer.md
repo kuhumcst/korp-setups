@@ -2,7 +2,7 @@
 
 LANCHART-korpusset har en lang række annotationer. Mange af dem kræver en nærmere forklaring. Dem har vi samlet i dokumentet *Annotationer i LANCHART-korpusset*, som kan downloades her:
 
-- [Annotationer i LANCHART-korpusset](Annotationer-i-LANCHART.pdf) (pdf)
+- [Annotationer i LANCHART-korpusset](https://dgcss.hum.ku.dk/online-ressourcer/lanchart-korpusset/annotationer-i-lanchart/) (pdf)
 
 ## Lidt om indholdet
 

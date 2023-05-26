@@ -1,0 +1,91 @@
+            #content {
+                font-family: source_sans_pro_regular, Helvetica, Arial;
+                width: 500px;
+                margin: 50px auto;
+            }
+            .horiz {
+                display: inline-block;
+            }
+            #korp-logo {
+                width: 79px;
+                margin-left: 5px;
+                margin-bottom: -2px;
+            }
+            table {
+              border-collapse: collapse;
+            }
+
+            td {
+              border: 1px solid #444444;
+              text-align: left;
+              padding: 5px 8px;
+            }
+            td:first-child {
+              background-color: whitesmoke;
+              font-weight: bold;
+            }
+            .small-info {
+                font-size: .75em;
+            }
+            #tier-selector {
+                margin-top: -6px;
+            }
+            #multiSelect {
+                border: 1px solid #444444;
+                overflow: auto;
+            }
+            #download-section {
+                display: flex;
+                align-items: center;
+                margin-top: -6px;
+            }
+            #download-button {
+                width: 115px;
+                margin-right: 10px;
+            }
+            #progress-container {
+                display: flex;
+                display: none;
+                align-items: center;
+            }
+            #label-small {
+                width: 115px;
+                font-size: 10px;
+                margin-right: 5px;
+            }
+            #label-small > span {
+                display: inline-block;
+            }
+            #progress-val {
+                font-size: 10px;
+                width: 30px;
+                text-align: right;
+            }
+            #warning {
+                color: #400;
+                background-color: #fcc;
+                border: 1px solid #a00;
+                border-radius: 3px;
+                padding: 6px 10px;
+                margin-top: 10px;
+                font-size: 12px;
+            }
+
+            #progress-bar {
+                border: 1px solid grey;
+                height: 7px;
+                width: 200px;
+                box-sizing: border-box;
+                border-radius: 4px;
+                background-color: whitesmoke;
+            }
+            #progress-bar::-moz-progress-bar {
+                background: #AAAAAA;
+            }
+            #progress-bar::-webkit-progress-bar {
+                border-radius: 4px;
+                background-color: whitesmoke;
+            }
+            #progress-bar::-webkit-progress-value {
+                background-color: #AAAAAA;
+            }

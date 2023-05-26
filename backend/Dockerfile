@@ -78,6 +78,7 @@ WORKDIR /opt/korp-backend
 RUN git checkout 65e759199464a26b512608cde2e52e62a5989351
 RUN pip3 install wheel
 RUN pip3 install -r requirements.txt
+RUN pip3 install --upgrade Werkzeug==2.2.2 # PD: Necessary downgrade after Werkzeug 3.0.0 came.
 COPY config.py /opt/korp-backend/config.py
 
 # Set up a new Mysql DB

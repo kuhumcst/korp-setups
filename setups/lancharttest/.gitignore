@@ -1,3 +1,5 @@
 corpora
+venv/
 
+*.pyc
 

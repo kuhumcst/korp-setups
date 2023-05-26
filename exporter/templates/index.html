@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Download data</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='exporter_static/webfont.css') }}" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='exporter_static/style.css') }}" type="text/css" charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+        <script src="{{ url_for('static', filename='exporter_static/filedownload.js') }}"></script>
+
+        <script>
+            function addInfoText() {
+                // Get number of rows about to be downloaded and other info from URL.
+                let params = new URLSearchParams(window.location.search);
+                let rows_to_download = parseInt(params.get('hits_display'), 10);
+                let cqp_query = decodeURIComponent(params.get('cqp'));
+                const max_rows_to_download = 1000;
+                // Construct info text.
+                let infotext = "<table class=\"small-info\">";
+                infotext += "<tr><td>CQP-søgning</td><td>" + cqp_query + "</td></tr>";
+                infotext += "<tr><td>Rækker i resultat</td><td>" + rows_to_download + "</td></tr>";
+                infotext += "</table>";
+                let infotext2 = "";
+                if (rows_to_download > max_rows_to_download) {
+                    infotext2 += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage noget tid. Luk ikke dette vindue før downloaden er færdig.</p>";
+                }
+                else {
+                    infotext2 += "<p>Klik her for at downloade.</p>";
+                }
+                document.getElementById('download-info').innerHTML = "<div>" + infotext + "</div>";
+                document.getElementById('download-info2').innerHTML = "<div>" + infotext2 + "</div>";
+                populateMultiselects(params, "show", "token-vars", "Ordvariable");
+                populateMultiselects(params, "show_struct", "struct-vars", "Tekstvariable");
+            }
+            function populateMultiselects(params, paramName, optGroupId, optGroupLabel) {
+                // Populate multi-select menu with tiers/columns to include in the download (from the URL).
+                let paramValue = params.get(paramName);
+                if (paramValue) {
+                    const items = paramValue.split(',');
+                    const multiSelect = document.getElementById('multiSelect');
+                    // Create optgroup with heading
+                    let optgroup = document.createElement('optgroup');
+                    optgroup.setAttribute("id", optGroupId);
+                    optgroup.setAttribute("label", optGroupLabel);
+                    multiSelect.appendChild(optgroup);
+                    // Populate the optgroup with options
+                    for (let item of items) {
+                        let option = document.createElement('option');
+                        option.value = item;
+                        option.textContent = item;
+                        optgroup.appendChild(option);
+                    }
+                }
+            }
+        </script>
+        <script>
+            $(document).ready(function() {
+                // Generate info text
+                addInfoText();
+
+                // Set up websocket for listening for download progress - in the "status" namespace
+                var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '/status');
+                socket.on('connect', function() {
+                    console.log('Connected to server');
+                });
+
+                socket.on('disconnect', function() {
+                    console.log('Disconnected from server');
+                });
+
+                socket.on('error', function(error) {
+                    console.error('Socket Error:', error);
+                });
+
+                // Add click event handler to download button
+                $('#download-button').on('click', function() {
+                    downloadButtonClick(socket);
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+    <div id="content">
+        <div class="horiz"><h1>Download data |</h1></div>
+        <div class="horiz">
+            <img id="korp-logo" src="{{ url_for('static', filename='exporter_static/korplogo_block.db177a1d036f200438dad73a155a93d9.svg') }}" />
+        </div>
+        <div id="download-info"></div>
+        <p>Vælg en eller flere variable der skal med i datasættet (ctrl+klik på Windows, cmd+klik på Mac). Vælges ingen ordvariable, kommer alle ordvariable med. Vælges ingen tekstvariable, kommer alle tekstvariable med.</p>
+        <p id="tier-selector">
+            <select id="multiSelect" multiple="multiple"></select>
+        </p>
+        <div id="download-info2"></div>
+        <div id="download-section">
+            <div>
+                <button id="download-button">Download data</button>
+            </div>
+            <div id="progress-container">
+                <label id="label-small" for="progress-bar">
+                    <span id="download-label">Downloader ... </span>
+                    <span id="timer-val"></span>
+                </label>
+                <progress id="progress-bar" value="0" max="100"></progress>
+                <div id="progress-val">0%</div>
+            </div>
+        </div>
+        <div id="warnings"></div>
+    </div>
+    </body>
+</html>

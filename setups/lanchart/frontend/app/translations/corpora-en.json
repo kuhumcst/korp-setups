@@ -15,7 +15,7 @@
     "within_text": "conversation",
     "within_5 sentence": "5 fragments",
     
-    "tag_sentence": "Fragment",
+    "tag_sentence": "Turn chunk",
     "tag_text": "Conversation",
 
     "file_custom" : "File",
