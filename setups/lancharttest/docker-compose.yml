@@ -33,3 +33,8 @@ services:
       # "Partitur" view server
       # <host port>:<docker port>! 5000: Flask app default port
       - "15005:5000"
+  exporter:
+    build: exporter/
+    ports:
+      # Korp frontend server
+      - "14000:4000"

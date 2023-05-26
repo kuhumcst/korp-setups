@@ -1,3 +1,6 @@
 corpora
+venv/
 
+*.pyc
 
+requirements.txt
