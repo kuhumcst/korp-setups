@@ -5,7 +5,9 @@ from flask import Flask, make_response, request
 import korpexport.exporter as ke
 app = Flask(__name__)
 
-QUERY_ENDPOINT = 'https://alf.hum.ku.dk/korp/backend/query?'
+#QUERY_ENDPOINT = 'https://alf.hum.ku.dk/korp/backend/query?'
+# TODO Set this as an argument to the run flask app command
+QUERY_ENDPOINT = 'http://backend:1234/query?'
 
 """
 Test URL:
@@ -118,4 +120,5 @@ def download(content_type):
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    # TODO Instead of debug True, set up logging properly.
+    app.run(debug=True)
