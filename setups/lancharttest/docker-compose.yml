@@ -38,3 +38,5 @@ services:
     ports:
       # Korp frontend server
       - "14000:4000"
+    volumes:
+      - ./exporter/tmpfiles:/tmp

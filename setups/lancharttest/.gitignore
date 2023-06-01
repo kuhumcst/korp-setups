@@ -1,5 +1,6 @@
 corpora
 venv/
+exporter/tmpfiles
 
 *.pyc
 
