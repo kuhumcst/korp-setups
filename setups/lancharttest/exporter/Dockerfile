@@ -15,11 +15,11 @@ RUN apt-get update && \
 # Install Python dependencies - so few we don't care about requirements.txt
 RUN git clone https://github.com/phildiderichsen/Kielipankki-korp-backend-fork.git
 RUN pip install Kielipankki-korp-backend-fork/
-RUN pip install flask==2.3.2 requests gunicorn
+RUN pip install flask==2.3.2 requests gunicorn httpx
 
 # Copy the application code to the container
 COPY app.py .
 
 # Run the Flask application using Gunicorn
 # TODO: Consider asynchronous handling of requests (Flask-Sync, Quart).
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:4000", "--timeout", "300"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:4000", "--timeout", "3000"]
