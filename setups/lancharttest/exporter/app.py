@@ -4,6 +4,7 @@ import json
 import datetime
 import time
 import logging
+import multiprocessing as mp
 import urllib.parse as urlp
 from flask import Flask, request, Response, abort
 import korpexport.exporter as ke
@@ -33,6 +34,12 @@ HTTPX_CLIENT_TIMEOUT = 0.001
 CLIENT_STREAM_TIMEOUT = 0.001  # Timeout that here primarily applies to response.iter_bytes() reads(?).
 READ_TIMEOUT = ROWS_PER_REQUEST / 100  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
+
+
+class HardTimeoutException(Exception):
+    """Custom exception for multiprocess timeouts."""
+    pass
+
 
 
 @app.route('/download/<content_type>')
@@ -102,7 +109,9 @@ def fetch_with_retry(start_arg, query_params, client, content_type, formatted_te
 
         try:
             # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
-            tf_name = stream_backend_query_to_tempfile(client, url, temp_read_timeout)
+            tf_name = run_with_timeout(func=stream_backend_query_to_tempfile,
+                                       func_args=(client, url, temp_read_timeout),
+                                       timeout=.1)
             # Transform the data using Jyrki's code. Write it to formatted_temp_file.
             result_content_with_bom = make_formatted_data(tf_name, content_type, start_arg)
             formatted_temp_file.write(result_content_with_bom)
@@ -110,6 +119,19 @@ def fetch_with_retry(start_arg, query_params, client, content_type, formatted_te
         except httpx.HTTPError as e:
             # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
             handle_backend_fail(i, e)
+        except HardTimeoutException as e:
+            handle_backend_fail(i, e)
+
+        """        try:
+            # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
+            tf_name = stream_backend_query_to_tempfile(client, url, temp_read_timeout)
+            # Transform the data using Jyrki's code. Write it to formatted_temp_file.
+            result_content_with_bom = make_formatted_data(tf_name, content_type, start_arg)
+            formatted_temp_file.write(result_content_with_bom)
+            break
+        except httpx.HTTPError as e:
+            # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
+            handle_backend_fail(i, e)"""
 
     return temp_rows_per_request
 
@@ -131,7 +153,53 @@ def build_url(start_arg, query_params, rows_per_request):
     return url
 
 
-def stream_backend_query_to_tempfile(client, url, temp_read_timeout):
+def run_with_timeout(func, func_args, timeout):
+    """Use multiprocessing to run a function with a hard timeout.
+    Note: function must have a queue to write result to."""
+    q = mp.Queue()
+    p = mp.Process(target=func, args=(q,) + func_args)
+    p.start()
+    p.join(timeout=timeout)
+    if p.is_alive():
+        p.terminate()
+        p.join()
+        raise HardTimeoutException("Function exceeded the timeout and was terminated")
+    else:
+        result = q.get()
+    return result
+
+
+
+def stream_backend_query_to_tempfile(queue, client, url, temp_read_timeout):
+    """Use httpx client to get data from the Korp backend in a chunked way. Write to tempfile.
+    Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to."""
+    # Trying to handle big file sizes ... It is kind of assumed here that /tmp in Docker will be
+    # mapped to a location on the host with plenty of space.
+    app.logger.info(f'httpx read timeout: {temp_read_timeout} seconds.')
+    tf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
+    with tf as temp_file:  # tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+        # TODO Med for stor en chunk_size ser det ud til at risikoen for følgende fejl er større:
+        #  httpx.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read).
+        #  Problemet er at man ikke kan vide på forhånd hvor tung den enkelte konkordanslinje er
+        #  da der kan være forskelligt antal opmærkninger afhængigt af korpus.
+        #  Så chunk_size vil formentlig være lidt lille i mange tilfælde hvis den skal være lille nok
+        #  til at at korpusser med meget tunge konkordanslinjer skal kunne downloades ...
+        # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
+        # timeout = httpx.Timeout(300.0, pool=None, connect=None, read=None, write=None)
+        timeout = httpx.Timeout(CLIENT_STREAM_TIMEOUT, pool=0, connect=CONNECTION_TIMEOUT, read=temp_read_timeout, write=None)
+        with client.stream("GET", url, timeout=timeout) as response:
+            app.logger.info('Inside client stream context handler ..')
+            chunk_no = 1
+            for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):  # Get data in chunks.
+                app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
+                temp_file.write(chunk)
+                chunk_no += 1
+        tf.flush()  # Empty Python's internal buffers to the operating system.
+        os.fsync(tf.fileno())  # Ensure the operating system's buffers are written to disk.
+    queue.put(tf.name)
+
+
+def stream_backend_query_to_tempfile_old(client, url, temp_read_timeout):
     """Use httpx client to get data from the Korp backend in a chunked way. Write to tempfile.
     Returns the name of the tempfile written to."""
     # Trying to handle big file sizes ... It is kind of assumed here that /tmp in Docker will be
