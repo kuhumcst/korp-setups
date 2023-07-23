@@ -30,16 +30,19 @@ N_REQUEST_TRIES = 6  # How many times to try fetching data from backend (with in
 PAUSE_AFTER_REQUEST = 2  # How many seconds to wait after each request.
 PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given request.
 CONNECTION_TIMEOUT = 10
-HTTPX_CLIENT_TIMEOUT = 0.001
-CLIENT_STREAM_TIMEOUT = 0.001  # Timeout that here primarily applies to response.iter_bytes() reads(?).
-READ_TIMEOUT = ROWS_PER_REQUEST / 100  # Timeout on response.iter_bytes() reads.
+READ_TIMEOUT = ROWS_PER_REQUEST / 10  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
+HARD_TIMEOUT = ROWS_PER_REQUEST / 25  # Timeout for custom overall timeout implemented using multiprocessing.
 
 
 class HardTimeoutException(Exception):
     """Custom exception for multiprocess timeouts."""
     pass
 
+
+class ChildHttpxError(Exception):
+    """Custom exception for httpx.HTTPError in multiprocessing child process."""
+    pass
 
 
 @app.route('/download/<content_type>')
@@ -66,29 +69,9 @@ def download(content_type):
     korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
     app.logger.info('korp_hits_display: ' + str(korp_hits_display))
     start_arg = 0
-    client = httpx.Client(timeout=HTTPX_CLIENT_TIMEOUT)
-
     ftf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
     with open(ftf.name, 'w') as formatted_temp_file:
-
-        # TODO Why does the while loop start over with start_arg = 0 if there is an error in line 237?
-        while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
-            app.logger.info('start_arg: ' + str(start_arg))
-            if start_arg > MAX_ROWS:
-                # TODO Add additional logic to return at most <max_rows> rows, but also not less!
-                app.logger.info('Greater than max_rows! Breaking before further reading or writing.')
-                break
-            elif start_arg > korp_hits_display:
-                app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
-                break
-
-            # Retry api call with smaller and smaller chunk_size ..
-            temp_chunk_size = fetch_with_retry(start_arg, query_params, client, content_type, formatted_temp_file)
-
-            app.logger.warning('Waiting a few seconds to give the server time to recover ..')
-            time.sleep(PAUSE_AFTER_REQUEST)
-            start_arg += temp_chunk_size
-
+        write_formatted_temp_file(start_arg, korp_hits_display, query_params, content_type, formatted_temp_file)
     rsp = Response(generate_output_stream(ftf.name), mimetype='text/csv')
     rsp.headers.set('Content-Disposition', 'attachment',
                     filename='korp_kwic_' + datetime.datetime.now().isoformat() + '.csv')
@@ -97,43 +80,53 @@ def download(content_type):
     return rsp
 
 
+def write_formatted_temp_file(start_arg, korp_hits_display, query_params, content_type, formatted_temp_file):
+    client = httpx.Client()
+    while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
+        app.logger.info('start_arg: ' + str(start_arg))
+        if start_arg > MAX_ROWS:
+            # TODO Add additional logic to return at most <max_rows> rows, but also not less!
+            app.logger.info('Greater than max_rows! Breaking before further reading or writing.')
+            break
+        elif start_arg > korp_hits_display:
+            app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
+            break
+        # Retry api call with smaller and smaller chunk_size ..
+        temp_rows_per_request = fetch_with_retry(start_arg, query_params, client, content_type, formatted_temp_file)
+        app.logger.warning(f'temp_rows_per_request is now {temp_rows_per_request} ..'
+                           f'Waiting a few seconds to give the server time to recover ..')
+        time.sleep(PAUSE_AFTER_REQUEST)
+        start_arg += temp_rows_per_request
+
+
 def fetch_with_retry(start_arg, query_params, client, content_type, formatted_temp_file):
-    temp_rows_per_request = ROWS_PER_REQUEST
     for i in range(1, N_REQUEST_TRIES + 1):
         update_request_tries(i)
-        # Decrease chunk_size exponentially, increase read timeout linearly.
+        # Decrease chunk_size exponentially, increase read timeout and hard timeout linearly.
         temp_rows_per_request = int(ROWS_PER_REQUEST / 2**i) * 2
         temp_read_timeout = int(READ_TIMEOUT + READ_TIMEOUT * i * .5 - READ_TIMEOUT/2)
-        app.logger.info(f'Try number: {i}\nStart arg: {start_arg}\ntemp_rows_per_request: {temp_rows_per_request}\n\n')
+        temp_hard_timeout = int(HARD_TIMEOUT + HARD_TIMEOUT * i * .5 - HARD_TIMEOUT/2)
+        app.logger.info(f'Try number: {i}\nStart arg: {start_arg}\ntemp_rows_per_request: {temp_rows_per_request}\n'
+                        f'Timeout: {temp_hard_timeout}\n\n')
         url = build_url(start_arg, query_params, temp_rows_per_request)
 
         try:
             # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
             tf_name = run_with_timeout(func=stream_backend_query_to_tempfile,
                                        func_args=(client, url, temp_read_timeout),
-                                       timeout=.1)
+                                       timeout=temp_hard_timeout)
+            app.logger.info(f'Got filename: {tf_name}')
             # Transform the data using Jyrki's code. Write it to formatted_temp_file.
             result_content_with_bom = make_formatted_data(tf_name, content_type, start_arg)
             formatted_temp_file.write(result_content_with_bom)
-            break
+            return temp_rows_per_request
         except httpx.HTTPError as e:
             # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
+            handle_backend_fail(i, e)
+        except ChildHttpxError as e:
             handle_backend_fail(i, e)
         except HardTimeoutException as e:
-            handle_backend_fail(i, e)
-
-        """        try:
-            # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
-            tf_name = stream_backend_query_to_tempfile(client, url, temp_read_timeout)
-            # Transform the data using Jyrki's code. Write it to formatted_temp_file.
-            result_content_with_bom = make_formatted_data(tf_name, content_type, start_arg)
-            formatted_temp_file.write(result_content_with_bom)
-            break
-        except httpx.HTTPError as e:
-            # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
-            handle_backend_fail(i, e)"""
-
-    return temp_rows_per_request
+            handle_hard_timeout(start_arg, temp_rows_per_request, e)
 
 
 def update_request_tries(i):
@@ -154,7 +147,7 @@ def build_url(start_arg, query_params, rows_per_request):
 
 
 def run_with_timeout(func, func_args, timeout):
-    """Use multiprocessing to run a function with a hard timeout.
+    """Use multiprocessing to run a function with a hard timeout and httpx.HTTPError handling.
     Note: function must have a queue to write result to."""
     q = mp.Queue()
     p = mp.Process(target=func, args=(q,) + func_args)
@@ -163,11 +156,12 @@ def run_with_timeout(func, func_args, timeout):
     if p.is_alive():
         p.terminate()
         p.join()
-        raise HardTimeoutException("Function exceeded the timeout and was terminated")
+        raise HardTimeoutException(f'Function {func} exceeded the timeout and was terminated')
     else:
         result = q.get()
+        if 'httpx.HTTPError' in result:
+            raise ChildHttpxError(f'Function {func} encountered a httpx.HTTPError')
     return result
-
 
 
 def stream_backend_query_to_tempfile(queue, client, url, temp_read_timeout):
@@ -175,68 +169,47 @@ def stream_backend_query_to_tempfile(queue, client, url, temp_read_timeout):
     Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to."""
     # Trying to handle big file sizes ... It is kind of assumed here that /tmp in Docker will be
     # mapped to a location on the host with plenty of space.
-    app.logger.info(f'httpx read timeout: {temp_read_timeout} seconds.')
     tf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
-    with tf as temp_file:  # tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-        # TODO Med for stor en chunk_size ser det ud til at risikoen for følgende fejl er større:
-        #  httpx.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read).
-        #  Problemet er at man ikke kan vide på forhånd hvor tung den enkelte konkordanslinje er
-        #  da der kan være forskelligt antal opmærkninger afhængigt af korpus.
-        #  Så chunk_size vil formentlig være lidt lille i mange tilfælde hvis den skal være lille nok
-        #  til at at korpusser med meget tunge konkordanslinjer skal kunne downloades ...
-        # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
-        # timeout = httpx.Timeout(300.0, pool=None, connect=None, read=None, write=None)
-        timeout = httpx.Timeout(CLIENT_STREAM_TIMEOUT, pool=0, connect=CONNECTION_TIMEOUT, read=temp_read_timeout, write=None)
-        with client.stream("GET", url, timeout=timeout) as response:
-            app.logger.info('Inside client stream context handler ..')
-            chunk_no = 1
-            for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):  # Get data in chunks.
-                app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
-                temp_file.write(chunk)
-                chunk_no += 1
-        tf.flush()  # Empty Python's internal buffers to the operating system.
-        os.fsync(tf.fileno())  # Ensure the operating system's buffers are written to disk.
-    queue.put(tf.name)
-
-
-def stream_backend_query_to_tempfile_old(client, url, temp_read_timeout):
-    """Use httpx client to get data from the Korp backend in a chunked way. Write to tempfile.
-    Returns the name of the tempfile written to."""
-    # Trying to handle big file sizes ... It is kind of assumed here that /tmp in Docker will be
-    # mapped to a location on the host with plenty of space.
-    app.logger.info(f'httpx read timeout: {temp_read_timeout} seconds.')
-    tf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
-    with tf as temp_file:  # tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-        # TODO Med for stor en chunk_size ser det ud til at risikoen for følgende fejl er større:
-        #  httpx.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read).
-        #  Problemet er at man ikke kan vide på forhånd hvor tung den enkelte konkordanslinje er
-        #  da der kan være forskelligt antal opmærkninger afhængigt af korpus.
-        #  Så chunk_size vil formentlig være lidt lille i mange tilfælde hvis den skal være lille nok
-        #  til at at korpusser med meget tunge konkordanslinjer skal kunne downloades ...
-        # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
-        # timeout = httpx.Timeout(300.0, pool=None, connect=None, read=None, write=None)
-        timeout = httpx.Timeout(CLIENT_STREAM_TIMEOUT, pool=0, connect=CONNECTION_TIMEOUT, read=temp_read_timeout, write=None)
-        with client.stream("GET", url, timeout=timeout) as response:
-            app.logger.info('Inside client stream context handler ..')
-            chunk_no = 1
-            for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):  # Get data in chunks.
-                app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
-                temp_file.write(chunk)
-                chunk_no += 1
-        tf.flush()  # Empty Python's internal buffers to the operating system.
-        os.fsync(tf.fileno())  # Ensure the operating system's buffers are written to disk.
-    return tf.name
+    try:
+        with tf as temp_file:  # tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+            # TODO Med for stor en chunk_size ser det ud til at risikoen for følgende fejl er større:
+            #  httpx.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read).
+            #  Problemet er at man ikke kan vide på forhånd hvor tung den enkelte konkordanslinje er
+            #  da der kan være forskelligt antal opmærkninger afhængigt af korpus.
+            #  Så chunk_size vil formentlig være lidt lille i mange tilfælde hvis den skal være lille nok
+            #  til at at korpusser med meget tunge konkordanslinjer skal kunne downloades ...
+            # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
+            # timeout = httpx.Timeout(300.0, pool=None, connect=None, read=None, write=None)
+            timeout = httpx.Timeout(1, pool=0, connect=CONNECTION_TIMEOUT, read=temp_read_timeout, write=None)
+            with client.stream("GET", url, timeout=timeout) as response:
+                app.logger.info('Inside client stream context handler ..')
+                chunk_no = 1
+                for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):  # Get data in chunks.
+                    app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
+                    temp_file.write(chunk)
+                    chunk_no += 1
+            tf.flush()  # Empty Python's internal buffers to the operating system.
+            os.fsync(tf.fileno())  # Ensure the operating system's buffers are written to disk.
+        queue.put(tf.name)
+    except httpx.HTTPError as e:
+        queue.put(f'httpx.HTTPError: {type(e).__name__}: {str(e)}')
 
 
 def handle_backend_fail(i, e):
     app.logger.warning(f'Trying again with smaller chunk because backend query failed or timed out. '
-                       f'Error: {type(e)}: {e}')
+                       f'Error: {type(e).__name__}: {e}')
     if i == N_REQUEST_TRIES:
         app.logger.warning(f'Reached last try ({i}). Aborting.\n')
-        abort(500,
-              f"Download failed. Server didn't respond after several tries. Try increasing read timeout?")
+        abort(500, f"Download failed. Server didn't respond after several tries. Try increasing read timeout?")
     app.logger.info('Waiting a few seconds before next try to give the server time to recover ..')
     time.sleep(PAUSE_AFTER_RETRY)
+
+
+def handle_hard_timeout(n, m, e):
+    msg = f"Download failed: Server timed out on request for rows {n}-{m - 1}. Try again later."
+    app.logger.error(msg)
+    app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
+    abort(500, msg)
 
 
 def make_formatted_data(tf_name, content_type, start_arg):
@@ -281,8 +254,6 @@ def generate_output_stream(filename):
     with open(filename, 'rb') as f:
         while True:
             chunk = f.read(4096)  # Read in chunks of 4096 bytes
-            # app.logger.info('generate_output_stream: chunk head: ' + str(chunk)[:50])
-            # app.logger.info('generate_output_stream: chunk len: ' + str(len(str(chunk))))
             if not chunk:
                 break
             yield chunk
