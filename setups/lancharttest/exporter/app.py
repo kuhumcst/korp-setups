@@ -35,16 +35,6 @@ RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a t
 HARD_TIMEOUT = ROWS_PER_REQUEST / 25  # Timeout for custom overall timeout implemented using multiprocessing.
 
 
-class HardTimeoutException(Exception):
-    """Custom exception for multiprocess timeouts."""
-    pass
-
-
-class ChildHttpxError(Exception):
-    """Custom exception for httpx.HTTPError in multiprocessing child process."""
-    pass
-
-
 @app.route('/download/<content_type>')
 def download(content_type):
     """Generate file downloads in various formats via Jyrki's korpexport package.
@@ -129,23 +119,6 @@ def fetch_with_retry(start_arg, query_params, client, content_type, formatted_te
             handle_hard_timeout(start_arg, temp_rows_per_request, e)
 
 
-def update_request_tries(i):
-    """Update the retry counters in REQUEST_TRIES."""
-    if str(i) in REQUEST_TRIES:
-        REQUEST_TRIES[str(i)] += 1
-    else:
-        REQUEST_TRIES[str(i)] = 1
-
-
-def build_url(start_arg, query_params, rows_per_request):
-    """Build URL to get data with the current start_arg and end_arg."""
-    query_params['start'] = [str(start_arg)]
-    query_params['end'] = [str(start_arg + rows_per_request - 1)]
-    url = QUERY_ENDPOINT + urlp.urlencode(query_params, doseq=True)
-    app.logger.info('url: ' + url)
-    return url
-
-
 def run_with_timeout(func, func_args, timeout):
     """Use multiprocessing to run a function with a hard timeout and httpx.HTTPError handling.
     Note: function must have a queue to write result to."""
@@ -195,23 +168,6 @@ def stream_backend_query_to_tempfile(queue, client, url, temp_read_timeout):
         queue.put(f'httpx.HTTPError: {type(e).__name__}: {str(e)}')
 
 
-def handle_backend_fail(i, e):
-    app.logger.warning(f'Trying again with smaller chunk because backend query failed or timed out. '
-                       f'Error: {type(e).__name__}: {e}')
-    if i == N_REQUEST_TRIES:
-        app.logger.warning(f'Reached last try ({i}). Aborting.\n')
-        abort(500, f"Download failed. Server didn't respond after several tries. Try increasing read timeout?")
-    app.logger.info('Waiting a few seconds before next try to give the server time to recover ..')
-    time.sleep(PAUSE_AFTER_RETRY)
-
-
-def handle_hard_timeout(n, m, e):
-    msg = f"Download failed: Server timed out on request for rows {n}-{m - 1}. Try again later."
-    app.logger.error(msg)
-    app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
-    abort(500, msg)
-
-
 def make_formatted_data(tf_name, content_type, start_arg):
     with open(tf_name, 'rb') as saved_tempfile:
         saved_tempfile_content = saved_tempfile.read()
@@ -250,13 +206,34 @@ def get_csv_content_with_bom(form, skip_header=False):
     return result_content_with_bom
 
 
-def generate_output_stream(filename):
-    with open(filename, 'rb') as f:
-        while True:
-            chunk = f.read(4096)  # Read in chunks of 4096 bytes
-            if not chunk:
-                break
-            yield chunk
+"""--------------------------------  Utils  --------------------------------"""
+
+
+class HardTimeoutException(Exception):
+    """Custom exception for multiprocess timeouts."""
+    pass
+
+
+class ChildHttpxError(Exception):
+    """Custom exception for httpx.HTTPError in multiprocessing child process."""
+    pass
+
+
+def update_request_tries(i):
+    """Update the retry counters in REQUEST_TRIES."""
+    if str(i) in REQUEST_TRIES:
+        REQUEST_TRIES[str(i)] += 1
+    else:
+        REQUEST_TRIES[str(i)] = 1
+
+
+def build_url(start_arg, query_params, rows_per_request):
+    """Build URL to get data with the current start_arg and end_arg."""
+    query_params['start'] = [str(start_arg)]
+    query_params['end'] = [str(start_arg + rows_per_request - 1)]
+    url = QUERY_ENDPOINT + urlp.urlencode(query_params, doseq=True)
+    app.logger.info('url: ' + url)
+    return url
 
 
 def make_download_duration_message(start_time):
@@ -265,6 +242,32 @@ def make_download_duration_message(start_time):
     minutes = total_seconds // 60
     seconds = total_seconds % 60
     return f'Total download duration: {int(minutes)} minutes {int(seconds)} seconds.'
+
+
+def handle_backend_fail(i, e):
+    app.logger.warning(f'Trying again with smaller chunk because backend query failed or timed out. '
+                       f'Error: {type(e).__name__}: {e}')
+    if i == N_REQUEST_TRIES:
+        app.logger.warning(f'Reached last try ({i}). Aborting.\n')
+        abort(500, f"Download failed. Server didn't respond after several tries. Try increasing read timeout?")
+    app.logger.info('Waiting a few seconds before next try to give the server time to recover ..')
+    time.sleep(PAUSE_AFTER_RETRY)
+
+
+def handle_hard_timeout(n, m, e):
+    msg = f"Download failed: Server timed out on request for rows {n}-{m - 1}. Try again later."
+    app.logger.error(msg)
+    app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
+    abort(500, msg)
+
+
+def generate_output_stream(filename):
+    with open(filename, 'rb') as f:
+        while True:
+            chunk = f.read(4096)  # Read in chunks of 4096 bytes
+            if not chunk:
+                break
+            yield chunk
 
 
 if __name__ == '__main__':
