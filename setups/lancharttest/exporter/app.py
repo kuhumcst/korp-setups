@@ -1,4 +1,37 @@
+"""
+Exporter: a Flask app for downloading all KWIC results from Korp.
+Philip Diderichsen, 2023
+
+The exporter is intended to run as part of a Docker setup as a functionality proof of concept.
+When running in Docker, the exporter communicates with the backend on http://backend:1234.
+The 'backend' domain refers to the 'backend' Docker container, and '1234' is the Docker-internal port where it runs.
+
+Via AJAX code in Angular, the exporter is called from Korp on localhost:14000.
+The query string for the 'normal' backend download call is included in the request.
+This happens when the user selects the 'download all' option from a selector.
+The exporter then loops through a number of backend requests with successive start and end parameters.
+For each request, the results are converted to CSV (the only option for now), resulting rows appended to a temp file.
+(The results of each request are themselves saved to a temp file each, fetched using httpx's chunked streaming).
+
+Finally, the resulting temp file is streamed back with a 'Content-Disposition: attachment' header, filename, etc.
+The Korp AJAX code picks this up and serves the CSV file as a download.
+
+The exporter code includes timeout and error handling.
+A number of timeout values and the like are set as global variables and might be optimized for performance.
+
+Dilemma/tradeoff: There should be a limit on downloadable rows. This should not be too restrictive, though.
+E.g. 6% of the tokens in the corpus (= plausible frequency of the single most frequent token in a corpus).
+Or less (3% (second most frequent word), 2% (third most frequent) ...).
+But this requires access to the total amount of tokens in the set of selected corpora.
+So let's just impose a limit of 500.000 rows for now (about 4% of a 12m corpus).
+Note: In the current (local) implementation, such a download would take 42 hours ...
+
+Test URL:
+http://localhost:14000/download/csv?default_context=1%20sentence&show=sentence%2Ctext%2Cipa%2Cttt%2Credpos%2Cpos%2Cspeaker%2Ccolorcombo_bg%2Ccolorcombo_border%2Ccolorcombo_fg%2Cinformanter_koen%2Cinformanter_foedselsaar%2Ctaleralder%2Cinformanter_generation%2Cinformanter_socialklasse%2Crolle%2Cinformanter_prioriteret%2Cinformanter_prioriteretekstra%2Ctext_enum%2Cturn_enum%2Cxmin%2Cxmax%2Cxlength%2Cturnummer%2Ctalekilde%2Cturnmin%2Cturnmax%2Cturnduration%2Cphonetic%2Ccomments%2Cevents%2Cturn%2Cuncertainxtranscription%2Csync&show_struct=corpus_label%2Ctext_size%2Ctext_textmin%2Ctext_textmax%2Ctext_textduration%2Ctext_filename%2Ctext_datefrom%2Ctext_timefrom%2Ctext_dateto%2Ctext_timeto%2Ctext_oldnew%2Ctext_samtaler_dato%2Ctext_samtaler_projekt%2Ctext_samtaler_samtaletype%2Ctext_samtaler_eksplorativ%2Ctext_samtaler_korrektur%2Ctext_samtaler_prioriteret%2Ctext_samtaler_prioriteretekstra%2Ctext_projekter_name&start=0&end=24&corpus=LANCHART_HIRTSHALS&cqp=%5Bword%20%3D%20%22h%C3%B8ne%22%5D&query_data=&context=LANCHART_HIRTSHALS%3A3%20sentence&incremental=true&default_within=text&within=&hits_display=5
+"""
+
 import os
+import re
 import httpx
 import json
 import datetime
@@ -7,25 +40,18 @@ import logging
 import multiprocessing as mp
 import urllib.parse as urlp
 from flask import Flask, request, Response, abort
-import korpexport.exporter as ke
+import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
 import tempfile
-app = Flask(__name__)
 
+app = Flask(__name__)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 
-#QUERY_ENDPOINT = 'https://alf.hum.ku.dk/korp/backend/query?'
 # TODO Set this as an argument to the run flask app command
+# If in Docker, use 'http://backend:1234...'. Using e.g. 'http://localhost:11234/query?' will give a httpx.ConnectError.
 QUERY_ENDPOINT = 'http://backend:1234/query?'
-#QUERY_ENDPOINT = 'http://localhost:11234/query?'
-
-"""
-Test URL:
-http://localhost:5000/download/csv?default_context=1%20sentence&show=sentence%2Cpos%2Cmsd%2Clemma%2Cref%2Cprefix%2Csuffix&show_struct=text_title&start=0&end=24&corpus=LSPCLIMATEAKTUELNATURVIDENSKAB%2CLSPCLIMATEDMU%2CLSPCLIMATEHOVEDLAND%2CLSPCLIMATEOEKRAAD&cqp=%5Bword%20%3D%20%22mange%22%5D&query_data=&context=&incremental=true&default_within=sentence&within=
-"""
-
 REQUEST_TRIES = dict()
 MAX_ROWS = 500000  # Our imposed row download limit.
-ROWS_PER_REQUEST = 1000  # How many rows to fetch from the backend at a time.
+ROWS_PER_REQUEST = 1000  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
 N_REQUEST_TRIES = 6  # How many times to try fetching data from backend (with increasingly loose parameters).
 PAUSE_AFTER_REQUEST = 2  # How many seconds to wait after each request.
 PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given request.
@@ -38,40 +64,30 @@ HARD_TIMEOUT = ROWS_PER_REQUEST / 25  # Timeout for custom overall timeout imple
 @app.route('/download/<content_type>')
 def download(content_type):
     """Generate file downloads in various formats via Jyrki's korpexport package.
-    Chunkwise!
-    Get query string/parameters.
-    Remove start and end in order to have a 'base' query string to which to add relevant starts and ends in the loop.
-    We should have a maximum allowed downloaded rows -
-      e.g. 6% of the tokens in the corpus (= plausible frequency of the single most frequent token in a corpus),
-      or less (3% (second most frequent word), 2% (third most frequent) ...).
-      But this requires access to the total amount of tokens in the set of selected corpora,
-      so let's just impose a limit of 500.000 rows for now (about 4% of a 12m corpus ...).
-    What might be a good chunk size? 1000 rows? 5000? 10000?
-    Loop: While total is less than the number of hits or 500.000, get another chunk.
-    Write to temp file.
-    Also generate the response data in chunks by reading the result temp file in
-      chunks and yielding these using a generator.
+    Get query string/parameters. Remove start and end - successive values will be added in a loop.
+    Write results of successive queries to temp file.
+    Stream the response data in chunks using a generator.
     """
     start_time = datetime.datetime.now()
     query_params = urlp.parse_qs(request.query_string.decode('ascii'))
     query_params.pop('start', None)
     query_params.pop('end', None)
-    korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
-    app.logger.info('korp_hits_display: ' + str(korp_hits_display))
+    cqp_string = query_params.get('cqp', [''])[0]
     start_arg = 0
-    ftf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
-    with open(ftf.name, 'w') as formatted_temp_file:
-        write_formatted_temp_file(start_arg, korp_hits_display, query_params, content_type, formatted_temp_file)
-    rsp = Response(generate_output_stream(ftf.name), mimetype='text/csv')
-    rsp.headers.set('Content-Disposition', 'attachment',
-                    filename='korp_kwic_' + datetime.datetime.now().isoformat() + '.csv')
+    korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
+    download_file = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
+    with open(download_file.name, 'w') as outfile:
+        write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile)
     app.logger.info(f'Request tries: {str(REQUEST_TRIES)}')
     app.logger.info(make_download_duration_message(start_time))
+    rsp = Response(generate_output_stream(download_file.name), mimetype='text/csv')
+    rsp.headers.set('Content-Disposition', 'attachment', filename=create_filename(cqp_string))
     return rsp
 
 
-def write_formatted_temp_file(start_arg, korp_hits_display, query_params, content_type, formatted_temp_file):
-    client = httpx.Client()
+def write_download_file(start_arg, korp_hits_display, query_params, content_type, download_file):
+    """Loop through successive requests, transform results, write resulting rows to download file.
+    Note how 'fetch_with_retry' returns rows per request value ... In the function, data are written to temp file."""
     while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
         app.logger.info('start_arg: ' + str(start_arg))
         if start_arg > MAX_ROWS:
@@ -81,39 +97,42 @@ def write_formatted_temp_file(start_arg, korp_hits_display, query_params, conten
         elif start_arg > korp_hits_display:
             app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
             break
-        # Retry api call with smaller and smaller chunk_size ..
-        temp_rows_per_request = fetch_with_retry(start_arg, query_params, client, content_type, formatted_temp_file)
-        app.logger.warning(f'temp_rows_per_request is now {temp_rows_per_request} ..'
-                           f'Waiting a few seconds to give the server time to recover ..')
+        tf_name, temp_rows_per_request = robust_fetch_to_tempfile(start_arg, query_params)
+        transformed_data = transform_backend_data(tf_name, content_type)
+        download_content = 'JSONDecodeError. Data could not be formatted correctly.'
+        if transformed_data is not None:
+            download_content = format_data_with_bom(transformed_data, start_arg)
+        download_file.write(download_content)
+        app.logger.info('Waiting a few seconds before next request to give the server time to recover ...')
         time.sleep(PAUSE_AFTER_REQUEST)
         start_arg += temp_rows_per_request
 
 
-def fetch_with_retry(start_arg, query_params, client, content_type, formatted_temp_file):
+def robust_fetch_to_tempfile(start_arg, query_params):
+    """Run backend request via 'run_with_timeout', which runs a separate Process using multiprocessing.
+    It is designed like this in order to be able to abort long-running requests that don't fail as such.
+    If the request fails, it is retried N_REQUEST_TRIES times with relaxed parameters."""
+    client = httpx.Client()
     for i in range(1, N_REQUEST_TRIES + 1):
         update_request_tries(i)
-        # Decrease chunk_size exponentially, increase read timeout and hard timeout linearly.
+        # Relax parameters: Decrease chunk_size exponentially, increase read timeout and hard timeout linearly.
         temp_rows_per_request = int(ROWS_PER_REQUEST / 2**i) * 2
         temp_read_timeout = int(READ_TIMEOUT + READ_TIMEOUT * i * .5 - READ_TIMEOUT/2)
         temp_hard_timeout = int(HARD_TIMEOUT + HARD_TIMEOUT * i * .5 - HARD_TIMEOUT/2)
         app.logger.info(f'Try number: {i}\nStart arg: {start_arg}\ntemp_rows_per_request: {temp_rows_per_request}\n'
                         f'Timeout: {temp_hard_timeout}\n\n')
         url = build_url(start_arg, query_params, temp_rows_per_request)
-
         try:
             # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
-            tf_name = run_with_timeout(func=stream_backend_query_to_tempfile,
+            tf_name = run_with_timeout(func=stream_url_to_tempfile_with_retry,
                                        func_args=(client, url, temp_read_timeout),
                                        timeout=temp_hard_timeout)
             app.logger.info(f'Got filename: {tf_name}')
-            # Transform the data using Jyrki's code. Write it to formatted_temp_file.
-            result_content_with_bom = make_formatted_data(tf_name, content_type, start_arg)
-            formatted_temp_file.write(result_content_with_bom)
-            return temp_rows_per_request
+            return tf_name, temp_rows_per_request
         except httpx.HTTPError as e:
             # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
             handle_backend_fail(i, e)
-        except ChildHttpxError as e:
+        except ChildProcessException as e:
             handle_backend_fail(i, e)
         except HardTimeoutException as e:
             handle_hard_timeout(start_arg, temp_rows_per_request, e)
@@ -121,7 +140,7 @@ def fetch_with_retry(start_arg, query_params, client, content_type, formatted_te
 
 def run_with_timeout(func, func_args, timeout):
     """Use multiprocessing to run a function with a hard timeout and httpx.HTTPError handling.
-    Note: function must have a queue to write result to."""
+    Note: function 'func' must have a queue to write result to."""
     q = mp.Queue()
     p = mp.Process(target=func, args=(q,) + func_args)
     p.start()
@@ -129,35 +148,28 @@ def run_with_timeout(func, func_args, timeout):
     if p.is_alive():
         p.terminate()
         p.join()
-        raise HardTimeoutException(f'Function {func} exceeded the timeout and was terminated')
+        raise HardTimeoutException(f"Function '{func.__name__}' exceeded the timeout and was terminated")
     else:
         result = q.get()
-        if 'httpx.HTTPError' in result:
-            raise ChildHttpxError(f'Function {func} encountered a httpx.HTTPError')
+        if 'Error:' in result:
+            raise ChildProcessException(f"Function '{func.__name__}' encountered an error: {result}")
     return result
 
 
-def stream_backend_query_to_tempfile(queue, client, url, temp_read_timeout):
-    """Use httpx client to get data from the Korp backend in a chunked way. Write to tempfile.
-    Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to."""
-    # Trying to handle big file sizes ... It is kind of assumed here that /tmp in Docker will be
-    # mapped to a location on the host with plenty of space.
+def stream_url_to_tempfile_with_retry(queue, client, url, temp_read_timeout):
+    """Use httpx client to stream data from the Korp backend. Write to tempfile.
+    Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to.
+    Or an httpx exception, if encountered."""
+    # It is assumed here that /tmp in Docker will be mapped to a location on the host with plenty of space.
     tf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
     try:
-        with tf as temp_file:  # tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-            # TODO Med for stor en chunk_size ser det ud til at risikoen for følgende fejl er større:
-            #  httpx.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read).
-            #  Problemet er at man ikke kan vide på forhånd hvor tung den enkelte konkordanslinje er
-            #  da der kan være forskelligt antal opmærkninger afhængigt af korpus.
-            #  Så chunk_size vil formentlig være lidt lille i mange tilfælde hvis den skal være lille nok
-            #  til at at korpusser med meget tunge konkordanslinjer skal kunne downloades ...
+        with tf as temp_file:
             # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
-            # timeout = httpx.Timeout(300.0, pool=None, connect=None, read=None, write=None)
             timeout = httpx.Timeout(1, pool=0, connect=CONNECTION_TIMEOUT, read=temp_read_timeout, write=None)
             with client.stream("GET", url, timeout=timeout) as response:
-                app.logger.info('Inside client stream context handler ..')
+                app.logger.info('Opened httpx stream context handler ...')
                 chunk_no = 1
-                for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):  # Get data in chunks.
+                for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
                     app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
                     temp_file.write(chunk)
                     chunk_no += 1
@@ -165,45 +177,38 @@ def stream_backend_query_to_tempfile(queue, client, url, temp_read_timeout):
             os.fsync(tf.fileno())  # Ensure the operating system's buffers are written to disk.
         queue.put(tf.name)
     except httpx.HTTPError as e:
-        queue.put(f'httpx.HTTPError: {type(e).__name__}: {str(e)}')
+        queue.put(f'{get_root_exception(type(e))}: {type(e).__name__}: {str(e)}')
 
 
-def make_formatted_data(tf_name, content_type, start_arg):
+def transform_backend_data(tf_name, content_type):
+    """Send tempfile content to Jyrki's data tranformation function 'make_download_file'.
+    Return transformed data, or None if the JSON input data were corrupt."""
     with open(tf_name, 'rb') as saved_tempfile:
         saved_tempfile_content = saved_tempfile.read()
     form = {"query_result": saved_tempfile_content, "format": content_type}
-
     try:
-        if start_arg == 0:
-            result_content_with_bom = get_csv_content_with_bom(form)
-        else:
-            result_content_with_bom = get_csv_content_with_bom(form, skip_header=True)
+        result = ke.make_download_file(form, form.get("korp_server", "KORP_SERVER"))
+        return result
     except json.JSONDecodeError as e:
-        print(f"JSONDecodeError: {e}")
-        error_position = e.pos  # Position where the error occurred
-        window = 40  # We will print 40 characters before and after the error position
-        # TODO Handle JSON error properly ...?
-        print(f"JSON around error position: "
-              f"{saved_tempfile_content[max(0, error_position - window):error_position + window]}\n\n\n\n\n\n\n\n\n\n")
-        return 'Blaha JSONDecodeError :('
-
-    return result_content_with_bom
+        app.logger.warning(f"JSONDecodeError: {e}")
+        window = 40  # Print 40 characters before and after the error position
+        start, end = max(0, e.pos - window), e.pos + window  # e.pos: error position
+        app.logger.info(f"JSON around error position: {saved_tempfile_content[start:end]}\n")
+        return None
 
 
-def get_csv_content_with_bom(form, skip_header=False):
-    result = ke.make_download_file(form, form.get("korp_server", "KORP_SERVER"))
-    result_charset = result.get("download_charset", "utf-8")
-    app.logger.info('get_csv_content_with_bom: result headers: ' + str(list(result)))
-    result_content_bytes = result.get("download_content", "### No content :( ###")
-    app.logger.info('get_csv_content_with_bom: result_content_bytes len: ' + str(len(result_content_bytes)))
+def format_data_with_bom(transformed_backend_data, start_arg):
+    """Format data returned by Jyrki's transformation function for download. Add a BOM to ensure interoperability."""
+    result_charset = transformed_backend_data.get("download_charset", "utf-8")
+    formatted_data_bytes = transformed_backend_data.get("download_content", "### No content :( ###")
+    formatted_data = formatted_data_bytes.decode(result_charset, errors='replace')
+    skip_header = bool(start_arg)  # If start_arg is not 0, skip_header is True.
+    if skip_header:
+        formatted_data = '\n'.join(formatted_data.splitlines()[13:]) + '\n'
     # Prepending the BOM '\uFEFF', creating a file encoded in UTF-8-BOM, makes
     # e.g. csv readable in Excel as well as text editors on Windows as well as Mac.
-    result_content = result_content_bytes.decode(result_charset, errors='replace')
-    if skip_header:
-        result_content = '\n'.join(result_content.splitlines()[13:]) + '\n'
-    result_content_with_bom = '\uFEFF' + result_content
-    app.logger.info('get_csv_content_with_bom: result_content_with_bom len: ' + str(len(result_content_with_bom)))
-    return result_content_with_bom
+    formatted_data_with_bom = '\uFEFF' + formatted_data
+    return formatted_data_with_bom
 
 
 """--------------------------------  Utils  --------------------------------"""
@@ -214,9 +219,15 @@ class HardTimeoutException(Exception):
     pass
 
 
-class ChildHttpxError(Exception):
+class ChildProcessException(Exception):
     """Custom exception for httpx.HTTPError in multiprocessing child process."""
     pass
+
+
+def create_filename(cqp_string):
+    """Generer filnavnet til den fil der skal downloades."""
+    safe_cqp_string = '_'.join(re.findall(r'"(\w+)"', cqp_string))
+    return f'korp_kwic_{safe_cqp_string}_{datetime.datetime.now().isoformat()}.csv'
 
 
 def update_request_tries(i):
@@ -232,11 +243,12 @@ def build_url(start_arg, query_params, rows_per_request):
     query_params['start'] = [str(start_arg)]
     query_params['end'] = [str(start_arg + rows_per_request - 1)]
     url = QUERY_ENDPOINT + urlp.urlencode(query_params, doseq=True)
-    app.logger.info('url: ' + url)
+    # app.logger.info('url: ' + url)
     return url
 
 
 def make_download_duration_message(start_time):
+    """Make a log message about the download duration."""
     time_delta = datetime.datetime.now() - start_time
     total_seconds = time_delta.total_seconds()
     minutes = total_seconds // 60
@@ -245,6 +257,7 @@ def make_download_duration_message(start_time):
 
 
 def handle_backend_fail(i, e):
+    """Handle failed request by logging a warning. Ultimately abort the whole download."""
     app.logger.warning(f'Trying again with smaller chunk because backend query failed or timed out. '
                        f'Error: {type(e).__name__}: {e}')
     if i == N_REQUEST_TRIES:
@@ -255,13 +268,22 @@ def handle_backend_fail(i, e):
 
 
 def handle_hard_timeout(n, m, e):
+    """Handle hard timeout when server request hangs."""
     msg = f"Download failed: Server timed out on request for rows {n}-{m - 1}. Try again later."
     app.logger.error(msg)
     app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
     abort(500, msg)
 
 
+def get_root_exception(cls):
+    """Get the class immediately below the 'Exception' class (most basic exception from a given module)."""
+    while cls.__base__ is not Exception:
+        cls = cls.__base__
+    return f'{cls.__module__}.{cls.__name__}'
+
+
 def generate_output_stream(filename):
+    """Stream filename contents as byte chunks."""
     with open(filename, 'rb') as f:
         while True:
             chunk = f.read(4096)  # Read in chunks of 4096 bytes
@@ -272,4 +294,4 @@ def generate_output_stream(filename):
 
 if __name__ == '__main__':
     # TODO Instead of debug True, set up logging properly.
-    app.run(debug=True)
+    app.run(debug=False)
