@@ -39,4 +39,5 @@ services:
       # Korp frontend server
       - "14000:4000"
     volumes:
-      - ./exporter/tmpfiles:/tmp
+      - ./exporter/hostvar/tmp/data:/var/tmp/data
+      - ./exporter/hostvar/tmp/output:/var/tmp/output

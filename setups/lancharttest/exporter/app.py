@@ -24,7 +24,6 @@ E.g. 6% of the tokens in the corpus (= plausible frequency of the single most fr
 Or less (3% (second most frequent word), 2% (third most frequent) ...).
 But this requires access to the total amount of tokens in the set of selected corpora.
 So let's just impose a limit of 500.000 rows for now (about 4% of a 12m corpus).
-Note: In the current (local) implementation, such a download would take 42 hours ...
 
 Test URL:
 http://localhost:14000/download/csv?default_context=1%20sentence&show=sentence%2Ctext%2Cipa%2Cttt%2Credpos%2Cpos%2Cspeaker%2Ccolorcombo_bg%2Ccolorcombo_border%2Ccolorcombo_fg%2Cinformanter_koen%2Cinformanter_foedselsaar%2Ctaleralder%2Cinformanter_generation%2Cinformanter_socialklasse%2Crolle%2Cinformanter_prioriteret%2Cinformanter_prioriteretekstra%2Ctext_enum%2Cturn_enum%2Cxmin%2Cxmax%2Cxlength%2Cturnummer%2Ctalekilde%2Cturnmin%2Cturnmax%2Cturnduration%2Cphonetic%2Ccomments%2Cevents%2Cturn%2Cuncertainxtranscription%2Csync&show_struct=corpus_label%2Ctext_size%2Ctext_textmin%2Ctext_textmax%2Ctext_textduration%2Ctext_filename%2Ctext_datefrom%2Ctext_timefrom%2Ctext_dateto%2Ctext_timeto%2Ctext_oldnew%2Ctext_samtaler_dato%2Ctext_samtaler_projekt%2Ctext_samtaler_samtaletype%2Ctext_samtaler_eksplorativ%2Ctext_samtaler_korrektur%2Ctext_samtaler_prioriteret%2Ctext_samtaler_prioriteretekstra%2Ctext_projekter_name&start=0&end=24&corpus=LANCHART_HIRTSHALS&cqp=%5Bword%20%3D%20%22h%C3%B8ne%22%5D&query_data=&context=LANCHART_HIRTSHALS%3A3%20sentence&incremental=true&default_within=text&within=&hits_display=5
@@ -32,6 +31,7 @@ http://localhost:14000/download/csv?default_context=1%20sentence&show=sentence%2
 
 import os
 import re
+import glob
 import httpx
 import json
 import datetime
@@ -49,6 +49,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(mes
 # TODO Set this as an argument to the run flask app command
 # If in Docker, use 'http://backend:1234...'. Using e.g. 'http://localhost:11234/query?' will give a httpx.ConnectError.
 QUERY_ENDPOINT = 'http://backend:1234/query?'
+TEMP_DATADIR = '/var/tmp/data'  # Dir for temp files from successive requests. (Make sure to map to Docker host volume).
+TEMP_OUTDIR = '/var/tmp/output'  # Dir for the temp output file for download. (Make sure to map to Docker host volume).
+N_TEMPFILES_TO_KEEP = 10  # Number of data and output temp files to keep when cleaning up old temp files.
 REQUEST_TRIES = dict()
 MAX_ROWS = 500000  # Our imposed row download limit.
 ROWS_PER_REQUEST = 1000  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
@@ -69,13 +72,15 @@ def download(content_type):
     Stream the response data in chunks using a generator.
     """
     start_time = datetime.datetime.now()
+    remove_old_tempfiles(TEMP_DATADIR, max_files=N_TEMPFILES_TO_KEEP)
+    remove_old_tempfiles(TEMP_OUTDIR, max_files=N_TEMPFILES_TO_KEEP)
     query_params = urlp.parse_qs(request.query_string.decode('ascii'))
     query_params.pop('start', None)
     query_params.pop('end', None)
     cqp_string = query_params.get('cqp', [''])[0]
     start_arg = 0
     korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
-    download_file = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
+    download_file = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_OUTDIR)
     with open(download_file.name, 'w') as outfile:
         write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile)
     app.logger.info(f'Request tries: {str(REQUEST_TRIES)}')
@@ -87,7 +92,7 @@ def download(content_type):
 
 def write_download_file(start_arg, korp_hits_display, query_params, content_type, download_file):
     """Loop through successive requests, transform results, write resulting rows to download file.
-    Note how 'fetch_with_retry' returns rows per request value ... In the function, data are written to temp file."""
+    Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
     while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
         app.logger.info('start_arg: ' + str(start_arg))
         if start_arg > MAX_ROWS:
@@ -160,8 +165,7 @@ def stream_url_to_tempfile_with_retry(queue, client, url, temp_read_timeout):
     """Use httpx client to stream data from the Korp backend. Write to tempfile.
     Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to.
     Or an httpx exception, if encountered."""
-    # It is assumed here that /tmp in Docker will be mapped to a location on the host with plenty of space.
-    tf = tempfile.NamedTemporaryFile(delete=False, dir='/tmp')
+    tf = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_DATADIR)
     try:
         with tf as temp_file:
             # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
@@ -290,6 +294,16 @@ def generate_output_stream(filename):
             if not chunk:
                 break
             yield chunk
+
+
+def remove_old_tempfiles(directory, max_files):
+    """Clean up tempfiles - keep the max_files newest ones."""
+    files = glob.glob(os.path.join(directory, '*'))
+    if len(files) > max_files:
+        sorted_files = sorted(files, key=os.path.getmtime, reverse=True)[max_files:]
+        app.logger.info(f'Removing old tempfiles from {directory}: ' +
+                        ', '.join([os.path.basename(f) for f in sorted_files]))
+        [os.remove(file) for file in sorted_files]
 
 
 if __name__ == '__main__':
