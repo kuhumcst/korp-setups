@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Download</title>
+        <style>
+            #progress-bar-container {
+                width: 100%;
+                background-color: #f3f3f3;
+            }
+            #progress-bar {
+                width: 0%;
+                height: 30px;
+                background-color: #4caf50;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function updateProgress(uniqueId) {
+                console.log('Hello ..');
+                $.ajax({
+                    url: '/status',
+                    type: 'GET',
+                    data: { uid: uniqueId },
+                    success: function(data) {
+                        // Update progress bar
+                        $('#progress-bar').css('width', data.status + '%');
+                        if (data.status < 100) {
+                            // If the file generation is not yet complete, wait a bit and then ask for an update again
+                            setTimeout(function() {
+                                updateProgress(uniqueId);
+                            }, 100);
+                        }
+                    }
+                });
+            }
+
+            function generateUniqueId() {
+                return '_' + Math.random().toString(36).substr(2, 9);
+            }
+
+            $(document).ready(function() {
+                $('#download-button').click(function() {
+                    // Generate unique id for the current download
+                    var uniqueId = generateUniqueId();
+
+                    // Start updating progress immediately
+                    updateProgress(uniqueId);
+
+                    setTimeout(function() {
+
+                    // Start the file download
+                    //window.location.href = '/getfile2/csv';
+                    // Start the file download
+                    var downloadUrl = '/getfile2/csv' + window.location.search + '&uid=' + uniqueId;
+                    console.log('downloadUrl:');
+                    console.log(downloadUrl);
+
+                    // Create invisible link and "click" it to initiate download
+                    var link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    }, 100);
+
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>File Download</h1>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <button id="download-button">Download File</button>
+    </body>
+</html>

@@ -292,6 +292,7 @@ class KwicCtrl {
                     // temporary <a> element and clicking it.
                     const cleanHitsDisplay = hitsDisplay.replace(/<[^>]+>/g, '').replace(/[^\d-]/g, '');
                     const link = document.createElement("a");
+                    link.setAttribute("target", "_blank");
                     document.body.appendChild(link);
                     var loc_orig = window.location.origin;
                     // Hack for local use ...

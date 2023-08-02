@@ -2,7 +2,7 @@
 Exporter: a Flask app for downloading all KWIC results from Korp.
 Philip Diderichsen, 2023
 
-The exporter is intended to run as part of a Docker setup as a functionality proof of concept.
+The exporter is intended to run as part of a Docker Korp setup.
 When running in Docker, the exporter communicates with the backend on http://backend:1234.
 The 'backend' domain refers to the 'backend' Docker container, and '1234' is the Docker-internal port where it runs.
 
@@ -39,7 +39,7 @@ import time
 import logging
 import multiprocessing as mp
 import urllib.parse as urlp
-from flask import Flask, request, Response, abort
+from flask import Flask, request, Response, render_template, jsonify, abort
 import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
 import tempfile
 
@@ -62,10 +62,41 @@ CONNECTION_TIMEOUT = 10
 READ_TIMEOUT = ROWS_PER_REQUEST / 10  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
 HARD_TIMEOUT = ROWS_PER_REQUEST / 25  # Timeout for custom overall timeout implemented using multiprocessing.
+STATUS_STORE = dict()
 
 
 @app.route('/download/<content_type>')
 def download(content_type):
+    query_params = urlp.parse_qs(request.query_string.decode('ascii'))
+    # Make sure to add templates dir in Docker.
+    return render_template('index.html')  # f'Content-type: {content_type}. Params: {str(query_params)}'
+
+
+@app.route('/getfile2/<content_type>')
+def get_file2(content_type):
+    query_id = request.args.get('uid')
+
+    def generate_file():
+        for i in range(101):
+            time.sleep(0.1)
+            # Update the progress in the status store
+            STATUS_STORE[query_id] = i
+            app.logger.info(f'Generator i, query_id: {i}, {query_id}')
+            yield ':-) '  # This is the data that will be sent to the client
+    resp = Response(generate_file(), mimetype='text/csv')
+    return resp
+
+
+@app.route('/status')
+def status():
+    # Get unique query id.
+    query_id = request.args.get('uid')
+    # Return the current status as JSON
+    return jsonify({"status": STATUS_STORE.get(query_id, 0) if query_id else 0})
+
+
+@app.route('/getfile/<content_type>')
+def get_file(content_type):
     """Generate file downloads in various formats via Jyrki's korpexport package.
     Get query string/parameters. Remove start and end - successive values will be added in a loop.
     Write results of successive queries to temp file.
@@ -93,7 +124,9 @@ def download(content_type):
 def write_download_file(start_arg, korp_hits_display, query_params, content_type, download_file):
     """Loop through successive requests, transform results, write resulting rows to download file.
     Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
+    query_id = request.args.get('uid')
     while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
+        app.logger.info('query_id: ' + str(query_id))
         app.logger.info('start_arg: ' + str(start_arg))
         if start_arg > MAX_ROWS:
             # TODO Add additional logic to return at most <max_rows> rows, but also not less!
@@ -309,3 +342,4 @@ def remove_old_tempfiles(directory, max_files):
 if __name__ == '__main__':
     # TODO Instead of debug True, set up logging properly.
     app.run(debug=False)
+
