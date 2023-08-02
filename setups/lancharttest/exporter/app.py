@@ -95,6 +95,13 @@ def get_file2(content_type):
     return resp
 
 
+@socketio.on('get_status', namespace='/status')
+def get_status():
+    query_id = request.args.get('uid')
+    progress = STATUS_STORE.get(query_id, 0) if query_id else 0
+    socketio.emit('status', {'progress': progress}, namespace='/status')
+
+
 @app.route('/status')
 def status():
     # Get unique query id.
