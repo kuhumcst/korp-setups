@@ -40,10 +40,18 @@ import logging
 import multiprocessing as mp
 import urllib.parse as urlp
 from flask import Flask, request, Response, render_template, jsonify, abort
+from flask_socketio import SocketIO
 import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
 import tempfile
 
 app = Flask(__name__)
+socketio = SocketIO(app,
+                    async_mode='gevent',
+                    cors_allowed_origins=["http://localhost:14000",
+                                          "https://lanchartkorp.ku.dk",
+                                          "https://lanchartpartitur.ku.dk"],
+                    logger=True,
+                    engineio_logger=True)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 
 # TODO Set this as an argument to the run flask app command
@@ -341,5 +349,5 @@ def remove_old_tempfiles(directory, max_files):
 
 if __name__ == '__main__':
     # TODO Instead of debug True, set up logging properly.
-    app.run(debug=False)
-
+    # app.run(debug=False)
+    socketio.run(app, host='0.0.0.0', port=4000, debug=True)
