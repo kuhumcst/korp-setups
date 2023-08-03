@@ -29,6 +29,8 @@ Test URL:
 http://localhost:14000/download/csv?default_context=1%20sentence&show=sentence%2Ctext%2Cipa%2Cttt%2Credpos%2Cpos%2Cspeaker%2Ccolorcombo_bg%2Ccolorcombo_border%2Ccolorcombo_fg%2Cinformanter_koen%2Cinformanter_foedselsaar%2Ctaleralder%2Cinformanter_generation%2Cinformanter_socialklasse%2Crolle%2Cinformanter_prioriteret%2Cinformanter_prioriteretekstra%2Ctext_enum%2Cturn_enum%2Cxmin%2Cxmax%2Cxlength%2Cturnummer%2Ctalekilde%2Cturnmin%2Cturnmax%2Cturnduration%2Cphonetic%2Ccomments%2Cevents%2Cturn%2Cuncertainxtranscription%2Csync&show_struct=corpus_label%2Ctext_size%2Ctext_textmin%2Ctext_textmax%2Ctext_textduration%2Ctext_filename%2Ctext_datefrom%2Ctext_timefrom%2Ctext_dateto%2Ctext_timeto%2Ctext_oldnew%2Ctext_samtaler_dato%2Ctext_samtaler_projekt%2Ctext_samtaler_samtaletype%2Ctext_samtaler_eksplorativ%2Ctext_samtaler_korrektur%2Ctext_samtaler_prioriteret%2Ctext_samtaler_prioriteretekstra%2Ctext_projekter_name&start=0&end=24&corpus=LANCHART_HIRTSHALS&cqp=%5Bword%20%3D%20%22h%C3%B8ne%22%5D&query_data=&context=LANCHART_HIRTSHALS%3A3%20sentence&incremental=true&default_within=text&within=&hits_display=5
 """
 
+from gevent import monkey
+monkey.patch_all()
 import os
 import re
 import glob
@@ -39,6 +41,7 @@ import time
 import logging
 import multiprocessing as mp
 import urllib.parse as urlp
+from gevent import Greenlet
 from flask import Flask, request, Response, render_template, jsonify, abort
 from flask_socketio import SocketIO
 import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
@@ -82,32 +85,39 @@ def download(content_type):
 
 @app.route('/getfile2/<content_type>')
 def get_file2(content_type):
+    """Endpoint that starts the generation of data to be downloaded and immediately returns a start message."""
     query_id = request.args.get('uid')
+    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
+    Greenlet.spawn(generate_file, query_id, file_path)  # Start data generation in separate Greenlet.
+    return jsonify({'status': 'Download started', 'query_id': query_id})
 
-    def generate_file():
+
+def generate_file(query_id, file_path):
+    """Generate download file. In separate function in order to be able to run it in its own Greenlet."""
+    with open(file_path, 'w') as f:
         for i in range(101):
             time.sleep(0.1)
+            f.write(':-) ')
             # Update the progress in the status store
             STATUS_STORE[query_id] = i
             app.logger.info(f'Generator i, query_id: {i}, {query_id}')
-            yield ':-) '  # This is the data that will be sent to the client
-    resp = Response(generate_file(), mimetype='text/csv')
-    return resp
+    STATUS_STORE[query_id] = 100
+
+
+@app.route('/download2/<query_id>', methods=['GET'])
+def download_file(query_id):
+    """Endpoint for serving the finished download file."""
+    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
+    rsp = Response(generate_output_stream(file_path), mimetype='text/csv')
+    rsp.headers.set('Content-Disposition', 'attachment', filename=create_filename('blahaa'))
+    return rsp
 
 
 @socketio.on('get_status', namespace='/status')
-def get_status():
-    query_id = request.args.get('uid')
-    progress = STATUS_STORE.get(query_id, 0) if query_id else 0
-    socketio.emit('status', {'progress': progress}, namespace='/status')
-
-
-@app.route('/status')
-def status():
-    # Get unique query id.
-    query_id = request.args.get('uid')
-    # Return the current status as JSON
-    return jsonify({"status": STATUS_STORE.get(query_id, 0) if query_id else 0})
+def get_status(uid):
+    """Endpoint for emitting data generation status information."""
+    progress = STATUS_STORE.get(uid, 0) if uid else 0
+    socketio.emit('status', {'progress': progress, 'uid': uid}, namespace='/status')
 
 
 @app.route('/getfile/<content_type>')
@@ -357,4 +367,4 @@ def remove_old_tempfiles(directory, max_files):
 if __name__ == '__main__':
     # TODO Instead of debug True, set up logging properly.
     # app.run(debug=False)
-    socketio.run(app, host='0.0.0.0', port=4000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=4000, debug=False)
