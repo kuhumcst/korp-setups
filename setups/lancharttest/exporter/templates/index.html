@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>File Download</title>
+        <title>Download data</title>
         <style>
             #content {
                 font-family: Helvetica, Arial;
@@ -22,10 +22,14 @@
                 visibility: hidden;
             }
             #progress-bar-container {
-                width: 300px;
+                width: 250px;
                 background-color: #f3f3f3;
                 border: 1px solid #666;
                 border-radius: 3px;
+            }
+            #label-small {
+                font-size: 10px;
+                margin-right: 5px;
             }
             #progress-bar {
                 width: 0%;
@@ -70,7 +74,7 @@
     </head>
     <body>
     <div id="content">
-        <h1>Download</h1>
+        <h1>Download data</h1>
         <div>
             <p>Klik her for at downloade. Der er 345 020 rækker, så downloaden vil tage en rum tid. Luk ikke dette vindue før downloaden er færdig.</p>
         </div>
@@ -79,6 +83,7 @@
                 <button id="download-button">Download fil</button>
             </div>
             <div id="progress-container">
+                <div id="label-small">Formaterer data ...</div>
                 <div id="progress-bar-container">
                     <div id="progress-bar"></div>
                 </div>

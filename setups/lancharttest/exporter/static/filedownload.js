@@ -62,6 +62,7 @@ function updateProgress(uid, data, progressInterval, socket) {
         clearInterval(progressInterval);
         socket.disconnect();
         console.log('Socket disconnected');
+        document.getElementById('progress-container').innerHTML = '<div id="label-small">Færdig.</div>'
         // Download file when ready
         fileDownload(uid);
     }
