@@ -21,6 +21,7 @@ RUN pip install flask==2.3.2 Flask-SocketIO==5.3.5 requests gevent==23.7.0 geven
 # Copy the application code and the templates dir to the container
 COPY app.py .
 COPY templates templates
+COPY static static
 
 # Run the Flask app
 CMD ["python3", "app.py"]
