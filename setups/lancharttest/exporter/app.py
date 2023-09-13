@@ -12,6 +12,8 @@ This happens when the user selects the 'download all' option from a selector.
 The exporter then loops through a number of backend requests with successive start and end parameters.
 For each request, the results are converted to CSV (the only option for now), resulting rows appended to a temp file.
 (The results of each request are themselves saved to a temp file each, fetched using httpx's chunked streaming).
+The CSV conversion is handled by a fork of Jyrki's code: Kielipankki-korp-backend-fork.
+In order to import this code, put this in requirements.txt: -e /Users/phb514/mygit/Kielipankki-korp-backend-fork/
 
 Finally, the resulting temp file is streamed back with a 'Content-Disposition: attachment' header, filename, etc.
 The Korp AJAX code picks this up and serves the CSV file as a download.
@@ -30,13 +32,14 @@ http://localhost:14000/download/csv?default_context=1%20sentence&show=sentence%2
 """
 
 from gevent import monkey
-monkey.patch_all()
+monkey.patch_all()  # TODO Is this necessary?
 import os
 import re
 import glob
 import httpx
 import json
 import datetime
+import math
 import time
 import logging
 import multiprocessing as mp
@@ -65,7 +68,8 @@ TEMP_OUTDIR = '/var/tmp/output'  # Dir for the temp output file for download. (M
 N_TEMPFILES_TO_KEEP = 10  # Number of data and output temp files to keep when cleaning up old temp files.
 REQUEST_TRIES = dict()
 MAX_ROWS = 500000  # Our imposed row download limit.
-ROWS_PER_REQUEST = 1000  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
+ROWS_PER_REQUEST = 100  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
+ROWS_PER_SEMISECOND = 42  # Data throughput of the exporter (based on experience). Determines interim progress speed.
 N_REQUEST_TRIES = 6  # How many times to try fetching data from backend (with increasingly loose parameters).
 PAUSE_AFTER_REQUEST = 2  # How many seconds to wait after each request.
 PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given request.
@@ -74,13 +78,14 @@ READ_TIMEOUT = ROWS_PER_REQUEST / 10  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
 HARD_TIMEOUT = ROWS_PER_REQUEST / 25  # Timeout for custom overall timeout implemented using multiprocessing.
 STATUS_STORE = dict()
+STATUS_STORE2 = dict()
 
 
 @app.route('/download/<content_type>')
 def download(content_type):
-    query_params = urlp.parse_qs(request.query_string.decode('ascii'))
-    # Make sure to add templates dir in Docker.
-    return render_template('index.html')  # f'Content-type: {content_type}. Params: {str(query_params)}'
+    """Download endpoint. Currently an HTML page with a download button and a progress bar."""
+    # Make sure to add templates dir in Docker!
+    return render_template('index.html')
 
 
 @app.route('/getfile2/<content_type>')
@@ -117,7 +122,8 @@ def download_file(query_id):
 def get_status(uid):
     """Endpoint for emitting data generation status information."""
     progress = STATUS_STORE.get(uid, 0) if uid else 0
-    socketio.emit('status', {'progress': progress, 'uid': uid}, namespace='/status')
+    progress2 = STATUS_STORE2.get(uid, 0) if uid else 0
+    socketio.emit('status', {'progress': progress, 'progress2': progress2, 'uid': uid}, namespace='/status')
 
 
 @app.route('/getfile/<content_type>')
@@ -128,28 +134,42 @@ def get_file(content_type):
     Stream the response data in chunks using a generator.
     """
     start_time = datetime.datetime.now()
+    query_id = request.args.get('uid')
     remove_old_tempfiles(TEMP_DATADIR, max_files=N_TEMPFILES_TO_KEEP)
     remove_old_tempfiles(TEMP_OUTDIR, max_files=N_TEMPFILES_TO_KEEP)
     query_params = urlp.parse_qs(request.query_string.decode('ascii'))
     query_params.pop('start', None)
     query_params.pop('end', None)
-    cqp_string = query_params.get('cqp', [''])[0]
     start_arg = 0
     korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
-    download_file = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_OUTDIR)
-    with open(download_file.name, 'w') as outfile:
-        write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile)
+    Greenlet.spawn(generate_real_file, start_arg, korp_hits_display, query_params, content_type, query_id)
     app.logger.info(f'Request tries: {str(REQUEST_TRIES)}')
-    app.logger.info(make_download_duration_message(start_time))
-    rsp = Response(generate_output_stream(download_file.name), mimetype='text/csv')
-    rsp.headers.set('Content-Disposition', 'attachment', filename=create_filename(cqp_string))
-    return rsp
+    app.logger.info(make_download_duration_message(start_time, korp_hits_display))
+    return jsonify({'status': 'Download started', 'query_id': query_id})
 
 
-def write_download_file(start_arg, korp_hits_display, query_params, content_type, download_file):
+def generate_real_file(start_arg, korp_hits_display, query_params, content_type, query_id):
+    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
+    with open(file_path, 'w') as outfile:
+        write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id)
+    STATUS_STORE[query_id] = 100
+    app.logger.info(f'Completed percent 100!')
+
+
+def update_status_by_semisecond(query_id, start_arg, korp_hits_display):
+    start_percent = start_arg / korp_hits_display * 100
+    i = start_percent
+    while i < 100:
+        STATUS_STORE2[query_id] = i
+        time.sleep(0.5)
+        percent_increase_per_semisecond = ROWS_PER_SEMISECOND / korp_hits_display * 100
+        i += percent_increase_per_semisecond
+
+
+def write_download_file(start_arg, korp_hits_display, query_params, content_type, download_file, query_id):
     """Loop through successive requests, transform results, write resulting rows to download file.
     Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
-    query_id = request.args.get('uid')
+    STATUS_STORE[query_id] = 0
     while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
         app.logger.info('query_id: ' + str(query_id))
         app.logger.info('start_arg: ' + str(start_arg))
@@ -160,18 +180,28 @@ def write_download_file(start_arg, korp_hits_display, query_params, content_type
         elif start_arg > korp_hits_display:
             app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
             break
-        tf_name, temp_rows_per_request = robust_fetch_to_tempfile(start_arg, query_params)
-        transformed_data = transform_backend_data(tf_name, content_type)
-        download_content = 'JSONDecodeError. Data could not be formatted correctly.'
-        if transformed_data is not None:
-            download_content = format_data_with_bom(transformed_data, start_arg)
-        download_file.write(download_content)
-        app.logger.info('Waiting a few seconds before next request to give the server time to recover ...')
-        time.sleep(PAUSE_AFTER_REQUEST)
-        start_arg += temp_rows_per_request
+        else:
+            ticker = Greenlet(update_status_by_semisecond, query_id, start_arg, korp_hits_display)
+            ticker.start()
+            tf_name, temp_rows_per_request = robust_fetch_to_tempfile(start_arg, query_params, query_id)
+            transformed_data = transform_backend_data(tf_name, content_type)
+            download_content = 'JSONDecodeError. Data could not be formatted correctly.'
+            if transformed_data is not None:
+                download_content = format_data_with_bom(transformed_data, start_arg)
+            download_file.write(download_content)
+            app.logger.info('Waiting a few seconds before next request to give the server time to recover ...')
+            time.sleep(PAUSE_AFTER_REQUEST)
+            ticker.kill()
+            completed_rows = start_arg + temp_rows_per_request
+            if completed_rows > korp_hits_display:
+                completed_rows = korp_hits_display
+            completed_percent = math.floor(completed_rows / korp_hits_display * 100)
+            app.logger.info(f'Actual completed percent: {completed_percent}')
+            STATUS_STORE[query_id] = completed_percent  # Set actual percentage when actual chunk is done
+            start_arg += temp_rows_per_request
 
 
-def robust_fetch_to_tempfile(start_arg, query_params):
+def robust_fetch_to_tempfile(start_arg, query_params, query_id):
     """Run backend request via 'run_with_timeout', which runs a separate Process using multiprocessing.
     It is designed like this in order to be able to abort long-running requests that don't fail as such.
     If the request fails, it is retried N_REQUEST_TRIES times with relaxed parameters."""
@@ -309,7 +339,7 @@ def build_url(start_arg, query_params, rows_per_request):
     return url
 
 
-def make_download_duration_message(start_time):
+def make_download_duration_message(start_time, korp_hits_display):
     """Make a log message about the download duration."""
     time_delta = datetime.datetime.now() - start_time
     total_seconds = time_delta.total_seconds()
@@ -324,7 +354,9 @@ def handle_backend_fail(i, e):
                        f'Error: {type(e).__name__}: {e}')
     if i == N_REQUEST_TRIES:
         app.logger.warning(f'Reached last try ({i}). Aborting.\n')
-        abort(500, f"Download failed. Server didn't respond after several tries. Try increasing read timeout?")
+        msg = f"Download failed. Server didn't respond after several tries. Try increasing read timeout?"
+        socketio.emit('abort', {'reason': msg}, namespace='/status')
+        abort(500, msg)
     app.logger.info('Waiting a few seconds before next try to give the server time to recover ..')
     time.sleep(PAUSE_AFTER_RETRY)
 
@@ -334,6 +366,7 @@ def handle_hard_timeout(n, m, e):
     msg = f"Download failed: Server timed out on request for rows {n}-{m - 1}. Try again later."
     app.logger.error(msg)
     app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
+    socketio.emit('abort', {'reason': msg}, namespace='/status')
     abort(500, msg)
 
 
