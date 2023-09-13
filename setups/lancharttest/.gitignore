@@ -1,6 +1,7 @@
 corpora
 venv/
 exporter/tmpfiles
+exporter/hostvar
 
 *.pyc
 
