@@ -76,9 +76,8 @@ PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given re
 CONNECTION_TIMEOUT = 10
 READ_TIMEOUT = ROWS_PER_REQUEST / 10  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
-HARD_TIMEOUT = ROWS_PER_REQUEST / 25  # Timeout for custom overall timeout implemented using multiprocessing.
+HARD_TIMEOUT = ROWS_PER_REQUEST / 12  # Timeout for custom overall timeout implemented using multiprocessing.
 STATUS_STORE = dict()
-STATUS_STORE2 = dict()
 
 
 @app.route('/download/<content_type>')
@@ -122,8 +121,7 @@ def download_file(query_id):
 def get_status(uid):
     """Endpoint for emitting data generation status information."""
     progress = STATUS_STORE.get(uid, 0) if uid else 0
-    progress2 = STATUS_STORE2.get(uid, 0) if uid else 0
-    socketio.emit('status', {'progress': progress, 'progress2': progress2, 'uid': uid}, namespace='/status')
+    socketio.emit('status', {'progress': progress, 'uid': uid}, namespace='/status')
 
 
 @app.route('/getfile/<content_type>')
@@ -149,6 +147,7 @@ def get_file(content_type):
 
 
 def generate_real_file(start_arg, korp_hits_display, query_params, content_type, query_id):
+    """Wrapper for file writing function that makes sure the status is set to 100 when done."""
     file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
     with open(file_path, 'w') as outfile:
         write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id)
@@ -156,17 +155,7 @@ def generate_real_file(start_arg, korp_hits_display, query_params, content_type,
     app.logger.info(f'Completed percent 100!')
 
 
-def update_status_by_semisecond(query_id, start_arg, korp_hits_display):
-    start_percent = start_arg / korp_hits_display * 100
-    i = start_percent
-    while i < 100:
-        STATUS_STORE2[query_id] = i
-        time.sleep(0.5)
-        percent_increase_per_semisecond = ROWS_PER_SEMISECOND / korp_hits_display * 100
-        i += percent_increase_per_semisecond
-
-
-def write_download_file(start_arg, korp_hits_display, query_params, content_type, download_file, query_id):
+def write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id):
     """Loop through successive requests, transform results, write resulting rows to download file.
     Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
     STATUS_STORE[query_id] = 0
@@ -181,17 +170,14 @@ def write_download_file(start_arg, korp_hits_display, query_params, content_type
             app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
             break
         else:
-            ticker = Greenlet(update_status_by_semisecond, query_id, start_arg, korp_hits_display)
-            ticker.start()
             tf_name, temp_rows_per_request = robust_fetch_to_tempfile(start_arg, query_params, query_id)
             transformed_data = transform_backend_data(tf_name, content_type)
             download_content = 'JSONDecodeError. Data could not be formatted correctly.'
             if transformed_data is not None:
                 download_content = format_data_with_bom(transformed_data, start_arg)
-            download_file.write(download_content)
+            outfile.write(download_content)
             app.logger.info('Waiting a few seconds before next request to give the server time to recover ...')
             time.sleep(PAUSE_AFTER_REQUEST)
-            ticker.kill()
             completed_rows = start_arg + temp_rows_per_request
             if completed_rows > korp_hits_display:
                 completed_rows = korp_hits_display

@@ -61,9 +61,7 @@ function updateProgress(uid, data, progressInterval, socket) {
     // Do the actual updating of the progress bar - and trigger the actual download when reaching 100%
     console.log('Correct uid: ' + uid);
     var progress = data.progress;
-    var progress2 = Math.floor(data.progress2);
     console.log('Progress: ' + progress);
-    console.log('Progress 2: ' + progress2);
     document.getElementById('progress-bar').style.width = progress + '%';
     document.getElementById('progress-bar-label').innerText = progress + '%';
 
