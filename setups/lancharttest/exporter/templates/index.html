@@ -8,6 +8,9 @@
                 width: 500px;
                 margin: 50px auto;
             }
+            .small-info {
+                font-size: .8em;
+            }
             #download-section {
                 display: flex;
                 align-items: center;
@@ -66,7 +69,29 @@
         <script src="{{ url_for('static', filename='filedownload.js') }}"></script>
 
         <script>
+            function addInfoText() {
+                // Get number of rows about to be downloaded and other info from URL.
+                let params = new URLSearchParams(window.location.search);
+                let rows_to_download = parseInt(params.get('hits_display'), 10);
+                let cqp_query = decodeURIComponent(params.get('cqp'));
+                const max_rows_to_download = 1000;
+                // Construct info text.
+                let infotext = "<p class=\"small-info\">CQP-søgning: " + cqp_query + "</p>";
+                infotext += "<p class=\"small-info\">Antal rækker i resultat: " + rows_to_download + "</p>";
+                if (rows_to_download > max_rows_to_download) {
+                    infotext += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage en rum tid. Luk ikke dette vindue før downloaden er færdig.</p>";
+                }
+                else {
+                    infotext += "<p>Klik her for at downloade.</p>";
+                }
+                document.getElementById('download-info').innerHTML = "<div>" + infotext + "</div>";
+            }
+        </script>
+        <script>
             $(document).ready(function() {
+                // Generate info text
+                addInfoText();
+
                 // Set up websocket for listening for download progress - in the "status" namespace
                 var socket = io.connect('http://' + document.domain + ':' + location.port + '/status');
                 socket.on('connect', function() {
@@ -87,16 +112,11 @@
                 });
             });
         </script>
-
-
-
     </head>
     <body>
     <div id="content">
         <h1>Download data</h1>
-        <div>
-            <p>Klik her for at downloade. Der er 345 020 rækker, så downloaden vil tage en rum tid. Luk ikke dette vindue før downloaden er færdig.</p>
-        </div>
+        <div id="download-info"></div>
         <div id="download-section">
             <div>
                 <button id="download-button">Download data</button>
