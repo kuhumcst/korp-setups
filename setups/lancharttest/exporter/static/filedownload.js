@@ -31,7 +31,7 @@ function trackProgress(socket, uniqueId) {
     // Function to track progress and initiate the download once it's ready
     console.log('Tracking progress for unique ID: ' + uniqueId);
     // Show the progress bar
-    document.getElementById('progress-container').style.visibility = 'visible';
+    document.getElementById('progress-container').style.display = 'flex';
     // Set up an interval to periodically check the download progress
     var progressInterval = setInterval(function() {
         console.log('Emitting get_status ..');
@@ -62,15 +62,16 @@ function updateProgress(uid, data, progressInterval, socket) {
     console.log('Correct uid: ' + uid);
     var progress = data.progress;
     console.log('Progress: ' + progress);
-    document.getElementById('progress-bar').style.width = progress + '%';
-    document.getElementById('progress-bar-label').innerText = progress + '%';
+    document.getElementById('progress-val').innerText = progress + '%';
+    document.getElementById('progress-bar').value = progress;
+
 
     // If the download is complete, clear the interval and initiate the actual download
     if (progress === 100) {
         clearInterval(progressInterval);
         socket.disconnect();
         console.log('Socket disconnected');
-        document.getElementById('label-small').innerText = 'Formatering færdig.'
+        document.getElementById('label-small').innerText = 'Færdig.'
         // Download file when ready
         fileDownload(uid);
     }

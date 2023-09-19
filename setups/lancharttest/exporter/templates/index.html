@@ -18,25 +18,15 @@
             }
             #progress-container {
                 display: flex;
+                display: none;
                 align-items: center;
-                visibility: hidden;
-            }
-            #progress-bar-container {
-                width: 250px;
-                background-color: #f3f3f3;
-                border: 1px solid #666;
-                border-radius: 3px;
             }
             #label-small {
+                width: 70px;
                 font-size: 10px;
                 margin-right: 5px;
             }
-            #progress-bar {
-                width: 0%;
-                height: 5px;
-                background-color: #aaaaaa;
-            }
-            #progress-bar-label {
+            #progress-val {
                 font-size: 10px;
                 width: 30px;
                 text-align: right;
@@ -50,6 +40,26 @@
                 margin-top: 10px;
                 font-size: 12px;
             }
+
+            #progress-bar {
+                border: 1px solid grey;
+                height: 7px;
+                width: 230px;
+                box-sizing: border-box;
+                border-radius: 4px;
+                background-color: whitesmoke;
+            }
+            #progress-bar::-moz-progress-bar {
+                background: #AAAAAA;
+            }
+            #progress-bar::-webkit-progress-bar {
+                border-radius: 4px;
+                background-color: whitesmoke;
+            }
+            #progress-bar::-webkit-progress-value {
+                background-color: #AAAAAA;
+            }
+
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
@@ -92,11 +102,9 @@
                 <button id="download-button">Download data</button>
             </div>
             <div id="progress-container">
-                <div id="label-small">Formaterer data ...</div>
-                <div id="progress-bar-container">
-                    <div id="progress-bar"></div>
-                </div>
-                <div id="progress-bar-label">0%</div>
+                <label id="label-small" for="progress-bar">Downloader ...</label>
+                <progress id="progress-bar" value="0" max="100"></progress>
+                <div id="progress-val">0%</div>
             </div>
         </div>
         <div id="warnings"></div>
