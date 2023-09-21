@@ -25,9 +25,15 @@
                 align-items: center;
             }
             #label-small {
-                width: 70px;
+                width: 115;
                 font-size: 10px;
                 margin-right: 5px;
+            }
+            #label-small > span {
+                display: inline-block;
+            }
+            #download-label {
+                width: 70px;
             }
             #progress-val {
                 font-size: 10px;
@@ -47,7 +53,7 @@
             #progress-bar {
                 border: 1px solid grey;
                 height: 7px;
-                width: 230px;
+                width: 200px;
                 box-sizing: border-box;
                 border-radius: 4px;
                 background-color: whitesmoke;
@@ -122,7 +128,10 @@
                 <button id="download-button">Download data</button>
             </div>
             <div id="progress-container">
-                <label id="label-small" for="progress-bar">Downloader ...</label>
+                <label id="label-small" for="progress-bar">
+                    <span id="download-label">Downloader ...</span>
+                    <span id="timer-val">Vent ...</span>
+                </label>
                 <progress id="progress-bar" value="0" max="100"></progress>
                 <div id="progress-val">0%</div>
             </div>
