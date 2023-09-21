@@ -8,8 +8,21 @@
                 width: 500px;
                 margin: 50px auto;
             }
+            table {
+              border-collapse: collapse;
+            }
+
+            td {
+              border: 1px solid #444444;
+              text-align: left;
+              padding: 5px 8px;
+            }
+            td:first-child {
+              background-color: whitesmoke;
+              font-weight: bold;
+            }
             .small-info {
-                font-size: .8em;
+                font-size: .75em;
             }
             #download-section {
                 display: flex;
@@ -82,8 +95,10 @@
                 let cqp_query = decodeURIComponent(params.get('cqp'));
                 const max_rows_to_download = 1000;
                 // Construct info text.
-                let infotext = "<p class=\"small-info\">CQP-søgning: " + cqp_query + "</p>";
-                infotext += "<p class=\"small-info\">Antal rækker i resultat: " + rows_to_download + "</p>";
+                let infotext = "<table class=\"small-info\">";
+                infotext += "<tr><td>CQP-søgning</td><td>" + cqp_query + "</td></tr>";
+                infotext += "<tr><td>Rækker i resultat</td><td>" + rows_to_download + "</td></tr>";
+                infotext += "</table>";
                 if (rows_to_download > max_rows_to_download) {
                     infotext += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage en rum tid. Luk ikke dette vindue før downloaden er færdig.</p>";
                 }
