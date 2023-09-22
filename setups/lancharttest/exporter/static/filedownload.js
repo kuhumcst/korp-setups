@@ -56,9 +56,9 @@ function trackProgress(socket, uniqueId) {
                 // Calculate a current average progress rate based on the last n observations.
                 timeRemainingString = getTimeRemainingString(elapsedTime, progressRates);
                 document.getElementById('timer-val').innerText = timeRemainingString;
-                if (data.progress == 100) {
+            }
+            if (data.progress == 100) {
                     document.getElementById('timer-val').innerText = "00:00:00";
-                }
             }
         }
     });
