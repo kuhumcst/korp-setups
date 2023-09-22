@@ -4,7 +4,8 @@
 
 function downloadButtonClick(socket) {
     // Function that runs when the download button is clicked.
-    var uniqueId = generateUniqueId();
+    document.getElementById('download-button').disabled = true;
+    let uniqueId = generateUniqueId();
     // Initiate the download by calling the /getfile endpoint
     fetch('/getfile/csv' + window.location.search + '&uid=' + uniqueId)
         .then(response => response.json())
