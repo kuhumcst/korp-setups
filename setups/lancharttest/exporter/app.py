@@ -23,14 +23,14 @@ import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
 import tempfile
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 socketio = SocketIO(app,
                     async_mode='gevent',
                     cors_allowed_origins=["http://localhost:14000",
                                           "https://lanchartkorp.ku.dk",
                                           "https://lanchartpartitur.ku.dk"],
-                    logger=True,
-                    engineio_logger=True)
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
+                    logger=False,  # False is the default
+                    engineio_logger=logging)  # False is default. Set to logging (not True) to avoid duplicate logs.
 
 # TODO Set this as an argument to the run flask app command
 # If in Docker, use 'http://backend:1234...'. Using e.g. 'http://localhost:11234/query?' will give a httpx.ConnectError.
@@ -46,9 +46,9 @@ N_REQUEST_TRIES = 6  # How many times to try fetching data from backend (with in
 PAUSE_AFTER_REQUEST = 2  # How many seconds to wait after each request.
 PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given request.
 CONNECTION_TIMEOUT = 10
-READ_TIMEOUT = ROWS_PER_REQUEST / 10  # Timeout on response.iter_bytes() reads.
+READ_TIMEOUT = ROWS_PER_REQUEST / 3  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
-HARD_TIMEOUT = ROWS_PER_REQUEST / 12  # Timeout for custom overall timeout implemented using multiprocessing.
+HARD_TIMEOUT = ROWS_PER_REQUEST / 3  # Timeout for custom overall timeout implemented using multiprocessing.
 STATUS_STORE = dict()
 
 
@@ -93,7 +93,7 @@ def download_file(query_id):
 def get_status(uid):
     """Endpoint for emitting data generation status information."""
     progress = STATUS_STORE.get(uid, 0) if uid else 0
-    socketio.emit('status', {'progress': progress, 'uid': uid}, namespace='/status')
+    socketio.emit('status', {'progress': progress, 'uid': uid}, to=request.sid, namespace='/status')
 
 
 @app.route('/getfile/<content_type>')
@@ -182,11 +182,11 @@ def robust_fetch_to_tempfile(start_arg, query_params, query_id):
             return tf_name, temp_rows_per_request
         except httpx.HTTPError as e:
             # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
-            handle_backend_fail(i, e)
+            handle_backend_fail(i, e, query_id)
         except ChildProcessException as e:
             handle_backend_fail(i, e)
         except HardTimeoutException as e:
-            handle_hard_timeout(start_arg, temp_rows_per_request, e)
+            handle_hard_timeout(start_arg, temp_rows_per_request, e, query_id)
 
 
 def run_with_timeout(func, func_args, timeout):
@@ -199,7 +199,7 @@ def run_with_timeout(func, func_args, timeout):
     if p.is_alive():
         p.terminate()
         p.join()
-        raise HardTimeoutException(f"Function '{func.__name__}' exceeded the timeout and was terminated")
+        raise HardTimeoutException(f"Function '{func.__name__}' exceeded the timeout ({timeout}) and was terminated")
     else:
         result = q.get()
         if 'Error:' in result:
@@ -306,25 +306,25 @@ def make_download_duration_message(start_time, korp_hits_display):
     return f'Total download duration: {int(minutes)} minutes {int(seconds)} seconds.'
 
 
-def handle_backend_fail(i, e):
+def handle_backend_fail(i, e, query_id):
     """Handle failed request by logging a warning. Ultimately abort the whole download."""
     app.logger.warning(f'Trying again with smaller chunk because backend query failed or timed out. '
                        f'Error: {type(e).__name__}: {e}')
     if i == N_REQUEST_TRIES:
         app.logger.warning(f'Reached last try ({i}). Aborting.\n')
         msg = f"Download failed. Server didn't respond after several tries. Try increasing read timeout?"
-        socketio.emit('abort', {'reason': msg}, namespace='/status')
+        socketio.emit('abort', {'uid': query_id, 'reason': msg}, to=request.sid, namespace='/status')
         abort(500, msg)
     app.logger.info('Waiting a few seconds before next try to give the server time to recover ..')
     time.sleep(PAUSE_AFTER_RETRY)
 
 
-def handle_hard_timeout(n, m, e):
+def handle_hard_timeout(n, m, e, query_id):
     """Handle hard timeout when server request hangs."""
-    msg = f"Download failed: Server timed out on request for rows {n}-{m - 1}. Try again later."
+    msg = f"Download failed: Server timed out on request for rows {n}-{n + m - 1}. Try again later."
     app.logger.error(msg)
     app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
-    socketio.emit('abort', {'reason': msg}, namespace='/status')
+    socketio.emit('abort', {'uid': query_id, 'reason': msg}, to=request.sid, namespace='/status')
     abort(500, msg)
 
 
