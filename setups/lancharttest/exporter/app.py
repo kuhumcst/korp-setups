@@ -46,9 +46,9 @@ N_REQUEST_TRIES = 6  # How many times to try fetching data from backend (with in
 PAUSE_AFTER_REQUEST = 2  # How many seconds to wait after each request.
 PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given request.
 CONNECTION_TIMEOUT = 10
-READ_TIMEOUT = ROWS_PER_REQUEST / 3  # Timeout on response.iter_bytes() reads.
+READ_TIMEOUT = 15  # ROWS_PER_REQUEST / 3  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
-HARD_TIMEOUT = ROWS_PER_REQUEST / 3  # Timeout for custom overall timeout implemented using multiprocessing.
+HARD_TIMEOUT = 15  # ROWS_PER_REQUEST / 3  # Timeout for custom overall timeout implemented using multiprocessing.
 STATUS_STORE = dict()
 
 
@@ -170,21 +170,22 @@ def robust_fetch_to_tempfile(start_arg, query_params, query_id):
         temp_rows_per_request = int(ROWS_PER_REQUEST / 2**i) * 2
         temp_read_timeout = int(READ_TIMEOUT + READ_TIMEOUT * i * .5 - READ_TIMEOUT/2)
         temp_hard_timeout = int(HARD_TIMEOUT + HARD_TIMEOUT * i * .5 - HARD_TIMEOUT/2)
-        app.logger.info(f'Try number: {i}\nStart arg: {start_arg}\ntemp_rows_per_request: {temp_rows_per_request}\n'
+        app.logger.info(f'UID {query_id}: Try number: {i}\nStart arg: {start_arg}\n'
+                        f'temp_rows_per_request: {temp_rows_per_request}\n'
                         f'Timeout: {temp_hard_timeout}\n\n')
         url = build_url(start_arg, query_params, temp_rows_per_request)
         try:
             # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
             tf_name = run_with_timeout(func=stream_url_to_tempfile_with_retry,
-                                       func_args=(client, url, temp_read_timeout),
+                                       func_args=(client, url, temp_read_timeout, query_id),
                                        timeout=temp_hard_timeout)
-            app.logger.info(f'Got filename: {tf_name}')
+            app.logger.info(f'UID {query_id}: Got filename: {tf_name}')
             return tf_name, temp_rows_per_request
         except httpx.HTTPError as e:
             # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
             handle_backend_fail(i, e, query_id)
         except ChildProcessException as e:
-            handle_backend_fail(i, e)
+            handle_backend_fail(i, e, query_id)
         except HardTimeoutException as e:
             handle_hard_timeout(start_arg, temp_rows_per_request, e, query_id)
 
@@ -207,7 +208,7 @@ def run_with_timeout(func, func_args, timeout):
     return result
 
 
-def stream_url_to_tempfile_with_retry(queue, client, url, temp_read_timeout):
+def stream_url_to_tempfile_with_retry(queue, client, url, temp_read_timeout, query_id):
     """Use httpx client to stream data from the Korp backend. Write to tempfile.
     Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to.
     Or an httpx exception, if encountered."""
@@ -220,7 +221,7 @@ def stream_url_to_tempfile_with_retry(queue, client, url, temp_read_timeout):
                 app.logger.info('Opened httpx stream context handler ...')
                 chunk_no = 1
                 for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
-                    app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
+                    app.logger.info(f'UID {query_id}: Writing chunk {chunk_no} to "{temp_file.name}"..')
                     temp_file.write(chunk)
                     chunk_no += 1
             tf.flush()  # Empty Python's internal buffers to the operating system.
@@ -324,7 +325,7 @@ def handle_hard_timeout(n, m, e, query_id):
     msg = f"Download failed: Server timed out on request for rows {n}-{n + m - 1}. Try again later."
     app.logger.error(msg)
     app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
-    socketio.emit('abort', {'uid': query_id, 'reason': msg}, to=request.sid, namespace='/status')
+    socketio.emit('abort', {'uid': query_id, 'reason': msg}, namespace='/status')
     abort(500, msg)
 
 

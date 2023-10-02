@@ -6,6 +6,7 @@ function downloadButtonClick(socket) {
     // Function that runs when the download button is clicked.
     document.getElementById('download-button').disabled = true;
     let uniqueId = generateUniqueId();
+    console.log('UID: ' + uniqueId);
     // Initiate the download by calling the /getfile endpoint
     fetch('/getfile/csv' + window.location.search + '&uid=' + uniqueId)
         .then(response => response.json())
@@ -62,8 +63,10 @@ function trackProgress(socket, uniqueId) {
     });
     // Handle server aborts
     socket.on('abort', function(data) {
-        socket.disconnect();
-        document.getElementById('warnings').innerHTML = '<div id="warning">' + data.reason + '</div>';
+        if (uniqueId === data.uid) {
+            socket.disconnect();
+            document.getElementById('warnings').innerHTML = '<div id="warning">' + data.reason + '</div>';
+        }
     });
 }
 
