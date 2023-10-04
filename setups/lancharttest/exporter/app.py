@@ -14,7 +14,6 @@ import datetime
 import math
 import time
 import logging
-import multiprocessing as mp
 import urllib.parse as urlp
 from gevent import Greenlet
 from flask import Flask, request, Response, render_template, jsonify, abort
@@ -121,8 +120,12 @@ def get_file(content_type):
 def generate_real_file(start_arg, korp_hits_display, query_params, content_type, query_id):
     """Wrapper for file writing function that makes sure the status is set to 100 when done."""
     file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
-    with open(file_path, 'w') as outfile:
-        write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id)
+    try:
+        with open(file_path, 'w') as outfile:
+            write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id)
+    except Exception as e:
+        STATUS_STORE[query_id] = f'Aborted. Error: {type(e).__name__}: {e}'
+        raise
     STATUS_STORE[query_id] = 100
     app.logger.info(f'Completed percent 100!')
 
@@ -142,7 +145,7 @@ def write_download_file(start_arg, korp_hits_display, query_params, content_type
             app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
             break
         else:
-            tf_name, temp_rows_per_request = robust_fetch_to_tempfile(start_arg, query_params, query_id)
+            tf_name = fetch_to_tempfile(start_arg, query_params, query_id)
             transformed_data = transform_backend_data(tf_name, content_type)
             download_content = 'JSONDecodeError. Data could not be formatted correctly.'
             if transformed_data is not None:
@@ -150,85 +153,38 @@ def write_download_file(start_arg, korp_hits_display, query_params, content_type
             outfile.write(download_content)
             app.logger.info('Waiting a few seconds before next request to give the server time to recover ...')
             time.sleep(PAUSE_AFTER_REQUEST)
-            completed_rows = start_arg + temp_rows_per_request
+            completed_rows = start_arg + ROWS_PER_REQUEST
             if completed_rows > korp_hits_display:
                 completed_rows = korp_hits_display
             completed_percent = math.floor(completed_rows / korp_hits_display * 100)
             app.logger.info(f'Actual completed percent: {completed_percent}')
             STATUS_STORE[query_id] = completed_percent  # Set actual percentage when actual chunk is done
-            start_arg += temp_rows_per_request
+            start_arg += ROWS_PER_REQUEST
 
 
-def robust_fetch_to_tempfile(start_arg, query_params, query_id):
-    """Run backend request via 'run_with_timeout', which runs a separate Process using multiprocessing.
-    It is designed like this in order to be able to abort long-running requests that don't fail as such.
-    If the request fails, it is retried N_REQUEST_TRIES times with relaxed parameters."""
+def fetch_to_tempfile(start_arg, query_params, query_id):
+    """Get data from Korp backend, and write them to a temp file."""
     client = httpx.Client()
-    for i in range(1, N_REQUEST_TRIES + 1):
-        update_request_tries(i)
-        # Relax parameters: Decrease chunk_size exponentially, increase read timeout and hard timeout linearly.
-        temp_rows_per_request = int(ROWS_PER_REQUEST / 2**i) * 2
-        temp_read_timeout = int(READ_TIMEOUT + READ_TIMEOUT * i * .5 - READ_TIMEOUT/2)
-        temp_hard_timeout = int(HARD_TIMEOUT + HARD_TIMEOUT * i * .5 - HARD_TIMEOUT/2)
-        app.logger.info(f'UID {query_id}: Try number: {i}\nStart arg: {start_arg}\n'
-                        f'temp_rows_per_request: {temp_rows_per_request}\n'
-                        f'Timeout: {temp_hard_timeout}\n\n')
-        url = build_url(start_arg, query_params, temp_rows_per_request)
-        try:
-            # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
-            tf_name = run_with_timeout(func=stream_url_to_tempfile_with_retry,
-                                       func_args=(client, url, temp_read_timeout, query_id),
-                                       timeout=temp_hard_timeout)
-            app.logger.info(f'UID {query_id}: Got filename: {tf_name}')
-            return tf_name, temp_rows_per_request
-        except httpx.HTTPError as e:
-            # httpx.HTTPError could be httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout
-            handle_backend_fail(i, e, query_id)
-        except ChildProcessException as e:
-            handle_backend_fail(i, e, query_id)
-        except HardTimeoutException as e:
-            handle_hard_timeout(start_arg, temp_rows_per_request, e, query_id)
+    app.logger.info(f'UID {query_id}: Start arg: {start_arg}\n'
+                    f'temp_rows_per_request: {ROWS_PER_REQUEST}\n'
+                    f'Timeout: {HARD_TIMEOUT}\n\n')
+    url = build_url(start_arg, query_params, ROWS_PER_REQUEST)
 
-
-def run_with_timeout(func, func_args, timeout):
-    """Use multiprocessing to run a function with a hard timeout and httpx.HTTPError handling.
-    Note: function 'func' must have a queue to write result to."""
-    q = mp.Queue()
-    p = mp.Process(target=func, args=(q,) + func_args)
-    p.start()
-    p.join(timeout=timeout)
-    if p.is_alive():
-        p.terminate()
-        p.join()
-        raise HardTimeoutException(f"Function '{func.__name__}' exceeded the timeout ({timeout}) and was terminated")
-    else:
-        result = q.get()
-        if 'Error:' in result:
-            raise ChildProcessException(f"Function '{func.__name__}' encountered an error: {result}")
-    return result
-
-
-def stream_url_to_tempfile_with_retry(queue, client, url, temp_read_timeout, query_id):
-    """Use httpx client to stream data from the Korp backend. Write to tempfile.
-    Designed for multiprocessing: Doesn't return but adds to the queue the name of the tempfile written to.
-    Or an httpx exception, if encountered."""
+    # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
     tf = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_DATADIR)
-    try:
-        with tf as temp_file:
-            # Total timeout for entire request. Timeouts set to None are governed by the total timeout.
-            timeout = httpx.Timeout(1, pool=0, connect=CONNECTION_TIMEOUT, read=temp_read_timeout, write=None)
-            with client.stream("GET", url, timeout=timeout) as response:
-                app.logger.info('Opened httpx stream context handler ...')
-                chunk_no = 1
-                for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
-                    app.logger.info(f'UID {query_id}: Writing chunk {chunk_no} to "{temp_file.name}"..')
-                    temp_file.write(chunk)
-                    chunk_no += 1
-            tf.flush()  # Empty Python's internal buffers to the operating system.
-            os.fsync(tf.fileno())  # Ensure the operating system's buffers are written to disk.
-        queue.put(tf.name)
-    except httpx.HTTPError as e:
-        queue.put(f'{get_root_exception(type(e))}: {type(e).__name__}: {str(e)}')
+    with tf as temp_file:
+        with client.stream("GET", url) as response:
+            app.logger.info('Opened httpx stream context handler ...')
+            chunk_no = 1
+            for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
+                app.logger.info(f'UID {query_id}: Writing chunk {chunk_no} to "{temp_file.name}"..')
+                temp_file.write(chunk)
+                chunk_no += 1
+        temp_file.flush()  # Empty Python's internal buffers to the operating system.
+        os.fsync(temp_file.fileno())  # Ensure the operating system's buffers are written to disk.
+
+    app.logger.info(f'UID {query_id}: Got filename: {tf.name}')
+    return tf.name
 
 
 def transform_backend_data(tf_name, content_type):
@@ -305,19 +261,6 @@ def make_download_duration_message(start_time, korp_hits_display):
     minutes = total_seconds // 60
     seconds = total_seconds % 60
     return f'Total download duration: {int(minutes)} minutes {int(seconds)} seconds.'
-
-
-def handle_backend_fail(i, e, query_id):
-    """Handle failed request by logging a warning. Ultimately abort the whole download."""
-    app.logger.warning(f'Trying again with smaller chunk because backend query failed or timed out. '
-                       f'Error: {type(e).__name__}: {e}')
-    if i == N_REQUEST_TRIES:
-        app.logger.warning(f'Reached last try ({i}). Aborting.\n')
-        msg = f"Download failed. Server didn't respond after several tries. Try increasing read timeout?"
-        socketio.emit('abort', {'uid': query_id, 'reason': msg}, to=request.sid, namespace='/status')
-        abort(500, msg)
-    app.logger.info('Waiting a few seconds before next try to give the server time to recover ..')
-    time.sleep(PAUSE_AFTER_RETRY)
 
 
 def handle_hard_timeout(n, m, e, query_id):

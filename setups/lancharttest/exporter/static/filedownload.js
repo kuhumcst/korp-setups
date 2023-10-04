@@ -36,29 +36,38 @@ function trackProgress(socket, uniqueId) {
     let progressInterval = emitStatus(socket, uniqueId);  // Emit progress status and keep a handle on the interval.
     // Listen for status updates from the server
     socket.on('status', function(data) {
-        // For the correct uid, update progress bar and percentage.
-        updateProgress(uniqueId, data, progressInterval, socket);
-        elapsedTime = (new Date() - startTime) / 1000;  // Elapsed time in seconds.
-        // Add an empty array when a new percentage is first encountered, then add the time value.
-        if (!percentageToTimes[data.progress]) {
-            percentageToTimes[data.progress] = [];
-        }
-        percentageToTimes[data.progress].push(elapsedTime);
-        // Iterate over all but the last array of times (as the last one is assumed to be incomplete).
-        for (let progressPercentage of Object.keys(percentageToTimes).slice(0, -1)) {
-            progressRate = getProgressRate(progressPercentage, percentageToTimes);
-            if (!progressRates.includes(progressRate)) {  // Add to overall array of progress rates.
-                progressRates.push(progressRate);
+        let prog = data.progress;
+        if (prog.toString().startsWith('Aborted')) {
+            if (uniqueId === data.uid) {
+                socket.disconnect();
+                document.getElementById('warnings').innerHTML = '<div id="warning">' + data.progress + '</div>';
             }
         }
-        // Calculate estimated time left - when there are enough data to skip the first, skewed data.
-        if (progressRates.length > 3) {
-            // Calculate a current average progress rate based on the last n observations.
-            timeRemainingString = getTimeRemainingString(elapsedTime, progressRates);
-            document.getElementById('timer-val').innerText = timeRemainingString;
-        }
-        if (data.progress == 100) {
-                document.getElementById('timer-val').innerText = "00:00:00";
+        else {
+            // For the correct uid, update progress bar and percentage.
+            updateProgress(uniqueId, data, progressInterval, socket);
+            elapsedTime = (new Date() - startTime) / 1000;  // Elapsed time in seconds.
+            // Add an empty array when a new percentage is first encountered, then add the time value.
+            if (!percentageToTimes[data.progress]) {
+                percentageToTimes[data.progress] = [];
+            }
+            percentageToTimes[data.progress].push(elapsedTime);
+            // Iterate over all but the last array of times (as the last one is assumed to be incomplete).
+            for (let progressPercentage of Object.keys(percentageToTimes).slice(0, -1)) {
+                progressRate = getProgressRate(progressPercentage, percentageToTimes);
+                if (!progressRates.includes(progressRate)) {  // Add to overall array of progress rates.
+                    progressRates.push(progressRate);
+                }
+            }
+            // Calculate estimated time left - when there are enough data to skip the first, skewed data.
+            if (progressRates.length > 3) {
+                // Calculate a current average progress rate based on the last n observations.
+                timeRemainingString = getTimeRemainingString(elapsedTime, progressRates);
+                document.getElementById('timer-val').innerText = timeRemainingString;
+            }
+            if (data.progress == 100) {
+                    document.getElementById('timer-val').innerText = "00:00:00";
+            }
         }
     });
     // Handle server aborts
