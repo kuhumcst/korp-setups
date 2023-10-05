@@ -39,7 +39,6 @@ TEMP_OUTDIR = '/var/tmp/output'  # Dir for the temp output file for download. (M
 N_TEMPFILES_TO_KEEP = 10  # Number of data and output temp files to keep when cleaning up old temp files.
 MAX_ROWS = 500000  # Our imposed row download limit.
 ROWS_PER_REQUEST = 100  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
-PAUSE_AFTER_REQUEST = .2  # How many seconds to wait after each request.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
 PROGRESS_STORE = dict()  # Store download progress in percent (for the progress bar)
 STATUS_STORE = dict()  # Store status info (Aborted, Paused, Resumed ..)
@@ -56,7 +55,7 @@ def download(content_type):
 @app.route('/download2/<query_id>', methods=['GET'])
 def download_file(query_id):
     """Endpoint for serving the finished download file."""
-    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
+    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.txt')
     rsp = Response(generate_output_stream(file_path), mimetype='text/csv')
     rsp.headers.set('Content-Disposition', 'attachment', filename=create_filename('blahaa'))
     return rsp
@@ -81,114 +80,77 @@ def resume_download(uid):
     logging.info('START_ARG_STORE: ' + str(START_ARG_STORE))
     start_arg_data = START_ARG_STORE.get(uid, {}) if uid else {}
     start_arg = start_arg_data.get('start_arg', 0)
-    korp_hits_display = start_arg_data.get('hits', 0)
     query_params = start_arg_data.get('params', '')
     content_type = start_arg_data.get('ctype', '')
     logging.warning(f'Resuming download from start_arg {start_arg}.')
     STATUS_STORE[uid] = 'Resumed'
-    Greenlet.spawn(generate_real_file, start_arg, korp_hits_display, query_params, content_type, uid, resume=True)
+    PROGRESS_STORE[uid] = 0
+    Greenlet.spawn(write_download_file, start_arg, query_params, content_type, write_mode='a')
 
 
 @app.route('/getfile/<content_type>')
 def get_file(content_type):
-    """Generate file downloads in various formats via Jyrki's korpexport package.
-    Get query string/parameters. Remove start and end - successive values will be added in a loop.
-    Write results of successive queries to temp file.
-    Stream the response data in chunks using a generator.
-    """
+    """Generate file downloads in various formats via Jyrki's korpexport package. (Only CSV for now though)."""
     start_time = datetime.datetime.now()
-    query_id = request.args.get('uid')
     remove_old_tempfiles(TEMP_DATADIR, max_files=N_TEMPFILES_TO_KEEP)
     remove_old_tempfiles(TEMP_OUTDIR, max_files=N_TEMPFILES_TO_KEEP)
-    query_params = urlp.parse_qs(request.query_string.decode('ascii'))
-    query_params.pop('start', None)
-    query_params.pop('end', None)
+    query_params = dict(request.args)
     start_arg = 0
-    START_ARG_STORE[query_id] = dict()
-    korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
-    Greenlet.spawn(generate_real_file, start_arg, korp_hits_display, query_params, content_type, query_id)
-    app.logger.info(make_download_duration_message(start_time, korp_hits_display))
-    return jsonify({'status': 'Download started', 'query_id': query_id})
+    START_ARG_STORE[query_params.get('uid')] = dict()
+    Greenlet.spawn(write_download_file, start_arg, query_params, content_type)
+    app.logger.info(make_download_duration_message(start_time))
+    return jsonify({'status': 'Download started', 'query_id': query_params.get('uid')})
 
 
-def generate_real_file(start_arg, korp_hits_display, query_params, content_type, query_id, resume=False):
-    """Wrapper for file writing function that makes sure the status is set to 100 when done."""
-    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
-    if resume:
-        write_mode = 'a'
-    else:
-        write_mode = 'w'
-        PROGRESS_STORE[query_id] = 0
-    try:
-        with open(file_path, write_mode) as outfile:
-            write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id)
-    except Exception as e:
-        STATUS_STORE[query_id] = f'Aborted. Error: {type(e).__name__}: {e}'
-        raise
+def write_download_file(start_arg, query_params, content_type, write_mode='w'):
+    """Loop through successive requests, transform results, write resulting rows to download file.
+    Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
+    query_id = query_params.get('uid')
+    downloadfile_path = os.path.join(TEMP_OUTDIR, f'{query_id}.txt')
+    korp_hits_display = int(query_params.get('hits_display', 0))  # Total hits according to Korp search.
+    with open(downloadfile_path, write_mode) as downloadfile:
+        while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
+            if start_arg > MAX_ROWS:
+                # TODO Add additional logic to return at most <max_rows> rows, but also not less!
+                app.logger.info('Greater than max_rows! Breaking before further reading or writing.')
+                break
+            elif start_arg > korp_hits_display:
+                app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
+                break
+            else:
+                try:
+                    url = build_url(start_arg, query_params, ROWS_PER_REQUEST)
+                    tf_name = fetch_to_tempfile(url)
+                    app.logger.info(f'UID {query_id}: Got filename: {tf_name}')
+                    transformed_data = transform_backend_data(tf_name, content_type, start_arg)
+                    downloadfile.write(transformed_data)
+                    update_progress(start_arg, query_params, content_type, downloadfile_path)
+                    start_arg += ROWS_PER_REQUEST
+                except Exception as e:
+                    STATUS_STORE[query_id] = f'Aborted. Error: {type(e).__name__}: {e}'
+                    raise
     PROGRESS_STORE[query_id] = 100
     app.logger.info(f'Completed percent 100!')
 
 
-def write_download_file(start_arg, korp_hits_display, query_params, content_type, outfile, query_id):
-    """Loop through successive requests, transform results, write resulting rows to download file.
-    Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
-    while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
-        app.logger.info('query_id: ' + str(query_id))
-        app.logger.info('start_arg: ' + str(start_arg))
-        if start_arg > MAX_ROWS:
-            # TODO Add additional logic to return at most <max_rows> rows, but also not less!
-            app.logger.info('Greater than max_rows! Breaking before further reading or writing.')
-            break
-        elif start_arg > korp_hits_display:
-            app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
-            break
-        else:
-            tf_name = fetch_to_tempfile(start_arg, query_params, query_id)
-            transformed_data = transform_backend_data(tf_name, content_type)
-            download_content = 'JSONDecodeError. Data could not be formatted correctly.'
-            if transformed_data is not None:
-                download_content = format_data_with_bom(transformed_data, start_arg)
-            outfile.write(download_content)
-            completed_rows = start_arg + ROWS_PER_REQUEST
-            START_ARG_STORE[query_id] = {'start_arg': completed_rows,
-                                         'hits': korp_hits_display,
-                                         'params': query_params,
-                                         'ctype': content_type,
-                                         'outfile': outfile}
-            app.logger.info('Waiting a few seconds before next request to give the server time to recover ...')
-            time.sleep(PAUSE_AFTER_REQUEST)
-            if completed_rows > korp_hits_display:
-                completed_rows = korp_hits_display
-            completed_percent = math.floor(completed_rows / korp_hits_display * 100)
-            app.logger.info(f'Actual completed percent: {completed_percent}')
-            PROGRESS_STORE[query_id] = completed_percent  # Set actual percentage when actual chunk is done
-            start_arg += ROWS_PER_REQUEST
-
-
-def fetch_to_tempfile(start_arg, query_params, query_id):
-    """Get data from Korp backend, and write them to a temp file."""
+def fetch_to_tempfile(url):
+    """Get data from Korp backend, and write them to a temp file. Return the name of the tempfile."""
     client = httpx.Client()
-    app.logger.info(f'UID {query_id}: Start arg: {start_arg}; rows per request: {ROWS_PER_REQUEST}.')
-    url = build_url(start_arg, query_params, ROWS_PER_REQUEST)
-
-    # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
+    app.logger.info(f'Fetching data from URL: {url}.')
     tf = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_DATADIR)
     with tf as temp_file:
         with client.stream("GET", url) as response:
-            app.logger.info('Opened httpx stream context handler ...')
             chunk_no = 1
             for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
-                app.logger.info(f'UID {query_id}: Writing chunk {chunk_no} to "{temp_file.name}"..')
+                app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
                 temp_file.write(chunk)
                 chunk_no += 1
         temp_file.flush()  # Empty Python's internal buffers to the operating system.
         os.fsync(temp_file.fileno())  # Ensure the operating system's buffers are written to disk.
-
-    app.logger.info(f'UID {query_id}: Got filename: {tf.name}')
     return tf.name
 
 
-def transform_backend_data(tf_name, content_type):
+def transform_backend_data(tf_name, content_type, start_arg):
     """Send tempfile content to Jyrki's data tranformation function 'make_download_file'.
     Return transformed data, or None if the JSON input data were corrupt."""
     with open(tf_name, 'rb') as saved_tempfile:
@@ -196,13 +158,16 @@ def transform_backend_data(tf_name, content_type):
     form = {"query_result": saved_tempfile_content, "format": content_type}
     try:
         result = ke.make_download_file(form, form.get("korp_server", "KORP_SERVER"))
-        return result
+        if result is None:
+            return 'No result from data transformation.'
+        else:
+            return format_data_with_bom(result, start_arg)
     except json.JSONDecodeError as e:
         app.logger.warning(f"JSONDecodeError: {e}")
         window = 40  # Print 40 characters before and after the error position
         start, end = max(0, e.pos - window), e.pos + window  # e.pos: error position
         app.logger.info(f"JSON around error position: {saved_tempfile_content[start:end]}\n")
-        return None
+        return 'JSONDecodeError. Data could not be formatted correctly.'
 
 
 def format_data_with_bom(transformed_backend_data, start_arg):
@@ -219,6 +184,19 @@ def format_data_with_bom(transformed_backend_data, start_arg):
     return formatted_data_with_bom
 
 
+def update_progress(start_arg, query_params, content_type, outfile):
+    query_id = query_params.get('uid')
+    korp_hits_display = int(query_params.get('hits_display', 0))  # Total hits according to Korp search.
+    completed_rows = start_arg + ROWS_PER_REQUEST
+    START_ARG_STORE[query_id] = {'start_arg': completed_rows, 'params': query_params,
+                                 'ctype': content_type, 'outfile': outfile}
+    if completed_rows > korp_hits_display:
+        completed_rows = korp_hits_display
+    completed_percent = math.floor(completed_rows / korp_hits_display * 100)
+    app.logger.info(f'Actual completed percent: {completed_percent}')
+    PROGRESS_STORE[query_id] = completed_percent  # Set actual percentage when actual chunk is done
+
+
 """--------------------------------  Utils  --------------------------------"""
 
 
@@ -230,18 +208,13 @@ def create_filename(cqp_string):
 
 def build_url(start_arg, query_params, rows_per_request):
     """Build URL to get data with the current start_arg and end_arg."""
-    logging.info('query_params: ' + str(query_params))
-    logging.info("start_arg: " + str(start_arg))
-    logging.info("start_arg type: " + str(type(start_arg)))
-
-    query_params['start'] = [str(start_arg)]
-    query_params['end'] = [str(start_arg + rows_per_request - 1)]
+    query_params['start'] = str(start_arg)
+    query_params['end'] = str(start_arg + rows_per_request - 1)
     url = QUERY_ENDPOINT + urlp.urlencode(query_params, doseq=True)
-    # app.logger.info('url: ' + url)
     return url
 
 
-def make_download_duration_message(start_time, korp_hits_display):
+def make_download_duration_message(start_time):
     """Make a log message about the download duration."""
     time_delta = datetime.datetime.now() - start_time
     total_seconds = time_delta.total_seconds()
