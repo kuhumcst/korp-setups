@@ -37,17 +37,10 @@ QUERY_ENDPOINT = 'http://backend:1234/query?'
 TEMP_DATADIR = '/var/tmp/data'  # Dir for temp files from successive requests. (Make sure to map to Docker host volume).
 TEMP_OUTDIR = '/var/tmp/output'  # Dir for the temp output file for download. (Make sure to map to Docker host volume).
 N_TEMPFILES_TO_KEEP = 10  # Number of data and output temp files to keep when cleaning up old temp files.
-REQUEST_TRIES = dict()
 MAX_ROWS = 500000  # Our imposed row download limit.
 ROWS_PER_REQUEST = 100  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
-ROWS_PER_SEMISECOND = 42  # Data throughput of the exporter (based on experience). Determines interim progress speed.
-N_REQUEST_TRIES = 6  # How many times to try fetching data from backend (with increasingly loose parameters).
 PAUSE_AFTER_REQUEST = .2  # How many seconds to wait after each request.
-PAUSE_AFTER_RETRY = 5  # How many seconds to wait after each retry of a given request.
-CONNECTION_TIMEOUT = 10
-READ_TIMEOUT = 15  # ROWS_PER_REQUEST / 3  # Timeout on response.iter_bytes() reads.
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
-HARD_TIMEOUT = 15  # ROWS_PER_REQUEST / 3  # Timeout for custom overall timeout implemented using multiprocessing.
 PROGRESS_STORE = dict()  # Store download progress in percent (for the progress bar)
 STATUS_STORE = dict()  # Store status info (Aborted, Paused, Resumed ..)
 START_ARG_STORE = dict()  # Store arguments for resuming download
@@ -58,27 +51,6 @@ def download(content_type):
     """Download endpoint. Currently an HTML page with a download button and a progress bar."""
     # Make sure to add templates dir in Docker!
     return render_template('index.html')
-
-
-@app.route('/getfile2/<content_type>')
-def get_file2(content_type):
-    """Endpoint that starts the generation of data to be downloaded and immediately returns a start message."""
-    query_id = request.args.get('uid')
-    file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.csv')
-    Greenlet.spawn(generate_file, query_id, file_path)  # Start data generation in separate Greenlet.
-    return jsonify({'status': 'Download started', 'query_id': query_id})
-
-
-def generate_file(query_id, file_path):
-    """Generate download file. In separate function in order to be able to run it in its own Greenlet."""
-    with open(file_path, 'w') as f:
-        for i in range(101):
-            time.sleep(0.1)
-            f.write(':-) ')
-            # Update the progress in the status store
-            PROGRESS_STORE[query_id] = i
-            app.logger.info(f'Generator i, query_id: {i}, {query_id}')
-    PROGRESS_STORE[query_id] = 100
 
 
 @app.route('/download2/<query_id>', methods=['GET'])
@@ -135,7 +107,6 @@ def get_file(content_type):
     START_ARG_STORE[query_id] = dict()
     korp_hits_display = int(query_params.get('hits_display', ['0'])[0])  # Total hits according to Korp search.
     Greenlet.spawn(generate_real_file, start_arg, korp_hits_display, query_params, content_type, query_id)
-    app.logger.info(f'Request tries: {str(REQUEST_TRIES)}')
     app.logger.info(make_download_duration_message(start_time, korp_hits_display))
     return jsonify({'status': 'Download started', 'query_id': query_id})
 
@@ -197,9 +168,7 @@ def write_download_file(start_arg, korp_hits_display, query_params, content_type
 def fetch_to_tempfile(start_arg, query_params, query_id):
     """Get data from Korp backend, and write them to a temp file."""
     client = httpx.Client()
-    app.logger.info(f'UID {query_id}: Start arg: {start_arg}\n'
-                    f'temp_rows_per_request: {ROWS_PER_REQUEST}\n'
-                    f'Timeout: {HARD_TIMEOUT}\n\n')
+    app.logger.info(f'UID {query_id}: Start arg: {start_arg}; rows per request: {ROWS_PER_REQUEST}.')
     url = build_url(start_arg, query_params, ROWS_PER_REQUEST)
 
     # Get the data from the backend and write to tempfile. Retrieve the name of the tempfile.
@@ -253,28 +222,10 @@ def format_data_with_bom(transformed_backend_data, start_arg):
 """--------------------------------  Utils  --------------------------------"""
 
 
-class HardTimeoutException(Exception):
-    """Custom exception for multiprocess timeouts."""
-    pass
-
-
-class ChildProcessException(Exception):
-    """Custom exception for httpx.HTTPError in multiprocessing child process."""
-    pass
-
-
 def create_filename(cqp_string):
     """Generer filnavnet til den fil der skal downloades."""
     safe_cqp_string = '_'.join(re.findall(r'"(\w+)"', cqp_string))
     return f'korp_kwic_{safe_cqp_string}_{datetime.datetime.now().isoformat()}.csv'
-
-
-def update_request_tries(i):
-    """Update the retry counters in REQUEST_TRIES."""
-    if str(i) in REQUEST_TRIES:
-        REQUEST_TRIES[str(i)] += 1
-    else:
-        REQUEST_TRIES[str(i)] = 1
 
 
 def build_url(start_arg, query_params, rows_per_request):
@@ -297,22 +248,6 @@ def make_download_duration_message(start_time, korp_hits_display):
     minutes = total_seconds // 60
     seconds = total_seconds % 60
     return f'Total download duration: {int(minutes)} minutes {int(seconds)} seconds.'
-
-
-def handle_hard_timeout(n, m, e, query_id):
-    """Handle hard timeout when server request hangs."""
-    msg = f"Download failed: Server timed out on request for rows {n}-{n + m - 1}. Try again later."
-    app.logger.error(msg)
-    app.logger.error(f"Error: {type(e).__name__}: {e}. Aborting.")
-    socketio.emit('abort', {'uid': query_id, 'reason': msg}, namespace='/status')
-    abort(500, msg)
-
-
-def get_root_exception(cls):
-    """Get the class immediately below the 'Exception' class (most basic exception from a given module)."""
-    while cls.__base__ is not Exception:
-        cls = cls.__base__
-    return f'{cls.__module__}.{cls.__name__}'
 
 
 def generate_output_stream(filename):
