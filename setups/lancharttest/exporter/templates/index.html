@@ -21,7 +21,7 @@
                 infotext += "<tr><td>Rækker i resultat</td><td>" + rows_to_download + "</td></tr>";
                 infotext += "</table>";
                 if (rows_to_download > max_rows_to_download) {
-                    infotext += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage en rum tid. Luk ikke dette vindue før downloaden er færdig.</p>";
+                    infotext += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage noget tid. Luk ikke dette vindue før downloaden er færdig.</p>";
                 }
                 else {
                     infotext += "<p>Klik her for at downloade.</p>";
@@ -49,9 +49,10 @@
                 });
 
                 // Add click event handler to download button
-                $('#download-button').click(function() {
+                $('#download-button').on('click', function() {
                     downloadButtonClick(socket);
                 });
+
             });
         </script>
     </head>
@@ -69,7 +70,7 @@
             </div>
             <div id="progress-container">
                 <label id="label-small" for="progress-bar">
-                    <span id="download-label">Downloader ...</span>
+                    <span id="download-label">Downloader ... </span>
                     <span id="timer-val">Vent ...</span>
                 </label>
                 <progress id="progress-bar" value="0" max="100"></progress>

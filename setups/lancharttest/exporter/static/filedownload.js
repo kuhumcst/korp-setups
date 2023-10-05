@@ -20,6 +20,14 @@ function downloadButtonClick(socket) {
 }
 
 
+function resumeButtonClick(socket, uniqueId) {
+    // Function to run when the download button is in resume mode.
+    document.getElementById('warnings').innerHTML = '<div></div>';
+    document.getElementById('download-button').disabled = true;
+    socket.emit('resume_download', uniqueId);
+}
+
+
 function generateUniqueId() {
     // Generate a unique download/request ID to keep different downloads from being mixed up.
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -31,27 +39,54 @@ function trackProgress(socket, uniqueId) {
     document.getElementById('progress-container').style.display = 'flex';  // Show progress bar.
     let startTime = new Date();
     let elapsedTime = 0;
+    const n_tries = 20;  // Number of times to try resuming download on server errors
+    let tries = 0;
     let percentageToTimes = {};
     let progressRates = [];
     let progressInterval = emitStatus(socket, uniqueId);  // Emit progress status and keep a handle on the interval.
     // Listen for status updates from the server
     socket.on('status', function(data) {
         let prog = data.progress;
-        if (prog.toString().startsWith('Aborted')) {
-            if (uniqueId === data.uid) {
-                socket.disconnect();
-                document.getElementById('warnings').innerHTML = '<div id="warning">' + data.progress + '</div>';
+        let stat = data.status;
+        console.log('Status: ' + stat);
+        if (stat.toString().startsWith('Aborted')) {
+            if (stat.includes('ReadTimeout')) {
+                // Resume automatically, but don't resume endlessly (Note: n_tries = cumulative total tries)
+                tries += 1;
+                if (tries <= n_tries) {
+                    console.log(stat + '. Resuming ... (x ' + tries + ')');
+                    startTime = new Date();
+                    socket.emit('resume_download', uniqueId);
+                }
+                else {
+                    // Change the button to a resume button for resuming manually
+                    socket.emit('pause_download', uniqueId);
+                    msg = stat + '. Try resuming by clicking again.'
+                    document.getElementById('warnings').innerHTML = '<div id="warning">' + msg + '</div>';
+                    // Reset tries to grant a new set of tries.
+                    tries = 0;
+                }
             }
+            else {
+                socket.disconnect();
+                document.getElementById('warnings').innerHTML = '<div id="warning">' + stat + '</div>';
+            }
+        }
+        else if (stat.toString().startsWith('Paused')) {
+            document.getElementById('download-button').disabled = false;
+            document.getElementById('download-button').innerText = 'Genoptag';
+            $('#download-button').off('click');
+            $('#download-button').on('click', function() { resumeButtonClick(socket, uniqueId); });
         }
         else {
             // For the correct uid, update progress bar and percentage.
             updateProgress(uniqueId, data, progressInterval, socket);
             elapsedTime = (new Date() - startTime) / 1000;  // Elapsed time in seconds.
             // Add an empty array when a new percentage is first encountered, then add the time value.
-            if (!percentageToTimes[data.progress]) {
-                percentageToTimes[data.progress] = [];
+            if (!percentageToTimes[prog]) {
+                percentageToTimes[prog] = [];
             }
-            percentageToTimes[data.progress].push(elapsedTime);
+            percentageToTimes[prog].push(elapsedTime);
             // Iterate over all but the last array of times (as the last one is assumed to be incomplete).
             for (let progressPercentage of Object.keys(percentageToTimes).slice(0, -1)) {
                 progressRate = getProgressRate(progressPercentage, percentageToTimes);
@@ -65,8 +100,8 @@ function trackProgress(socket, uniqueId) {
                 timeRemainingString = getTimeRemainingString(elapsedTime, progressRates);
                 document.getElementById('timer-val').innerText = timeRemainingString;
             }
-            if (data.progress == 100) {
-                    document.getElementById('timer-val').innerText = "00:00:00";
+            if (prog == 100) {
+                    document.getElementById('timer-val').innerText = "";
             }
         }
     });
@@ -83,7 +118,7 @@ function trackProgress(socket, uniqueId) {
 function emitStatus(socket, uniqueId) {
     // Set up an interval to periodically check the download progress.
     let progressInterval = setInterval(function() {
-        socket.emit('get_status', uniqueId);
+        socket.emit('get_progress', uniqueId);
     }, 1000); // Emit status every 1000 ms.
     return progressInterval
 }
@@ -113,6 +148,9 @@ function getTimeRemainingString(elapsedTime, progressRates) {
 
 function formatTime(secondsTimeFloat) {
     // Format time in 00:00:00 format.
+    if (secondsTimeFloat < 0) {
+        return 'Vent ...'
+    }
     let secondsTime = Math.floor(secondsTimeFloat);
     let hours = Math.floor(secondsTime / 3600);
     secondsTime %= 3600;

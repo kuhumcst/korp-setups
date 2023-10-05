@@ -41,15 +41,12 @@
                 align-items: center;
             }
             #label-small {
-                width: 115;
+                width: 115px;
                 font-size: 10px;
                 margin-right: 5px;
             }
             #label-small > span {
                 display: inline-block;
-            }
-            #download-label {
-                width: 70px;
             }
             #progress-val {
                 font-size: 10px;
