@@ -13,13 +13,15 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies - so few we don't care about requirements.txt
-RUN git clone https://github.com/phildiderichsen/Kielipankki-korp-backend-fork.git
-RUN pip install Kielipankki-korp-backend-fork/
+#RUN git clone https://github.com/phildiderichsen/Kielipankki-korp-backend-fork.git
+#RUN pip install Kielipankki-korp-backend-fork/
 RUN pip install flask==2.3.2 Flask-SocketIO==5.3.5 requests gevent==23.7.0 gevent-websocket==0.10.1 httpx
 
 
 # Copy the application code and the templates dir to the container
+# TODO! Don't use korpexport locally like this ...?
 COPY app.py .
+COPY korpexport korpexport
 COPY templates templates
 COPY static static
 
