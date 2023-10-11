@@ -4,21 +4,23 @@ Philip Diderichsen, 2023
 """
 
 from gevent import monkey
+
 monkey.patch_all()  # TODO Is this necessary?
 import os
 import re
 import glob
 import httpx
 import json
-import datetime
+from datetime import datetime, timedelta
 import math
-import time
 import logging
 import urllib.parse as urlp
 from gevent import Greenlet
-from flask import Flask, request, Response, render_template, jsonify, abort
+from flask import Flask, request, Response, render_template, jsonify
 from flask_socketio import SocketIO
 import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
+from korpexport.format.delimited import KorpExportFormatterCSV
+from korpexport_overrides.overrides import _format_sentence_override
 import tempfile
 
 app = Flask(__name__)
@@ -57,7 +59,12 @@ def download_file(query_id):
     """Endpoint for serving the finished download file."""
     file_path = os.path.join(TEMP_OUTDIR, f'{query_id}.txt')
     rsp = Response(generate_output_stream(file_path), mimetype='text/csv')
-    rsp.headers.set('Content-Disposition', 'attachment', filename=create_filename('blahaa'))
+    cqp = ''
+    if 'params' in START_ARG_STORE[query_id]:
+        if 'cqp' in START_ARG_STORE[query_id]['params']:
+            cqp = START_ARG_STORE[query_id]['params']['cqp']
+    logging.info(f'START_ARG_STORE[query_id] cqp: {cqp}')
+    rsp.headers.set('Content-Disposition', 'attachment', filename=create_filename(cqp))
     return rsp
 
 
@@ -91,7 +98,7 @@ def resume_download(uid):
 @app.route('/getfile/<content_type>')
 def get_file(content_type):
     """Generate file downloads in various formats via Jyrki's korpexport package. (Only CSV for now though)."""
-    start_time = datetime.datetime.now()
+    start_time = datetime.now()
     remove_old_tempfiles(TEMP_DATADIR, max_files=N_TEMPFILES_TO_KEEP)
     remove_old_tempfiles(TEMP_OUTDIR, max_files=N_TEMPFILES_TO_KEEP)
     query_params = dict(request.args)
@@ -157,10 +164,12 @@ def transform_backend_data(tf_name, content_type, start_arg):
         saved_tempfile_content = saved_tempfile.read()
     form = {"query_result": saved_tempfile_content, "format": content_type}
     try:
-        result = ke.make_download_file(form, form.get("korp_server", "KORP_SERVER"))
+        exporter = prepare_exporter(form)
+        result = exporter.make_download_file(form.get("korp_server", "KORP_SERVER"))
         if result is None:
             return 'No result from data transformation.'
         else:
+            logging.info(f'Result content type: {result["download_content_type"]}')
             return format_data_with_bom(result, start_arg)
     except json.JSONDecodeError as e:
         app.logger.warning(f"JSONDecodeError: {e}")
@@ -168,6 +177,19 @@ def transform_backend_data(tf_name, content_type, start_arg):
         start, end = max(0, e.pos - window), e.pos + window  # e.pos: error position
         app.logger.info(f"JSON around error position: {saved_tempfile_content[start:end]}\n")
         return 'JSONDecodeError. Data could not be formatted correctly.'
+
+
+def prepare_exporter(form):
+    """Make an exporter instance with the necessary tweaks"""
+    exporter = ke.KorpExporter(form)
+    KorpExportFormatterCSV._format_sentence = _format_sentence_override  # PD: My override
+    KorpExportFormatterCSV._option_defaults['delimiter'] = ';'  # PD: My override (can't add it in formatter_options)
+    formatter_options = {'content_format': '{sentence_field_headings}{sentences}',
+                         'sentence_sep': '\n',
+                         'sentence_fields': 'corpus,left_context,match,right_context,blaha_blaha',
+                         'sentence_field_sep': '\t'}
+    exporter._formatter = KorpExportFormatterCSV(options=formatter_options)
+    return exporter
 
 
 def format_data_with_bom(transformed_backend_data, start_arg):
@@ -203,7 +225,10 @@ def update_progress(start_arg, query_params, content_type, outfile):
 def create_filename(cqp_string):
     """Generer filnavnet til den fil der skal downloades."""
     safe_cqp_string = '_'.join(re.findall(r'"(\w+)"', cqp_string))
-    return f'korp_kwic_{safe_cqp_string}_{datetime.datetime.now().isoformat()}.csv'
+    now = datetime.now()
+    seconds = timedelta(hours=now.time().hour, minutes=now.time().minute, seconds=now.time().second).seconds
+    timestring = '{}.{}'.format(now.strftime('%Y-%m-%d'), seconds)
+    return f'korp_kwic_{safe_cqp_string}_{timestring}.csv'
 
 
 def build_url(start_arg, query_params, rows_per_request):
@@ -216,7 +241,7 @@ def build_url(start_arg, query_params, rows_per_request):
 
 def make_download_duration_message(start_time):
     """Make a log message about the download duration."""
-    time_delta = datetime.datetime.now() - start_time
+    time_delta = datetime.now() - start_time
     total_seconds = time_delta.total_seconds()
     minutes = total_seconds // 60
     seconds = total_seconds % 60

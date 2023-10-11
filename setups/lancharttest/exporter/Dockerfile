@@ -22,6 +22,7 @@ RUN pip install flask==2.3.2 Flask-SocketIO==5.3.5 requests gevent==23.7.0 geven
 # TODO! Don't use korpexport locally like this ...?
 COPY app.py .
 COPY korpexport korpexport
+COPY korpexport_overrides korpexport_overrides
 COPY templates templates
 COPY static static
 
