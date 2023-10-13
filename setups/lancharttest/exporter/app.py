@@ -41,6 +41,7 @@ TEMP_OUTDIR = '/var/tmp/output'  # Dir for the temp output file for download. (M
 N_TEMPFILES_TO_KEEP = 10  # Number of data and output temp files to keep when cleaning up old temp files.
 MAX_ROWS = 500000  # Our imposed row download limit.
 ROWS_PER_REQUEST = 100  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
+SKIP_N_ROWS = 1
 RESPONSE_ITER_BYTES_CHUNK_SIZE = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
 PROGRESS_STORE = dict()  # Store download progress in percent (for the progress bar)
 STATUS_STORE = dict()  # Store status info (Aborted, Paused, Resumed ..)
@@ -129,7 +130,7 @@ def write_download_file(start_arg, query_params, content_type, write_mode='w'):
                     url = build_url(start_arg, query_params, ROWS_PER_REQUEST)
                     tf_name = fetch_to_tempfile(url)
                     app.logger.info(f'UID {query_id}: Got filename: {tf_name}')
-                    transformed_data = transform_backend_data(tf_name, content_type, start_arg)
+                    transformed_data = transform_backend_data(tf_name, content_type, start_arg, query_params)
                     downloadfile.write(transformed_data)
                     update_progress(start_arg, query_params, content_type, downloadfile_path)
                     start_arg += ROWS_PER_REQUEST
@@ -157,15 +158,19 @@ def fetch_to_tempfile(url):
     return tf.name
 
 
-def transform_backend_data(tf_name, content_type, start_arg):
+def transform_backend_data(tf_name, content_type, start_arg, query_params):
     """Send tempfile content to Jyrki's data tranformation function 'make_download_file'.
     Return transformed data, or None if the JSON input data were corrupt."""
+    pos_attrs = get_pos_attrs(query_params)
+    struct_attrs = get_struct_attrs(query_params)
     with open(tf_name, 'rb') as saved_tempfile:
         saved_tempfile_content = saved_tempfile.read()
     form = {"query_result": saved_tempfile_content, "format": content_type}
     try:
-        exporter = prepare_exporter(form)
-        result = exporter.make_download_file(form.get("korp_server", "KORP_SERVER"))
+        exporter = prepare_exporter(form, pos_attrs)
+        result = exporter.make_download_file(form.get("korp_server", "KORP_SERVER"),
+                                             p_attrs=pos_attrs,
+                                             s_attrs=struct_attrs)
         if result is None:
             return 'No result from data transformation.'
         else:
@@ -179,17 +184,37 @@ def transform_backend_data(tf_name, content_type, start_arg):
         return 'JSONDecodeError. Data could not be formatted correctly.'
 
 
-def prepare_exporter(form):
+def get_pos_attrs(query_params):
+    return query_params.get('show', '')
+
+
+def get_struct_attrs(query_params):
+    return query_params.get('show_struct', '')
+
+
+def prepare_exporter(form, p_attrs):
     """Make an exporter instance with the necessary tweaks"""
+    p_headings = get_token_tag_headings(form, p_attrs)
     exporter = ke.KorpExporter(form)
     KorpExportFormatterCSV._format_sentence = _format_sentence_override  # PD: My override
     KorpExportFormatterCSV._option_defaults['delimiter'] = ';'  # PD: My override (can't add it in formatter_options)
+    KorpExportFormatterCSV._option_defaults['show_field_headings'] = 'True'  # PD: My override (can't add it in formatter_options)
     formatter_options = {'content_format': '{sentence_field_headings}{sentences}',
                          'sentence_sep': '\n',
-                         'sentence_fields': 'corpus,left_context,match,right_context,blaha_blaha',
+                         'sentence_fields': f'corpus,left_context,match,right_context,{p_headings}',
                          'sentence_field_sep': '\t'}
     exporter._formatter = KorpExportFormatterCSV(options=formatter_options)
     return exporter
+
+
+def get_token_tag_headings(form, p_attrs):
+    """Build a string with token tag headings - with tag names grouped and enumerated"""
+    kwic_row_1 = json.loads(form.get('query_result', '{}'))['kwic'][0]
+    match_len_hack = int(kwic_row_1['match']['end']) - int(kwic_row_1['match']['start'])
+    zipped_enumerated = [enumerate(tup) for tup in zip(*[p_attrs.split(',')] * match_len_hack)]
+    string_lists = [[f'{tag}_{i+1}' for i, tag in tup] for tup in zipped_enumerated]
+    token_tag_headings = ','.join([heading for sublist in string_lists for heading in sublist])
+    return token_tag_headings
 
 
 def format_data_with_bom(transformed_backend_data, start_arg):
@@ -199,7 +224,7 @@ def format_data_with_bom(transformed_backend_data, start_arg):
     formatted_data = formatted_data_bytes.decode(result_charset, errors='replace')
     skip_header = bool(start_arg)  # If start_arg is not 0, skip_header is True.
     if skip_header:
-        formatted_data = '\n'.join(formatted_data.splitlines()[13:]) + '\n'
+        formatted_data = '\n' + '\n'.join(formatted_data.splitlines()[SKIP_N_ROWS:]) + '\n'
     # Prepending the BOM '\uFEFF', creating a file encoded in UTF-8-BOM, makes
     # e.g. csv readable in Excel as well as text editors on Windows as well as Mac.
     formatted_data_with_bom = '\uFEFF' + formatted_data
