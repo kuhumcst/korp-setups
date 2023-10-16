@@ -96,7 +96,7 @@ def resume_download(uid):
     logging.warning(f'Resuming download from start_arg {start_arg}.')
     STATUS_STORE[uid] = 'Resumed'
     PROGRESS_STORE[uid] = 0
-    Greenlet.spawn(write_download_file, start_arg, query_params, content_type, write_mode='a')
+    Greenlet.spawn(DownloadUtils.write_file, start_arg, query_params, content_type, write_mode='a')
 
 
 @app.route('/getfile/<content_type>')
@@ -108,193 +108,187 @@ def get_file(content_type):
     query_params = dict(request.args)
     start_arg = 0
     START_ARG_STORE[query_params.get('uid')] = dict()
-    Greenlet.spawn(write_download_file, start_arg, query_params, content_type)
+    Greenlet.spawn(DownloadUtils.write_file, start_arg, query_params, content_type)
     app.logger.info(make_download_duration_message(start_time))
     return jsonify({'status': 'Download started', 'query_id': query_params.get('uid')})
 
 
-def write_download_file(start_arg, query_params, content_type, write_mode='w'):
-    """Loop through successive requests, transform results, write resulting rows to download file.
-    Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
-    query_id = query_params.get('uid')
-    download_tempfile_path = os.path.join(TEMP_OUTDIR, f'{query_id}.txt')
-    downloadfile_path = os.path.join(TEMP_OUTDIR, f'{query_id}.done.txt')
-    korp_hits_display = int(query_params.get('hits_display', 0))  # Total hits according to Korp search.
-    overall_max_match = 0  # Maximal number of match tokens seen in the data
-    with open(download_tempfile_path, write_mode) as downloadfile:
-        while start_arg <= korp_hits_display or start_arg < MAX_ROWS:
-            if start_arg > MAX_ROWS:
-                # TODO Add additional logic to return at most <max_rows> rows, but also not less!
-                app.logger.info('Greater than max_rows! Breaking before further reading or writing.')
-                break
-            elif start_arg > korp_hits_display:
-                app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
-                break
-            else:
-                try:
-                    url = build_url(start_arg, query_params, ROWS_PER_REQUEST)
-                    tf_name = fetch_to_tempfile(url)
-                    app.logger.info(f'UID {query_id}: Got filename: {tf_name}')
-                    transformed_data, max_match = transform_backend_data(tf_name, content_type, start_arg, query_params)
-                    downloadfile.write(transformed_data)
-                    overall_max_match = max_match if max_match > overall_max_match else overall_max_match
-                    update_progress(start_arg, query_params, content_type, downloadfile_path)
-                    start_arg += ROWS_PER_REQUEST
-                except Exception as e:
-                    STATUS_STORE[query_id] = f'Aborted. Error: {type(e).__name__}: {e}'
-                    raise
-    expand_rows_and_rewrite_w_bom(download_tempfile_path, downloadfile_path, overall_max_match, query_params)
-    PROGRESS_STORE[query_id] = 100
-    app.logger.info(f'Completed percent 100!')
+class DownloadUtils(object):
+    """Container class for the functions handling data download, transformation, preparation, and writing."""
 
+    @classmethod
+    def write_file(cls, start_arg, q_params, content_type, write_mode='w'):
+        """Loop through successive requests, transform results, write resulting rows to download file.
+        Note how 'fetch_with_retry' returns the rows per request value needed to update the start_arg."""
+        tmpfile1 = os.path.join(TEMP_OUTDIR, f'{q_params.get("uid")}.txt')
+        tmpfile2 = os.path.join(TEMP_OUTDIR, f'{q_params.get("uid")}.done.txt')
+        max_match = cls._process_queries(tmpfile1, tmpfile2, content_type, write_mode, start_arg, q_params)
+        cls._expand_rows_and_rewrite_w_bom(tmpfile1, tmpfile2, max_match, q_params)
+        PROGRESS_STORE[q_params.get("uid")] = 100
+        app.logger.info(f'Completed percent 100!')
 
-def expand_rows_and_rewrite_w_bom(download_tempfile_path, downloadfile_path, max_match, query_params):
-    """Expand groups of tokens and annotations, formatted as
-    strings concatenated with a special separator, to the number
-    of fields corresponding to the maximal number of match tokens."""
-    headings = get_headings(query_params, max_match)
-    with open(downloadfile_path, 'w') as f:
-        # Prepending the BOM '\uFEFF', creating a file encoded in UTF-8-BOM, makes
-        # e.g. csv readable in Excel as well as text editors on Windows as well as Mac.
-        f.write('\uFEFF' + CSV_SEP.join(headings.split(',')))
-        with open(download_tempfile_path) as tf:
-            for line in tf:
-                new_line_fields = expand_row(line, max_match)
-                f.write(CSV_SEP.join(new_line_fields) + '\n')
+    @classmethod
+    def _process_queries(cls, _tmpfile1, _tmpfile2, _content_type, _mode, _start_arg, _q_params):
+        uid = _q_params.get('uid')
+        korp_hits_display = int(_q_params.get('hits_display', 0))  # Total hits according to Korp search.
+        overall_max_match = 0  # Maximal number of match tokens seen in the data
+        with open(_tmpfile1, _mode) as downloadfile:
+            while _start_arg <= korp_hits_display or _start_arg < MAX_ROWS:
+                if _start_arg > MAX_ROWS:
+                    # TODO Add additional logic to return at most <max_rows> rows, but also not less!
+                    app.logger.info('Greater than max_rows! Breaking before further reading or writing.')
+                    break
+                elif _start_arg > korp_hits_display:
+                    app.logger.info('Greater than korp_hits_display! Breaking before further reading or writing.')
+                    break
+                else:
+                    try:
+                        url = build_url(_start_arg, _q_params, ROWS_PER_REQUEST)
+                        tf_name = cls._fetch_to_tempfile(url)
+                        app.logger.info(f'UID {uid}: Got filename: {tf_name}')
+                        transformed_data, max_match = cls._transform_backend_data(tf_name, _content_type, _start_arg,
+                                                                                  _q_params)
+                        downloadfile.write(transformed_data)
+                        overall_max_match = max_match if max_match > overall_max_match else overall_max_match
+                        update_progress(_start_arg, _q_params, _content_type, _tmpfile2)
+                        _start_arg += ROWS_PER_REQUEST
+                    except Exception as e:
+                        STATUS_STORE[uid] = f'Aborted. Error: {type(e).__name__}: {e}'
+                        raise
+        return overall_max_match
 
+    @staticmethod
+    def _fetch_to_tempfile(_url):
+        """Get data from Korp backend, and write them to a temp file. Return the name of the tempfile."""
+        client = httpx.Client()
+        app.logger.info(f'Fetching data from URL: {_url}.')
+        tf = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_DATADIR)
+        with tf as temp_file:
+            with client.stream("GET", _url) as response:
+                chunk_no = 1
+                for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
+                    app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
+                    temp_file.write(chunk)
+                    chunk_no += 1
+            temp_file.flush()  # Empty Python's internal buffers to the operating system.
+            os.fsync(temp_file.fileno())  # Ensure the operating system's buffers are written to disk.
+        return tf.name
 
-def get_headings(query_params, max_match):
-    """Build a string with headings - with tokens and tag headings expanded and enumerated"""
-    token_tag_headings_str = get_pos_attrs(query_params)
-    base_headings_str = SENTENCE_FIELDS
+    @classmethod
+    def _transform_backend_data(cls, _tf_name, _content_type, _start_arg, _query_params):
+        """Send tempfile content to Jyrki's data tranformation function 'make_download_file'.
+        Return transformed data, or None if the JSON input data were corrupt."""
+        pos_attrs = cls._get_pos_attrs(_query_params)
+        struct_attrs = cls._get_struct_attrs(_query_params)
+        with open(_tf_name, 'rb') as saved_tempfile:
+            saved_tempfile_content = saved_tempfile.read()
+        content_json = json.loads(saved_tempfile_content)
+        max_match = max([row["match"]["end"] - row["match"]["start"] for row in content_json['kwic']])
+        form = {"query_result": saved_tempfile_content, "format": _content_type}
+        try:
+            exporter = cls._prepare_exporter(form)
+            result = exporter.make_download_file(form.get("korp_server", "KORP_SERVER"),
+                                                 p_attrs=pos_attrs,
+                                                 s_attrs=struct_attrs,
+                                                 group_sep=GROUP_SEP)
+            return cls._get_download_rows(result, _start_arg), max_match
+        except json.JSONDecodeError as e:
+            app.logger.warning(f"JSONDecodeError: {e}")
+            window = 40  # Print 40 characters before and after the error position
+            start, end = max(0, e.pos - window), e.pos + window  # e.pos: error position
+            app.logger.info(f"JSON around error position: {saved_tempfile_content[start:end]}\n")
+            return 'JSONDecodeError. Data could not be formatted correctly.', 0
 
-    if max_match > 1:
-        zipped_enumerated = [enumerate(tup) for tup in zip(*[token_tag_headings_str.split(',')] * max_match)]
-        string_lists = [[f'{tag}_{i+1}' for i, tag in tup] for tup in zipped_enumerated]
-        token_tag_headings_str = ','.join([heading for sublist in string_lists for heading in sublist])
+    @staticmethod
+    def _prepare_exporter(form):
+        """Make an exporter instance with the necessary tweaks"""
+        exporter = ke.KorpExporter(form)
+        KorpExportFormatterCSV._format_sentence = _format_sentence_override  # PD: My override
+        KorpExportFormatterCSV._option_defaults['delimiter'] = CSV_SEP  # PD: My override (can't add it in formatter_options)
+        KorpExportFormatterCSV._option_defaults['show_field_headings'] = 'False'  # PD: My override (can't add it in formatter_options)
+        formatter_options = {'content_format': '{sentence_field_headings}{sentences}',
+                             'sentence_sep': '\n',
+                             'sentence_fields': SENTENCE_FIELDS,
+                             'sentence_field_sep': '\t'}
+        exporter._formatter = KorpExportFormatterCSV(options=formatter_options)
+        return exporter
 
-        base_header_parts = []
-        for s in SENTENCE_FIELDS.split(','):
-            header_part = s if s != 'match' else ','.join([f'match_{str(i+1)}' for i in range(max_match)])
-            base_header_parts.append(header_part)
-        base_headings_str = ','.join(base_header_parts)
-
-    return f'{base_headings_str},{token_tag_headings_str}\n'
-
-
-def expand_row(row, overall_max_match):
-    """Expand groups of tokens (and annotations), formatted as
-    strings concatenated with a special separator, to the number
-    of fields corresponding to the maximal number of match tokens."""
-    new_row_fields = []
-    sentence_fields = SENTENCE_FIELDS.split(',')
-    row = re.sub(r'^"(.*)"$', r'\1', row.strip())  # Remove overall quotes
-    row_fields = row.split(f'"{CSV_SEP}"')
-    for i, field in enumerate(row_fields):
-        # We are in the initial base fields - but not in the match
-        if i < len(sentence_fields) and sentence_fields[i] != 'match':
-            new_row_fields.append(f'"{field}"')
-        else:
-            parts = field.split(GROUP_SEP)
-            parts = parts + [''] * (overall_max_match - len(parts))  # Expand to max match length
-            parts = [f'"{part}"' for part in parts]  # Quote parts
-            for part in parts:
-                new_row_fields.append(part)
-    return new_row_fields
-
-
-def fetch_to_tempfile(url):
-    """Get data from Korp backend, and write them to a temp file. Return the name of the tempfile."""
-    client = httpx.Client()
-    app.logger.info(f'Fetching data from URL: {url}.')
-    tf = tempfile.NamedTemporaryFile(delete=False, dir=TEMP_DATADIR)
-    with tf as temp_file:
-        with client.stream("GET", url) as response:
-            chunk_no = 1
-            for chunk in response.iter_bytes(chunk_size=RESPONSE_ITER_BYTES_CHUNK_SIZE):
-                app.logger.info(f'Writing chunk {chunk_no} to "{temp_file.name}"..')
-                temp_file.write(chunk)
-                chunk_no += 1
-        temp_file.flush()  # Empty Python's internal buffers to the operating system.
-        os.fsync(temp_file.fileno())  # Ensure the operating system's buffers are written to disk.
-    return tf.name
-
-
-def transform_backend_data(tf_name, content_type, start_arg, query_params):
-    """Send tempfile content to Jyrki's data tranformation function 'make_download_file'.
-    Return transformed data, or None if the JSON input data were corrupt."""
-    pos_attrs = get_pos_attrs(query_params)
-    struct_attrs = get_struct_attrs(query_params)
-    with open(tf_name, 'rb') as saved_tempfile:
-        saved_tempfile_content = saved_tempfile.read()
-    content_json = json.loads(saved_tempfile_content)
-    max_match = max([row["match"]["end"] - row["match"]["start"] for row in content_json['kwic']])
-    form = {"query_result": saved_tempfile_content, "format": content_type}
-    try:
-        exporter = prepare_exporter(form, pos_attrs)
-        result = exporter.make_download_file(form.get("korp_server", "KORP_SERVER"),
-                                             p_attrs=pos_attrs,
-                                             s_attrs=struct_attrs,
-                                             group_sep=GROUP_SEP)
-        if result is None:
+    @staticmethod
+    def _get_download_rows(_transformed_backend_data, _start_arg):
+        """Extract relevant, decoded rows from data returned by Jyrki's transformation function."""
+        if _transformed_backend_data is None:
             return 'No result from data transformation.', 0
         else:
-            logging.info(f'Result content type: {result["download_content_type"]}')
-            return format_data_with_bom(result, start_arg), max_match
-    except json.JSONDecodeError as e:
-        app.logger.warning(f"JSONDecodeError: {e}")
-        window = 40  # Print 40 characters before and after the error position
-        start, end = max(0, e.pos - window), e.pos + window  # e.pos: error position
-        app.logger.info(f"JSON around error position: {saved_tempfile_content[start:end]}\n")
-        return 'JSONDecodeError. Data could not be formatted correctly.', 0
+            logging.info(f'Result content type: {_transformed_backend_data["download_content_type"]}')
+            result_charset = _transformed_backend_data.get("download_charset", "utf-8")
+            data_bytes = _transformed_backend_data.get("download_content", "### No content :( ###")
+            download_rows = data_bytes.decode(result_charset, errors='replace')
+            if _start_arg:  # If start_arg is not 0, skip n header rows.
+                download_rows = '\n' + '\n'.join(download_rows.splitlines()[SKIP_N_ROWS:]) + '\n'
+            return download_rows
 
+    @classmethod
+    def _expand_rows_and_rewrite_w_bom(cls, _tmpfile1, _tmpfile2, _max_match, _query_params):
+        """Expand groups of tokens and annotations, formatted as
+        strings concatenated with a special separator, to the number
+        of fields corresponding to the maximal number of match tokens."""
+        headings = cls._get_headings(_query_params, _max_match)
+        with open(_tmpfile2, 'w') as f:
+            # Prepending the BOM '\uFEFF', creating a file encoded in UTF-8-BOM, makes
+            # e.g. csv readable in Excel as well as text editors on Windows as well as Mac.
+            f.write('\uFEFF' + CSV_SEP.join(headings.split(',')))
+            with open(_tmpfile1) as tf:
+                for line in tf:
+                    new_line_fields = cls._expand_row(line, _max_match)
+                    f.write(CSV_SEP.join(new_line_fields) + '\n')
 
-def get_pos_attrs(query_params):
-    return query_params.get('show', '')
+    @classmethod
+    def _get_headings(cls, _query_params, _max_match):
+        """Build a string with headings - with tokens and tag headings expanded and enumerated"""
+        token_tag_headings_str = cls._get_pos_attrs(_query_params)
+        base_headings_str = SENTENCE_FIELDS
 
+        if _max_match > 1:
+            zipped_enumerated = [enumerate(tup) for tup in zip(*[token_tag_headings_str.split(',')] * _max_match)]
+            string_lists = [[f'{tag}_{i+1}' for i, tag in tup] for tup in zipped_enumerated]
+            token_tag_headings_str = ','.join([heading for sublist in string_lists for heading in sublist])
 
-def get_struct_attrs(query_params):
-    return query_params.get('show_struct', '')
+            base_header_parts = []
+            for s in SENTENCE_FIELDS.split(','):
+                header_part = s if s != 'match' else ','.join([f'match_{str(i+1)}' for i in range(_max_match)])
+                base_header_parts.append(header_part)
+            base_headings_str = ','.join(base_header_parts)
 
+        return f'{base_headings_str},{token_tag_headings_str}\n'
 
-def prepare_exporter(form, p_attrs):
-    """Make an exporter instance with the necessary tweaks"""
-    p_headings = get_token_tag_headings(form, p_attrs)
-    exporter = ke.KorpExporter(form)
-    KorpExportFormatterCSV._format_sentence = _format_sentence_override  # PD: My override
-    KorpExportFormatterCSV._option_defaults['delimiter'] = CSV_SEP  # PD: My override (can't add it in formatter_options)
-    KorpExportFormatterCSV._option_defaults['show_field_headings'] = 'False'  # PD: My override (can't add it in formatter_options)
-    formatter_options = {'content_format': '{sentence_field_headings}{sentences}',
-                         'sentence_sep': '\n',
-                         'sentence_fields': SENTENCE_FIELDS,
-                         'sentence_field_sep': '\t'}
-    exporter._formatter = KorpExportFormatterCSV(options=formatter_options)
-    return exporter
+    @staticmethod
+    def _expand_row(_row, _overall_max_match):
+        """Expand groups of tokens (and annotations), formatted as
+        strings concatenated with a special separator, to the number
+        of fields corresponding to the maximal number of match tokens."""
+        new_row_fields = []
+        sentence_fields = SENTENCE_FIELDS.split(',')
+        _row = re.sub(r'^"(.*)"$', r'\1', _row.strip())  # Remove overall quotes
+        row_fields = _row.split(f'"{CSV_SEP}"')
+        for i, field in enumerate(row_fields):
+            # We are in the initial base fields - but not in the match
+            if i < len(sentence_fields) and sentence_fields[i] != 'match':
+                new_row_fields.append(f'"{field}"')
+            else:
+                parts = field.split(GROUP_SEP)
+                parts = parts + [''] * (_overall_max_match - len(parts))  # Expand to max match length
+                parts = [f'"{part}"' for part in parts]  # Quote parts
+                for part in parts:
+                    new_row_fields.append(part)
+        return new_row_fields
 
+    @staticmethod
+    def _get_pos_attrs(query_params):
+        return query_params.get('show', '')
 
-def get_token_tag_headings(form, p_attrs):
-    """Build a string with token tag headings - with tag names grouped and enumerated"""
-    kwic_row_1 = json.loads(form.get('query_result', '{}'))['kwic'][0]
-    match_len_hack = int(kwic_row_1['match']['end']) - int(kwic_row_1['match']['start'])
-    zipped_enumerated = [enumerate(tup) for tup in zip(*[p_attrs.split(',')] * match_len_hack)]
-    string_lists = [[f'{tag}_{i+1}' for i, tag in tup] for tup in zipped_enumerated]
-    token_tag_headings = ','.join([heading for sublist in string_lists for heading in sublist])
-    return token_tag_headings
-
-
-def format_data_with_bom(transformed_backend_data, start_arg):
-    """Format data returned by Jyrki's transformation function for download. Add a BOM to ensure interoperability."""
-    result_charset = transformed_backend_data.get("download_charset", "utf-8")
-    formatted_data_bytes = transformed_backend_data.get("download_content", "### No content :( ###")
-    formatted_data = formatted_data_bytes.decode(result_charset, errors='replace')
-    skip_header = bool(start_arg)  # If start_arg is not 0, skip_header is True.
-    if skip_header:
-        formatted_data = '\n' + '\n'.join(formatted_data.splitlines()[SKIP_N_ROWS:]) + '\n'
-    # Prepending the BOM '\uFEFF', creating a file encoded in UTF-8-BOM, makes
-    # e.g. csv readable in Excel as well as text editors on Windows as well as Mac.
-    #formatted_data_with_bom = '\uFEFF' + formatted_data
-    formatted_data_with_bom = formatted_data
-    return formatted_data_with_bom
+    @staticmethod
+    def _get_struct_attrs(query_params):
+        return query_params.get('show_struct', '')
 
 
 def update_progress(start_arg, query_params, content_type, outfile):
