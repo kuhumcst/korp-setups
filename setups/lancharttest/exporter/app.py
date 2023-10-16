@@ -39,6 +39,7 @@ class Opts:
     response_iter_bytes_chunk_size = 3000000  # How many bytes of data to get at a time in response.iter_bytes().
     csv_sep = ';'  # Separator to use in csv downloads.
     group_sep = '____GROUP_SEP____'  # Field-internal separator for multi-token matches.
+    s_attr_sep = '____STRUCT_ATTR_SEP____'  # Field-internal separator for structural attributes ..
     sentence_fields = 'corpus,left_context,match,right_context'  # Base fields before annotations.
     progress_store = dict()  # Store download progress in percent (for the progress bar)
     status_store = dict()  # Store status info (Aborted, Paused, Resumed ..)

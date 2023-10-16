@@ -14,7 +14,7 @@ import tempfile
 import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
 import urllib.parse as urlp
 from korpexport.format.delimited import KorpExportFormatterCSV
-from korpexport_overrides.overrides import _format_sentence_override
+from korpexport_overrides.overrides import format_sentence_override
 
 
 def process_queries(app, tmpfile1, tmpfile2, content_type, write_mode, start_arg, query_params, opts):
@@ -91,7 +91,8 @@ def _transform_backend_data(app, tf_name, content_type, start_arg, query_params,
         result = exporter.make_download_file(form.get("korp_server", "KORP_SERVER"),
                                              p_attrs=pos_attrs,
                                              s_attrs=struct_attrs,
-                                             group_sep=opts.group_sep)
+                                             group_sep=opts.group_sep,
+                                             s_attr_sep=opts.s_attr_sep)
         return _get_download_rows(result, start_arg, opts.skip_n_rows), max_match
     except json.JSONDecodeError as e:
         app.logger.warning(f"JSONDecodeError: {e}")
@@ -104,7 +105,7 @@ def _transform_backend_data(app, tf_name, content_type, start_arg, query_params,
 def _prepare_exporter(form, opts):
     """Make an exporter instance with the necessary tweaks"""
     exporter = ke.KorpExporter(form)
-    KorpExportFormatterCSV._format_sentence = _format_sentence_override  # PD: My override
+    KorpExportFormatterCSV._format_sentence = format_sentence_override  # PD: My override
     KorpExportFormatterCSV._option_defaults['delimiter'] = opts.csv_sep  # PD: My override (can't add it in formatter_options)
     KorpExportFormatterCSV._option_defaults['show_field_headings'] = 'False'  # PD: My override (can't add it in formatter_options)
     formatter_options = {'content_format': '{sentence_field_headings}{sentences}',
