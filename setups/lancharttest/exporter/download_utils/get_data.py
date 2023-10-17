@@ -8,7 +8,6 @@ Groups of match tokens (and annotations) must be expanded into fields if applica
 import httpx
 import json
 import logging
-import math
 import os
 import tempfile
 import korpexport.exporter as ke  # From Kielipankki-korp-backend-fork
@@ -138,6 +137,6 @@ def update_progress(app, start_arg, query_params, content_type, outfile, opts):
                                       'ctype': content_type, 'outfile': outfile}
     if completed_rows > korp_hits_display:
         completed_rows = korp_hits_display
-    completed_percent = math.floor(completed_rows / korp_hits_display * 100)
+    completed_percent = completed_rows / korp_hits_display * 100
     app.logger.info(f'Actual completed percent: {completed_percent}')
     opts.progress_store[query_id] = completed_percent  # Set actual percentage when actual chunk is done

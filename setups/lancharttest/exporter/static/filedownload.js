@@ -39,7 +39,7 @@ function trackProgress(socket, uniqueId) {
     document.getElementById('progress-container').style.display = 'flex';  // Show progress bar.
     let startTime = new Date();
     let elapsedTime = 0;
-    const n_tries = 20;  // Number of times to try resuming download on server errors
+    const n_tries = 3;  // Number of times to try resuming download on server errors
     let tries = 0;
     let percentageToTimes = {};
     let progressRates = [];
@@ -99,6 +99,9 @@ function trackProgress(socket, uniqueId) {
                 // Calculate a current average progress rate based on the last n observations.
                 timeRemainingString = getTimeRemainingString(elapsedTime, progressRates);
                 document.getElementById('timer-val').innerText = timeRemainingString;
+                let now = new Date() / 1000;
+                console.log('Time: ' + formatTime(now));
+                console.log('Remaining: ' + timeRemainingString);
             }
             if (prog == 100) {
                     document.getElementById('timer-val').innerText = "";
@@ -149,7 +152,7 @@ function getTimeRemainingString(elapsedTime, progressRates) {
 function formatTime(secondsTimeFloat) {
     // Format time in 00:00:00 format.
     if (secondsTimeFloat < 0) {
-        return 'Vent ...'
+        return ''
     }
     let secondsTime = Math.floor(secondsTimeFloat);
     let hours = Math.floor(secondsTime / 3600);
@@ -167,7 +170,8 @@ function formatTime(secondsTimeFloat) {
 function updateProgress(uid, data, progressInterval, socket) {
     // Do the actual updating of the progress bar - and trigger the actual download when reaching 100%
     var progress = data.progress;
-    document.getElementById('progress-val').innerText = progress + '%';
+    console.log('Progress: ' + progress.toFixed(2));
+    document.getElementById('progress-val').innerText = Math.floor(progress) + '%';
     document.getElementById('progress-bar').value = progress;
     // If the download is complete, clear the interval and initiate the actual download
     if (progress === 100) {
