@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>Download data</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='webfont.css') }}" type="text/css" charset="utf-8" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='exporter_static/webfont.css') }}" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='exporter_static/style.css') }}" type="text/css" charset="utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-        <script src="{{ url_for('static', filename='filedownload.js') }}"></script>
+        <script src="{{ url_for('static', filename='exporter_static/filedownload.js') }}"></script>
 
         <script>
             function addInfoText() {
@@ -35,7 +35,7 @@
                 addInfoText();
 
                 // Set up websocket for listening for download progress - in the "status" namespace
-                var socket = io.connect('http://' + document.domain + ':' + location.port + '/status');
+                var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '/status');
                 socket.on('connect', function() {
                     console.log('Connected to server');
                 });
@@ -60,7 +60,7 @@
     <div id="content">
         <div class="horiz"><h1>Download data |</h1></div>
         <div class="horiz">
-            <img id="korp-logo" src="{{ url_for('static', filename='korplogo_block.db177a1d036f200438dad73a155a93d9.svg') }}" />
+            <img id="korp-logo" src="{{ url_for('static', filename='exporter_static/korplogo_block.db177a1d036f200438dad73a155a93d9.svg') }}" />
         </div>
 
         <div id="download-info"></div>
