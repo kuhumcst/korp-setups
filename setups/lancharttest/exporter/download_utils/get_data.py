@@ -125,7 +125,7 @@ def _get_download_rows(transformed_backend_data, start_arg, skip_n_rows):
         data_bytes = transformed_backend_data.get("download_content", "### No content :( ###")
         download_rows = data_bytes.decode(result_charset, errors='replace')
         if start_arg:  # If start_arg is not 0, skip n header rows.
-            download_rows = '\n' + '\n'.join(download_rows.splitlines()[skip_n_rows:]) + '\n'
+            download_rows = '\n' + '\n'.join(download_rows.splitlines()[skip_n_rows:])
         return download_rows
 
 
