@@ -91,7 +91,7 @@ def resume_download(uid):
     logging.warning(f'Resuming download from start_arg {start_arg}.')
     Opts.status_store[uid] = 'Resumed'
     Opts.progress_store[uid] = 0
-    Greenlet.spawn(download_and_write_file, start_arg, query_params, content_type, write_mode='a')
+    Greenlet.spawn(download_and_write_file, start_arg, query_params, content_type)
 
 
 @app.route('/getfile/<content_type>')
@@ -108,11 +108,15 @@ def get_file(content_type):
     return jsonify({'status': 'Download started', 'query_id': query_params.get('uid')})
 
 
-def download_and_write_file(start_arg, q_params, content_type, write_mode='w'):
+def download_and_write_file(start_arg, q_params, content_type):
     """Loop through successive requests, transform results, write resulting rows to download file."""
     tmpfile1 = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.txt')
+    # Create file if nonexisting to have a file to write to in case of an immediately failing/resuming download.
+    if not os.path.isfile(tmpfile1):
+        with open(tmpfile1, 'x') as _:  # 'x': create mode.
+            pass
     tmpfile2 = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.done.txt')
-    max_match = process_queries(app, tmpfile1, tmpfile2, content_type, write_mode, start_arg, q_params, Opts)
+    max_match = process_queries(app, tmpfile1, tmpfile2, content_type, start_arg, q_params, Opts)
     expand_rows_and_rewrite_w_bom(tmpfile1, tmpfile2, max_match, q_params, Opts)
     Opts.progress_store[q_params.get("uid")] = 100
     app.logger.info(f'Completed percent 100!')

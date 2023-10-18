@@ -16,7 +16,7 @@ from korpexport.format.delimited import KorpExportFormatterCSV
 from korpexport_overrides.overrides import format_sentence_override
 
 
-def process_queries(app, tmpfile1, tmpfile2, content_type, write_mode, start_arg, query_params, opts):
+def process_queries(app, tmpfile1, tmpfile2, content_type, start_arg, query_params, opts):
     """Send successive requests to the backend until all rows have been fetched or the limit is reached.
     Transform the data from each reques, and append the result to a tempfile.
     Keep track of the number of match tokens in the data fetched, and return the value for the widest
@@ -24,7 +24,7 @@ def process_queries(app, tmpfile1, tmpfile2, content_type, write_mode, start_arg
     uid = query_params.get('uid')
     korp_hits_display = int(query_params.get('hits_display', 0))  # Total hits according to Korp search.
     overall_max_match = 0  # Maximal number of match tokens seen in the data
-    with open(tmpfile1, write_mode) as downloadfile:
+    with open(tmpfile1, 'a') as downloadfile:
         while start_arg <= korp_hits_display or start_arg < opts.max_rows:
             if start_arg > opts.max_rows:
                 # TODO Add additional logic to return at most <max_rows> rows, but also not less!

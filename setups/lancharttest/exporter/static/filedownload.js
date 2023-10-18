@@ -39,7 +39,7 @@ function trackProgress(socket, uniqueId) {
     document.getElementById('progress-container').style.display = 'flex';  // Show progress bar.
     let startTime = new Date();
     let elapsedTime = 0;
-    const n_tries = 3;  // Number of times to try resuming download on server errors
+    const n_tries = 10;  // Number of times to try resuming download on server errors
     let tries = 0;
     let percentageToTimes = {};
     let progressRates = [];
@@ -97,11 +97,13 @@ function trackProgress(socket, uniqueId) {
             // Calculate estimated time left - when there are enough data to skip the first, skewed data.
             if (progressRates.length > 3) {
                 // Calculate a current average progress rate based on the last n observations.
-                timeRemainingString = getTimeRemainingString(elapsedTime, progressRates);
+                let estimatedTimeLeft = getTimeRemainingString(elapsedTime, progressRates);
+                let timeRemainingString = formatTime(estimatedTimeLeft);
                 document.getElementById('timer-val').innerText = timeRemainingString;
                 let now = new Date() / 1000;
                 console.log('Time: ' + formatTime(now));
-                console.log('Remaining: ' + timeRemainingString);
+                console.log('Elapsed time: ' + elapsedTime);
+                console.log('Remaining: ' + estimatedTimeLeft);
             }
             if (prog == 100) {
                     document.getElementById('timer-val').innerText = "";
@@ -144,8 +146,7 @@ function getTimeRemainingString(elapsedTime, progressRates) {
     let estimatedProgress = elapsedTime * currentProgressRate;
     let estimatedProgressLeft = 100 - estimatedProgress;
     let estimatedTimeLeft = estimatedProgressLeft / currentProgressRate;
-    let timeRemainingString = formatTime(estimatedTimeLeft);
-    return timeRemainingString;
+    return estimatedTimeLeft;
 }
 
 
