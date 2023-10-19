@@ -110,14 +110,14 @@ def get_file(content_type):
 
 def download_and_write_file(start_arg, q_params, content_type):
     """Loop through successive requests, transform results, write resulting rows to download file."""
-    tmpfile1 = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.txt')
+    preliminary_downloadfile = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.txt')
     # Create file if nonexisting to have a file to write to in case of an immediately failing/resuming download.
-    if not os.path.isfile(tmpfile1):
-        with open(tmpfile1, 'x') as _:  # 'x': create mode.
+    if not os.path.isfile(preliminary_downloadfile):
+        with open(preliminary_downloadfile, 'x') as _:  # 'x': create mode.
             pass
-    tmpfile2 = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.done.txt')
-    max_match = process_queries(app, tmpfile1, tmpfile2, content_type, start_arg, q_params, Opts)
-    expand_rows_and_rewrite_w_bom(tmpfile1, tmpfile2, max_match, q_params, Opts)
+    final_downloadfile = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.done.txt')
+    max_match = process_queries(app, preliminary_downloadfile, content_type, start_arg, q_params, Opts)
+    expand_rows_and_rewrite_w_bom(preliminary_downloadfile, final_downloadfile, max_match, q_params, Opts)
     Opts.progress_store[q_params.get("uid")] = 100
     app.logger.info(f'Completed percent 100!')
 

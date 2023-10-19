@@ -16,7 +16,7 @@ from korpexport.format.delimited import KorpExportFormatterCSV
 from korpexport_overrides.overrides import format_sentence_override
 
 
-def process_queries(app, tmpfile1, tmpfile2, content_type, start_arg, query_params, opts):
+def process_queries(app, preliminary_downloadfile, content_type, start_arg, query_params, opts):
     """Send successive requests to the backend until all rows have been fetched or the limit is reached.
     Transform the data from each reques, and append the result to a tempfile.
     Keep track of the number of match tokens in the data fetched, and return the value for the widest
@@ -24,7 +24,7 @@ def process_queries(app, tmpfile1, tmpfile2, content_type, start_arg, query_para
     uid = query_params.get('uid')
     korp_hits_display = int(query_params.get('hits_display', 0))  # Total hits according to Korp search.
     overall_max_match = 0  # Maximal number of match tokens seen in the data
-    with open(tmpfile1, 'a') as downloadfile:
+    with open(preliminary_downloadfile, 'a') as downloadfile:
         while start_arg <= korp_hits_display or start_arg < opts.max_rows:
             if start_arg > opts.max_rows:
                 # TODO Add additional logic to return at most <max_rows> rows, but also not less!
@@ -42,7 +42,7 @@ def process_queries(app, tmpfile1, tmpfile2, content_type, start_arg, query_para
                                                                           start_arg, query_params, opts)
                     downloadfile.write(transformed_data)
                     overall_max_match = max_match if max_match > overall_max_match else overall_max_match
-                    update_progress(app, start_arg, query_params, content_type, tmpfile2, opts)
+                    update_progress(app, start_arg, query_params, content_type, preliminary_downloadfile, opts)
                     start_arg += opts.rows_per_request
                 except Exception as e:
                     opts.status_store[uid] = f'Aborted. Error: {type(e).__name__}: {e}'
