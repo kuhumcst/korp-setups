@@ -36,7 +36,7 @@ def process_queries(app, preliminary_downloadfile, content_type, start_arg, quer
             else:
                 try:
                     url = _build_url(start_arg, query_params, opts)
-                    tf_name = _fetch_to_tempfile(app, url, opts)
+                    tf_name = _fetch_to_tempfile(app, url, uid, opts)
                     app.logger.info(f'UID {uid}: Got filename: {tf_name}')
                     transformed_data, max_match = _transform_backend_data(app, tf_name, content_type,
                                                                           start_arg, query_params, opts)
@@ -58,11 +58,11 @@ def _build_url(start_arg, query_params, opts):
     return url
 
 
-def _fetch_to_tempfile(app, url, opts):
+def _fetch_to_tempfile(app, url, uid, opts):
     """Get data from Korp backend, and write them to a temp file. Return the name of the tempfile."""
     client = httpx.Client()
     app.logger.info(f'Fetching data from URL: {url}.')
-    tf = tempfile.NamedTemporaryFile(delete=False, dir=opts.temp_datadir)
+    tf = tempfile.NamedTemporaryFile(delete=False, dir=opts.temp_datadir, suffix=f'_{uid}.txt')
     with tf as temp_file:
         with client.stream("GET", url) as response:
             chunk_no = 1

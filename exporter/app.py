@@ -32,7 +32,7 @@ class Opts:
     query_endpoint = 'http://backend:1234/query?'
     temp_datadir = '/var/tmp/data'  # Dir for temp files from successive requests. (Note: Map to Docker host volume!).
     temp_outdir = '/var/tmp/output'  # Dir for the temp output file for download. (Note: Map to Docker host volume!).
-    n_tempfiles_to_keep = 10  # Number of data and output temp files to keep when cleaning up old temp files.
+    n_tempfiles_to_keep = 50  # Number of data and output temp files to keep when cleaning up old temp files.
     max_rows = 500000  # Our imposed row download limit.
     rows_per_request = 100  # How many rows to get from backend at a time. (1000 yields some retries, but not too many).
     skip_n_rows = 0  # How many rows to skip in subsequent chunks after the first one.
@@ -98,7 +98,6 @@ def resume_download(uid):
 def get_file(content_type):
     """Generate file downloads in various formats via Jyrki's korpexport package. (Only CSV for now though)."""
     start_time = datetime.now()
-    remove_old_tempfiles(Opts.temp_datadir, max_files=Opts.n_tempfiles_to_keep)
     remove_old_tempfiles(Opts.temp_outdir, max_files=Opts.n_tempfiles_to_keep)
     query_params = dict(request.args)
     start_arg = 0
@@ -110,15 +109,18 @@ def get_file(content_type):
 
 def download_and_write_file(start_arg, q_params, content_type):
     """Loop through successive requests, transform results, write resulting rows to download file."""
-    preliminary_downloadfile = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.txt')
+    uid = q_params.get("uid")
+    preliminary_downloadfile = os.path.join(Opts.temp_outdir, f'{uid}.txt')
     # Create file if nonexisting to have a file to write to in case of an immediately failing/resuming download.
     if not os.path.isfile(preliminary_downloadfile):
         with open(preliminary_downloadfile, 'x') as _:  # 'x': create mode.
             pass
-    final_downloadfile = os.path.join(Opts.temp_outdir, f'{q_params.get("uid")}.done.txt')
+    final_downloadfile = os.path.join(Opts.temp_outdir, f'{uid}.done.txt')
     max_match = process_queries(app, preliminary_downloadfile, content_type, start_arg, q_params, Opts)
     expand_rows_and_rewrite_w_bom(preliminary_downloadfile, final_downloadfile, max_match, q_params, Opts)
-    Opts.progress_store[q_params.get("uid")] = 100
+    Opts.progress_store[uid] = 100
+    remove_old_tempfiles_uid_based(Opts.temp_datadir, globpattern=f'*_{uid}.txt')
+    remove_old_tempfiles_uid_based(Opts.temp_outdir, globpattern=f'{uid}.txt')
     app.logger.info(f'Completed percent 100!')
 
 
@@ -161,6 +163,14 @@ def remove_old_tempfiles(directory, max_files):
         app.logger.info(f'Removing old tempfiles from {directory}: ' +
                         ', '.join([os.path.basename(f) for f in sorted_files]))
         [os.remove(file) for file in sorted_files]
+
+
+def remove_old_tempfiles_uid_based(directory, globpattern):
+	"""Clean up tempfiles based on uid."""
+	files = glob.glob(os.path.join(directory, globpattern))
+	app.logger.info(f'Removing old tempfiles from {directory}: ' +
+                    ', '.join([os.path.basename(f) for f in files]))
+	[os.remove(file) for file in files]
 
 
 if __name__ == '__main__':
