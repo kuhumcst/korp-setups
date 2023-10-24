@@ -34,10 +34,10 @@ services:
       # <host port>:<docker port>! 5000: Flask app default port
       - "15005:5000"
   exporter:
-    build: exporter/
+    build: ../../exporter/
     ports:
       # Korp frontend server
       - "14000:4000"
     volumes:
-      - ./exporter/hostvar/tmp/data:/var/tmp/data
-      - ./exporter/hostvar/tmp/output:/var/tmp/output
+      - ./../../exporter/hostvar/tmp/data:/var/tmp/data
+      - ./../../exporter/hostvar/tmp/output:/var/tmp/output

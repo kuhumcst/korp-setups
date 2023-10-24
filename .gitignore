@@ -10,3 +10,5 @@ setups/threats/corpora/transformation/threats
 setups/threats/corpora/data
 setups/threats/corpora/registry
 
+exporter/hostvar/
+
