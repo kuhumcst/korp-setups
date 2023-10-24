@@ -12,18 +12,18 @@ RUN apt-get update && \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies - so few we don't care about requirements.txt
-RUN git clone https://github.com/phildiderichsen/Kielipankki-korp-backend-fork.git
-RUN pip install Kielipankki-korp-backend-fork/
-RUN pip install flask==2.3.2 Flask-SocketIO==5.3.5 requests gevent==23.7.0 gevent-websocket==0.10.1 httpx
-
-
-# Copy the application code and the templates dir to the container
+# Copy the application code etc. to the container
 COPY app.py .
+COPY requirements.txt .
 COPY download_utils download_utils
 COPY korpexport_overrides korpexport_overrides
 COPY templates templates
 COPY static static
+
+# Install Python dependencies
+RUN git clone https://github.com/phildiderichsen/Kielipankki-korp-backend-fork.git
+RUN pip install Kielipankki-korp-backend-fork/
+RUN pip install -r requirements.txt
 
 # Run the Flask app
 CMD ["python3", "app.py"]
