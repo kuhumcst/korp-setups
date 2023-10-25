@@ -90,7 +90,6 @@ def resume_download(uid):
     content_type = start_arg_data.get('ctype', '')
     logging.warning(f'Resuming download from start_arg {start_arg}.')
     Opts.status_store[uid] = 'Resumed'
-    Opts.progress_store[uid] = 0
     Greenlet.spawn(download_and_write_file, start_arg, query_params, content_type)
 
 
