@@ -41,6 +41,7 @@ def process_queries(app, preliminary_downloadfile, content_type, start_arg, quer
                     transformed_data, max_match = _transform_backend_data(app, tf_name, content_type,
                                                                           start_arg, query_params, opts)
                     downloadfile.write(transformed_data)
+                    os.remove(tf_name)
                     overall_max_match = max_match if max_match > overall_max_match else overall_max_match
                     update_progress(app, start_arg, query_params, content_type, preliminary_downloadfile, opts)
                     start_arg += opts.rows_per_request

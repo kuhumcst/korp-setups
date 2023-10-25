@@ -119,6 +119,7 @@ def download_and_write_file(start_arg, q_params, content_type):
     max_match = process_queries(app, preliminary_downloadfile, content_type, start_arg, q_params, Opts)
     expand_rows_and_rewrite_w_bom(preliminary_downloadfile, final_downloadfile, max_match, q_params, Opts)
     Opts.progress_store[uid] = 100
+    # Next line may seem unnecessary but is used to remove empty files created when resuming downloads.
     remove_old_tempfiles_uid_based(Opts.temp_datadir, globpattern=f'*_{uid}.txt')
     remove_old_tempfiles_uid_based(Opts.temp_outdir, globpattern=f'{uid}.txt')
     app.logger.info(f'Completed percent 100!')
