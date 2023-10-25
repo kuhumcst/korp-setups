@@ -138,5 +138,7 @@ def update_progress(app, start_arg, query_params, content_type, outfile, opts):
     if completed_rows > korp_hits_display:
         completed_rows = korp_hits_display
     completed_percent = completed_rows / korp_hits_display * 100
+    if completed_percent == 100:
+        completed_percent = 99.9  # Defer signalling completion to after expand_rows_and_rewrite_w_bom()
     app.logger.info(f'Actual completed percent: {completed_percent}')
     opts.progress_store[query_id] = completed_percent  # Set actual percentage when actual chunk is done
