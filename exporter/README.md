@@ -1,7 +1,19 @@
 # Exporter
 
-A Flask app for downloading all KWIC results from Korp.
+An extension to Korp in the form of a Flask app for downloading all KWIC results.
 Philip Diderichsen, 2023
+
+
+
+
+## Note
+The exporter is now a part of the overall infrastructure.
+More specifically, the overall `frontend/app/scripts/result_controllers.js` assumes it exists:
+It specifies an option for downloading all KWIC results in the "Download hit page as ..." menu.
+This means a few things are required:
+
+- The docker-compose.yml file of each specific setup needs to specify the exporter as a service.
+- The web server on the relevant server (Apache or Nginx) needs to reverse proxy the exporter properly.
 
 
 
