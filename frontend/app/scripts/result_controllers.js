@@ -280,12 +280,35 @@ class KwicCtrl {
                 // { value: "oldkwic/csv", label: "download_kwic_csv" },
                 // { value: "oldkwic/tsv", label: "download_kwic_tsv" },
                 { value: "kwic/csv", label: "download_customkwic_csv" },
+                { value: "kwic/all_csv", label: "download_all_kwic_csv" },
                 { value: "kwic/tsv", label: "download_customkwic_tsv" },
                 { value: "annotations/csv", label: "download_annotations_csv", disabled: isParallelMode },
                 { value: "annotations/tsv", label: "download_annotations_tsv", disabled: isParallelMode },
             ],
             selected: "",
             init: (value, hitsDisplay) => {
+                if (value === "kwic/all_csv") {
+                    // Send a request to the backend download API by creating a
+                    // temporary <a> element and clicking it.
+                    const cleanHitsDisplay = hitsDisplay.replace(/<[^>]+>/g, '').replace(/[^\d-]/g, '');
+                    const link = document.createElement("a");
+                    link.setAttribute("target", "_blank");
+                    document.body.appendChild(link);
+                    var loc_orig = window.location.origin;
+                    // Hack for local use ...
+                    if (loc_orig.indexOf("9111") >= 0) loc_orig = loc_orig.replace('9111', '4000');
+                    const url_search = document.getElementById('json-link').search.split('?')[1];
+                    const downloadUrl = loc_orig + window.location.pathname + "download/csv?" + url_search + "&hits_display=" + cleanHitsDisplay;
+                    //const downloadUrl = "http://localhost:14000/download/csv?default_context=1%20sentence&show=sentence%2Ctext%2Cipa%2Cttt%2Credpos%2Cpos%2Cspeaker%2Ccolorcombo_bg%2Ccolorcombo_border%2Ccolorcombo_fg%2Cinformanter_koen%2Cinformanter_foedselsaar%2Ctaleralder%2Cinformanter_generation%2Cinformanter_socialklasse%2Crolle%2Cinformanter_prioriteret%2Cinformanter_prioriteretekstra%2Ctext_enum%2Cturn_enum%2Cxmin%2Cxmax%2Cxlength%2Cturnummer%2Ctalekilde%2Cturnmin%2Cturnmax%2Cturnduration%2Caktivitetstype%2Cgenre%2Cinteraktionsstruktur%2Cmakroxsproghandling%2Csamtaletype%2Cudsigelse%2Ciivxaigxkommentarer%2Ciivxsmuxkommentarer%2Ciivxsmulxkommentarer%2Cajmarkering%2Cammarkering%2Canrmarkering%2Canmarkering%2Cengmarkering%2Crumarkering%2Cphonetic%2Ccomments%2Cgenerisk%2Cevents%2Cgramma_ii%2Cgrammatik%2Cuncertainxtranscription&show_struct=corpus_label%2Ctext_size%2Ctext_textmin%2Ctext_textmax%2Ctext_textduration%2Ctext_filename%2Ctext_datefrom%2Ctext_timefrom%2Ctext_dateto%2Ctext_timeto%2Ctext_oldnew%2Ctext_samtaler_dato%2Ctext_samtaler_projekt%2Ctext_samtaler_samtaletype%2Ctext_samtaler_eksplorativ%2Ctext_samtaler_korrektur%2Ctext_samtaler_prioriteret%2Ctext_samtaler_prioriteretekstra%2Ctext_projekter_name&start=0&end=24&corpus=LANCHART_CLARIN&cqp=%5Bword%20%3D%20%22ikke%22%5D&query_data=&context=LANCHART_CLARIN%3A3%20sentence&incremental=true&default_within=text&within=";
+                    console.log(downloadUrl);
+                    link.href = downloadUrl;
+                    link.click();
+                    // Clean up the temporary <a> element
+                    document.body.removeChild(link);
+                    // Clear the selection and return
+                    s.download.selected = "";
+                    return;
+                }
                 if (s.download.blobName) {
                     URL.revokeObjectURL(s.download.blobName)
                 }
