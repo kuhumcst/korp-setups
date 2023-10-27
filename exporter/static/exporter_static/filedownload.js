@@ -7,8 +7,21 @@ function downloadButtonClick(socket) {
     document.getElementById('download-button').disabled = true;
     let uniqueId = generateUniqueId();
     console.log('UID: ' + uniqueId);
+    var newSearchString = window.location.search;
+    // Specify token variables to include
+    let tokenVarValues = getOptgroupChoicesURIstring("token-vars");
+    let tokenRegex = new RegExp("show=[^&]+");
+    if (tokenVarValues) {
+        newSearchString = newSearchString.replace(tokenRegex, "show=" + tokenVarValues);
+    }
+    // Specify structural variables to include
+    let structVarValues = getOptgroupChoicesURIstring("struct-vars");
+    let structRegex = new RegExp("show_struct=[^&]+");
+    if (structVarValues) {
+        newSearchString = newSearchString.replace(structRegex, "show_struct=" + structVarValues);
+    }
     // Initiate the download by calling the /getfile endpoint
-    fetch('/getfile/csv' + window.location.search + '&uid=' + uniqueId)
+    fetch('/getfile/csv' + newSearchString + '&uid=' + uniqueId)
         .then(response => response.json())
         .then(data => {
             // Check the status and start tracking progress
@@ -17,6 +30,19 @@ function downloadButtonClick(socket) {
             }
         })
         .catch(error => console.error('An error occurred:', error));
+}
+
+
+function getOptgroupChoicesURIstring(OptgroupID) {
+    // Get selected values of a multi-select menu optgroup as a comma-separated, URI encoded list.
+    var optgroup = document.getElementById(OptgroupID);
+    var selectedValues = [];
+    for (var i = 0; i < optgroup.children.length; i++) {
+        if (optgroup.children[i].selected) {
+            selectedValues.push(optgroup.children[i].value);
+        }
+    }
+    return encodeURIComponent(selectedValues.join(','));
 }
 
 

@@ -20,13 +20,37 @@
                 infotext += "<tr><td>CQP-søgning</td><td>" + cqp_query + "</td></tr>";
                 infotext += "<tr><td>Rækker i resultat</td><td>" + rows_to_download + "</td></tr>";
                 infotext += "</table>";
+                let infotext2 = "";
                 if (rows_to_download > max_rows_to_download) {
-                    infotext += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage noget tid. Luk ikke dette vindue før downloaden er færdig.</p>";
+                    infotext2 += "<p>Klik her for at downloade. Der er over " + max_rows_to_download + " rækker, så downloaden vil tage noget tid. Luk ikke dette vindue før downloaden er færdig.</p>";
                 }
                 else {
-                    infotext += "<p>Klik her for at downloade.</p>";
+                    infotext2 += "<p>Klik her for at downloade.</p>";
                 }
                 document.getElementById('download-info').innerHTML = "<div>" + infotext + "</div>";
+                document.getElementById('download-info2').innerHTML = "<div>" + infotext2 + "</div>";
+                populateMultiselects(params, "show", "token-vars", "Ordvariable");
+                populateMultiselects(params, "show_struct", "struct-vars", "Tekstvariable");
+            }
+            function populateMultiselects(params, paramName, optGroupId, optGroupLabel) {
+                // Populate multi-select menu with tiers/columns to include in the download (from the URL).
+                let paramValue = params.get(paramName);
+                if (paramValue) {
+                    const items = paramValue.split(',');
+                    const multiSelect = document.getElementById('multiSelect');
+                    // Create optgroup with heading
+                    let optgroup = document.createElement('optgroup');
+                    optgroup.setAttribute("id", optGroupId);
+                    optgroup.setAttribute("label", optGroupLabel);
+                    multiSelect.appendChild(optgroup);
+                    // Populate the optgroup with options
+                    for (let item of items) {
+                        let option = document.createElement('option');
+                        option.value = item;
+                        option.textContent = item;
+                        optgroup.appendChild(option);
+                    }
+                }
             }
         </script>
         <script>
@@ -62,8 +86,12 @@
         <div class="horiz">
             <img id="korp-logo" src="{{ url_for('static', filename='exporter_static/korplogo_block.db177a1d036f200438dad73a155a93d9.svg') }}" />
         </div>
-
         <div id="download-info"></div>
+        <p>Vælg en eller flere variable der skal med i datasættet (ctrl+klik på Windows, cmd+klik på Mac). Vælges ingen ordvariable, kommer alle ordvariable med. Vælges ingen tekstvariable, kommer alle tekstvariable med.</p>
+        <p id="tier-selector">
+            <select id="multiSelect" multiple="multiple"></select>
+        </p>
+        <div id="download-info2"></div>
         <div id="download-section">
             <div>
                 <button id="download-button">Download data</button>

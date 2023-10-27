@@ -27,9 +27,17 @@
             .small-info {
                 font-size: .75em;
             }
+            #tier-selector {
+                margin-top: -6px;
+            }
+            #multiSelect {
+                border: 1px solid #444444;
+                overflow: auto;
+            }
             #download-section {
                 display: flex;
                 align-items: center;
+                margin-top: -6px;
             }
             #download-button {
                 width: 115px;
