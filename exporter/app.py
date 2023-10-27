@@ -19,7 +19,8 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 socketio = SocketIO(app,
                     async_mode='gevent',
-                    cors_allowed_origins=["http://localhost:14000",
+                    cors_allowed_origins=["http://localhost:4000",
+                                          "http://localhost:14000",
                                           "https://lanchartkorp.ku.dk",
                                           "https://lanchartpartitur.ku.dk",
                                           "https://alf.hum.ku.dk"],
