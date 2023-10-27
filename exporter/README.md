@@ -10,10 +10,12 @@ Philip Diderichsen, 2023
 The exporter is now a part of the overall infrastructure.
 More specifically, the overall `frontend/app/scripts/result_controllers.js` assumes it exists:
 It specifies an option for downloading all KWIC results in the "Download hit page as ..." menu.
-This means a few things are required:
+This means a few things are required for this not to be a dead end:
 
 - The docker-compose.yml file of each specific setup needs to specify the exporter as a service.
 - The web server on the relevant server (Apache or Nginx) needs to reverse proxy the exporter properly.
+- The relevant domain (e.g. "https://alf.hum.ku.dk") must be in `cors_allowed_origins` in app.py.
+
 
 
 

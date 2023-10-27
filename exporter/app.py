@@ -21,7 +21,8 @@ socketio = SocketIO(app,
                     async_mode='gevent',
                     cors_allowed_origins=["http://localhost:14000",
                                           "https://lanchartkorp.ku.dk",
-                                          "https://lanchartpartitur.ku.dk"],
+                                          "https://lanchartpartitur.ku.dk",
+                                          "https://alf.hum.ku.dk"],
                     logger=False,  # False is the default
                     engineio_logger=logging)  # False is default. Set to logging (not True) to avoid duplicate logs.
 

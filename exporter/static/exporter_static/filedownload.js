@@ -189,7 +189,7 @@ function updateProgress(uid, data, progressInterval, socket) {
 function fileDownload(uniqueId) {
     // Do the actual file download
     setTimeout(function() {
-        let downloadUrl = '/download2/' + uniqueId;
+        let downloadUrl = (window.location.origin + window.location.pathname).replace("download/csv", "download2/") + uniqueId;
         // Create invisible link and "click" it to initiate download
         var link = document.createElement('a');
         link.href = downloadUrl;
