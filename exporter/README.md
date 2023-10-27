@@ -20,6 +20,12 @@ This means a few things are required for this not to be a dead end:
 
 
 
+## TODO
+- There is a bug messing things up when case insensitive search is used (the switch "%c" in the cqp search).
+
+
+
+
 ## Important files
 - `app.py`: The app itself.
 - `download_utils/`: Python package with modules for getting and postprocessing data.
