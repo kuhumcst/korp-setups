@@ -30,8 +30,8 @@ def format_sentence_override(self, sentence, **kwargs):
     struct_attrs = [s_attrs_in_data.get(k, '') for k in requested_s_attrs]
     struct_attrs_str = s_attr_sep.join(struct_attrs)
 
-    left_words_str = ' '.join([d['word'] for d in left_toks])
-    match_words_str = group_sep.join([d['word'] for d in match_toks])
-    right_words_str = ' '.join([d['word'] for d in right_toks])
+    left_words_str = ' '.join([d['word'] if d['word'] else '▯' for d in left_toks])
+    match_words_str = group_sep.join([d['word'] if d['word'] else '▯' for d in match_toks])
+    right_words_str = ' '.join([d['word'] if d['word'] else '▯' for d in right_toks])
     separated_sentence = sep.join([left_words_str, match_words_str, right_words_str, match_tags_str, struct_attrs_str])
     return f'{sentence["corpus"]}{sep}{separated_sentence}'
