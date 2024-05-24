@@ -193,8 +193,8 @@ settings.corpora.memo_all = {
         id : "memo_all",
         title : "MEMO_ALL",
         description : "The MEMO_ALL corpus.",
-        within : { "text": "text" },
-        context : { "20 words": "20 words" },
+        within : { "text": "text", "paragraph": "paragraph", "sentence": "sentence" },
+        context : { "1 sentence": "1 sentence" },
         attributes : {
             normalized: { label: "memo_all_normalized", opts: settings.defaultOptions, order: 1 },
             lemma: { label: "memo_all_lemma", opts: settings.defaultOptions, order: 2 },
