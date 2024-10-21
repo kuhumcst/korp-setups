@@ -423,111 +423,252 @@ var lanchart_phonetic = { label: "phonetic",
 var lanchart_emphasis = { label: "emphasis",
     opts: settings.defaultOptions, 
     order: 49 };
-var lanchart_atxtabxekspl = { label: "atxtabxekspl",
+var lanchart_at = { label: "at",
     opts: settings.defaultOptions, 
     order: 50 };
-var lanchart_atxtabxeksplxkomm = { label: "atxtabxeksplxkomm",
+var lanchart_atxtabxadj = { label: "atxtabxadj",
     opts: settings.defaultOptions, 
     order: 51 };
-var lanchart_languagexrevised = { label: "languagexrevised",
+var lanchart_atxtabxekspl = { label: "atxtabxekspl",
     opts: settings.defaultOptions, 
     order: 52 };
-var lanchart_languagexstated = { label: "languagexstated",
+var lanchart_atxtabxeksplxkomm = { label: "atxtabxeksplxkomm",
     opts: settings.defaultOptions, 
     order: 53 };
-var lanchart_syntax = { label: "syntax",
+var lanchart_atxtabxkunnehuske = { label: "atxtabxkunnehuske",
     opts: settings.defaultOptions, 
     order: 54 };
-var lanchart_kontekstxfonetik = { label: "kontekstxfonetik",
+var lanchart_atxtabxmene = { label: "atxtabxmene",
     opts: settings.defaultOptions, 
     order: 55 };
-var lanchart_variantxfonetik = { label: "variantxfonetik",
+var lanchart_atxtabxmenexkomm = { label: "atxtabxmenexkomm",
     opts: settings.defaultOptions, 
     order: 56 };
-var lanchart_variantxfonetikxkontekstxrealiseret = { label: "variantxfonetikxkontekstxrealiseret",
+var lanchart_atxtabxnogetmed = { label: "atxtabxnogetmed",
     opts: settings.defaultOptions, 
     order: 57 };
-var lanchart_variantxfonetikxkontekstxforventet = { label: "variantxfonetikxkontekstxforventet",
+var lanchart_atxtabxsige = { label: "atxtabxsige",
     opts: settings.defaultOptions, 
     order: 58 };
-var lanchart_variantxfonetikxr = { label: "variantxfonetikxr",
+var lanchart_atxtabxsigexkomm = { label: "atxtabxsigexkomm",
     opts: settings.defaultOptions, 
     order: 59 };
-var lanchart_ledsaet = { label: "ledsaet",
+var lanchart_atxtabxtro = { label: "atxtabxtro",
     opts: settings.defaultOptions, 
     order: 60 };
-var lanchart_kl = { label: "kl",
+var lanchart_atxtabxtroxkomm = { label: "atxtabxtroxkomm",
     opts: settings.defaultOptions, 
     order: 61 };
-var lanchart_kl1 = { label: "kl1",
+var lanchart_atxtabxvide = { label: "atxtabxvide",
     opts: settings.defaultOptions, 
     order: 62 };
-var lanchart_leksisxogxfraser = { label: "leksisxogxfraser",
+var lanchart_atxtabxvidexkomm = { label: "atxtabxvidexkomm",
     opts: settings.defaultOptions, 
     order: 63 };
-var lanchart_aabaal_prxposition = { label: "aabaal_prxposition",
+var lanchart_languagexrevised = { label: "languagexrevised",
     opts: settings.defaultOptions, 
     order: 64 };
-var lanchart_aabaal_enendelser = { label: "aabaal_enendelser",
+var lanchart_languagexstated = { label: "languagexstated",
     opts: settings.defaultOptions, 
     order: 65 };
-var lanchart_aabaal_endelser = { label: "aabaal_endelser",
+var lanchart_syntax = { label: "syntax",
     opts: settings.defaultOptions, 
     order: 66 };
-var lanchart_aabaal_or = { label: "aabaal_or",
-    opts: settings.defaultOptions, 
+var lanchart_commentsxglobal = { label: "commentsxglobal",
+    opts: settings.defaultOptions, displayType: "hidden",
     order: 67 };
-var lanchart_aabaal_ordmarkering = { label: "aabaal_ordmarkering",
-    opts: settings.defaultOptions, 
+var lanchart_globalxturn = { label: "globalxturn",
+    opts: settings.defaultOptions, displayType: "hidden",
     order: 68 };
-var lanchart_aux = { label: "aux",
-    opts: settings.defaultOptions, 
+var lanchart_globalxsync = { label: "globalxsync",
+    opts: settings.defaultOptions, displayType: "hidden",
     order: 69 };
-var lanchart_case = { label: "case",
+var lanchart_kontekstxfonetik = { label: "kontekstxfonetik",
     opts: settings.defaultOptions, 
     order: 70 };
-var lanchart_comments = { label: "comments",
+var lanchart_variantxfonetik = { label: "variantxfonetik",
     opts: settings.defaultOptions, 
     order: 71 };
-var lanchart_generisk = { label: "generisk",
+var lanchart_variantxfonetikxkontekstxrealiseret = { label: "variantxfonetikxkontekstxrealiseret",
     opts: settings.defaultOptions, 
     order: 72 };
-var lanchart_gex = { label: "gex",
+var lanchart_variantxfonetikxkontekstxforventet = { label: "variantxfonetikxkontekstxforventet",
     opts: settings.defaultOptions, 
     order: 73 };
-var lanchart_giddy = { label: "giddy",
+var lanchart_variantxfonetikxr = { label: "variantxfonetikxr",
     opts: settings.defaultOptions, 
     order: 74 };
-var lanchart_globalxevents = { label: "globalxevents",
+var lanchart_ledsaet = { label: "ledsaet",
     opts: settings.defaultOptions, 
     order: 75 };
-var lanchart_events = { label: "events",
+var lanchart_kl = { label: "kl",
     opts: settings.defaultOptions, 
     order: 76 };
-var lanchart_gramma_ii = { label: "gramma_ii",
+var lanchart_kl1 = { label: "kl1",
     opts: settings.defaultOptions, 
     order: 77 };
-var lanchart_grammatik = { label: "grammatik",
+var lanchart_leksisxogxfraser = { label: "leksisxogxfraser",
     opts: settings.defaultOptions, 
     order: 78 };
-var lanchart_kommentarer = { label: "kommentarer",
+var lanchart_ordmarkering = { label: "ordmarkering",
     opts: settings.defaultOptions, 
     order: 79 };
-var lanchart_part = { label: "part",
+var lanchart_ordmarkering_32 = { label: "ordmarkering_32",
     opts: settings.defaultOptions, 
     order: 80 };
-var lanchart_sh = { label: "sh",
+var lanchart_blodt_d = { label: "blodt_d",
     opts: settings.defaultOptions, 
     order: 81 };
-var lanchart_turn = { label: "turn",
+var lanchart_blodt_d_32 = { label: "blodt_d_32",
     opts: settings.defaultOptions, 
     order: 82 };
-var lanchart_uncertainxtranscription = { label: "uncertainxtranscription",
+var lanchart_skriftens_or = { label: "skriftens_or",
     opts: settings.defaultOptions, 
     order: 83 };
+var lanchart_endelser = { label: "endelser",
+    opts: settings.defaultOptions, 
+    order: 84 };
+var lanchart_endelser_32 = { label: "endelser_32",
+    opts: settings.defaultOptions, 
+    order: 85 };
+var lanchart_ikke = { label: "ikke",
+    opts: settings.defaultOptions, 
+    order: 86 };
+var lanchart_jeg = { label: "jeg",
+    opts: settings.defaultOptions, 
+    order: 87 };
+var lanchart_v = { label: "v",
+    opts: settings.defaultOptions, 
+    order: 88 };
+var lanchart_k = { label: "k",
+    opts: settings.defaultOptions, 
+    order: 89 };
+var lanchart_eevokalisme = { label: "eevokalisme",
+    opts: settings.defaultOptions, 
+    order: 90 };
+var lanchart_oovokalisme = { label: "oovokalisme",
+    opts: settings.defaultOptions, 
+    order: 91 };
+var lanchart_artikel = { label: "artikel",
+    opts: settings.defaultOptions, 
+    order: 92 };
+var lanchart_et = { label: "et",
+    opts: settings.defaultOptions, 
+    order: 93 };
+var lanchart_ede = { label: "ede",
+    opts: settings.defaultOptions, 
+    order: 94 };
+var lanchart_blxdtxd = { label: "blxdtxd",
+    opts: settings.defaultOptions, 
+    order: 95 };
+var lanchart_stxdafv = { label: "stxdafv",
+    opts: settings.defaultOptions, 
+    order: 96 };
+var lanchart_fynskxint = { label: "fynskxint",
+    opts: settings.defaultOptions, 
+    order: 97 };
+var lanchart_palatalisering = { label: "palatalisering",
+    opts: settings.defaultOptions, 
+    order: 98 };
+var lanchart_leksis = { label: "leksis",
+    opts: settings.defaultOptions, 
+    order: 99 };
+var lanchart_v2xxv3 = { label: "v2xxv3",
+    opts: settings.defaultOptions, 
+    order: 100 };
+var lanchart_grammxxkxn = { label: "grammxxkxn",
+    opts: settings.defaultOptions, 
+    order: 101 };
+var lanchart_prxp = { label: "prxp",
+    opts: settings.defaultOptions, 
+    order: 102 };
+var lanchart_mglxvokalkontrast = { label: "mglxvokalkontrast",
+    opts: settings.defaultOptions, 
+    order: 103 };
+var lanchart_fortsxtterint = { label: "fortsxtterint",
+    opts: settings.defaultOptions, 
+    order: 104 };
+var lanchart_ustemtxr = { label: "ustemtxr",
+    opts: settings.defaultOptions, 
+    order: 105 };
+var lanchart_aabaal_prxposition = { label: "aabaal_prxposition",
+    opts: settings.defaultOptions, 
+    order: 106 };
+var lanchart_aabaal_enendelser = { label: "aabaal_enendelser",
+    opts: settings.defaultOptions, 
+    order: 107 };
+var lanchart_aabaal_endelser = { label: "aabaal_endelser",
+    opts: settings.defaultOptions, 
+    order: 108 };
+var lanchart_aabaal_or = { label: "aabaal_or",
+    opts: settings.defaultOptions, 
+    order: 109 };
+var lanchart_aabaal_ordmarkering = { label: "aabaal_ordmarkering",
+    opts: settings.defaultOptions, 
+    order: 110 };
+var lanchart_aux = { label: "aux",
+    opts: settings.defaultOptions, 
+    order: 111 };
+var lanchart_case = { label: "case",
+    opts: settings.defaultOptions, 
+    order: 112 };
+var lanchart_comments = { label: "comments",
+    opts: settings.defaultOptions, 
+    order: 113 };
+var lanchart_epistsxtn = { label: "epistsxtn",
+    opts: settings.defaultOptions, 
+    order: 114 };
+var lanchart_semvar = { label: "semvar",
+    opts: settings.defaultOptions, 
+    order: 115 };
+var lanchart_generisk = { label: "generisk",
+    opts: settings.defaultOptions, 
+    order: 116 };
+var lanchart_gex = { label: "gex",
+    opts: settings.defaultOptions, 
+    order: 117 };
+var lanchart_giddy = { label: "giddy",
+    opts: settings.defaultOptions, 
+    order: 118 };
+var lanchart_globalxevents = { label: "globalxevents",
+    opts: settings.defaultOptions, 
+    order: 119 };
+var lanchart_events = { label: "events",
+    opts: settings.defaultOptions, 
+    order: 120 };
+var lanchart_gramma_ii = { label: "gramma_ii",
+    opts: settings.defaultOptions, 
+    order: 121 };
+var lanchart_grammatik = { label: "grammatik",
+    opts: settings.defaultOptions, 
+    order: 122 };
+var lanchart_kommentarer = { label: "kommentarer",
+    opts: settings.defaultOptions, 
+    order: 123 };
+var lanchart_ordstil = { label: "ordstil",
+    opts: settings.defaultOptions, 
+    order: 124 };
+var lanchart_part = { label: "part",
+    opts: settings.defaultOptions, 
+    order: 125 };
+var lanchart_sh = { label: "sh",
+    opts: settings.defaultOptions, 
+    order: 126 };
+var lanchart_trxdk = { label: "trxdk",
+    opts: settings.defaultOptions, 
+    order: 127 };
+var lanchart_turn = { label: "turn",
+    opts: settings.defaultOptions, 
+    order: 128 };
+var lanchart_uncertainxtranscription = { label: "uncertainxtranscription",
+    opts: settings.defaultOptions, 
+    order: 129 };
+var lanchart_variantxleksikalsk = { label: "variantxleksikalsk",
+    opts: settings.defaultOptions, displayType: "hidden",
+    order: 130 };
 var lanchart_sync = { label: "sync",
     opts: settings.defaultOptions, displayType: "hidden",
-    order: 84 };
+    order: 131 };
 
 console.log('Mode file: Individual corpus configs');
 
@@ -535,7 +676,7 @@ console.log('Mode file: Individual corpus configs');
 settings.corpora.lanchart_amager = {
     id : "lanchart_amager",
     title : "LANCHART_AMAGER",
-    description : "Korpus af udskrifterne fra Amager-projektet: Amager3: Optagelser fra 2009-2011",
+    description : "Korpus af udskrifterne fra Amager-projektet: Amager3: Optagelser fra 2009-2011 | Amager4: Optagelser fra 2011-2013.",
     within :  {"text": "text", "sentence": "sentence"},
     context : {"3 sentence": "3 sentence"}, //defaultContext,
     attributes : {
@@ -576,13 +717,18 @@ settings.corpora.lanchart_amager = {
         iivxaigxkommentarer : lanchart_iivxaigxkommentarer,
         iivxsmuxkommentarer : lanchart_iivxsmuxkommentarer,
         phonetic : lanchart_phonetic,
+        aux : lanchart_aux,
         comments : lanchart_comments,
+        epistsxtn : lanchart_epistsxtn,
+        semvar : lanchart_semvar,
         generisk : lanchart_generisk,
         gex : lanchart_gex,
         giddy : lanchart_giddy,
+        globalxevents : lanchart_globalxevents,
         events : lanchart_events,
         gramma_ii : lanchart_gramma_ii,
         grammatik : lanchart_grammatik,
+        trxdk : lanchart_trxdk,
         turn : lanchart_turn,
         uncertainxtranscription : lanchart_uncertainxtranscription,
         sync : lanchart_sync
@@ -615,7 +761,7 @@ settings.corpora.lanchart_amager = {
 settings.corpora.lanchart_amda = {
     id : "lanchart_amda",
     title : "LANCHART_AMDA",
-    description : "Korpus af udskrifterne fra Amerikadansk-projektet",
+    description : "Korpus af udskrifterne fra Amerikadansk-projektet: AmDa-kbl: Danske Stemmer: Optagelser med danske emigranter i Amerika. Kbl er interviewerne, Iver Kjær (XIK) og Mogens Baumann Larsen (XBL). Optagelserne er primært fra 1970&#x27;erne. | AmDa-tk: Danske Stemmer: Samtaler med Tore Kristiansen og danske udvandere i Solvang, Californien. Optaget i 1990.",
     within :  {"text": "text", "sentence": "sentence"},
     context : {"3 sentence": "3 sentence"}, //defaultContext,
     attributes : {
@@ -648,6 +794,9 @@ settings.corpora.lanchart_amda = {
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
         phonetic : lanchart_phonetic,
+        languagexrevised : lanchart_languagexrevised,
+        languagexstated : lanchart_languagexstated,
+        syntax : lanchart_syntax,
         comments : lanchart_comments,
         events : lanchart_events,
         turn : lanchart_turn,
@@ -718,6 +867,7 @@ settings.corpora.lanchart_argda = {
         languagexrevised : lanchart_languagexrevised,
         languagexstated : lanchart_languagexstated,
         syntax : lanchart_syntax,
+        commentsxglobal : lanchart_commentsxglobal,
         comments : lanchart_comments,
         events : lanchart_events,
         turn : lanchart_turn,
@@ -852,6 +1002,8 @@ settings.corpora.lanchart_bylderup = {
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
         phonetic : lanchart_phonetic,
+        globalxturn : lanchart_globalxturn,
+        globalxsync : lanchart_globalxsync,
         comments : lanchart_comments,
         events : lanchart_events,
         turn : lanchart_turn,
@@ -886,7 +1038,7 @@ settings.corpora.lanchart_bylderup = {
 settings.corpora.lanchart_bysoc = {
     id : "lanchart_bysoc",
     title : "LANCHART_BYSOC",
-    description : "Korpus af udskrifterne fra BySoc-projektet",
+    description : "Korpus af udskrifterne fra BySoc-projektet: BySoc0:  | BySoc1: BySoc1gl er en københavnerundersøgelse med informanter mellem 25 og 40 år, da de blev optaget i 1987-89. Bysoc1ny er genoptagelser af 24 af disse oprindelige informanter 2005-06. | BySoc2: 19 informanter født mellem 1962 og 1973 (5 AK kvinder, 4 AK mænd, 5 MK kvinder og 5 MK mænd - alle mellem 14 og 14 år). ¶ Informanterne er optaget i 1987/88 og genoptaget i 2006/07. | BySoc3: ",
     within :  {"text": "text", "sentence": "sentence"},
     context : {"3 sentence": "3 sentence"}, //defaultContext,
     attributes : {
@@ -926,12 +1078,56 @@ settings.corpora.lanchart_bysoc = {
         udsigelse : lanchart_udsigelse,
         iivxaigxkommentarer : lanchart_iivxaigxkommentarer,
         iivxsmuxkommentarer : lanchart_iivxsmuxkommentarer,
+        iivxsmulxkommentarer : lanchart_iivxsmulxkommentarer,
+        iivxkommentarer : lanchart_iivxkommentarer,
+        ajmarkering : lanchart_ajmarkering,
+        ammarkering : lanchart_ammarkering,
+        anrmarkering : lanchart_anrmarkering,
+        anmarkering : lanchart_anmarkering,
+        engmarkering : lanchart_engmarkering,
+        rumarkering : lanchart_rumarkering,
+        wmarkering : lanchart_wmarkering,
+        dschwadmarkering : lanchart_dschwadmarkering,
         phonetic : lanchart_phonetic,
+        emphasis : lanchart_emphasis,
+        at : lanchart_at,
+        atxtabxadj : lanchart_atxtabxadj,
+        atxtabxekspl : lanchart_atxtabxekspl,
+        atxtabxeksplxkomm : lanchart_atxtabxeksplxkomm,
+        atxtabxkunnehuske : lanchart_atxtabxkunnehuske,
+        atxtabxmene : lanchart_atxtabxmene,
+        atxtabxmenexkomm : lanchart_atxtabxmenexkomm,
+        atxtabxnogetmed : lanchart_atxtabxnogetmed,
+        atxtabxsige : lanchart_atxtabxsige,
+        atxtabxsigexkomm : lanchart_atxtabxsigexkomm,
+        atxtabxtro : lanchart_atxtabxtro,
+        atxtabxtroxkomm : lanchart_atxtabxtroxkomm,
+        atxtabxvide : lanchart_atxtabxvide,
+        atxtabxvidexkomm : lanchart_atxtabxvidexkomm,
+        variantxfonetik : lanchart_variantxfonetik,
+        variantxfonetikxkontekstxrealiseret : lanchart_variantxfonetikxkontekstxrealiseret,
+        variantxfonetikxkontekstxforventet : lanchart_variantxfonetikxkontekstxforventet,
+        variantxfonetikxr : lanchart_variantxfonetikxr,
+        ledsaet : lanchart_ledsaet,
+        kl : lanchart_kl,
+        leksisxogxfraser : lanchart_leksisxogxfraser,
+        aux : lanchart_aux,
+        case : lanchart_case,
         comments : lanchart_comments,
+        epistsxtn : lanchart_epistsxtn,
+        semvar : lanchart_semvar,
+        generisk : lanchart_generisk,
+        gex : lanchart_gex,
         globalxevents : lanchart_globalxevents,
         events : lanchart_events,
+        gramma_ii : lanchart_gramma_ii,
         grammatik : lanchart_grammatik,
-        uncertainxtranscription : lanchart_uncertainxtranscription
+        kommentarer : lanchart_kommentarer,
+        ordstil : lanchart_ordstil,
+        part : lanchart_part,
+        sh : lanchart_sh,
+        uncertainxtranscription : lanchart_uncertainxtranscription,
+        variantxleksikalsk : lanchart_variantxleksikalsk
     },
     structAttributes : {
         corpus_id : lanchart_id,
@@ -961,7 +1157,7 @@ settings.corpora.lanchart_bysoc = {
 settings.corpora.lanchart_canda = {
     id : "lanchart_canda",
     title : "LANCHART_CANDA",
-    description : "Korpus af udskrifterne fra Canadadansk-projektet: CanDa-ch: Danske Stemmer: Optagelser fra sidst i 1990&#x27;erne i New Denmark, New Brunswick, Canada.  ¶ Optagelser fra Dr. Christian Hale, professor emeritus i Scandinavian Studies.",
+    description : "Korpus af udskrifterne fra Canadadansk-projektet: CanDa-ch: Danske Stemmer: Optagelser fra sidst i 1990&#x27;erne i New Denmark, New Brunswick, Canada.  ¶ Optagelser fra Dr. Christian Hale, professor emeritus i Scandinavian Studies. | CanDa: Danske Stemmer: Optagelser med dansktalende i Canada foretaget af Iver Kjær (XIK) og Mogens Baumann Larsen (XBL) i 1970&#x27;erne og 1980&#x27;erne. Alle informanter er generation 0 i DGCSS&#x27; generationsforståelse.",
     within :  {"text": "text", "sentence": "sentence"},
     context : {"3 sentence": "3 sentence"}, //defaultContext,
     attributes : {
@@ -1070,6 +1266,7 @@ settings.corpora.lanchart_clarin = {
         samtaletype : lanchart_samtaletype,
         udsigelse : lanchart_udsigelse,
         iivxaigxkommentarer : lanchart_iivxaigxkommentarer,
+        iivxsmuxkommentarer : lanchart_iivxsmuxkommentarer,
         iivxsmulxkommentarer : lanchart_iivxsmulxkommentarer,
         ajmarkering : lanchart_ajmarkering,
         ammarkering : lanchart_ammarkering,
@@ -1149,7 +1346,9 @@ settings.corpora.lanchart_familie = {
         comments : lanchart_comments,
         globalxevents : lanchart_globalxevents,
         events : lanchart_events,
-        uncertainxtranscription : lanchart_uncertainxtranscription
+        turn : lanchart_turn,
+        uncertainxtranscription : lanchart_uncertainxtranscription,
+        sync : lanchart_sync
     },
     structAttributes : {
         corpus_id : lanchart_id,
@@ -1295,9 +1494,12 @@ settings.corpora.lanchart_koege = {
         variantxfonetikxr : lanchart_variantxfonetikxr,
         ledsaet : lanchart_ledsaet,
         kl : lanchart_kl,
+        leksisxogxfraser : lanchart_leksisxogxfraser,
         comments : lanchart_comments,
         events : lanchart_events,
-        grammatik : lanchart_grammatik
+        grammatik : lanchart_grammatik,
+        trxdk : lanchart_trxdk,
+        uncertainxtranscription : lanchart_uncertainxtranscription
     },
     structAttributes : {
         corpus_id : lanchart_id,
@@ -1431,9 +1633,27 @@ settings.corpora.lanchart_modsjael = {
         turnmin : lanchart_turnmin,
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
+        aktivitetstype : lanchart_aktivitetstype,
+        genre : lanchart_genre,
+        interaktionsstruktur : lanchart_interaktionsstruktur,
+        makroxsproghandling : lanchart_makroxsproghandling,
+        samtaletype : lanchart_samtaletype,
+        udsigelse : lanchart_udsigelse,
         phonetic : lanchart_phonetic,
         emphasis : lanchart_emphasis,
+        atxtabxekspl : lanchart_atxtabxekspl,
+        atxtabxeksplxkomm : lanchart_atxtabxeksplxkomm,
+        globalxturn : lanchart_globalxturn,
+        globalxsync : lanchart_globalxsync,
+        variantxfonetik : lanchart_variantxfonetik,
+        variantxfonetikxkontekstxrealiseret : lanchart_variantxfonetikxkontekstxrealiseret,
+        variantxfonetikxkontekstxforventet : lanchart_variantxfonetikxkontekstxforventet,
+        variantxfonetikxr : lanchart_variantxfonetikxr,
+        ledsaet : lanchart_ledsaet,
+        kl : lanchart_kl,
+        leksisxogxfraser : lanchart_leksisxogxfraser,
         comments : lanchart_comments,
+        globalxevents : lanchart_globalxevents,
         events : lanchart_events,
         grammatik : lanchart_grammatik,
         sh : lanchart_sh,
@@ -1536,7 +1756,7 @@ settings.corpora.lanchart_munkebjerg = {
 settings.corpora.lanchart_naestved = {
     id : "lanchart_naestved",
     title : "LANCHART_NAESTVED",
-    description : "Korpus af udskrifterne fra Næstved-projektet: Næstved1: Tore Kristiansens Næstved-projekt, hvor de gamle optagelser, Næstved1gl, er lavet 1986-89. Informanterne fordeler sig på tre grupper:  ¶ a. Børnegruppen: 36 3.klasses-elever, der blev geninterviewet, da de gik i 9.klasse (nu Næstved25). ¶ b. Ungdomsgruppen: 39 unge fra 8 forskellige undomsuddannelsesinstitutioner, der blev interviewet én gang i 1986 (nu Næstved2). ¶ c. Voksengruppen: 48 voksne, der blev interviewet én gang i 1989 (nu Næstved1). ¶ I Næstved1ny er 34/48 vokseninformanter, 20/36 børneinformanter og 19/39 undomsinformanter geninterviewet.  ¶ Der er lavet en fokusgruppe på 24 af de oprindelige voksne, hvor der dog er suppleret med 5 nye informanter for at have en ligelig fordeling mellem alder, køn og social baggrund.",
+    description : "Korpus af udskrifterne fra Næstved-projektet: Næstved1: Tore Kristiansens Næstved-projekt, hvor de gamle optagelser, Næstved1gl, er lavet 1986-89. Informanterne fordeler sig på tre grupper:  ¶ a. Børnegruppen: 36 3.klasses-elever, der blev geninterviewet, da de gik i 9.klasse (nu Næstved25). ¶ b. Ungdomsgruppen: 39 unge fra 8 forskellige undomsuddannelsesinstitutioner, der blev interviewet én gang i 1986 (nu Næstved2). ¶ c. Voksengruppen: 48 voksne, der blev interviewet én gang i 1989 (nu Næstved1). ¶ I Næstved1ny er 34/48 vokseninformanter, 20/36 børneinformanter og 19/39 undomsinformanter geninterviewet.  ¶ Der er lavet en fokusgruppe på 24 af de oprindelige voksne, hvor der dog er suppleret med 5 nye informanter for at have en ligelig fordeling mellem alder, køn og social baggrund. | Næstved25: Tore Kristiansens Næstved-projekt, hvor de gamle optagelser, Næstved1gl, er lavet 1986-89. Informanterne fordeler sig på tre grupper:  ¶ a. Børnegruppen: 36 3.klasses-elever, der blev geninterviewet, da de gik i 9.klasse (nu Næstved25). ¶ b. Ungdomsgruppen: 39 unge fra 8 forskellige undomsuddannelsesinstitutioner, der blev interviewet én gang i 1986 (nu Næstved2). ¶ c. Voksengruppen: 48 voksne, der blev interviewet én gang i 1989 (nu Næstved1). ¶ I Næstved1ny er 34/48 vokseninformanter, 20/36 børneinformanter og 19/39 undomsinformanter geninterviewet.  ¶ Der er lavet en fokusgruppe på 24 af de oprindelige voksne, hvor der dog er suppleret med 5 nye informanter for at have en ligelig fordeling mellem alder, køn og social baggrund. | Næstved2: Tore Kristiansens Næstved-projekt, hvor de gamle optagelser, Næstved1gl, er lavet 1986-89. Informanterne fordeler sig på tre grupper:  ¶ a. Børnegruppen: 36 3.klasses-elever, der blev geninterviewet, da de gik i 9.klasse (nu Næstved25). ¶ b. Ungdomsgruppen: 39 unge fra 8 forskellige undomsuddannelsesinstitutioner, der blev interviewet én gang i 1986 (nu Næstved2). ¶ c. Voksengruppen: 48 voksne, der blev interviewet én gang i 1989 (nu Næstved1). ¶ I Næstved1ny er 34/48 vokseninformanter, 20/36 børneinformanter og 19/39 undomsinformanter geninterviewet.  ¶ Der er lavet en fokusgruppe på 24 af de oprindelige voksne, hvor der dog er suppleret med 5 nye informanter for at have en ligelig fordeling mellem alder, køn og social baggrund. | Næstved3: Optagelser med 9.klasses-elever fra fire skoler i Næstved og omegn. Optagelserne fra 2007 kaldes &quot;Næstved3gl&quot;, da informanterne er interviewet første gang her. ¶ Interviewere er Astrid Ag (XAG), Rikke Lange (XRL) og Andreas Stæhr (XAS).",
     within :  {"text": "text", "sentence": "sentence"},
     context : {"3 sentence": "3 sentence"}, //defaultContext,
     attributes : {
@@ -1574,6 +1794,9 @@ settings.corpora.lanchart_naestved = {
         makroxsproghandling : lanchart_makroxsproghandling,
         samtaletype : lanchart_samtaletype,
         udsigelse : lanchart_udsigelse,
+        iivxaigxkommentarer : lanchart_iivxaigxkommentarer,
+        iivxsmuxkommentarer : lanchart_iivxsmuxkommentarer,
+        iivxkommentarer : lanchart_iivxkommentarer,
         ajmarkering : lanchart_ajmarkering,
         ammarkering : lanchart_ammarkering,
         anrmarkering : lanchart_anrmarkering,
@@ -1584,19 +1807,30 @@ settings.corpora.lanchart_naestved = {
         dschwadmarkering : lanchart_dschwadmarkering,
         phonetic : lanchart_phonetic,
         emphasis : lanchart_emphasis,
+        atxtabxekspl : lanchart_atxtabxekspl,
+        atxtabxeksplxkomm : lanchart_atxtabxeksplxkomm,
         kontekstxfonetik : lanchart_kontekstxfonetik,
         variantxfonetik : lanchart_variantxfonetik,
+        variantxfonetikxkontekstxrealiseret : lanchart_variantxfonetikxkontekstxrealiseret,
+        variantxfonetikxkontekstxforventet : lanchart_variantxfonetikxkontekstxforventet,
+        variantxfonetikxr : lanchart_variantxfonetikxr,
+        ledsaet : lanchart_ledsaet,
+        kl : lanchart_kl,
+        leksisxogxfraser : lanchart_leksisxogxfraser,
         aux : lanchart_aux,
         case : lanchart_case,
         comments : lanchart_comments,
         generisk : lanchart_generisk,
         gex : lanchart_gex,
+        globalxevents : lanchart_globalxevents,
         events : lanchart_events,
         gramma_ii : lanchart_gramma_ii,
         grammatik : lanchart_grammatik,
         kommentarer : lanchart_kommentarer,
         sh : lanchart_sh,
-        uncertainxtranscription : lanchart_uncertainxtranscription
+        turn : lanchart_turn,
+        uncertainxtranscription : lanchart_uncertainxtranscription,
+        sync : lanchart_sync
     },
     structAttributes : {
         corpus_id : lanchart_id,
@@ -1626,7 +1860,7 @@ settings.corpora.lanchart_naestved = {
 settings.corpora.lanchart_odder = {
     id : "lanchart_odder",
     title : "LANCHART_ODDER",
-    description : "Korpus af udskrifterne fra Odder-projektet",
+    description : "Korpus af udskrifterne fra Odder-projektet: Odder0:  | Odder1:  | Odder2: 24 informanter født mellem 78 og 81 optaget i 2006. | Odder3: 33 informanter fra 9. klasse og gymnasiet, født mellem 1987 og 1990 og optaget i 2006.",
     within :  {"text": "text", "sentence": "sentence"},
     context : {"3 sentence": "3 sentence"}, //defaultContext,
     attributes : {
@@ -1664,6 +1898,9 @@ settings.corpora.lanchart_odder = {
         makroxsproghandling : lanchart_makroxsproghandling,
         samtaletype : lanchart_samtaletype,
         udsigelse : lanchart_udsigelse,
+        iivxaigxkommentarer : lanchart_iivxaigxkommentarer,
+        iivxsmuxkommentarer : lanchart_iivxsmuxkommentarer,
+        iivxsmulxkommentarer : lanchart_iivxsmulxkommentarer,
         iivxkommentarer : lanchart_iivxkommentarer,
         ajmarkering : lanchart_ajmarkering,
         ammarkering : lanchart_ammarkering,
@@ -1686,14 +1923,23 @@ settings.corpora.lanchart_odder = {
         kl : lanchart_kl,
         kl1 : lanchart_kl1,
         leksisxogxfraser : lanchart_leksisxogxfraser,
+        ordmarkering : lanchart_ordmarkering,
+        ordmarkering_32 : lanchart_ordmarkering_32,
+        blodt_d : lanchart_blodt_d,
+        blodt_d_32 : lanchart_blodt_d_32,
+        skriftens_or : lanchart_skriftens_or,
+        endelser : lanchart_endelser,
+        endelser_32 : lanchart_endelser_32,
         aux : lanchart_aux,
         case : lanchart_case,
         comments : lanchart_comments,
         generisk : lanchart_generisk,
         gex : lanchart_gex,
+        globalxevents : lanchart_globalxevents,
         events : lanchart_events,
         gramma_ii : lanchart_gramma_ii,
         grammatik : lanchart_grammatik,
+        kommentarer : lanchart_kommentarer,
         part : lanchart_part,
         sh : lanchart_sh,
         uncertainxtranscription : lanchart_uncertainxtranscription
@@ -1760,6 +2006,7 @@ settings.corpora.lanchart_oksboel = {
         turnduration : lanchart_turnduration,
         phonetic : lanchart_phonetic,
         comments : lanchart_comments,
+        globalxevents : lanchart_globalxevents,
         events : lanchart_events,
         turn : lanchart_turn,
         uncertainxtranscription : lanchart_uncertainxtranscription,
@@ -1825,7 +2072,10 @@ settings.corpora.lanchart_tinglev = {
         turnmin : lanchart_turnmin,
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
-        comments : lanchart_comments
+        phonetic : lanchart_phonetic,
+        comments : lanchart_comments,
+        events : lanchart_events,
+        uncertainxtranscription : lanchart_uncertainxtranscription
     },
     structAttributes : {
         corpus_id : lanchart_id,
@@ -1887,10 +2137,56 @@ settings.corpora.lanchart_vinderup = {
         turnmin : lanchart_turnmin,
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
+        aktivitetstype : lanchart_aktivitetstype,
+        genre : lanchart_genre,
+        interaktionsstruktur : lanchart_interaktionsstruktur,
+        makroxsproghandling : lanchart_makroxsproghandling,
+        samtaletype : lanchart_samtaletype,
+        udsigelse : lanchart_udsigelse,
+        iivxaigxkommentarer : lanchart_iivxaigxkommentarer,
+        iivxsmuxkommentarer : lanchart_iivxsmuxkommentarer,
+        ajmarkering : lanchart_ajmarkering,
+        ammarkering : lanchart_ammarkering,
+        anrmarkering : lanchart_anrmarkering,
+        anmarkering : lanchart_anmarkering,
+        engmarkering : lanchart_engmarkering,
+        rumarkering : lanchart_rumarkering,
+        wmarkering : lanchart_wmarkering,
+        dschwadmarkering : lanchart_dschwadmarkering,
+        xschwadmarkering : lanchart_xschwadmarkering,
         phonetic : lanchart_phonetic,
+        emphasis : lanchart_emphasis,
+        at : lanchart_at,
+        atxtabxekspl : lanchart_atxtabxekspl,
+        atxtabxeksplxkomm : lanchart_atxtabxeksplxkomm,
+        variantxfonetik : lanchart_variantxfonetik,
+        variantxfonetikxkontekstxrealiseret : lanchart_variantxfonetikxkontekstxrealiseret,
+        variantxfonetikxkontekstxforventet : lanchart_variantxfonetikxkontekstxforventet,
+        variantxfonetikxr : lanchart_variantxfonetikxr,
+        ledsaet : lanchart_ledsaet,
+        kl : lanchart_kl,
+        endelser : lanchart_endelser,
+        ikke : lanchart_ikke,
+        jeg : lanchart_jeg,
+        v : lanchart_v,
+        k : lanchart_k,
+        eevokalisme : lanchart_eevokalisme,
+        oovokalisme : lanchart_oovokalisme,
+        artikel : lanchart_artikel,
+        aux : lanchart_aux,
         comments : lanchart_comments,
+        epistsxtn : lanchart_epistsxtn,
+        generisk : lanchart_generisk,
+        gex : lanchart_gex,
+        globalxevents : lanchart_globalxevents,
         events : lanchart_events,
-        uncertainxtranscription : lanchart_uncertainxtranscription
+        gramma_ii : lanchart_gramma_ii,
+        grammatik : lanchart_grammatik,
+        ordstil : lanchart_ordstil,
+        part : lanchart_part,
+        turn : lanchart_turn,
+        uncertainxtranscription : lanchart_uncertainxtranscription,
+        sync : lanchart_sync
     },
     structAttributes : {
         corpus_id : lanchart_id,
@@ -2019,8 +2315,22 @@ settings.corpora.lanchart_vollsmose = {
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
         phonetic : lanchart_phonetic,
+        et : lanchart_et,
+        ede : lanchart_ede,
+        blxdtxd : lanchart_blxdtxd,
+        stxdafv : lanchart_stxdafv,
+        fynskxint : lanchart_fynskxint,
+        palatalisering : lanchart_palatalisering,
+        leksis : lanchart_leksis,
+        v2xxv3 : lanchart_v2xxv3,
+        grammxxkxn : lanchart_grammxxkxn,
+        prxp : lanchart_prxp,
+        mglxvokalkontrast : lanchart_mglxvokalkontrast,
+        fortsxtterint : lanchart_fortsxtterint,
+        ustemtxr : lanchart_ustemtxr,
         comments : lanchart_comments,
         events : lanchart_events,
+        kommentarer : lanchart_kommentarer,
         turn : lanchart_turn,
         uncertainxtranscription : lanchart_uncertainxtranscription,
         sync : lanchart_sync
