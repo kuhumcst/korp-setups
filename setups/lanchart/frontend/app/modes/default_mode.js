@@ -8,11 +8,11 @@ settings.wordpicture = false;
 
 settings.corpora = {};
 settings.corporafolders = {};
-settings.preselectedCorpora = ['lanchart_aabenraaaalborg', 'lanchart_amager', 'lanchart_amda', 'lanchart_argda', 'lanchart_bornholm', 'lanchart_bylderup', 'lanchart_bysoc', 'lanchart_canda', 'lanchart_clarin', 'lanchart_familie', 'lanchart_hirtshals', 'lanchart_koege', 'lanchart_mettemortensen', 'lanchart_modsjael', 'lanchart_munkebjerg', 'lanchart_naestved', 'lanchart_odder', 'lanchart_oksboel', 'lanchart_tinglev', 'lanchart_vinderup', 'lanchart_vissenbjerg', 'lanchart_vollsmose'];
+settings.preselectedCorpora = ['lanchart_amager', 'lanchart_amda', 'lanchart_argda', 'lanchart_bornholm', 'lanchart_bylderup', 'lanchart_bysoc', 'lanchart_canda', 'lanchart_clarin', 'lanchart_familie', 'lanchart_hirtshals', 'lanchart_koege', 'lanchart_mettemortensen', 'lanchart_modsjael', 'lanchart_munkebjerg', 'lanchart_naestved', 'lanchart_odder', 'lanchart_oksboel', 'lanchart_tinglev', 'lanchart_vinderup', 'lanchart_vissenbjerg', 'lanchart_vollsmose', 'lanchart_aabenraaaalborg'];
 
 settings.corporafolders.lanchart = {
     title : "LANCHART-korpusset",
-    contents : ['lanchart_aabenraaaalborg', 'lanchart_amager', 'lanchart_amda', 'lanchart_argda', 'lanchart_bornholm', 'lanchart_bylderup', 'lanchart_bysoc', 'lanchart_canda', 'lanchart_clarin', 'lanchart_familie', 'lanchart_hirtshals', 'lanchart_koege', 'lanchart_mettemortensen', 'lanchart_modsjael', 'lanchart_munkebjerg', 'lanchart_naestved', 'lanchart_odder', 'lanchart_oksboel', 'lanchart_tinglev', 'lanchart_vinderup', 'lanchart_vissenbjerg', 'lanchart_vollsmose'],
+    contents : ['lanchart_amager', 'lanchart_amda', 'lanchart_argda', 'lanchart_bornholm', 'lanchart_bylderup', 'lanchart_bysoc', 'lanchart_canda', 'lanchart_clarin', 'lanchart_familie', 'lanchart_hirtshals', 'lanchart_koege', 'lanchart_mettemortensen', 'lanchart_modsjael', 'lanchart_munkebjerg', 'lanchart_naestved', 'lanchart_odder', 'lanchart_oksboel', 'lanchart_tinglev', 'lanchart_vinderup', 'lanchart_vissenbjerg', 'lanchart_vollsmose', 'lanchart_aabenraaaalborg'],
     description : "LANCHART-korpusset, delt op efter projekt."
 };
 
@@ -530,78 +530,6 @@ var lanchart_sync = { label: "sync",
     order: 84 };
 
 console.log('Mode file: Individual corpus configs');
-
-
-settings.corpora.lanchart_aabenraaaalborg = {
-    id : "lanchart_aabenraaaalborg",
-    title : "LANCHART_AABENRAAAALBORG",
-    description : "Korpus af udskrifterne fra Aabenraa-Aalborg-projektet",
-    within :  {"text": "text", "sentence": "sentence"},
-    context : {"3 sentence": "3 sentence"}, //defaultContext,
-    attributes : {
-        real_ipa : lanchart_real_ipa,
-        ipa : lanchart_ipa,
-        ttt : lanchart_ttt,
-        redpos : lanchart_redpos,
-        pos : lanchart_pos,
-        speaker : lanchart_speaker,
-        colorcombo_bg : lanchart_colorcombo_bg,
-        colorcombo_border : lanchart_colorcombo_border,
-        colorcombo_fg : lanchart_colorcombo_fg,
-        informanter_koen : lanchart_informanter_koen,
-        informanter_foedselsaar : lanchart_informanter_foedselsaar,
-        taleralder : lanchart_taleralder,
-        informanter_generation : lanchart_informanter_generation,
-        informanter_socialklasse : lanchart_informanter_socialklasse,
-        rolle : lanchart_rolle,
-        informanter_prioriteret : lanchart_informanter_prioriteret,
-        informanter_prioriteretekstra : lanchart_informanter_prioriteretekstra,
-        text_enum : lanchart_text_enum,
-        ordnummer : lanchart_ordnummer,
-        turn_enum : lanchart_turn_enum,
-        xmin : lanchart_xmin,
-        xmax : lanchart_xmax,
-        xlength : lanchart_xlength,
-        turnummer : lanchart_turnummer,
-        talekilde : lanchart_talekilde,
-        turnmin : lanchart_turnmin,
-        turnmax : lanchart_turnmax,
-        turnduration : lanchart_turnduration,
-        phonetic : lanchart_phonetic,
-        aabaal_prxposition : lanchart_aabaal_prxposition,
-        aabaal_enendelser : lanchart_aabaal_enendelser,
-        aabaal_endelser : lanchart_aabaal_endelser,
-        aabaal_or : lanchart_aabaal_or,
-        aabaal_ordmarkering : lanchart_aabaal_ordmarkering,
-        comments : lanchart_comments,
-        events : lanchart_events,
-        turn : lanchart_turn,
-        uncertainxtranscription : lanchart_uncertainxtranscription,
-        sync : lanchart_sync
-    },
-    structAttributes : {
-        corpus_id : lanchart_id,
-        text_size : lanchart_size,
-        text_textmin : lanchart_textmin,
-        text_textmax : lanchart_textmax,
-        text_textduration : lanchart_textduration,
-        text_filename : lanchart_filename,
-        text_datefrom : lanchart_datefrom,
-        text_timefrom : lanchart_timefrom,
-        text_dateto : lanchart_dateto,
-        text_timeto : lanchart_timeto,
-        text_oldnew : lanchart_oldnew,
-        text_samtaler_dato : lanchart_samtaler_dato,
-        text_samtaler_projekt : lanchart_samtaler_projekt,
-        text_samtaler_samtaletype : lanchart_samtaler_samtaletype,
-        text_samtaler_eksplorativ : lanchart_samtaler_eksplorativ,
-        text_samtaler_korrektur : lanchart_samtaler_korrektur,
-        text_samtaler_prioriteret : lanchart_samtaler_prioriteret,
-        text_samtaler_prioriteretekstra : lanchart_samtaler_prioriteretekstra,
-        text_projekter_name : lanchart_projekter_name
-    },
-    customAttributes : settings.lanchartCustomAttrs
-    };
 
 
 settings.corpora.lanchart_amager = {
@@ -2091,6 +2019,78 @@ settings.corpora.lanchart_vollsmose = {
         turnmax : lanchart_turnmax,
         turnduration : lanchart_turnduration,
         phonetic : lanchart_phonetic,
+        comments : lanchart_comments,
+        events : lanchart_events,
+        turn : lanchart_turn,
+        uncertainxtranscription : lanchart_uncertainxtranscription,
+        sync : lanchart_sync
+    },
+    structAttributes : {
+        corpus_id : lanchart_id,
+        text_size : lanchart_size,
+        text_textmin : lanchart_textmin,
+        text_textmax : lanchart_textmax,
+        text_textduration : lanchart_textduration,
+        text_filename : lanchart_filename,
+        text_datefrom : lanchart_datefrom,
+        text_timefrom : lanchart_timefrom,
+        text_dateto : lanchart_dateto,
+        text_timeto : lanchart_timeto,
+        text_oldnew : lanchart_oldnew,
+        text_samtaler_dato : lanchart_samtaler_dato,
+        text_samtaler_projekt : lanchart_samtaler_projekt,
+        text_samtaler_samtaletype : lanchart_samtaler_samtaletype,
+        text_samtaler_eksplorativ : lanchart_samtaler_eksplorativ,
+        text_samtaler_korrektur : lanchart_samtaler_korrektur,
+        text_samtaler_prioriteret : lanchart_samtaler_prioriteret,
+        text_samtaler_prioriteretekstra : lanchart_samtaler_prioriteretekstra,
+        text_projekter_name : lanchart_projekter_name
+    },
+    customAttributes : settings.lanchartCustomAttrs
+    };
+
+
+settings.corpora.lanchart_aabenraaaalborg = {
+    id : "lanchart_aabenraaaalborg",
+    title : "LANCHART_AABENRAAAALBORG",
+    description : "Korpus af udskrifterne fra Aabenraa-Aalborg-projektet",
+    within :  {"text": "text", "sentence": "sentence"},
+    context : {"3 sentence": "3 sentence"}, //defaultContext,
+    attributes : {
+        real_ipa : lanchart_real_ipa,
+        ipa : lanchart_ipa,
+        ttt : lanchart_ttt,
+        redpos : lanchart_redpos,
+        pos : lanchart_pos,
+        speaker : lanchart_speaker,
+        colorcombo_bg : lanchart_colorcombo_bg,
+        colorcombo_border : lanchart_colorcombo_border,
+        colorcombo_fg : lanchart_colorcombo_fg,
+        informanter_koen : lanchart_informanter_koen,
+        informanter_foedselsaar : lanchart_informanter_foedselsaar,
+        taleralder : lanchart_taleralder,
+        informanter_generation : lanchart_informanter_generation,
+        informanter_socialklasse : lanchart_informanter_socialklasse,
+        rolle : lanchart_rolle,
+        informanter_prioriteret : lanchart_informanter_prioriteret,
+        informanter_prioriteretekstra : lanchart_informanter_prioriteretekstra,
+        text_enum : lanchart_text_enum,
+        ordnummer : lanchart_ordnummer,
+        turn_enum : lanchart_turn_enum,
+        xmin : lanchart_xmin,
+        xmax : lanchart_xmax,
+        xlength : lanchart_xlength,
+        turnummer : lanchart_turnummer,
+        talekilde : lanchart_talekilde,
+        turnmin : lanchart_turnmin,
+        turnmax : lanchart_turnmax,
+        turnduration : lanchart_turnduration,
+        phonetic : lanchart_phonetic,
+        aabaal_prxposition : lanchart_aabaal_prxposition,
+        aabaal_enendelser : lanchart_aabaal_enendelser,
+        aabaal_endelser : lanchart_aabaal_endelser,
+        aabaal_or : lanchart_aabaal_or,
+        aabaal_ordmarkering : lanchart_aabaal_ordmarkering,
         comments : lanchart_comments,
         events : lanchart_events,
         turn : lanchart_turn,
