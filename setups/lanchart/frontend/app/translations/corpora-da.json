@@ -15,7 +15,7 @@
     "within_text": "samtale",
     "within_5 sentence": "5 fragmenter",
     
-    "tag_sentence": "Turdel",
+    "tag_sentence": "Fragment",
     "tag_text": "Samtale",
 
     "file_custom" : "Fil",
@@ -147,6 +147,11 @@
     "stemtxklusil" : "Stemt klusil",
     "fortsxtterint" : "Fortsætterintonation",
     "ustemtxr" : "Ustemt R",
+    "aabaal_prxposition" : "Aab-Aal-præposition",
+    "aabaal_enendelser" : "Aab-Aal-EN",
+    "aabaal_endelser" : "Aab-Aal-endelse",
+    "aabaal_or" : "Aab-Aal-OR",
+    "aabaal_ordmarkering" : "Aab-Aal-ord",
     "aux" : "Hjælpeverber",
     "case" : "Case",
     "comments" : "Comments",
