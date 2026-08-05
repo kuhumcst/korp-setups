@@ -80,14 +80,14 @@ Husk at stoppe evt. kørende docker-containere på port 1234 og port 9111. (Brug
 Det specifikke setup afhænger af det generelle Korp-setup, som typisk allerede vil være bygget. Hvis ikke, bygges det sådan:
 
 ```
-cd infrastructure/korp
+cd korp-setups
 docker-compose build
 ```
 
 Byg det specifikke Korp-setup i billeballads-mappen. Herunder køres encodingscriptet `encodeBille.sh`, der indlæser `corpora/vrt/DUDSDFK_BILLall.cqp` i CWB i Docker-backend-containeren.
 
 ```
-cd infrastructure/korp/setups/billeballads
+cd korp-setups/setups/billeballads
 docker-compose up -d --build ; docker-compose exec backend bash /opt/corpora/encodingscripts/encodeBille.sh
 ```
 
