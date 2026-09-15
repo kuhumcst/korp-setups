@@ -1,3 +1,7 @@
+# Compatible with the docker-compose v1 binary (still what Alf runs) and the
+# v2 plugin: no v2-only build keys, and the version key kept for v1.
+version: "3.8"
+
 services:
 
   # The "backend" and "frontend" containers are the actual Korp backend + frontend Clarin setup.
@@ -20,16 +24,18 @@ services:
       - "1234:1234"
   frontend:
     build:
-      context: frontend/
+      # Context is the repository root so the Dockerfile can copy the shared
+      # user guide (doc/userguides); see /.dockerignore for what is excluded.
+      # TODO: narrow this back to frontend/ with `additional_contexts` once
+      # Alf has the Compose v2 plugin (see the TODO in frontend/Dockerfile).
+      context: ../..
+      dockerfile: setups/clarin/frontend/Dockerfile
       args:
         # Where the browser reaches the backend. Production default; set
         # KORP_BACKEND_URL=http://localhost:1234 in the local .env file.
         KORP_BACKEND_URL: ${KORP_BACKEND_URL:-https://alf.hum.ku.dk/korp/backend}
         # Exporter (download all KWIC rows); relative to the page URL in production.
         KORP_EXPORTER_URL: ${KORP_EXPORTER_URL:-download/csv}
-      additional_contexts:
-        # The mkdocs user guide sources, shared by all setups.
-        userguides: ../../doc/userguides
     restart: on-failure
     depends_on:
       - backend

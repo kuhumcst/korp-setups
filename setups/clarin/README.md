@@ -24,8 +24,10 @@ when the base image is built.
 
 ## Local run
 
-Requirements: Docker, the CLARIN corpora (CWB `data/` and `registry/`
-directories) somewhere on disk.
+Requirements: Docker with either the Compose v2 plugin (`docker compose`)
+or the old v1 binary (`docker-compose`); the compose file works with both.
+Plus the CLARIN corpora (CWB `data/` and `registry/` directories) somewhere
+on disk.
 
 1. Create `.env` next to `docker-compose.yml`:
    ```
@@ -55,6 +57,14 @@ Production values are the defaults in `docker-compose.yml`
 no `.env` file. The gateway rules are unchanged: `/korp/` to port 9111,
 `/korp/backend/` to 1234, and the exporter paths as before.
 
+Alf (checked 2026-09-15) has the v1 `docker-compose` binary only, Docker
+commands need `sudo`, and the running containers carry v1 names such as
+`clarin_backend_1`. The commands below are written for that; with the v2
+plugin they read `sudo docker compose ...` and the containers are named
+`clarin-backend-1`. The production database holds exactly the rows
+`db_setup.sql` seeds (checked the same day), so recreating the backend
+container loses no data.
+
 Do the cut-over in two steps, because the old frontend runs fine on the
 new backend (verified during the migration) but the new frontend needs
 the new backend:
@@ -62,19 +72,19 @@ the new backend:
 1. **Backend first.** Tag the running images for rollback, then rebuild
    and restart only the backend:
    ```bash
-   docker tag korp_backend_base korp_backend_base:2022
-   docker tag clarin-backend clarin-backend:2022
-   (cd ../.. && docker compose build backend)
-   docker compose up -d --build backend
+   sudo docker tag korp_backend_base korp_backend_base:2022
+   sudo docker tag clarin_backend clarin_backend:2022
+   (cd ../.. && sudo docker-compose build backend)
+   sudo docker-compose up -d --build backend
    curl -s https://alf.hum.ku.dk/korp/backend/info | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])'
    ```
    Expected: `8.2.5`, and the old frontend keeps working.
 2. **Frontend second**, when convenient:
    ```bash
-   docker tag korp_frontend_base korp_frontend_base:2022
-   docker tag clarin-frontend clarin-frontend:2022
-   (cd ../.. && docker compose build frontend)
-   docker compose up -d --build frontend
+   sudo docker tag korp_frontend_base korp_frontend_base:2022
+   sudo docker tag clarin_frontend clarin_frontend:2022
+   (cd ../.. && sudo docker-compose build frontend)
+   sudo docker-compose up -d --build frontend
    curl -s -o /dev/null -w '%{http_code}\n' https://alf.hum.ku.dk/korp/
    curl -s -o /dev/null -w '%{http_code}\n' https://alf.hum.ku.dk/korp/userguide/
    ```
@@ -83,8 +93,10 @@ the new backend:
    `bundle.js`, which no longer exists; the new nginx sends `index.html`
    with `Cache-Control: no-cache` so this cannot recur.
 
-Rollback of either step is `docker compose up -d` with the previous git
-revision checked out, or retagging the `:2022` images; no data changes.
+Rollback of either step is `sudo docker-compose up -d` with the previous
+git revision checked out, or retagging the `:2022` images; no data
+changes. (`sudo docker images` shows the exact image names on the host;
+v1 names them `clarin_backend`, v2 `clarin-backend`.)
 
 ## Checks after deploying
 

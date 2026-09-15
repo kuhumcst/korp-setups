@@ -1,0 +1,12 @@
+# Build context for the setup frontend images is the repository root
+# (see setups/*/docker-compose.yml). Keep it small: no history, no corpora,
+# no run outputs.
+.git
+fixtures
+exporter/hostvar
+setups/*/corpora/data
+setups/*/corpora/registry
+setups/*/corpora/transformation
+doc/userguides/site
+**/.env
+**/node_modules

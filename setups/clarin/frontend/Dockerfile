@@ -1,6 +1,14 @@
 # CLARIN Korp frontend: upstream korp-frontend (from korp_frontend_base) built
 # with our configuration directory, served together with the user guide by
 # nginx. Three stages; only the last one ends up in the running container.
+# Build context: the repository root (see docker-compose.yml).
+#
+# TODO: The root context exists only so this file can COPY doc/userguides
+# with the v1 docker-compose binary that Alf runs (2026-09-15). Once Alf has
+# the Compose v2 plugin, switch back to `context: frontend/` plus
+# `additional_contexts: {userguides: ../../doc/userguides}` in
+# docker-compose.yml and `COPY --from=userguides . /userguides` below, and
+# drop the setups/clarin/frontend/ prefixes from the COPY lines.
 
 ARG KORP_BACKEND_URL=https://alf.hum.ku.dk/korp/backend
 ARG KORP_EXPORTER_URL=download/csv
@@ -10,7 +18,7 @@ FROM korp_frontend_base AS build
 ARG KORP_BACKEND_URL
 ARG KORP_EXPORTER_URL
 
-COPY config/ /opt/korp-config/
+COPY setups/clarin/frontend/config/ /opt/korp-config/
 # The backend and exporter URLs differ between production and a local
 # checkout; they are the only values in config.yml that do.
 RUN sed -i "s|__KORP_BACKEND_URL__|${KORP_BACKEND_URL}|; s|__KORP_EXPORTER_URL__|${KORP_EXPORTER_URL}|" /opt/korp-config/config.yml \
@@ -35,18 +43,18 @@ RUN ls dist/translations/ | grep -q '^locale-dan\.' && ls dist/modes/msdtags.htm
 ########## 2. Build the user guide (mkdocs) ##########
 FROM python:3.12-slim AS docs
 RUN pip install --no-cache-dir mkdocs
-# `userguides` is an additional build context pointing at doc/userguides in
-# the repo root (see docker-compose.yml), replacing the old korp_docs image.
-COPY --from=userguides . /userguides
+# The user guide sources are shared by all setups (repo root, doc/userguides),
+# which is why the build context is the repository root.
+COPY doc/userguides /userguides
 WORKDIR /userguides
-COPY mkdocs_yml_extension.txt ./
+COPY setups/clarin/frontend/mkdocs_yml_extension.txt ./
 RUN cat mkdocs_yml_extension.txt >> mkdocs.yml \
     && rm -f docs/lanchart-*.md \
     && mkdocs build
 
 ########## 3. Serve ##########
 FROM nginx:1.27-alpine
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY setups/clarin/frontend/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /opt/korp-frontend/dist/ /usr/share/nginx/html/
 COPY --from=docs /userguides/site/ /usr/share/nginx/html/userguide/
 EXPOSE 9111

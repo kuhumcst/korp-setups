@@ -649,10 +649,16 @@ As built 2026-09-15 (`setups/clarin/frontend/Dockerfile`):
 - The build asserts that `dist/translations/locale-dan.*` and
   `dist/modes/msdtags.html` exist, which proves the config directory was
   used.
-- The user guide is built in a separate `python:3.12-slim` stage from the
-  compose build context `userguides: ../../doc/userguides`. That replaces
-  the `korp_docs` image and the `doc` service, and removes the build race
-  where the frontend image was built before the docs image existed.
+- The user guide is built in a separate `python:3.12-slim` stage. It is
+  copied from `doc/userguides`, which the Dockerfile can reach because the
+  compose build context is the repository root (`context: ../..`, with a
+  root `.dockerignore`). That replaces the `korp_docs` image and the `doc`
+  service, and removes the build race where the frontend image was built
+  before the docs image existed. A first version used Compose's
+  `additional_contexts` for this, which needs the v2 plugin; Alf turned
+  out to run the v1 `docker-compose` binary only (checked 2026-09-15), so
+  the file was changed to the root context and got its `version` key
+  back, which v1 requires and v2 ignores. Validated and built with both.
 - `nginx:1.27-alpine` serves `dist/` and `userguide/` on 9111 with long
   cache headers for the hashed bundles and no-cache for `index.html`.
 - The base image (`frontend/Dockerfile`) is `node:24-bookworm`, checks out

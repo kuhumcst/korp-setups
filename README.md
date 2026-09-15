@@ -24,7 +24,7 @@ Upstream Korp is not patched by copying files over its source any more. Each lay
 
 Build, deploy, debug
 --------------------
-> NOTE: you will need to have `git` and `docker` (with the Compose plugin) installed on the host machine.
+> NOTE: you will need to have `git` and `docker` installed on the host machine, with either the Compose v2 plugin (`docker compose`) or the v1 binary (`docker-compose`). The compose files work with both; the commands below use the v2 spelling.
 
 Deployment consists of:
 
@@ -68,7 +68,7 @@ docker compose down --remove-orphans --volumes   # stop and remove everything, i
 
 Creating setups that inherit from the base images
 -------------------------------------------------
-A Dockerfile cannot extend another Dockerfile, only an image, so the base images must exist locally (`docker compose build` in the root) before a setup can be built. A setup's frontend Dockerfile extends `korp_frontend_base`, copies its configuration directory in, writes `run_config.json`, runs `yarn build`, and serves the result. The CLARIN version does this in three stages (build, user guide, nginx) and is the template for the other setups:
+A Dockerfile cannot extend another Dockerfile, only an image, so the base images must exist locally (`docker compose build` in the root) before a setup can be built. A setup's frontend Dockerfile extends `korp_frontend_base`, copies its configuration directory in, writes `run_config.json`, runs `yarn build`, and serves the result. The CLARIN version does this in three stages (build, user guide, nginx) and is the template for the other setups. Its build context is the repository root (`context: ../..` in the compose file), so it can copy the shared `doc/userguides`; the root `.dockerignore` keeps that context small.
 
 ```Dockerfile
 FROM korp_frontend_base AS build
@@ -85,7 +85,7 @@ The pre-2026 setups keep their corpora and modes in JavaScript files (`app/confi
 Korp is an [AngularJS](https://angularjs.org/) application written in TypeScript. Its templates are HTML strings inside components. Configuration values (labels, descriptions, the header logo HTML in `config.yml`) may contain HTML and AngularJS expressions.
 
 ### User documentation
-`doc/userguides/docs` holds a general Korp user guide built into a static site with mkdocs. `index.md` and `regex.md` are general; the other pages belong to specific setups. Each setup's frontend Dockerfile builds the guide from `doc/userguides` (passed to the build as the `userguides` context in the compose file), removes the pages it does not want, appends its navigation from `mkdocs_yml_extension.txt`, and serves the result under `/userguide/`. A link to it is part of the header configuration in `config.yml`.
+`doc/userguides/docs` holds a general Korp user guide built into a static site with mkdocs. `index.md` and `regex.md` are general; the other pages belong to specific setups. Each setup's frontend Dockerfile builds the guide from `doc/userguides` (reachable because the build context is the repository root), removes the pages it does not want, appends its navigation from `mkdocs_yml_extension.txt`, and serves the result under `/userguide/`. A link to it is part of the header configuration in `config.yml`.
 
 Configuration documentation
 ---------------------------
