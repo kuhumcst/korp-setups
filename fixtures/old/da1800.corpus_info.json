@@ -1,0 +1,35 @@
+{
+ "corpora": {
+  "LIT1800JPJNL": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "pos",
+     "msd",
+     "lemma"
+    ],
+    "s": [
+     "sentence",
+     "sentence_id",
+     "p",
+     "p_idp",
+     "text",
+     "text_title",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "LIT1800JPJNL",
+    "Size": "14035"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 14035
+}

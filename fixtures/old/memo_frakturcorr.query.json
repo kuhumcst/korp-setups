@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "MEMO_FRAKTUR_CORR_1880": 4457
+ },
+ "corpus_order": [
+  "MEMO_FRAKTUR_CORR_1880"
+ ],
+ "hits": 4457,
+ "kwic": [
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 5,
+    "position": 4,
+    "start": 4
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 5,
+    "position": 11,
+    "start": 4
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 13
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 9,
+    "position": 28,
+    "start": 8
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 23
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 12,
+    "position": 31,
+    "start": 11
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 23
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 24,
+    "position": 66,
+    "start": 23
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 37
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 11,
+    "position": 96,
+    "start": 10
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 33
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 23,
+    "position": 108,
+    "start": 22
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 33
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 28,
+    "position": 113,
+    "start": 27
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 33
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 3,
+    "position": 121,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 11
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_CORR_1880",
+   "match": {
+    "end": 9,
+    "position": 145,
+    "start": 8
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 18
+   }
+  }
+ ],
+ "query_data": "eJwFwUEKgCAQBdArjTozaq0iahMiSK1Fv3r_I_SeozlJeoCojUTRLm3cpBt1aocok8GSqJi-A9HpELQBGAXYdbunK-V6l-N5v1LPXEo1IdDGLP4HjM4ZXw==\n"
+}

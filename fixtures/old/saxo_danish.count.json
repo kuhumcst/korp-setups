@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 500,
+    "relative": 31298.904538341158,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 500,
+   "relative": 31298.904538341158
+  }
+ },
+ "corpora": {
+  "SAXODEL01": {
+   "rows": [
+    {
+     "absolute": 500,
+     "relative": 31298.904538341158,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 500,
+    "relative": 31298.904538341158
+   }
+  }
+ },
+ "count": 1
+}

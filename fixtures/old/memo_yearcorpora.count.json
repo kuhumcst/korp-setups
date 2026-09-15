@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 14342,
+    "relative": 28673.333519930587,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 14342,
+   "relative": 28673.333519930587
+  }
+ },
+ "corpora": {
+  "MEMO_1885": {
+   "rows": [
+    {
+     "absolute": 14342,
+     "relative": 28673.333519930587,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 14342,
+    "relative": 28673.333519930587
+   }
+  }
+ },
+ "count": 1
+}

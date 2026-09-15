@@ -1,0 +1,39 @@
+{
+ "corpora": {
+  "SAXODEL01": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "pos",
+     "lemma"
+    ],
+    "s": [
+     "chapter",
+     "sentence",
+     "sentence_id",
+     "p",
+     "p_idp",
+     "text",
+     "text_title",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "FirstDate": "2000-01-01 00:00:00",
+    "LastDate": "2000-01-01 23:59:59",
+    "Name": "SAXODEL01",
+    "Sentences": "688",
+    "Size": "15975",
+    "Updated": "2000-01-01"
+   }
+  }
+ },
+ "total_sentences": 688,
+ "total_size": 15975
+}

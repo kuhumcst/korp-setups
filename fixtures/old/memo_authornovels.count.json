@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 2057,
+    "relative": 34494.902066004826,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 2057,
+   "relative": 34494.902066004826
+  }
+ },
+ "corpora": {
+  "MEMO_BANGH_TINE_1889": {
+   "rows": [
+    {
+     "absolute": 2057,
+     "relative": 34494.902066004826,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 2057,
+    "relative": 34494.902066004826
+   }
+  }
+ },
+ "count": 1
+}

@@ -1,0 +1,37 @@
+{
+ "corpora": {
+  "DUDSDFK_BILLALL": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "neutral",
+     "lemma",
+     "pos",
+     "glosse"
+    ],
+    "s": [
+     "sentence",
+     "sentence_type",
+     "p",
+     "p_id",
+     "text",
+     "text_title",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto",
+     "text_url"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "DUDSDFK_BILLALL",
+    "Size": "44576"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 44576
+}

@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "SAXODEL01": 500
+ },
+ "corpus_order": [
+  "SAXODEL01"
+ ],
+ "hits": 500,
+ "kwic": [
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 12,
+    "position": 12,
+    "start": 11
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 55
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 53,
+    "position": 53,
+    "start": 52
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 55
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 34,
+    "position": 89,
+    "start": 33
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 57
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 29,
+    "position": 141,
+    "start": 28
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 45
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 6,
+    "position": 163,
+    "start": 5
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 35
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 22,
+    "position": 179,
+    "start": 21
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 35
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 30,
+    "position": 268,
+    "start": 29
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 36
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 26,
+    "position": 300,
+    "start": 25
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 72
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 43,
+    "position": 317,
+    "start": 42
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 72
+   }
+  },
+  {
+   "corpus": "SAXODEL01",
+   "match": {
+    "end": 44,
+    "position": 391,
+    "start": 43
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 77
+   }
+  }
+ ],
+ "query_data": "eJwFwTkOgEAIAMAvAbtyaGWinYmFjS0I_P8JzkB_5RZGIhoCaO1UhJlOA9Qmf9ZRNJnVFNU5Z1aLOgWObN6e_b2P8wJcF4AfV9gVRw==\n"
+}

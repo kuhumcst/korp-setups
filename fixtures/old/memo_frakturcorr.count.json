@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 4457,
+    "relative": 19689.26566151427,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 4457,
+   "relative": 19689.26566151427
+  }
+ },
+ "corpora": {
+  "MEMO_FRAKTUR_CORR_1880": {
+   "rows": [
+    {
+     "absolute": 4457,
+     "relative": 19689.26566151427,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 4457,
+    "relative": 19689.26566151427
+   }
+  }
+ },
+ "count": 1
+}

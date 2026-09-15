@@ -1,0 +1,59 @@
+{
+ "corpora": {
+  "MEMO_FRAKTUR_CORR_1880": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "lineword",
+     "line",
+     "novel_id",
+     "kb_ocrtok",
+     "kb_leven",
+     "kb_ratio",
+     "kb_cer",
+     "kb_levcat",
+     "kb_subst",
+     "kb_infreq",
+     "sentword",
+     "lemma",
+     "pos",
+     "corr_infreq"
+    ],
+    "s": [
+     "sentence",
+     "sentence_id",
+     "text",
+     "text_title",
+     "text_author",
+     "text_pseudonym",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto",
+     "text_gender",
+     "text_source",
+     "text_nationality",
+     "text_subtitle",
+     "text_pages",
+     "text_illustrations",
+     "text_typeface",
+     "text_publisher",
+     "text_price",
+     "corpus",
+     "corpus_title",
+     "corpus_datefrom",
+     "corpus_dateto"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "MEMO_FRAKTUR_CORR_1880",
+    "Size": "226367"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 226367
+}

@@ -12,3 +12,10 @@ setups/threats/corpora/registry
 
 exporter/hostvar/
 
+# golden-fixture runs; only the reference set fixtures/old is tracked
+fixtures/*/
+!fixtures/old/
+
+
+# local docker-compose overrides (machine-specific paths)
+.env

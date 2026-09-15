@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 973163,
+    "relative": 20716.470569401878,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 973163,
+   "relative": 20716.470569401878
+  }
+ },
+ "corpora": {
+  "FT_KORPUS": {
+   "rows": [
+    {
+     "absolute": 973163,
+     "relative": 20716.470569401878,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 973163,
+    "relative": 20716.470569401878
+   }
+  }
+ },
+ "count": 1
+}

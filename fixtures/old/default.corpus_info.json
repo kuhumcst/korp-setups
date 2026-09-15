@@ -1,0 +1,39 @@
+{
+ "corpora": {
+  "LSPCLIMATEDMU": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "pos",
+     "msd",
+     "lemma"
+    ],
+    "s": [
+     "sentence",
+     "sentence_id",
+     "p",
+     "p_idp",
+     "text",
+     "text_title",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "FirstDate": "2005-01-01 00:00:00",
+    "LastDate": "2005-12-31 23:59:59",
+    "Name": "LSPCLIMATEDMU",
+    "Sentences": "57484",
+    "Size": "994081",
+    "Updated": "2005-12-31"
+   }
+  }
+ },
+ "total_sentences": 57484,
+ "total_size": 994081
+}

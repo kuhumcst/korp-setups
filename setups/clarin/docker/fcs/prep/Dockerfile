@@ -24,5 +24,7 @@ WORKDIR /opt/fcs-korp-endpoint/target
 RUN mv *.war fcs-korp-endpoint.war
 
 # The .jar file is used to run the tests, after which the container quits.
-# The tests can be viewed in the logs.
-CMD mvn test
+# The tests can be viewed in the logs. The working directory is target/ at
+# this point (see above), so name the pom explicitly; a bare `mvn test`
+# failed with MissingProjectException.
+CMD mvn -f /opt/fcs-korp-endpoint/pom.xml test

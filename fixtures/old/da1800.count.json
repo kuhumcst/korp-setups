@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 508,
+    "relative": 36195.22622016388,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 508,
+   "relative": 36195.22622016388
+  }
+ },
+ "corpora": {
+  "LIT1800JPJNL": {
+   "rows": [
+    {
+     "absolute": 508,
+     "relative": 36195.22622016388,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 508,
+    "relative": 36195.22622016388
+   }
+  }
+ },
+ "count": 1
+}

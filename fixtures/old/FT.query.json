@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "FT_KORPUS": 973163
+ },
+ "corpus_order": [
+  "FT_KORPUS"
+ ],
+ "hits": 973163,
+ "kwic": [
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 6,
+    "position": 10,
+    "start": 5
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 25
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 2,
+    "position": 35,
+    "start": 1
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 8
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 10,
+    "position": 63,
+    "start": 9
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 20
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 11,
+    "position": 84,
+    "start": 10
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 21
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 7,
+    "position": 137,
+    "start": 6
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 34
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 16,
+    "position": 146,
+    "start": 15
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 34
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 7,
+    "position": 171,
+    "start": 6
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 26
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 19,
+    "position": 183,
+    "start": 18
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 26
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 23,
+    "position": 187,
+    "start": 22
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 26
+   }
+  },
+  {
+   "corpus": "FT_KORPUS",
+   "match": {
+    "end": 11,
+    "position": 201,
+    "start": 10
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 17
+   }
+  }
+ ],
+ "query_data": "eJwNyjkSgDAIAMAvcUQI2ttY6HjUDoTk_0_QrRfDoqJkSgLBFMMJOwklcZawpk1MOUHcKYfxUISqhTNKc-p1We9328_jueb_ofAHlIEWOA==\n"
+}

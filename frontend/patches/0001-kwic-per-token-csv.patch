@@ -1,0 +1,202 @@
+# korp-setups patch: "one concordance line per row" CSV/TSV export with one column per
+# match token, per-token annotations, semicolon delimiter and UTF-8 BOM (Danish Excel).
+# Adds app/scripts/kwic/kwic_download_clarin.ts and hooks it into the KWIC download menu.
+# Upstream status: not proposed yet (candidate for a PR against dev).
+diff --git a/app/scripts/components/kwic/kwic.ts b/app/scripts/components/kwic/kwic.ts
+index c8a46ec0..a7c27498 100644
+--- a/app/scripts/components/kwic/kwic.ts
++++ b/app/scripts/components/kwic/kwic.ts
+@@ -3,6 +3,7 @@ import { compact, debounce } from "lodash"
+ import statemachine from "@/statemachine"
+ import settings from "@/settings"
+ import { makeDownload } from "@/kwic/kwic_download"
++import { makeCustomKwicDownload } from "@/kwic/kwic_download_clarin"
+ import { html } from "@/util"
+ import "./kwic-pager"
+ import "./kwic-word"
+@@ -393,6 +394,8 @@ angular.module("korpApp").component("kwic", {
+                     { value: "kwic/tsv", label: "download_kwic_tsv" },
+                     { value: "annotations/csv", label: "download_annotations_csv", disabled: settings.parallel },
+                     { value: "annotations/tsv", label: "download_annotations_tsv", disabled: settings.parallel },
++                    { value: "customkwic/csv", label: "download_customkwic_csv" },
++                    { value: "customkwic/tsv", label: "download_customkwic_tsv" },
+                 ],
+                 selected: "",
+                 init: (value, hits) => {
+@@ -402,8 +405,11 @@ angular.module("korpApp").component("kwic", {
+                     if (value === "") {
+                         return
+                     }
+-                    const [dataType, fileType] = value.split("/") as ["annotations" | "kwic", "csv" | "tsv"]
+-                    const [fileName, blobName] = makeDownload(dataType, fileType, $ctrl.kwic, $ctrl.params, hits)
++                    const [dataType, fileType] = value.split("/") as ["annotations" | "kwic" | "customkwic", "csv" | "tsv"]
++                    const [fileName, blobName] =
++                        dataType == "customkwic"
++                            ? makeCustomKwicDownload(fileType, $ctrl.kwic, $ctrl.params, hits)
++                            : makeDownload(dataType, fileType, $ctrl.kwic, $ctrl.params, hits)
+                     $ctrl.download.fileName = fileName
+                     $ctrl.download.blobName = blobName
+                     $ctrl.download.selected = ""
+diff --git a/app/scripts/kwic/kwic_download.ts b/app/scripts/kwic/kwic_download.ts
+index 84fcf3a2..dce20d30 100644
+--- a/app/scripts/kwic/kwic_download.ts
++++ b/app/scripts/kwic/kwic_download.ts
+@@ -12,7 +12,7 @@ type AnnotationsRow = ApiKwic | CorpusHeading
+ 
+ type TableRow = (string | number)[]
+ 
+-type KwicParams = QueryParams | RelationsSentencesParams
++export type KwicParams = QueryParams | RelationsSentencesParams
+ 
+ const emptyRow = (length: number) => fill(new Array(length), "")
+ 
+@@ -20,14 +20,14 @@ const padRows = (data: string[], length: number) => data.map((value) => [value,
+ 
+ const isQueryParams = (params: KwicParams): params is QueryParams => "cqp" in params
+ 
+-function createFile(dataType: string, fileType: string, content: string) {
++export function createFile(dataType: string, fileType: string, content: string) {
+     const date = moment().format("YYYYMMDD_HHmmss")
+     const filename = `korp_${dataType}_${date}.${fileType}`
+     const blobURL = window.URL.createObjectURL(new Blob([content], { type: `text/${fileType}` }))
+     return [filename, blobURL]
+ }
+ 
+-function* createSearchInfo(requestInfo: KwicParams, totalHits: number) {
++export function* createSearchInfo(requestInfo: KwicParams, totalHits: number) {
+     if (isQueryParams(requestInfo)) {
+         yield `## CQP query: ${requestInfo.cqp}`
+         if (requestInfo.cqp2) yield `## CQP query 2: ${requestInfo.cqp2}`
+diff --git a/app/scripts/kwic/kwic_download_clarin.ts b/app/scripts/kwic/kwic_download_clarin.ts
+new file mode 100644
+index 00000000..d30874f4
+--- /dev/null
++++ b/app/scripts/kwic/kwic_download_clarin.ts
+@@ -0,0 +1,127 @@
++/**
++ * @file korp-setups (NorS, University of Copenhagen) addition.
++ *
++ * "One concordance line per row" CSV/TSV export: one column per match token,
++ * followed by the text attributes and the per-token annotations of the match
++ * tokens (interleaved: pos1, pos2, lemma1, lemma2, ...), a semicolon
++ * delimiter for CSV (what Danish Excel expects) and a UTF-8 BOM so the file
++ * opens correctly in Excel on Windows and macOS.
++ *
++ * Kept in its own file so the patch hooking it into kwic.ts stays small.
++ * Ported from the pre-2026 kwic_download.js customisation.
++ */
++import { flatten, zip } from "lodash"
++import { locObj } from "@/i18n"
++import { isCorpusHeading, isKwic, isLinkedKwic, Row } from "@/kwic/kwic"
++import { ApiKwic, Token } from "@/backend/types"
++import { createFile, createSearchInfo, KwicParams } from "./kwic_download"
++
++type Cell = string | number
++type TableRow = Cell[]
++
++const SKIP_KEYS = new Set(["structs", "$$hashKey", "position"])
++
++/** Annotation keys of a token, excluding internal (underscore) keys. */
++const annotationKeys = (token: Token): string[] =>
++    Object.keys(token).filter((key) => !key.startsWith("_") && !SKIP_KEYS.has(key))
++
++/** The match tokens of a row; for "free order" searches, one per highlighted word. */
++const matchTokens = (row: ApiKwic): Token[] =>
++    Array.isArray(row.match)
++        ? row.match.map((m) => row.tokens[m.start]).filter((t): t is Token => !!t)
++        : row.tokens.slice(row.match.start, row.match.end)
++
++const matchPosition = (row: ApiKwic): string =>
++    Array.isArray(row.match) ? row.match.map((m) => m.position).join(", ") : String(row.match.position)
++
++/** Interleave per-token value lists: [[a1, b1], [a2, b2]] -> [a1, a2, b1, b2]. */
++const interleave = <T>(perToken: T[][]): T[] =>
++    flatten(zip(...perToken)).filter((v): v is T => v !== undefined)
++
++/**
++ * Decide the column layout from all rows: the widest match (in tokens), the
++ * widest annotation key set, and the numbered annotation headers.
++ */
++function annotationLayout(rows: ApiKwic[]): { keys: string[]; headers: string[]; queryLength: number } {
++    let keys: string[] = []
++    let headers: string[] = []
++    let queryLength = 0
++    for (const row of rows) {
++        const tokens = matchTokens(row)
++        if (!tokens.length) continue
++        queryLength = Math.max(queryLength, tokens.length)
++        const rowKeys = annotationKeys(tokens[0])
++        if (rowKeys.length > keys.length) keys = rowKeys
++        const perToken =
++            tokens.length == 1 ? [rowKeys] : tokens.map((token, i) => annotationKeys(token).map((key) => key + (i + 1)))
++        const rowHeaders = interleave(perToken)
++        if (rowHeaders.length > headers.length) headers = rowHeaders
++    }
++    return { keys, headers, queryLength }
++}
++
++function transform(data: Row[], searchInfo: string[]): TableRow[] {
++    const kwicRows = data.filter(isKwic)
++    // Parallel mode: linked sentences have no match or structs, so the old
++    // workaround puts every sentence in the left-context column.
++    const linked = data.some(isLinkedKwic)
++    const structHeaders = kwicRows[0]?.structs ? Object.keys(kwicRows[0].structs) : []
++    const { keys, headers: annotationHeaders, queryLength } = linked
++        ? { keys: [], headers: [], queryLength: 0 }
++        : annotationLayout(kwicRows)
++    const matchHeaders = queryLength > 1 ? Array.from({ length: queryLength }, (_, i) => `match${i + 1}`) : ["match"]
++    const headers = linked
++        ? ["corpus", "match_position", "left context", "match", "right_context"]
++        : ["corpus", "match_position", "left context", ...matchHeaders, "right_context", ...structHeaders, ...annotationHeaders]
++
++    let corpus = ""
++    const rows: TableRow[] = []
++    for (const row of data) {
++        if (isCorpusHeading(row)) {
++            corpus = locObj(row.newCorpus)
++        } else if (linked) {
++            rows.push(["", "", row.tokens.map((t) => t.word).join(" "), "", ""])
++        } else if (isKwic(row)) {
++            const words = row.tokens.map((t) => t.word)
++            const tokens = matchTokens(row)
++            const left = Array.isArray(row.match) ? words : words.slice(0, row.match.start)
++            const right = Array.isArray(row.match) ? [] : words.slice(row.match.end)
++            const matchWords = Array.from({ length: Math.max(queryLength, 1) }, (_, i) => tokens[i]?.word ?? "")
++            const structs = structHeaders.map((key) => row.structs?.[key] ?? "")
++            const annotations = interleave(
++                Array.from({ length: queryLength }, (_, i) =>
++                    keys.map((key) => (tokens[i] && tokens[i][key] != null ? String(tokens[i][key]) : "")),
++                ),
++            )
++            rows.push([
++                corpus,
++                matchPosition(row),
++                left.join(" "),
++                ...(queryLength > 1 ? matchWords : [matchWords.join(" ")]),
++                right.join(" "),
++                ...structs,
++                ...annotations,
++            ])
++        }
++    }
++
++    const pad = (cells: Cell[]) => [...cells, ...new Array(Math.max(headers.length - cells.length, 0)).fill("")]
++    return [headers, ...rows, pad([]), ...searchInfo.map((line) => pad([line]))]
++}
++
++/** Every cell quoted, quotes doubled, BOM first. */
++function encode(rows: TableRow[], separator: string): string {
++    const body = rows.map((row) => row.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(separator)).join("\n")
++    return "﻿" + body
++}
++
++export function makeCustomKwicDownload(
++    fileType: "csv" | "tsv",
++    data: Row[],
++    requestInfo: KwicParams,
++    totalHits: number,
++): string[] {
++    const searchInfo = [...createSearchInfo(requestInfo, totalHits)]
++    const table = transform(data, searchInfo)
++    return createFile("kwic", fileType, encode(table, fileType == "csv" ? ";" : "\t"))
++}

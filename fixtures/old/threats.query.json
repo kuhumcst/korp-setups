@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "THREATS_ART": 42
+ },
+ "corpus_order": [
+  "THREATS_ART"
+ ],
+ "hits": 42,
+ "kwic": [
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 3,
+    "position": 40,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 11
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 2,
+    "position": 132,
+    "start": 1
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 3,
+    "position": 140,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 12
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 4,
+    "position": 153,
+    "start": 3
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 9
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 4,
+    "position": 212,
+    "start": 3
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 6
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 3,
+    "position": 231,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 12,
+    "position": 259,
+    "start": 11
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 14
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 5,
+    "position": 292,
+    "start": 4
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 16
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 11,
+    "position": 314,
+    "start": 10
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 16
+   }
+  },
+  {
+   "corpus": "THREATS_ART",
+   "match": {
+    "end": 4,
+    "position": 350,
+    "start": 3
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 14
+   }
+  }
+ ],
+ "query_data": "eJwFwTsSgDAIBcArJQHy0crCGeuY3gkPuP8R3E3YuWehQuTejbWq-ggVq71AmJNR7MYNOzyAhqgDlAwmKUTP9cz7Wu93zXVw-QGNxRcN\n"
+}

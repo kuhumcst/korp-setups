@@ -1,0 +1,31 @@
+/* CLARIN site CSS, imported from custom/components.js for every mode. */
+
+/* Hide Språkbanken's header menu (Manual, Korp, Korp Labs, Sparv). The
+   "More" modes menu is an <li uib-dropdown> and must stay, hence the div. */
+#top_bar div[uib-dropdown] {
+    display: none;
+}
+
+/* Per-mode colours, replacing the old settings.primaryColor / primaryLight.
+   In the 2022 frontend (selector_widget.js) that setting was written as an
+   inline background colour on every corpus row (.boxdiv) in the corpus
+   chooser, and nowhere else that was visible: KWIC rows and the
+   hit-distribution bar used the compiled Sass blue. The 9.15 chooser keeps
+   the .boxdiv class but writes upstream's blue as an inline style on every
+   row (tree.ts), so these rules need !important to win over it. The body
+   attribute is set in custom/components.js. */
+body[data-korp-mode="default"] .corpus-chooser .boxdiv,
+body[data-korp-mode="saxo_danish"] .corpus-chooser .boxdiv,
+body[data-korp-mode="da1800"] .corpus-chooser .boxdiv {
+    background-color: #f7d1e4 !important;
+}
+body[data-korp-mode^="memo_"] .corpus-chooser .boxdiv,
+body[data-korp-mode="FT"] .corpus-chooser .boxdiv {
+    background-color: whitesmoke !important;
+}
+body[data-korp-mode="medieval_ballads"] .corpus-chooser .boxdiv {
+    background-color: #e7d7c5 !important;
+}
+body[data-korp-mode="threats"] .corpus-chooser .boxdiv {
+    background-color: #ded8d3 !important;
+}

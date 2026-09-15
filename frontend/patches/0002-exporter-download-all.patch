@@ -1,0 +1,86 @@
+# korp-setups patch: "All concordance lines (CSV)" download option that opens the exporter
+# service (exporter/ in korp-setups) with the current /query parameters. Enabled by the
+# exporter_url setting in config.yml. Adds app/scripts/kwic/kwic_exporter_clarin.ts.
+# Upstream status: site-specific, not for upstream.
+diff --git a/app/scripts/components/kwic/kwic.ts b/app/scripts/components/kwic/kwic.ts
+index a7c27498..fad92ab7 100644
+--- a/app/scripts/components/kwic/kwic.ts
++++ b/app/scripts/components/kwic/kwic.ts
+@@ -4,6 +4,7 @@ import statemachine from "@/statemachine"
+ import settings from "@/settings"
+ import { makeDownload } from "@/kwic/kwic_download"
+ import { makeCustomKwicDownload } from "@/kwic/kwic_download_clarin"
++import { exporterUrl, openExporter } from "@/kwic/kwic_exporter_clarin"
+ import { html } from "@/util"
+ import "./kwic-pager"
+ import "./kwic-word"
+@@ -396,6 +397,7 @@ angular.module("korpApp").component("kwic", {
+                     { value: "annotations/tsv", label: "download_annotations_tsv", disabled: settings.parallel },
+                     { value: "customkwic/csv", label: "download_customkwic_csv" },
+                     { value: "customkwic/tsv", label: "download_customkwic_tsv" },
++                    ...(exporterUrl() ? [{ value: "exporter/csv", label: "download_all_kwic_csv" }] : []),
+                 ],
+                 selected: "",
+                 init: (value, hits) => {
+@@ -405,7 +407,15 @@ angular.module("korpApp").component("kwic", {
+                     if (value === "") {
+                         return
+                     }
+-                    const [dataType, fileType] = value.split("/") as ["annotations" | "kwic" | "customkwic", "csv" | "tsv"]
++                    const [dataType, fileType] = value.split("/") as [
++                        "annotations" | "kwic" | "customkwic" | "exporter",
++                        "csv" | "tsv",
++                    ]
++                    if (dataType == "exporter") {
++                        openExporter($ctrl.params, hits)
++                        $ctrl.download.selected = ""
++                        return
++                    }
+                     const [fileName, blobName] =
+                         dataType == "customkwic"
+                             ? makeCustomKwicDownload(fileType, $ctrl.kwic, $ctrl.params, hits)
+diff --git a/app/scripts/kwic/kwic_exporter_clarin.ts b/app/scripts/kwic/kwic_exporter_clarin.ts
+new file mode 100644
+index 00000000..480bce97
+--- /dev/null
++++ b/app/scripts/kwic/kwic_exporter_clarin.ts
+@@ -0,0 +1,26 @@
++/**
++ * @file korp-setups (NorS, University of Copenhagen) addition.
++ *
++ * "All concordance lines" download: opens our exporter service (exporter/ in
++ * the korp-setups repository) with the parameters of the current KWIC
++ * request, so it can page through the whole result on the backend and
++ * stream a CSV. The service URL comes from the `exporter_url` setting;
++ * relative URLs resolve against the page URL. Without the setting, the
++ * menu option is not shown.
++ */
++import settings from "@/settings"
++import { KwicParams } from "./kwic_download"
++
++export const exporterUrl = (): string | undefined => settings["exporter_url"] || undefined
++
++export function openExporter(params: KwicParams, hits: number): void {
++    const base = exporterUrl()
++    if (!base) return
++    const url = new URL(base, location.href)
++    for (const [key, value] of Object.entries(params)) {
++        if (value === undefined || value === null) continue
++        url.searchParams.set(key, String(value))
++    }
++    url.searchParams.set("hits_display", String(hits))
++    window.open(url.toString(), "_blank")
++}
+diff --git a/app/scripts/settings/app-settings.types.ts b/app/scripts/settings/app-settings.types.ts
+index b5205a70..d6c21f69 100644
+--- a/app/scripts/settings/app-settings.types.ts
++++ b/app/scripts/settings/app-settings.types.ts
+@@ -28,6 +28,8 @@ export type AppSettings = {
+     description?: string
+     download_formats: string[]
+     enable_frontend_kwic_download?: boolean
++    /** korp-setups: URL of the exporter service for downloading all KWIC rows; relative to the page URL. */
++    exporter_url?: string
+     frontpage?: {
+         corpus_updates?: boolean
+         examples?: SearchExample[]

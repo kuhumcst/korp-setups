@@ -1,0 +1,12 @@
+# Packages installed AFTER korp-backend's requirements.txt, replacing an
+# exact pin that does not work in this image. A constraints file cannot
+# override an "==" pin, hence a second install step.
+#
+# korp-backend v8.2.0 pins mysqlclient==1.3.13 (2018). Its C extension uses
+# "#" format codes without PY_SSIZE_T_CLEAN, which Python 3.10 turned into a
+# hard error: every database-backed endpoint (/timespan, /relations,
+# /lemgram_count) then answers
+#   SystemError: PY_SSIZE_T_CLEAN macro must be defined for '#' formats
+# The 2022 korp-setups image ran mysqlclient 2.1.0 with the same
+# Flask-MySQLdb 0.2.0 and MySQL 8; upstream's dev branch is on 2.2.x.
+mysqlclient==2.1.1

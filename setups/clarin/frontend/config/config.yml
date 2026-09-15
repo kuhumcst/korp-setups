@@ -1,0 +1,109 @@
+# Korp frontend settings for the CLARIN setup (korp-frontend >= 9.15).
+#
+# Settings reference: korp-frontend/doc/frontend_devel.md, "Settings".
+# Corpus and mode configuration is NOT here: the backend serves it from
+# setups/clarin/corpus_config/ via /corpus_config.
+#
+# Converted 2026-09-15 from the old app/config.js (see doc/upgrade-plan.md,
+# Appendix A, for the key-by-key mapping).
+
+# Replaced at image build time from the KORP_BACKEND_URL build argument.
+korp_backend_url: "__KORP_BACKEND_URL__"
+
+# Our exporter service (exporter/ in this repo) for downloading all KWIC rows.
+# Read by our kwic.ts patch (frontend/patches/0002-*). Relative URLs resolve
+# against the page URL, so "download/csv" is <site>/korp/download/csv in
+# production; replaced at build time from the KORP_EXPORTER_URL argument.
+# Leave empty to hide the download option.
+exporter_url: "__KORP_EXPORTER_URL__"
+
+languages:
+  - value: dan
+    label:
+      dan: Dansk
+      eng: Danish
+  - value: eng
+    label:
+      dan: Engelsk
+      eng: English
+default_language: dan
+
+# Old links used two-letter codes (#?lang=da); the frontend rewrites them
+# using iso_languages, whose default already maps da -> dan.
+
+visible_modes: 5
+
+# Every CLARIN mode disabled these in the old mode files.
+autocomplete: false
+word_picture: false
+map_enabled: false
+
+enable_frontend_kwic_download: true
+
+hits_per_page_values: [25, 50, 75, 100, 500, 1000]
+hits_per_page_default: 25
+
+default_overview_context: 1 sentence
+default_reading_context: 1 paragraph
+default_within:
+  sentence: sentence
+
+default_options:
+  is: "="
+  is_not: "!="
+  starts_with: "^="
+  contains: "_="
+  ends_with: "&="
+  matches: "*="
+  matches_not: "!*="
+
+# For "group by" in statistics: only attributes common to all selected corpora.
+reduce_word_attribute_selector: intersection
+reduce_struct_attribute_selector: intersection
+
+# For optimisation purposes (order of attributes in generated CQP).
+cqp_prio: [deprel, pos, msd, suffix, prefix, grundform, lemgram, saldo, word]
+
+group_statistics: []
+
+# What the old UI called the word attribute (locale-da 'word' = Ordform, locale-en = Token).
+word_label:
+  dan: Ordform
+  eng: Token
+
+# Time-interval search alternative, added automatically to corpora that have
+# time data (text_datefrom etc.). Mirrors the old settings.commonStructTypes.
+common_struct_types:
+  date_interval:
+    label:
+      dan: tidsinterval
+      eng: time interval
+    hide_sidebar: true
+    hide_compare: true
+    hide_statistics: true
+    opts: false
+    extended_component: dateInterval
+
+# Header: organisation logo on the right, plus the user-guide link that the old
+# patched header carried. Tailwind classes work here (the build scans this dir).
+logo:
+  organization: |
+    <div class="flex items-end gap-4 shrink-0">
+      <a class="hidden lg:flex items-end gap-2 text-black no-underline" href="https://nors.ku.dk" target="_blank">
+        <span class="text-right leading-tight">Institut for Nordiske Studier<br>og Sprogvidenskab</span>
+        <img src="img/ku_logo.svg" alt="Københavns Universitet" style="height: 77px" />
+      </a>
+      <a class="whitespace-nowrap" href="userguide/" target="_blank">
+        <span ng-if="$root.lang == 'dan'">Brugervejledning</span>
+        <span ng-if="$root.lang != 'dan'">User guide (in Danish)</span>
+      </a>
+    </div>
+
+# Frontpage text shown under the search form until a search is made.
+description:
+  dan: |
+    <p>Korp er et værktøj til at søge i annoterede tekstkorpusser.
+    Se <a href="userguide/" target="_blank">brugervejledningen</a> for en introduktion.</p>
+  eng: |
+    <p>Korp is a tool for searching annotated text corpora.
+    See the <a href="userguide/" target="_blank">user guide</a> (in Danish) for an introduction.</p>

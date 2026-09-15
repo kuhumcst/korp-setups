@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "MEMO_BANGH_TINE_1889": 2057
+ },
+ "corpus_order": [
+  "MEMO_BANGH_TINE_1889"
+ ],
+ "hits": 2057,
+ "kwic": [
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 9,
+    "position": 34,
+    "start": 8
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 64
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 53,
+    "position": 78,
+    "start": 52
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 64
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 10,
+    "position": 99,
+    "start": 9
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 36
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 16,
+    "position": 105,
+    "start": 15
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 36
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 9,
+    "position": 134,
+    "start": 8
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 90
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 35,
+    "position": 160,
+    "start": 34
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 90
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 49,
+    "position": 174,
+    "start": 48
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 90
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 58,
+    "position": 183,
+    "start": 57
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 90
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 13,
+    "position": 276,
+    "start": 12
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 21
+   }
+  },
+  {
+   "corpus": "MEMO_BANGH_TINE_1889",
+   "match": {
+    "end": 2,
+    "position": 295,
+    "start": 1
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 27
+   }
+  }
+ ],
+ "query_data": "eJwFwTEOgCAMAMAvtUCB6qQJUQdwcSdQ2v8_wbsVSIOKLpGpDiKK5-jdzIpRFqMuGE4lCU4zQkkUDIzJKAEOnnst9e3n0a67f08rHXPmzQGlH7MVGZY=\n"
+}

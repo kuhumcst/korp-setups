@@ -1,26 +1,37 @@
-version: '3'
 services:
 
-  doc:
-    build: ../../doc/
-    image: korp_docs
-  # The "backend" and "frontend" containers is the actual Korp backend + frontend Clarin setup.
+  # The "backend" and "frontend" containers are the actual Korp backend + frontend Clarin setup.
   backend:
     build: ../../backend
     # fixes race condition https://vsupalov.com/simple-fix-db-not-ready/
     restart: on-failure
     volumes:
-#      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/ 
-#     - /Users/rqf595/Desktop/korp-old/korp-corpora:/opt/corpora
-      - /opt/corpora:/opt/corpora
+      # CORPORA_DIR defaults to the production path; override it in a local
+      # .env file (git-ignored), e.g. CORPORA_DIR=/Users/me/Code/corpora.
+      # The container path stays /opt/corpora because the CWB registry files
+      # contain absolute HOME paths under /opt/corpora/data.
+      - ${CORPORA_DIR:-/opt/corpora}:/opt/corpora
+      # Corpus/mode configuration served to the frontend by /corpus_config
+      # (korp-backend >= 8.1). Generated from the old JS mode files by
+      # scripts/modejs2yaml.js; now the source of truth.
+      - ./corpus_config:/opt/corpus_config:ro
     ports:
       # Korp backend server
       - "1234:1234"
   frontend:
-    build: frontend/
+    build:
+      context: frontend/
+      args:
+        # Where the browser reaches the backend. Production default; set
+        # KORP_BACKEND_URL=http://localhost:1234 in the local .env file.
+        KORP_BACKEND_URL: ${KORP_BACKEND_URL:-https://alf.hum.ku.dk/korp/backend}
+        # Exporter (download all KWIC rows); relative to the page URL in production.
+        KORP_EXPORTER_URL: ${KORP_EXPORTER_URL:-download/csv}
+      additional_contexts:
+        # The mkdocs user guide sources, shared by all setups.
+        userguides: ../../doc/userguides
     restart: on-failure
     depends_on:
-      - doc
       - backend
     ports:
       # Korp frontend server
@@ -32,9 +43,7 @@ services:
     build: docker/backend-v6/
     restart: on-failure
     volumes:
-#      - /Users/phb514/mygit/korp-setups/setups/memotest/corpora/
-#      - /Users/rqf595/Desktop/korp-old/korp-corpora:/opt/corpora
-      - /opt/corpora:/opt/corpora
+      - ${CORPORA_DIR:-/opt/corpora}:/opt/corpora
   fcs-prep:
     build: docker/fcs/prep/
     image: fcs-prep-build
@@ -50,7 +59,7 @@ services:
   exporter:
     build: ../../exporter/
     ports:
-      # Korp frontend server
+      # Exporter (download all KWIC rows), see exporter/README.md
       - "14000:4000"
     volumes:
       - ./../../exporter/hostvar/tmp/data:/var/tmp/data

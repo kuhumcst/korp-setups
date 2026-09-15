@@ -1,0 +1,48 @@
+{
+ "corpora": {
+  "MEMO_BANGH_TINE_1889": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "pos",
+     "pos2",
+     "lemma"
+    ],
+    "s": [
+     "sentence",
+     "sentence_id",
+     "text",
+     "text_title",
+     "text_author",
+     "text_pseudonym",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto",
+     "text_gender",
+     "text_source",
+     "text_nationality",
+     "text_subtitle",
+     "text_pages",
+     "text_illustrations",
+     "text_typeface",
+     "text_publisher",
+     "text_price",
+     "corpus",
+     "corpus_title",
+     "corpus_datefrom",
+     "corpus_dateto"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "MEMO_BANGH_TINE_1889",
+    "Size": "59632"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 59632
+}

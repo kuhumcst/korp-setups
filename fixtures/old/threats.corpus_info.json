@@ -1,0 +1,63 @@
+{
+ "corpora": {
+  "THREATS_ART": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "pos",
+     "msd",
+     "lemma",
+     "numincorp",
+     "numintext",
+     "numinp",
+     "numinline"
+    ],
+    "s": [
+     "p",
+     "p_idp",
+     "sentence",
+     "sentence_id",
+     "corpus",
+     "corpus_title",
+     "corpus_id",
+     "corpus_datefrom",
+     "corpus_dateto",
+     "text",
+     "text_title",
+     "text_date",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto",
+     "text_Instrument",
+     "text_Platform",
+     "text_Mediatype",
+     "text_Original",
+     "text_Domain",
+     "text_Exactdate",
+     "text_Notbeforedate",
+     "text_Notafterdate",
+     "text_Origplace",
+     "text_Juridoutcome",
+     "text_Sendertype",
+     "text_SenderID",
+     "text_Senderage",
+     "text_Sendergender",
+     "text_Victimtype",
+     "text_VictimID",
+     "text_Victimage",
+     "text_Victimgender",
+     "text_SenderTargetrelation"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "THREATS_ART",
+    "Size": "1852"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 1852
+}

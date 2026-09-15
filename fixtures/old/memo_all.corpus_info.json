@@ -1,0 +1,78 @@
+{
+ "corpora": {
+  "MEMO_ALL": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "normalized",
+     "lemma",
+     "pos",
+     "wordnum_in_sentence",
+     "wordnum_in_line",
+     "wordnum_global",
+     "linenum",
+     "pagenum"
+    ],
+    "s": [
+     "corpus",
+     "corpus_id",
+     "text",
+     "text_file_id",
+     "text_file_received",
+     "text_filename",
+     "text_firstname",
+     "text_surname",
+     "text_pseudonym",
+     "text_gender",
+     "text_nationality",
+     "text_title",
+     "text_subtitle",
+     "text_volume",
+     "text_year",
+     "text_pages",
+     "text_illustrations",
+     "text_typeface",
+     "text_publisher",
+     "text_price",
+     "text_file_status",
+     "text_source",
+     "text_notes",
+     "text_filepath",
+     "text_fileformat",
+     "text_txt_received",
+     "text_readable",
+     "text_historical",
+     "text_period",
+     "text_period_notes",
+     "text_novel_start",
+     "text_novel_end",
+     "text_novelstart_rescan",
+     "text_novelend_rescan",
+     "text_start_end_page_notes",
+     "text_serialno",
+     "text_quarantine",
+     "text_discard",
+     "text_datefrom",
+     "text_dateto",
+     "text_timefrom",
+     "text_timeto",
+     "paragraph",
+     "paragraph_id",
+     "sentence",
+     "sentence_id"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "FirstDate": "1870-01-01 00:00:00",
+    "LastDate": "1899-12-31 23:59:59",
+    "Name": "MEMO_ALL",
+    "Size": "64599322",
+    "Updated": "2023-06-19"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 64599322
+}

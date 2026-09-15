@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "LSPCLIMATEDMU": 23359
+ },
+ "corpus_order": [
+  "LSPCLIMATEDMU"
+ ],
+ "hits": 23359,
+ "kwic": [
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 42,
+    "position": 103,
+    "start": 41
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 75
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 50,
+    "position": 111,
+    "start": 49
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 75
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 66,
+    "position": 127,
+    "start": 65
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 75
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 2,
+    "position": 289,
+    "start": 1
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 22
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 21,
+    "position": 416,
+    "start": 20
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 27
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 3,
+    "position": 456,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 3,
+    "position": 463,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 3,
+    "position": 500,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 3,
+    "position": 507,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "LSPCLIMATEDMU",
+   "match": {
+    "end": 3,
+    "position": 546,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  }
+ ],
+ "query_data": "eJwFwdsJgDAMAMCVmoQ8ql-ifggtCOoAiTX7j-CdWYzi4ZTAyaFUAPF1ii-rsWVWVkk3_EiLCEmqyMAwBRoJOLfrXNvRl3vf-jMhEdcf2_gWtA==\n"
+}

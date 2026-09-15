@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 23359,
+    "relative": 23498.085166098135,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 23359,
+   "relative": 23498.085166098135
+  }
+ },
+ "corpora": {
+  "LSPCLIMATEDMU": {
+   "rows": [
+    {
+     "absolute": 23359,
+     "relative": 23498.085166098135,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 23359,
+    "relative": 23498.085166098135
+   }
+  }
+ },
+ "count": 1
+}

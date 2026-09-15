@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "LIT1800JPJNL": 508
+ },
+ "corpus_order": [
+  "LIT1800JPJNL"
+ ],
+ "hits": 508,
+ "kwic": [
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 25,
+    "position": 27,
+    "start": 24
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 28
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 9,
+    "position": 39,
+    "start": 8
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 40
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 32,
+    "position": 62,
+    "start": 31
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 40
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 35,
+    "position": 65,
+    "start": 34
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 40
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 5,
+    "position": 80,
+    "start": 4
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 4,
+    "position": 86,
+    "start": 3
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 11
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 1,
+    "position": 94,
+    "start": 0
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 26
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 23,
+    "position": 116,
+    "start": 22
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 26
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 6,
+    "position": 125,
+    "start": 5
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 8
+   }
+  },
+  {
+   "corpus": "LIT1800JPJNL",
+   "match": {
+    "end": 23,
+    "position": 160,
+    "start": 22
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 36
+   }
+  }
+ ],
+ "query_data": "eJwFwckRgCAMAMCWcpADrUCGcXzYAJGk_xLclcQeVRqZ0ASDGZJ9Nc9W7oVkRiFWXRbFhs84asVW3JoMpOe8XnSA8Yx7HgL-A5_bFiY=\n"
+}

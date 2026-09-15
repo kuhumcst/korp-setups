@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "MEMO_FRAKTUR_GOLD": 457
+ },
+ "corpus_order": [
+  "MEMO_FRAKTUR_GOLD"
+ ],
+ "hits": 457,
+ "kwic": [
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 2,
+    "position": 1,
+    "start": 1
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 10
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 30,
+    "position": 87,
+    "start": 29
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 35
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 11,
+    "position": 103,
+    "start": 10
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 22
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 3,
+    "position": 117,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 24
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 14,
+    "position": 128,
+    "start": 13
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 24
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 3,
+    "position": 141,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 20,
+    "position": 185,
+    "start": 19
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 29
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 3,
+    "position": 197,
+    "start": 2
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 15
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 21,
+    "position": 230,
+    "start": 20
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 26
+   }
+  },
+  {
+   "corpus": "MEMO_FRAKTUR_GOLD",
+   "match": {
+    "end": 27,
+    "position": 290,
+    "start": 26
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 29
+   }
+  }
+ ],
+ "query_data": "eJwFwUkOgCAMAMAvCbRI9WTiclBCQvRM6ML_n-BMck4EUZUVpqHGPiQFAmE26ziCSAeyQWZudPCCkZEiJfGAMcCaj1zaWbf7_Wq7yrMvgPMPW6wY9g==\n"
+}

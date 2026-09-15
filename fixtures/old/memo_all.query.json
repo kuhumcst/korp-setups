@@ -1,0 +1,162 @@
+{
+ "corpus_hits": {
+  "MEMO_ALL": 1761407
+ },
+ "corpus_order": [
+  "MEMO_ALL"
+ ],
+ "hits": 1761407,
+ "kwic": [
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 10,
+    "position": 14,
+    "start": 9
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 21
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 21,
+    "position": 46,
+    "start": 20
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 51
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 41,
+    "position": 66,
+    "start": 40
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 51
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 11,
+    "position": 87,
+    "start": 10
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 62
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 46,
+    "position": 122,
+    "start": 45
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 62
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 49,
+    "position": 125,
+    "start": 48
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 62
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 55,
+    "position": 131,
+    "start": 54
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 62
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 6,
+    "position": 169,
+    "start": 5
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 11
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 5,
+    "position": 336,
+    "start": 4
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 50
+   }
+  },
+  {
+   "corpus": "MEMO_ALL",
+   "match": {
+    "end": 18,
+    "position": 349,
+    "start": 17
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 50
+   }
+  }
+ ],
+ "query_data": "eJwFwcsRgCAMBcCWHkJ-evLgDcYSnBBC_yW4a1iV0CyhMOZ9OGCWHIdgzwxWYZqL6kQW3k2L7yDX8EgS8Ws84_3u3s8iXBrkB3H2FdM=\n"
+}

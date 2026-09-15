@@ -1,0 +1,44 @@
+{
+ "corpora": {
+  "FT_KORPUS": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word"
+    ],
+    "s": [
+     "text",
+     "text_title",
+     "text_date",
+     "text_timeFrom",
+     "text_timeTo",
+     "text_duration",
+     "text_agendaItemNo",
+     "text_caseNo",
+     "text_caseType",
+     "text_agendaTitle",
+     "text_subject1",
+     "text_subject2",
+     "text_name",
+     "text_gender",
+     "text_party",
+     "text_role",
+     "text_MPtitle",
+     "text_birth",
+     "text_age",
+     "p",
+     "p_idp",
+     "sentence",
+     "sentence_id"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "FT_KORPUS",
+    "Size": "46975328"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 46975328
+}

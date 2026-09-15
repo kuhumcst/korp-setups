@@ -1,0 +1,19 @@
+# pip constraints applied on top of korp-backend's own requirements.txt.
+#
+# korp-backend v8.2.0 pins its direct dependencies loosely (Flask~=2.2.3,
+# gevent~=22.10.2, ...) and not their transitive ones. Resolved today, that
+# pulls in packages released years after the tag which break the old stack:
+#
+# - Werkzeug 3.x removed APIs that Flask 2.2 still uses.
+# - greenlet 3.x is ABI-incompatible with gevent 22.x.
+# - zope.event 6.x / zope.interface 8.x ship "zope_event-*.dist-info"
+#   metadata that pkg_resources (used by gevent.monkey's plugin loader)
+#   cannot map back to the requested name, so korp dies at start with
+#   DistributionNotFound.
+#
+# These are the versions contemporary with the v8.2.0 tag (May 2024).
+# Revisit when bumping KORP_BACKEND_REF.
+Werkzeug==2.3.8
+greenlet==2.0.2
+zope.event==4.6
+zope.interface==5.5.2

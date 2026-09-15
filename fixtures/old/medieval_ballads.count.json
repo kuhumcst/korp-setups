@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 5,
+    "relative": 112.16798277099784,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 5,
+   "relative": 112.16798277099784
+  }
+ },
+ "corpora": {
+  "DUDSDFK_BILLALL": {
+   "rows": [
+    {
+     "absolute": 5,
+     "relative": 112.16798277099784,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 5,
+    "relative": 112.16798277099784
+   }
+  }
+ },
+ "count": 1
+}

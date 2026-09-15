@@ -1,64 +1,32 @@
-FROM ubuntu:focal
+# Korp frontend base image: upstream korp-frontend source at a release tag,
+# with dependencies installed and our source patches applied.
+#
+# This image has NO entrypoint. A setup extends it, adds its configuration
+# directory, runs `yarn build`, and serves the resulting dist/ (see
+# setups/clarin/frontend/Dockerfile for the reference setup).
 
-# Install dependency libraries
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install --no-install-recommends -y \
-    curl \
-    ca-certificates \
-    git \
-    mysql-server
+FROM node:24-bookworm
 
-# Fetch and run script to add nodejs repos alongside standard Ubuntu ones.
-# Replace setup_12.x with setup_xx.x for whatever specific version is needed.
-# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-2-%E2%80%94-installing-node-js-with-apt-using-a-nodesource-ppa
-RUN curl https://deb.nodesource.com/setup_12.x > setup_nodejs.sh
-RUN bash setup_nodejs.sh
-
-# Then install Nodejs (and NPM as a implicit, recommended install)
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y \
-    nodejs \
-    && rm -rf /var/lib/apt/lists/*
-
-# Additional source compilation tools needed for ARM64 builds, e.g. Mac M1
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y \
-    python2 \
-    python-is-python3 \
-    make \
-    g++ \
-    && rm -rf /var/lib/apt/lists/*
-
-# With NPM installed, we can install yarn
-RUN npm install --global yarn
-
-# Fetch the korp-frontend
+# Fetch korp-frontend at a release tag. Override with --build-arg to try
+# another tag or commit.
+ARG KORP_FRONTEND_REF=v9.15.1
 WORKDIR /opt
 RUN git clone https://github.com/spraakbanken/korp-frontend.git
 WORKDIR /opt/korp-frontend
-RUN git fetch --all
-# Checkout commit from 18.1.2022
-RUN git checkout d3a09514a43c4e9a266c5be50fa181f57b60d70b
+RUN git checkout "${KORP_FRONTEND_REF}"
 
-# Fetch korp-frontend dependencies
-WORKDIR /opt/korp-frontend
-RUN yarn
+# Dependencies exactly as locked by upstream for this tag. Installed before
+# the patches so that editing a patch does not invalidate this slow layer.
+RUN yarn install --frozen-lockfile --network-timeout 600000
 
-# Add basic UI localisation for Danish
-COPY app /opt/korp-frontend/app
+# Source patches (frontend/patches/*.patch) are the complete list of our
+# deviations from upstream. `git apply --check` first, so a patch that no
+# longer applies fails the build loudly instead of half-applying.
+COPY patches/ /patches/
+RUN set -e; for p in /patches/*.patch; do \
+      [ -e "$p" ] || continue; \
+      echo "applying $p"; git apply --check "$p" && git apply --3way "$p"; \
+    done; git status --short
 
-# Install mkdocs for building user guides.
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y \
-    python3 \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
-RUN pip install mkdocs
-
-# This Dockerfile does NOT contain an entrypoint! You MUST extend it by writing
-# your own Dockerfile, using `korp_frontend_base` as a parent image.
-# See korp/setups/clarin for an example setup including a Dockerfile.
+# webpack 5 + TypeScript needs more heap than Node's default on some hosts.
+ENV NODE_OPTIONS=--max-old-space-size=4096

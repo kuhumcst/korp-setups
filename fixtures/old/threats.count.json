@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 42,
+    "relative": 22678.185745140392,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 42,
+   "relative": 22678.185745140392
+  }
+ },
+ "corpora": {
+  "THREATS_ART": {
+   "rows": [
+    {
+     "absolute": 42,
+     "relative": 22678.185745140392,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 42,
+    "relative": 22678.185745140392
+   }
+  }
+ },
+ "count": 1
+}

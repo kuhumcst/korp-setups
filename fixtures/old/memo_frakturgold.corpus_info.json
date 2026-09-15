@@ -1,0 +1,70 @@
+{
+ "corpora": {
+  "MEMO_FRAKTUR_GOLD": {
+   "attrs": {
+    "a": [],
+    "p": [
+     "word",
+     "lineword",
+     "line",
+     "page",
+     "novel_id",
+     "fraktur_ocrtok",
+     "fraktur_leven",
+     "fraktur_ratio",
+     "fraktur_cer",
+     "fraktur_levcat",
+     "fraktur_subst",
+     "fraktur_infreq",
+     "dan_ocrtok",
+     "dan_leven",
+     "dan_ratio",
+     "dan_cer",
+     "dan_levcat",
+     "dan_subst",
+     "dan_infreq",
+     "frk_ocrtok",
+     "frk_leven",
+     "frk_ratio",
+     "frk_cer",
+     "frk_levcat",
+     "frk_subst",
+     "frk_infreq",
+     "kb_ocrtok",
+     "kb_leven",
+     "kb_ratio",
+     "kb_cer",
+     "kb_levcat",
+     "kb_subst",
+     "kb_infreq",
+     "corr_ocrtok",
+     "corr_leven",
+     "corr_ratio",
+     "corr_cer",
+     "corr_levcat",
+     "corr_subst",
+     "corr_infreq",
+     "sentword",
+     "lemma",
+     "pos",
+     "gold_infreq"
+    ],
+    "s": [
+     "sentence",
+     "sentence_id",
+     "text",
+     "text_id",
+     "corpus",
+     "corpus_id"
+    ]
+   },
+   "info": {
+    "Charset": "utf8",
+    "Name": "MEMO_FRAKTUR_GOLD",
+    "Size": "15760"
+   }
+  }
+ },
+ "total_sentences": 0,
+ "total_size": 15760
+}

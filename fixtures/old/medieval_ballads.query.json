@@ -1,0 +1,87 @@
+{
+ "corpus_hits": {
+  "DUDSDFK_BILLALL": 5
+ },
+ "corpus_order": [
+  "DUDSDFK_BILLALL"
+ ],
+ "hits": 5,
+ "kwic": [
+  {
+   "corpus": "DUDSDFK_BILLALL",
+   "match": {
+    "end": 1,
+    "position": 8792,
+    "start": 0
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 4
+   }
+  },
+  {
+   "corpus": "DUDSDFK_BILLALL",
+   "match": {
+    "end": 1,
+    "position": 32402,
+    "start": 0
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "DUDSDFK_BILLALL",
+   "match": {
+    "end": 1,
+    "position": 32426,
+    "start": 0
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "DUDSDFK_BILLALL",
+   "match": {
+    "end": 1,
+    "position": 35057,
+    "start": 0
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 7
+   }
+  },
+  {
+   "corpus": "DUDSDFK_BILLALL",
+   "match": {
+    "end": 1,
+    "position": 41737,
+    "start": 0
+   },
+   "structs": [],
+   "tokens": {
+    "attrs": [
+     "word"
+    ],
+    "count": 5
+   }
+  }
+ ],
+ "query_data": "eJwNyjsKgDAMANArNUmljU5KEcRs4izmd_8j6JufvdQIgCA8uYAVS9aORqC9ujpYa1OW-A9rpaA0RoZAx2zdfRn3uMZ-PtshsorM0wexGRbk\n"
+}

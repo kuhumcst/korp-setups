@@ -1,0 +1,39 @@
+{
+ "combined": {
+  "rows": [
+   {
+    "absolute": 457,
+    "relative": 28997.46192893401,
+    "value": {
+     "word": [
+      "og"
+     ]
+    }
+   }
+  ],
+  "sums": {
+   "absolute": 457,
+   "relative": 28997.46192893401
+  }
+ },
+ "corpora": {
+  "MEMO_FRAKTUR_GOLD": {
+   "rows": [
+    {
+     "absolute": 457,
+     "relative": 28997.46192893401,
+     "value": {
+      "word": [
+       "og"
+      ]
+     }
+    }
+   ],
+   "sums": {
+    "absolute": 457,
+    "relative": 28997.46192893401
+   }
+  }
+ },
+ "count": 1
+}
