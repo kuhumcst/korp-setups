@@ -6,21 +6,23 @@ This is a custom Docker setup of Korp: a web interface ([frontend](https://githu
 
 Versions
 --------
-The base images follow Språkbanken's tagged releases: korp-frontend **v9.15.1** (`frontend/Dockerfile`, `KORP_FRONTEND_REF`) and korp-backend **v8.2.0** (`backend/Dockerfile`, `KORP_BACKEND_REF`). The 2026 migration from the 2022 pins, its reasoning and its checks are documented in [doc/upgrade-plan.md](doc/upgrade-plan.md). The CLARIN setup is migrated; the other setups still use the 2022 layout and are next (plan, Phase 6).
+The base images build Språkbanken's tagged releases: korp-frontend **v9.15.1** and korp-backend **v8.2.0**. The tag is a build argument in each Dockerfile (`KORP_FRONTEND_REF` in `frontend/Dockerfile`, `KORP_BACKEND_REF` in `backend/Dockerfile`), so trying another release means changing one line.
+
+Until September 2026 the images were built from commits of January and May 2022 instead. Moving to the current releases meant reorganising how the setups are configured, because upstream had changed its configuration formats in the meantime. [doc/upgrade-plan.md](doc/upgrade-plan.md) describes that work: why each change was made, the checks that verify it, and what still has to be done. The CLARIN setup has been converted and is in production; the other setups are still in the old layout and will follow (the plan's Phase 6).
 
 How a setup is put together
 ---------------------------
-Upstream Korp is not patched by copying files over its source any more. Each layer has one place:
+Upstream Korp's source is built unmodified, apart from the small patches listed below. Everything specific to this repository or to one setup lives in one of these places:
 
 | Concern | Where | Notes |
 |---|---|---|
 | Frontend settings | `setups/<setup>/frontend/config/config.yml` | upstream's `config.yml` format; read via `run_config.json` at build time |
 | Corpus and mode configuration | `setups/<setup>/corpus_config/` (YAML) | served by the backend's `/corpus_config`; bind-mounted at `/opt/corpus_config` |
-| Translations | `setups/<setup>/frontend/config/translations/` | three-letter language codes (`dan`, `eng`); `locale-dan.json` must match upstream's key set, checked at build time |
+| Translations | `setups/<setup>/frontend/config/translations/` | files are named with three-letter language codes (`dan`, `eng`); `locale-dan.json` must contain exactly the strings the upstream release uses, which the build checks |
 | Site code (sidebar components, stringifiers, CSS) | `setups/<setup>/frontend/config/custom/` | upstream's `custom/*.js` hooks, loaded if present |
 | Changes to upstream source | `frontend/patches/*.patch` | applied with `git apply --check` when the base image is built; a patch that no longer applies fails the build |
 | Backend settings | `backend/config.py` | installed as upstream's `instance/config.py` |
-| Python dependency pins | `backend/constraints.txt`, `backend/requirements-overrides.txt` | upstream's `requirements.txt` stays as is |
+| Versions of Python packages that upstream leaves open | `backend/constraints.txt`, `backend/requirements-overrides.txt` | upstream's `requirements.txt` is used as is; these two files fix the versions it does not, and explain why |
 
 Build, deploy, debug
 --------------------
@@ -38,7 +40,7 @@ This starts at least two containers, backend and frontend. Some setups run more 
 None of the setups come with SSL certificate support, so a reverse proxy in front of them is needed to serve Korp over HTTPS. The production server of the Clarin setup (Alf) sits behind an nginx gateway.
 
 ### Local runs
-Machine-specific values (where the corpora are, which backend URL the browser should use) go into a git-ignored `.env` file next to the setup's `docker-compose.yml`; the compose file's defaults are the production values. See [setups/clarin/README.md](setups/clarin/README.md) for the CLARIN example, including the cut-over order and rollback.
+Machine-specific values (where the corpora are, which backend URL the browser should use) go into a git-ignored `.env` file next to the setup's `docker-compose.yml`; the compose file's defaults are the production values. See [setups/clarin/README.md](setups/clarin/README.md) for the CLARIN example, including the steps for deploying to the production server and how to roll back.
 
 Docker commands
 ---------------
@@ -79,7 +81,7 @@ RUN yarn build
 ```
 
 ### Converting an old setup
-The pre-2026 setups keep their corpora and modes in JavaScript files (`app/config.js`, `app/modes/*_mode.js`). `scripts/modejs2yaml.js` converts those into the backend's YAML directory and reports what it cannot express; `scripts/locale_dan_sync.py` rebuilds the Danish UI file against the current upstream key set. Both were written for the CLARIN migration and are meant to be reused for the other setups.
+The setups that have not been converted yet keep their corpora and modes in JavaScript files (`app/config.js`, `app/modes/*_mode.js`). `scripts/modejs2yaml.js` converts those into the backend's YAML directory and reports whatever it could not express, for review by hand. `scripts/locale_dan_sync.py` brings the Danish UI translation (`locale-dan.json`) in line with the set of strings the current upstream release uses, adding Danish text for new strings and dropping obsolete ones. Both were written for the CLARIN conversion and are meant to be reused for the other setups.
 
 ### Editing Korp templates
 Korp is an [AngularJS](https://angularjs.org/) application written in TypeScript. Its templates are HTML strings inside components. Configuration values (labels, descriptions, the header logo HTML in `config.yml`) may contain HTML and AngularJS expressions.
