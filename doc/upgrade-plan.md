@@ -1077,6 +1077,37 @@ browser table.
   section for the new version before bumping.
 - Propose the two patches upstream (per-token CSV columns; configurable
   header menu). Each accepted PR deletes a patch file.
+
+**Bump dry run, 2026-09-15**, against upstream backend `dev` (8.3.0,
+untagged), built into a throwaway image tag and run on a spare port; no
+repository file changed. Three attempts, each stopped by a named
+build-time failure or passed:
+
+1. Committed Dockerfile as is: fails in `pip install` because dev's
+   `mysqlclient==2.2.7` builds from source and needs `pkg-config`, which
+   the runtime image does not have. Our tag-specific pins were never
+   reached.
+2. Plus `pkg-config`, minus `constraints.txt` and
+   `requirements-overrides.txt` (as the constraints header says to do on a
+   bump): fails because jammy's pip 22.0 mis-reads the metadata that
+   mysqlclient 2.2's build backend produces ("project name unknown") and
+   discards the package.
+3. Plus `pip install --upgrade pip`: builds. Smoke tests pass with
+   `korp 8.3.0`, `mysqlclient 2.2.7` and `gevent ok` on today's
+   zope.event 6.2 / zope.interface 8.6, so the pkg_resources problem that
+   forced the zope pins belongs to gevent 22 and is gone in gevent 25.
+   At runtime: 158 corpora, CQP 3.4.27, golden diff identical for all 34
+   fixtures, `corpus_config` without warnings, and the 8.3.0 novelty
+   visible as `Cache-Control: public,max-age=3600` on `corpus_info`.
+
+Conclusions: the safety net works (two failures with a nameable cause,
+nothing half-applied, a runtime diff that passed once the build did), and
+the recipe for the real bump when 8.3.0 is tagged is three lines: add
+`pkg-config` to the runtime apt list, add `pip3 install --upgrade pip`
+before the requirements, and delete both pin files. One thing to check on
+that bump: whether `corpus_config` also gets the hour-long cache header,
+because then YAML edits reach browsers only after the cache expires.
+Nothing was changed now; 8.3.0 is still untagged.
 - **FastAPI 9.0 readiness.** When a `korp-frontend` release targets the
   9.0 backend: the corpus config directory layout is unchanged in the
   `fastapi` branch (`CORPUS_CONFIG_DIR`), so Phase 2 output carries over.
